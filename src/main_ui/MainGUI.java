@@ -34,8 +34,10 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         tabPanel = new javax.swing.JPanel();
         welcomeLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         generatorMenu = new javax.swing.JMenu();
 
@@ -88,6 +90,8 @@ public class MainGUI extends javax.swing.JFrame {
         welcomeLabel.setText("Welcome to version 1.0 of D.R.A.G.O.N.S");
         welcomeLabel.setToolTipText("");
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Wes\\Documents\\CWU Stuff\\Software Engineering\\Project Osiris\\Project Osiris\\smaller.jpg")); // NOI18N
+
         javax.swing.GroupLayout tabPanelLayout = new javax.swing.GroupLayout(tabPanel);
         tabPanel.setLayout(tabPanelLayout);
         tabPanelLayout.setHorizontalGroup(
@@ -95,17 +99,25 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(tabPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(welcomeLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap())
         );
         tabPanelLayout.setVerticalGroup(
             tabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(572, Short.MAX_VALUE))
+                .addGroup(tabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         fileMenu.setText("File");
+
+        jMenuItem1.setText("jMenuItem1");
+        fileMenu.add(jMenuItem1);
+
         mainMenuBar.add(fileMenu);
 
         editMenu.setText("Edit");
@@ -136,7 +148,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addComponent(mainToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pagesScrollPane)
+                    .addComponent(pagesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -192,6 +204,8 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton forwardButton;
     private javax.swing.JMenu generatorMenu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenuBar mainMenuBar;
