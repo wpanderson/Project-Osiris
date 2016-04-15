@@ -1,6 +1,8 @@
 package Test_Of_Possible_Data_Structures;
 
-public class Entity implements java.io.Serializable {
+import java.util.UUID;
+
+public class Entity extends LoadStore implements java.io.Serializable {
     
     // Data considerations:
     // Entity : Self explanitory, all the entities good or bad
@@ -19,11 +21,15 @@ public class Entity implements java.io.Serializable {
     //          which will aggregate the party data, encounters, baddies, items,
     //          etc.
 
-    
-    
+    private UUID entity_id;
+    private UUID getUniqueID(){
+        return entity_id;
+    }
+
     public enum Alignment { LAWFUL_GOOD, LAWFUL_NEUTRAL, LAWFUL_EVIL, NEUTRAL_GOOD, NEUTRAL_NEUTRAL, NEUTRAL_EVIL, CHAOTIC_GOOD, CHAOTIC_NEUTRAL, CHAOTIC_EVIL };
     public enum Class { BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROUGE, SORCERER, WARLOCK, WIZARD };
     public enum Race { DRAGONBORN, DWARF, ELF, GNOME, HALF_ELF, HALF_ORC, HALFING, HUMAN, TIEFLING, AARAKOCRA, GENASI, GOLIATH };
+      
     
     // To determine which side the character is on
     private String alliance;
@@ -44,6 +50,8 @@ public class Entity implements java.io.Serializable {
     private int experience_points;
     private int initiative;
     private int speed;
+    private int health_points;
+    private int max_health_points;
     
     private int proficiency_bonus;
     private int inspiration;
@@ -95,11 +103,15 @@ public class Entity implements java.io.Serializable {
     
     public Entity(){
         
-        
+         entity_id = UUID.randomUUID();
         
         
     }
-   
+    
+    public Entity(String raw_data){
+        // From file data constructor
+    }
+ 
     // Holy hell a lot of getters and setters. These will almost all need
     // to be customized as altering single values affect multiple other
     // values in sometimes complex ways. As well, some values are immutable
@@ -481,6 +493,63 @@ public class Entity implements java.io.Serializable {
         this.passive_wisdom_perception = passive_wisdom_perception;
     }
     
-    
+
+    public String FormatForStorage() {
+        
+        String output =
+                "entity[" + entity_id + "]{\n" +
+                "alliance[" + alliance + "]\n" +
+                "name[" + name + "]\n" +
+                "class_[" + class_ + "]\n" +
+                "race[" + race + "]\n" +
+                "age[" + age + "]\n" +
+                "height[" + height + "]\n" +
+                "weight[" + weight + "]\n" +
+                "eye_color[" + eye_color + "]\n" +
+                "skin_color[" + skin_color + "]\n" +
+                "hair_color[" + hair_color + "]\n" +
+                "alignment[" + alignment + "]\n" +
+                "experience_points[" + experience_points + "]\n" +
+                "initiative[" + initiative + "]\n" +
+                "speed[" + speed + "]\n" +
+                "health_points[" + health_points + "]\n" +
+                "max_health_points[" + max_health_points + "]\n" +
+                "proficiency_bonus[" + proficiency_bonus + "]\n" +
+                "inspiration[" + inspiration + "]\n" +
+                "strength[" + strength + "]\n" +
+                "strength_saving_throws[" +  strength_saving_throws + "]\n" +
+                "athletics[" + athletics + "]\n" +
+                "dexterity[" + dexterity + "]\n" +
+                "dexterity_saving_throws[" + dexterity_saving_throws + "]\n" +
+                "acrobatics[" + acrobatics + "]\n" +
+                "sleight_of_hand[" + sleight_of_hand + "]\n" +
+                "stealth[" + stealth + "]\n" +
+                "constitution[" + constitution + "]\n" +
+                "constitution_saving_throws[" + constitution_saving_throws + "]\n" +
+                "intelligence[" + intelligence + "]\n" +
+                "intelligence_saving_throws[" + intelligence_saving_throws + "]\n" +
+                "arcana[" + arcana + "]\n" +
+                "history[" + history + "]\n" +
+                "investigation[" + investigation + "]\n" +
+                "nature[" + nature + "]\n" +
+                "religion[" + religion + "]\n" +
+                "wisdom[" + wisdom + "]\n" +
+                "wisdom_saving_throws[" + wisdom_saving_throws + "]\n" +
+                "animal_handling[" + animal_handling + "]\n" +
+                "insight[" + insight + "]\n" +
+                "medicine[" + medicine + "]\n" +
+                "perception[" + perception + "]\n" +
+                "survival[" + survival + "]\n" +
+                "charisma[" + charisma + "]\n" +
+                "charisma_saving_throws[" + charisma_saving_throws + "]\n" +
+                "deception[" + deception + "]\n" +
+                "intimidation[" + intimidation + "]\n" +
+                "performance[" + performance + "]\n" +
+                "persuasion[" + persuasion + "]\n" +
+                "passive_wisdom_perception[" + passive_wisdom_perception + "]\n" +
+                "}";
+        
+        return output;
+    }
     
 }

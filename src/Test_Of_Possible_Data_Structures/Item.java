@@ -2,8 +2,9 @@
 package Test_Of_Possible_Data_Structures;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
-public class Item implements java.io.Serializable {
+public class Item extends LoadStore implements java.io.Serializable {
     
     // Item class takes care of most, if not all player held items that you
     // will encounter. In order to serialize this and store it in a file, there
@@ -14,7 +15,11 @@ public class Item implements java.io.Serializable {
     // Entities will just have a list of id's that they "own" which will serialize
     // very nicely as well.
     
-    
+    private UUID item_id;
+    private UUID getUniqueID(){
+        return item_id;
+    }
+
     
     public enum Type { AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, 
                        THROWN, TWOHANDED, VERSITILE };
@@ -41,6 +46,10 @@ public class Item implements java.io.Serializable {
                  int normal_range,
                  int max_range,
                  ArrayList<Type> item_properties){
+    }
+    
+    public Item (String raw_data){
+        // From file data constructor
     }
     
     public String ListItemProperties(){
@@ -78,5 +87,29 @@ public class Item implements java.io.Serializable {
         return damage;
     }
     
+    @Override
+    public String FormatForStorage() {
+                String output =
+                "item[" + item_id + "]{\n" +
+                "normal_range[" + normal_range + "]\n" +
+                "max_range[" + max_range + "]\n" +
+                "name[" + name + "]\n" +
+                "cost_cp[" + cost_cp + "]\n" +
+                "weight_lb[" + weight_lb + "]\n" +
+                "damage[" + damage + "]\n" +
+                "item_properties[";
+                
+                for (int i = 0; i < item_properties.size(); i++){
+                    if (i == item_properties.size() - 1){
+                        output += item_properties.get(i);
+                    }
+                    else{
+                        output += item_properties.get(i) + ",";
+                    }
+                }
+                        
+                output += "]\n}";
+                return output;
+    }
     
 }
