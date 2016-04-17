@@ -1,7 +1,7 @@
 package Test_Of_Possible_Data_Structures;
 
 
-public abstract class LoadStore {
+public interface LoadStore {
     
     public abstract String FormatForStorage();
     

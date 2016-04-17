@@ -4,7 +4,7 @@ package Test_Of_Possible_Data_Structures;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Item extends LoadStore implements java.io.Serializable {
+public class Item implements java.io.Serializable, LoadStore {
     
     // Item class takes care of most, if not all player held items that you
     // will encounter. In order to serialize this and store it in a file, there

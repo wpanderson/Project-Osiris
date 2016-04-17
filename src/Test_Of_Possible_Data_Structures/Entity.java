@@ -2,7 +2,7 @@ package Test_Of_Possible_Data_Structures;
 
 import java.util.UUID;
 
-public class Entity extends LoadStore implements java.io.Serializable {
+public class Entity  implements java.io.Serializable, LoadStore {
     
     // Data considerations:
     // Entity : Self explanitory, all the entities good or bad
@@ -22,7 +22,7 @@ public class Entity extends LoadStore implements java.io.Serializable {
     //          etc.
 
     private UUID entity_id;
-    private UUID getUniqueID(){
+    public UUID getID(){
         return entity_id;
     }
 
@@ -104,7 +104,6 @@ public class Entity extends LoadStore implements java.io.Serializable {
     public Entity(){
         
          entity_id = UUID.randomUUID();
-        
         
     }
     
