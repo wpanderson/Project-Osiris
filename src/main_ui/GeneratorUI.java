@@ -27,21 +27,121 @@ public class GeneratorUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        titleJlabel = new javax.swing.JLabel();
+        typeComboBox = new javax.swing.JComboBox();
+        typeJLabel = new javax.swing.JLabel();
+        generatorJPanel = new javax.swing.JPanel();
+        encounterJPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
+        partyLevelJLabel = new javax.swing.JLabel();
+        partyLevelComboBox = new javax.swing.JComboBox();
+        difficultyJLabel = new javax.swing.JLabel();
+        difficultyComboBox = new javax.swing.JComboBox();
+        environmentJLabel = new javax.swing.JLabel();
+        environmentComboBox = new javax.swing.JComboBox();
+        EnemyJPanel = new javax.swing.JPanel();
+        partyLevelJLabel1 = new javax.swing.JLabel();
+        partyLevelComboBox1 = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("D.R.A.G.O.N.S. Generators");
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 84)); // NOI18N
-        jLabel1.setText("Encounter Generator");
+        titleJlabel.setFont(new java.awt.Font("Calibri", 0, 84)); // NOI18N
+        titleJlabel.setText("Generators");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ecounter", "Enemy", "Item", "Location" }));
+        typeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeComboBoxActionPerformed(evt);
+            }
         });
+
+        typeJLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        typeJLabel.setText("Type:");
+
+        generatorJPanel.setBackground(new java.awt.Color(0, 153, 153));
+        generatorJPanel.setLayout(new java.awt.CardLayout(10, 10));
+
         jScrollPane1.setViewportView(jList1);
+
+        partyLevelJLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        partyLevelJLabel.setText("Party Level:");
+
+        partyLevelComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+
+        difficultyJLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        difficultyJLabel.setText("Difficulty:");
+
+        difficultyComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Easy", "Moderate", "Hard", "Extreme" }));
+
+        environmentJLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        environmentJLabel.setText("Environment:");
+
+        javax.swing.GroupLayout encounterJPanelLayout = new javax.swing.GroupLayout(encounterJPanel);
+        encounterJPanel.setLayout(encounterJPanelLayout);
+        encounterJPanelLayout.setHorizontalGroup(
+            encounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+            .addGroup(encounterJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(partyLevelJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(partyLevelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addComponent(difficultyJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(difficultyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(200, 200, 200)
+                .addComponent(environmentJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(environmentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        encounterJPanelLayout.setVerticalGroup(
+            encounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, encounterJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(encounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partyLevelJLabel)
+                    .addComponent(partyLevelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(difficultyJLabel)
+                    .addComponent(difficultyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(environmentJLabel)
+                    .addComponent(environmentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
+        );
+
+        generatorJPanel.add(encounterJPanel, "card2");
+
+        partyLevelJLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        partyLevelJLabel1.setText("Challenge Rating:");
+
+        partyLevelComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+
+        javax.swing.GroupLayout EnemyJPanelLayout = new javax.swing.GroupLayout(EnemyJPanel);
+        EnemyJPanel.setLayout(EnemyJPanelLayout);
+        EnemyJPanelLayout.setHorizontalGroup(
+            EnemyJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EnemyJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(partyLevelJLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(partyLevelComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(729, Short.MAX_VALUE))
+        );
+        EnemyJPanelLayout.setVerticalGroup(
+            EnemyJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EnemyJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(EnemyJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partyLevelJLabel1)
+                    .addComponent(partyLevelComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(417, Short.MAX_VALUE))
+        );
+
+        generatorJPanel.add(EnemyJPanel, "card3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,22 +150,57 @@ public class GeneratorUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(109, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(titleJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(generatorJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(typeJLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addComponent(titleJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeJLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(generatorJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    /**
+     * Flips generatorJPanel when another item is selected in the comboBox.
+     * @param evt 
+     */
+    private void typeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeComboBoxActionPerformed
+        if(typeComboBox.getSelectedItem() == "Encounter")
+        {
+            
+        }
+        else if(typeComboBox.getSelectedItem() == "Enemy")
+        {
+            
+        }
+        else if(typeComboBox.getSelectedItem() == "Item")
+        {
+            
+        }
+        else if(typeComboBox.getSelectedItem() == "Location")
+        {
+            
+        }
+    }//GEN-LAST:event_typeComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,8 +241,21 @@ public class GeneratorUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel EnemyJPanel;
+    private javax.swing.JComboBox difficultyComboBox;
+    private javax.swing.JLabel difficultyJLabel;
+    private javax.swing.JPanel encounterJPanel;
+    private javax.swing.JComboBox environmentComboBox;
+    private javax.swing.JLabel environmentJLabel;
+    private javax.swing.JPanel generatorJPanel;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox partyLevelComboBox;
+    private javax.swing.JComboBox partyLevelComboBox1;
+    private javax.swing.JLabel partyLevelJLabel;
+    private javax.swing.JLabel partyLevelJLabel1;
+    private javax.swing.JLabel titleJlabel;
+    private javax.swing.JComboBox typeComboBox;
+    private javax.swing.JLabel typeJLabel;
     // End of variables declaration//GEN-END:variables
 }

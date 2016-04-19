@@ -18,7 +18,7 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     /**
-     * Netbeans created objects, don't mess with these guys!
+     * Netbeans created objects.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -39,8 +39,8 @@ public class MainGUI extends javax.swing.JFrame {
         fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        viewMenu = new javax.swing.JMenu();
+        databasesMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         generatorMenu = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -48,6 +48,7 @@ public class MainGUI extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        generatorMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dungeon Master Companion");
@@ -136,14 +137,19 @@ public class MainGUI extends javax.swing.JFrame {
 
         mainMenuBar.add(fileMenu);
 
-        jMenu1.setMnemonic('v');
-        jMenu1.setText("View");
+        viewMenu.setMnemonic('v');
+        viewMenu.setText("View");
 
-        jMenuItem2.setMnemonic('d');
-        jMenuItem2.setText("Databases");
-        jMenu1.add(jMenuItem2);
+        databasesMenuItem.setMnemonic('d');
+        databasesMenuItem.setText("Databases");
+        databasesMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                databasesMenuItemActionPerformed(evt);
+            }
+        });
+        viewMenu.add(databasesMenuItem);
 
-        mainMenuBar.add(jMenu1);
+        mainMenuBar.add(viewMenu);
 
         editMenu.setMnemonic('e');
         editMenu.setText("Edit");
@@ -171,6 +177,14 @@ public class MainGUI extends javax.swing.JFrame {
         jMenuItem7.setMnemonic('n');
         jMenuItem7.setText("NPC");
         generatorMenu.add(jMenuItem7);
+
+        generatorMenuItem.setText("Generator");
+        generatorMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generatorMenuItemActionPerformed(evt);
+            }
+        });
+        generatorMenu.add(generatorMenuItem);
 
         mainMenuBar.add(generatorMenu);
 
@@ -205,10 +219,29 @@ public class MainGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Possibly implement this. We'll see.
+     * @param evt 
+     */
     private void forwardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardButtonActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_forwardButtonActionPerformed
+    /**
+     * When clicked opens the GeneratorUI.java to view the different generators.
+     * @param evt 
+     */
+    private void generatorMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generatorMenuItemActionPerformed
+        GeneratorUI generator = new GeneratorUI();
+        generator.setVisible(true);
+    }//GEN-LAST:event_generatorMenuItemActionPerformed
+    /**
+     * When clicked opens the DatabaseViewer.java
+     * @param evt 
+     */
+    private void databasesMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_databasesMenuItemActionPerformed
+        DatabaseViewerUI databaseViewer = new DatabaseViewerUI();
+        databaseViewer.setVisible(true);
+    }//GEN-LAST:event_databasesMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,15 +280,15 @@ public class MainGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JMenuItem databasesMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JButton forwardButton;
     private javax.swing.JMenu generatorMenu;
+    private javax.swing.JMenuItem generatorMenuItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
@@ -269,6 +302,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JList pagesList;
     private javax.swing.JScrollPane pagesScrollPane;
     private javax.swing.JPanel tabPanel;
+    private javax.swing.JMenu viewMenu;
     private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }
