@@ -1,11 +1,11 @@
 
-package Test_Of_Possible_Data_Structures;
+package D5DataStructures;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class Event implements java.io.Serializable, LoadStore {
+public class Event implements java.io.Serializable {
 
     
     private UUID event_id;
@@ -48,7 +48,7 @@ public class Event implements java.io.Serializable, LoadStore {
     }
     
     @Override
-    public String FormatForStorage() {
+    public String formatForStorage() {
             String output =
                 "event[" + event_id + "]{\n" +
                 "diffifulty[" + difficulty + "]\n" +

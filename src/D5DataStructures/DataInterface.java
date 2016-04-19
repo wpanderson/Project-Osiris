@@ -1,5 +1,5 @@
 
-package Test_Of_Possible_Data_Structures;
+package D5DataStructures;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -28,7 +28,7 @@ public class DataInterface {
             BufferedWriter output = new BufferedWriter(new FileWriter(f));
         
             for (Entity ent: world_entities.values()){
-                output.write(ent.FormatForStorage());
+                output.write(ent.formatForStorage());
             }
         }
         catch(IOException e){
@@ -50,7 +50,7 @@ public class DataInterface {
             BufferedWriter output = new BufferedWriter(new FileWriter(f));
         
             for (Item ite: world_items.values()){
-                output.write(ite.FormatForStorage());
+                output.write(ite.formatForStorage());
             }
         }
         catch(IOException e){

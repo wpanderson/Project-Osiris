@@ -1,10 +1,10 @@
 
-package Test_Of_Possible_Data_Structures;
+package D5DataStructures;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Item implements java.io.Serializable, LoadStore {
+public class Item implements java.io.Serializable {
     
     // Item class takes care of most, if not all player held items that you
     // will encounter. In order to serialize this and store it in a file, there
@@ -88,7 +88,7 @@ public class Item implements java.io.Serializable, LoadStore {
     }
     
     @Override
-    public String FormatForStorage() {
+    public String formatForStorage() {
                 String output =
                 "item[" + item_id + "]{\n" +
                 "normal_range[" + normal_range + "]\n" +
