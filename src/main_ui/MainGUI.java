@@ -38,8 +38,16 @@ public class MainGUI extends javax.swing.JFrame {
         mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         generatorMenu = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dungeon Master Companion");
@@ -47,6 +55,7 @@ public class MainGUI extends javax.swing.JFrame {
         setResizable(false);
 
         mainToolBar.setBorder(null);
+        mainToolBar.setFloatable(false);
         mainToolBar.setRollover(true);
 
         backButton.setText("<");
@@ -80,7 +89,7 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 84)); // NOI18N
-        jLabel1.setText("D.R.A.G.O.N.S");
+        jLabel1.setText("D.R.A.G.O.N.S.");
         jLabel1.setToolTipText("");
         jPanel1.add(jLabel1, new java.awt.GridBagConstraints());
 
@@ -113,17 +122,56 @@ public class MainGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        fileMenu.setMnemonic('f');
         fileMenu.setText("File");
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setMnemonic('n');
+        jMenuItem1.setText("New Database");
+        jMenuItem1.setToolTipText("");
         fileMenu.add(jMenuItem1);
+
+        jMenuItem8.setMnemonic('o');
+        jMenuItem8.setText("Open");
+        fileMenu.add(jMenuItem8);
 
         mainMenuBar.add(fileMenu);
 
+        jMenu1.setMnemonic('v');
+        jMenu1.setText("View");
+
+        jMenuItem2.setMnemonic('d');
+        jMenuItem2.setText("Databases");
+        jMenu1.add(jMenuItem2);
+
+        mainMenuBar.add(jMenu1);
+
+        editMenu.setMnemonic('e');
         editMenu.setText("Edit");
         mainMenuBar.add(editMenu);
 
+        generatorMenu.setMnemonic('g');
         generatorMenu.setLabel("Generators");
+
+        jMenuItem3.setMnemonic('e');
+        jMenuItem3.setText("Encounter");
+        generatorMenu.add(jMenuItem3);
+
+        jMenuItem4.setMnemonic('i');
+        jMenuItem4.setText("Item");
+        generatorMenu.add(jMenuItem4);
+
+        jMenuItem5.setMnemonic('e');
+        jMenuItem5.setText("Enemy");
+        generatorMenu.add(jMenuItem5);
+
+        jMenuItem6.setMnemonic('l');
+        jMenuItem6.setText("Location");
+        generatorMenu.add(jMenuItem6);
+
+        jMenuItem7.setMnemonic('n');
+        jMenuItem7.setText("NPC");
+        generatorMenu.add(jMenuItem7);
+
         mainMenuBar.add(generatorMenu);
 
         setJMenuBar(mainMenuBar);
@@ -138,7 +186,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 771, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
                         .addContainerGap())
                     .addComponent(tabPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -205,7 +253,15 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JMenu generatorMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenuBar mainMenuBar;
