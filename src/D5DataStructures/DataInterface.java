@@ -1,4 +1,3 @@
-
 package D5DataStructures;
 
 import java.io.BufferedWriter;
@@ -16,29 +15,6 @@ public class DataInterface {
     
     private HashMap<UUID, Entity> world_entities;
     private HashMap<UUID, Item>   world_items;
-    
-    
-    public void StoreEntities(String path){
-        try{
-            File f = new File(path);
-            if(f.exists() && !f.isDirectory()) { 
-                System.out.println("File exists, overwriting");
-            }
-               
-            BufferedWriter output = new BufferedWriter(new FileWriter(f));
-        
-            for (Entity ent: world_entities.values()){
-                output.write(ent.formatForStorage());
-            }
-        }
-        catch(IOException e){
-            System.out.println(e);
-        }
-    }
-    
-    public void LoadEntities(String path){
-        
-    }
     
     public void StoreItems(String path){
         try{

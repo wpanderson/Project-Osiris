@@ -6,18 +6,19 @@ import java.util.UUID;
 
 public class Item implements java.io.Serializable {
     
-    // Item class takes care of most, if not all player held items that you
-    // will encounter. In order to serialize this and store it in a file, there
-    // will need to be some way to assign ownership of the item.
+    // Item class represents one type of item that can be possessed by an Entity.
+    // Ownership will be handled by having the owner's inventory
+    // reference a specific item, either by UUID or with a pointer.  The owner's
+    // inventory may also handle the quantity of an item possessed.
     
     // Easiest way to do this that I can think of is store all items in a hashmap
     // indexed by their id. Then storing and reading back the data will be super easy.
     // Entities will just have a list of id's that they "own" which will serialize
     // very nicely as well.
     
-    private UUID item_id;
+    private UUID itemID;
     private UUID getUniqueID(){
-        return item_id;
+        return itemID;
     }
 
     
@@ -85,31 +86,5 @@ public class Item implements java.io.Serializable {
     
     public Dice_Option getDamage(){
         return damage;
-    }
-    
-    @Override
-    public String formatForStorage() {
-                String output =
-                "item[" + item_id + "]{\n" +
-                "normal_range[" + normal_range + "]\n" +
-                "max_range[" + max_range + "]\n" +
-                "name[" + name + "]\n" +
-                "cost_cp[" + cost_cp + "]\n" +
-                "weight_lb[" + weight_lb + "]\n" +
-                "damage[" + damage + "]\n" +
-                "item_properties[";
-                
-                for (int i = 0; i < item_properties.size(); i++){
-                    if (i == item_properties.size() - 1){
-                        output += item_properties.get(i);
-                    }
-                    else{
-                        output += item_properties.get(i) + ",";
-                    }
-                }
-                        
-                output += "]\n}";
-                return output;
-    }
-    
+    }    
 }
