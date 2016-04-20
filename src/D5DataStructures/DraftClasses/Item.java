@@ -1,23 +1,20 @@
+// TENTATIVE; needs cleanup
+// Item class represents one type of item that can be possessed by an Entity.
+// Ownership will be handled by having the owner's inventory
+// reference a specific item, either by UUID or with a pointer.  The owner's
+// inventory may also handle the quantity of an item possessed.
 
-package D5DataStructures;
+package D5DataStructures.DraftClasses;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 public class Item implements java.io.Serializable {
     
-    // Item class represents one type of item that can be possessed by an Entity.
-    // Ownership will be handled by having the owner's inventory
-    // reference a specific item, either by UUID or with a pointer.  The owner's
-    // inventory may also handle the quantity of an item possessed.
-    
-    // Easiest way to do this that I can think of is store all items in a hashmap
-    // indexed by their id. Then storing and reading back the data will be super easy.
-    // Entities will just have a list of id's that they "own" which will serialize
-    // very nicely as well.
+
     
     private UUID itemID;
-    private UUID getUniqueID(){
+    private UUID getID(){
         return itemID;
     }
 
@@ -25,6 +22,8 @@ public class Item implements java.io.Serializable {
     public enum Type { AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, 
                        THROWN, TWOHANDED, VERSITILE };
     
+    // To do: better enumeration system for dice that is universal accross all
+    // classes in program.
     public enum Dice_Option { ONE_D_FOUR, ONE_D_SIX, ONE_D_EIGHT, ONE_D_TEN, ONE_D_TWELVE, ONE_D_TWENTY,
                               TWO_D_FOUR, TWO_D_SIX, TWO_D_EIGHT, TWO_D_TEN, TWO_D_TWELVE, TWO_D_TWENTY,
                               THR_D_FOUR, THR_D_SIX, THR_D_EIGHT, THR_D_TEN, THR_D_TWELVE, THR_D_TWENTY,

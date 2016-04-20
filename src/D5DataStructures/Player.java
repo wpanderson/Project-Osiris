@@ -1,3 +1,8 @@
+// Player extends Entity to store all information about a player character that
+// does not apply to all other beings in the game world; for instance, no
+// Entity other than a player has skill proficiencies, so those are stored here.
+// Will be the base class for storing player data.
+
 package D5DataStructures;
 
 import java.util.*;
@@ -9,8 +14,9 @@ public class Player extends Entity {
     
     // Field for proficiency bonus.
     protected int profBonus;
+    
     // Arrays that record which skills a player is proficient in.
-    // Skill bonuses will be implemented in the superclass, since all entities
+    // Skill bonuses are implemented in the superclass, since all entities
     // have skill bonuses (although they are calculated in different ways
     // for enemies and players).
     // The skill bonuses can be calculated if we know a player's
@@ -28,6 +34,9 @@ public class Player extends Entity {
         profBonus = 0;
         Arrays.fill(skillProfs,false);
     }
+    
+    // To do: constructor to populate from import file
+    
     
     // To do: setters and getters
     

@@ -1,6 +1,8 @@
+// TENTATIVE: Needs cleanup
 
-package D5DataStructures;
+package D5DataStructures.DraftClasses;
 
+import D5DataStructures.Entity;
 import java.util.ArrayList;
 import java.util.UUID;
 
