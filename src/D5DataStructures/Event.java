@@ -1,19 +1,14 @@
 
-<<<<<<< HEAD:src/Test_Of_Possible_Data_Structures/Event.java
-package Test_Of_Possible_Data_Structures;
-=======
+
 package D5DataStructures;
->>>>>>> 6c7d85cdf489b29470c9ff5e8fc4dcc576fda104:src/D5DataStructures/Event.java
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 
-<<<<<<< HEAD:src/Test_Of_Possible_Data_Structures/Event.java
-public class Event implements java.io.Serializable, LoadStore {
-=======
+
 public class Event implements java.io.Serializable {
->>>>>>> 6c7d85cdf489b29470c9ff5e8fc4dcc576fda104:src/D5DataStructures/Event.java
+
 
     
     private UUID event_id;
@@ -56,11 +51,7 @@ public class Event implements java.io.Serializable {
     }
     
     @Override
-<<<<<<< HEAD:src/Test_Of_Possible_Data_Structures/Event.java
-    public String FormatForStorage() {
-=======
     public String formatForStorage() {
->>>>>>> 6c7d85cdf489b29470c9ff5e8fc4dcc576fda104:src/D5DataStructures/Event.java
             String output =
                 "event[" + event_id + "]{\n" +
                 "diffifulty[" + difficulty + "]\n" +
