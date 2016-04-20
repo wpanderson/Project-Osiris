@@ -1,9 +1,8 @@
-package Test_Of_Possible_Data_Structures;
+package D5DataStructures;
 
 import java.util.UUID;
 
-public class Entity  implements java.io.Serializable, LoadStore {
-    
+public class Player extends Entity {    
     // Data considerations:
     // Entity : Self explanitory, all the entities good or bad
     // Item   : All items that the player can carry, sell, wear, fight with.
@@ -25,18 +24,17 @@ public class Entity  implements java.io.Serializable, LoadStore {
     public UUID getID(){
         return entity_id;
     }
-
-    public enum Alignment { LAWFUL_GOOD, LAWFUL_NEUTRAL, LAWFUL_EVIL, NEUTRAL_GOOD, NEUTRAL_NEUTRAL, NEUTRAL_EVIL, CHAOTIC_GOOD, CHAOTIC_NEUTRAL, CHAOTIC_EVIL };
+    public enum Alignment1 { LAWFUL, NEUTRAL, CHAOTIC };
+    public enum Alignment2 { GOOD, NEUTRAL, EVIL };
     public enum Class { BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROUGE, SORCERER, WARLOCK, WIZARD };
     public enum Race { DRAGONBORN, DWARF, ELF, GNOME, HALF_ELF, HALF_ORC, HALFING, HUMAN, TIEFLING, AARAKOCRA, GENASI, GOLIATH };
       
-    
     // To determine which side the character is on
     private String alliance;
     
     // Pulled from dnd 5e character sheet
     private String name;
-    private Class class_;
+    private Class classType;
     private Race race;
     
     private int age;
@@ -45,7 +43,9 @@ public class Entity  implements java.io.Serializable, LoadStore {
     private String eye_color;
     private String skin_color;
     private String hair_color;
-    private Alignment alignment;
+
+    private Alignment1 alignment1;
+    private Alignment2 alignment2;
     
     private int experience_points;
     private int initiative;
@@ -101,11 +101,15 @@ public class Entity  implements java.io.Serializable, LoadStore {
     // Extra perception stat
     private int passive_wisdom_perception;
     
+
+    /*
+>>>>>>> 6c7d85cdf489b29470c9ff5e8fc4dcc576fda104:src/D5DataStructures/Player.java
     public Entity(){
         
          entity_id = UUID.randomUUID();
         
     }
+<<<<<<< HEAD:src/Test_Of_Possible_Data_Structures/Entity.java
     
     public Entity(String raw_data){
         // From file data constructor
@@ -115,6 +119,14 @@ public class Entity  implements java.io.Serializable, LoadStore {
     // to be customized as altering single values affect multiple other
     // values in sometimes complex ways. As well, some values are immutable
     // and shouldn't be changed
+=======
+    */
+    
+    /*
+    public Entity(String raw_data){
+        // From file data constructor
+    }
+    */
     
     public String getName() {
         return name;
@@ -124,12 +136,13 @@ public class Entity  implements java.io.Serializable, LoadStore {
         this.name = name;
     }
 
-    public Class getClass_() {
-        return class_;
+
+    public Class getClassType() {
+        return classType;
     }
 
-    private void setClass_(Class class_) {
-        this.class_ = class_;
+    private void setClass_(Class classType) {
+        this.classType = classType;
     }
 
     public Race getRace() {
@@ -196,12 +209,21 @@ public class Entity  implements java.io.Serializable, LoadStore {
         this.alliance = alliance;
     }
 
-    public Alignment getAlignment() {
-        return alignment;
+
+    public Alignment1 getAlignment1() {
+        return alignment1;
     }
 
-    private void setAlignment(Alignment alignment) {
-        this.alignment = alignment;
+    private void setAlignment(Alignment1 alignment1) {
+        this.alignment1 = alignment1;
+    }
+    
+        public Alignment2 getAlignment2() {
+        return alignment2;
+    }
+
+    private void setAlignment(Alignment2 alignment2) {
+        this.alignment2 = alignment2;
     }
 
     public int getExperience_points() {
@@ -493,13 +515,15 @@ public class Entity  implements java.io.Serializable, LoadStore {
     }
     
 
-    public String FormatForStorage() {
+
+    public String formatForStorage() {
         
         String output =
                 "entity[" + entity_id + "]{\n" +
                 "alliance[" + alliance + "]\n" +
                 "name[" + name + "]\n" +
-                "class_[" + class_ + "]\n" +
+
+                "classType[" + classType + "]\n" +
                 "race[" + race + "]\n" +
                 "age[" + age + "]\n" +
                 "height[" + height + "]\n" +
@@ -507,7 +531,9 @@ public class Entity  implements java.io.Serializable, LoadStore {
                 "eye_color[" + eye_color + "]\n" +
                 "skin_color[" + skin_color + "]\n" +
                 "hair_color[" + hair_color + "]\n" +
-                "alignment[" + alignment + "]\n" +
+
+                "alignment1[" + alignment1 + "]\n" +
+                "alignment2[" + alignment2 + "]\n" +
                 "experience_points[" + experience_points + "]\n" +
                 "initiative[" + initiative + "]\n" +
                 "speed[" + speed + "]\n" +

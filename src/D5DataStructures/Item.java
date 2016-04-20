@@ -1,10 +1,18 @@
 
+<<<<<<< HEAD:src/Test_Of_Possible_Data_Structures/Item.java
 package Test_Of_Possible_Data_Structures;
+=======
+package D5DataStructures;
+>>>>>>> 6c7d85cdf489b29470c9ff5e8fc4dcc576fda104:src/D5DataStructures/Item.java
 
 import java.util.ArrayList;
 import java.util.UUID;
 
+<<<<<<< HEAD:src/Test_Of_Possible_Data_Structures/Item.java
 public class Item implements java.io.Serializable, LoadStore {
+=======
+public class Item implements java.io.Serializable {
+>>>>>>> 6c7d85cdf489b29470c9ff5e8fc4dcc576fda104:src/D5DataStructures/Item.java
     
     // Item class takes care of most, if not all player held items that you
     // will encounter. In order to serialize this and store it in a file, there
@@ -88,7 +96,11 @@ public class Item implements java.io.Serializable, LoadStore {
     }
     
     @Override
+<<<<<<< HEAD:src/Test_Of_Possible_Data_Structures/Item.java
     public String FormatForStorage() {
+=======
+    public String formatForStorage() {
+>>>>>>> 6c7d85cdf489b29470c9ff5e8fc4dcc576fda104:src/D5DataStructures/Item.java
                 String output =
                 "item[" + item_id + "]{\n" +
                 "normal_range[" + normal_range + "]\n" +

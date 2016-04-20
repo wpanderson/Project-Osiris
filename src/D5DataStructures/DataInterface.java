@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD:src/Test_Of_Possible_Data_Structures/DataInterface.java
 package Test_Of_Possible_Data_Structures;
+=======
+package D5DataStructures;
+>>>>>>> 6c7d85cdf489b29470c9ff5e8fc4dcc576fda104:src/D5DataStructures/DataInterface.java
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -28,7 +32,11 @@ public class DataInterface {
             BufferedWriter output = new BufferedWriter(new FileWriter(f));
         
             for (Entity ent: world_entities.values()){
+<<<<<<< HEAD:src/Test_Of_Possible_Data_Structures/DataInterface.java
                 output.write(ent.FormatForStorage());
+=======
+                output.write(ent.formatForStorage());
+>>>>>>> 6c7d85cdf489b29470c9ff5e8fc4dcc576fda104:src/D5DataStructures/DataInterface.java
             }
         }
         catch(IOException e){
@@ -50,7 +58,11 @@ public class DataInterface {
             BufferedWriter output = new BufferedWriter(new FileWriter(f));
         
             for (Item ite: world_items.values()){
+<<<<<<< HEAD:src/Test_Of_Possible_Data_Structures/DataInterface.java
                 output.write(ite.FormatForStorage());
+=======
+                output.write(ite.formatForStorage());
+>>>>>>> 6c7d85cdf489b29470c9ff5e8fc4dcc576fda104:src/D5DataStructures/DataInterface.java
             }
         }
         catch(IOException e){
