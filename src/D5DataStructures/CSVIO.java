@@ -11,11 +11,18 @@ public class CSVIO {
     // Takes in a String representing the file path of a CSV file
     // that contains enemies to be imported.
     // Returns an ArrayList of enemies found in the file.
+    // Known limitations:
+    // Requires every line to have the expected number of fields (commas) or more.
+    // Will crash if there are too few.
     public static ArrayList<Enemy> importEnemiesFromCSV(String importFilePath) 
             throws FileNotFoundException {
         ArrayList<Enemy> enemiesToAdd = new ArrayList<Enemy>();
-        File importFile = new File(importFilePath);
+        FileReader importFile = new FileReader(importFilePath);
         Scanner s = new Scanner(importFile);
+        
+        // Skips the legend line, since we aren't using it for anything right now
+        s.nextLine();
+        
         while(s.hasNextLine()) {
             // I can think of about a thousand ways to do this part, and this is
             // one of the worst. Will be revisited.

@@ -45,6 +45,8 @@ public class DataStorage implements java.io.Serializable {
     
     // Methods to return the lists of entries currently in database.  The UI will
     // need these.
+    // To do: doesn't make sense to return the entire database each time, so 
+    // modify to only return a single element based on index given as argument.
     public ArrayList<Enemy> getEnemyList() {
         return enemyList;
     }

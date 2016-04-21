@@ -85,9 +85,8 @@ public class Entity {
         // are all 0.
         int[] stats = {10,10,10,10,10,10};
         this.stats = stats;
-        calculateStatModifiers();
-        // int[] statModifiers = {0,0,0,0,0,0};
-        // this.statModifiers = statModifiers;
+        int[] statModifiers = {0,0,0,0,0,0};
+        this.statModifiers = statModifiers;
         int[] skillModifiers = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         this.skillModifiers = skillModifiers;
         
@@ -119,6 +118,7 @@ public class Entity {
         this.align2 = align2;
         this.stats = stats;
         this.skillModifiers = skillModifiers;
+        calculateStatModifiers();
     }
     
     // To do: constructor to populate from import file
@@ -136,5 +136,10 @@ public class Entity {
         for(int i = 0; i < 6; i++) {
             statModifiers[i] = (stats[i]/2) - 5;
         }
+    }
+    
+    // To do: make this return more more meaningful data, for more thorough testing
+    public String toString() {
+        return name;
     }
 }
