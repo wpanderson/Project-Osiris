@@ -8,7 +8,7 @@ package D5DataStructures;
 
 import java.util.*;
 
-public class Entity implements java.io.Serializable {
+public class Entity {
     
     // Uniquie identifier for every entity, so that it can be referenced even if
     // it is not present
@@ -18,8 +18,10 @@ public class Entity implements java.io.Serializable {
     }
     
     // Two enums for the two categories that make up alignment
-    public enum Alignment1 { LAWFUL, NEUTRAL, CHAOTIC };
-    public enum Alignment2 { GOOD, NEUTRAL, EVIL };
+    // To do: move enums and other custom variables for enitre app to inedepentent
+    // class for organization.
+    public enum Align1 { LAWFUL, NEUTRAL, CHAOTIC };
+    public enum Align2 { GOOD, NEUTRAL, EVIL, SCIENTIFIC };
     // Basic D&D classes. CIVILIAN added to serve as a default.  May never see
     // use in a normal usage scenario.
     public enum Class { CIVILIAN, BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROUGE, SORCERER, WARLOCK, WIZARD };
@@ -27,16 +29,18 @@ public class Entity implements java.io.Serializable {
 
     // Fields for basic info about the entity.  No field for type Class is included
     // since many Entities have no explicit Class (like Players).
+    // Race is not yet implemented in nondefault constructor for Entities,
+    // since our test database of enemies does not include their race values.
     protected String name;
     // private Class classType;
     protected Race race;
-    protected Alignment1 alignment1;
-    protected Alignment2 alignment2;
+    protected Align1 align1;
+    protected Align2 align2;
     
     // Field for maximum HP
     protected int maxHealthPoints;
     
-    // Field for AC
+    // Field for AC; not implemented in constructor yet
     protected int armorClass;
     
     // Two arrays (both always initialized with a size of 6).  These store stats
@@ -72,8 +76,8 @@ public class Entity implements java.io.Serializable {
         // and sets AC/max HP to 0.
         name = "";
         race = Race.HUMAN;
-        alignment1 = Alignment1.NEUTRAL;
-        alignment2 = Alignment2.NEUTRAL;
+        align1 = Align1.NEUTRAL;
+        align2 = Align2.NEUTRAL;
         maxHealthPoints = 0;
         armorClass = 0;
         
@@ -86,9 +90,35 @@ public class Entity implements java.io.Serializable {
         int[] skillModifiers = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         this.skillModifiers = skillModifiers;
         
-        
         // entity_id = UUID.randomUUID();
+    }
+    
+    // Constructor for populating all values of an entity
+    // Notes:
+    // Fields do not yet exist for all data we want to import.  The constructor
+    // supports input of some values we do not store yet. (source, size, type, tags
+    // Size and type of an entity will likely be represented by enums later,
+    // since there are presumably a finite number of predetermined sizes and types.
+    // However, we may also want to allow for the possibility that the player
+    // chooses to add their own size or type.
+    // Question: should validation/interpretation of text into other data types
+    // be done here or with logic that reads csv as much as possible?  Ryan leans
+    // towards putting it with the reading logic.
+    public Entity(String source, String name, String size, String type,
+            ArrayList<String> tags, Entity.Align1 align1, Entity.Align2 align2,
+            int[] stats, int[] skillModifiers) {
         
+        // Calls default constructor to make sure we initialize everything with
+        // dummy values, since our real constructor does not yet take in all the
+        // values we need to fill, and leaving fields uninitialized may create
+        // errors.
+        this();
+        this.name = name;
+        this.align1 = align1;
+        this.align2 = align2;
+        this.stats = stats;
+        this.skillModifiers = skillModifiers;
+        calculateStatModifiers();
     }
     
     // To do: constructor to populate from import file
@@ -100,10 +130,16 @@ public class Entity implements java.io.Serializable {
     
     
     // Calculates stat modifiers and puts in statModifiers based on entity stats 
-    // stored in stats field
-    public void calculateStatModifiers() {
+    // stored in stats field.  Final to prevent overriding, causing automatic
+    // calculation and storage of stat modifiers Entity does not consider valid.
+    public final void calculateStatModifiers() {
         for(int i = 0; i < 6; i++) {
             statModifiers[i] = (stats[i]/2) - 5;
         }
+    }
+    
+    // To do: make this return more more meaningful data, for more thorough testing
+    public String toString() {
+        return name;
     }
 }
