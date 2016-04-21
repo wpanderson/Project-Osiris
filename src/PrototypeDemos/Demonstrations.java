@@ -19,13 +19,16 @@ public class Demonstrations {
         System.out.println("Sample file named \"Test_Database_Monsters.csv\"");
         System.out.print("Filepath: ");
         String filePath = console.next();
+        System.out.println();
         DataStorage database = new DataStorage();
         try {
             database.addEnemiesFromCSV(filePath);
-            System.out.println("Successful.");
-            for(Enemy enemy : database.getEnemyList()) {
-                System.out.println(enemy);
+            System.out.println("Successful. Names of monsters in database:");
+            System.out.println();
+            for(Enemy enemy : database.getEnemyList()) {  
+                System.out.println(" - " + enemy);
             }
+            System.out.println();
         } catch(FileNotFoundException e) {
             System.out.println("File not found. Details:");
             System.out.println(e.getMessage());
