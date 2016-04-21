@@ -1,4 +1,7 @@
 // TENTATIVE: Needs cleanup
+// Question: why was this named "Event" and not "Encounter?" (renaming for now)
+// I can imagine ways in which an encounter is distinct from an event, but
+// this seems to fit my idea of an encounter more than my idea of an event.
 
 package D5DataStructures.DraftClasses;
 
@@ -7,7 +10,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class Event implements java.io.Serializable {
+public class Encounter implements java.io.Serializable {
 
     
     private UUID event_id;
@@ -24,7 +27,7 @@ public class Event implements java.io.Serializable {
     private LOCATION location;
     private DIFFICULTY difficulty;
     
-    public Event() {
+    public Encounter() {
         entity_ids = new ArrayList<UUID>();
     }
     

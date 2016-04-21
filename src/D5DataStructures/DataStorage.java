@@ -1,0 +1,63 @@
+// Maintains all entries in the databases while the program is running.  Can
+// be serialized to store all data currently in program.
+
+package D5DataStructures;
+
+import D5DataStructures.DraftClasses.*;
+import java.util.*;
+import java.io.*;
+
+public class DataStorage implements java.io.Serializable {
+    
+    // To consider for future:
+    // If we use ArrayLists, we have to implemenet sorting by different variables
+    // of our Enemies, Items, Encounters, etc. manually, and write our own sorting
+    // algorithms.  But I do not know of a data structure that can dynamically sort
+    // by more than one thing anyways.
+    private ArrayList<Enemy> enemyList;
+    private ArrayList<Player> playerList;
+    private ArrayList<Item> itemList;
+    private ArrayList<Encounter> encounterList;
+    
+    // Maps of UUIDs for existing entities and items to pointers to their object
+    // and data. Allows resolution of references to entities and items that may
+    // not have been imported yet.
+    private HashMap<UUID, Entity> entityRefMap;
+    private HashMap<UUID, Item>   itemRefMap;
+    
+    // Default constructor; initializes a new empty database.
+    public DataStorage() {
+        enemyList = new ArrayList<Enemy>();
+        playerList = new ArrayList<Player>();
+        itemList = new ArrayList<Item>();
+        encounterList = new ArrayList<Encounter>();
+        entityRefMap = new HashMap<UUID, Entity>();
+        itemRefMap = new HashMap<UUID, Item>();
+    }
+    
+    // Takes in a String representing the file path of a CSV file
+    // that contains enemies to be imported.
+    // Adds enemies found in the file to the existing database of enemies.
+    // To consider: where to perform exception handling.
+    public void addEnemiesFromCSV(String importFilePath) throws FileNotFoundException {
+        enemyList.addAll(CSVIO.importEnemiesFromCSV(importFilePath));
+    }
+    
+    // Methods to return the lists of entries currently in database.  The UI will
+    // need these.
+    public ArrayList<Enemy> getEnemyList() {
+        return enemyList;
+    }
+
+    public ArrayList<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public ArrayList<Item> getItemList() {
+        return itemList;
+    }
+
+    public ArrayList<Encounter> getEncounterList() {
+        return encounterList;
+    }
+}
