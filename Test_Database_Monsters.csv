@@ -1,4 +1,4 @@
-Source ,Name,Size,Type,Tags,Alignment,Challenge,XP,Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma,Acrobatics,Animal Handling,Arcana,Athletics,Deception,History,Insight,Intimidation,Investigation,Medicine,Nature,Perception,Performance,Persuasion,Religion,Sleight of Hand,Stealth,Survival,Language
+Source,Name,Size,Type,Tags,Alignment,Challenge,XP,Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma,Acrobatics,Animal Handling,Arcana,Athletics,Deception,History,Insight,Intimidation,Investigation,Medicine,Nature,Perception,Performance,Persuasion,Religion,Sleight of Hand,Stealth,Survival,Language
 mm 12,Aarakocra,Medium,Humanoid,aarakocra,NG,0.25,50,10,14,10,11,12,11,,,,,,,,,,,,5,,,,,,,Auran
 mm 13,Aboleth,Large,Aberration,,LE,10,5900,21,9,15,18,15,18,,,,,,12,,,,,,20,,,,,,,Deep Speech / Telepathy 120ft.
 mm 306,Abominable Yeti,Huge,Monstrosity,,CE,9,5000,25,10,21,13,5,10,,10,,,,5,2,,,,12,,,,,,,,C++
