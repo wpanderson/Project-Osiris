@@ -1,0 +1,7 @@
+Source,Name,Size,Type,Tags,Alignment,Challenge,XP,Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma,Acrobatics,Animal Handling,Arcana,Athletics,Deception,History,Insight,Intimidation,Investigation,Medicine,Nature,Perception,Performance,Persuasion,Religion,Sleight of Hand,Stealth,Survival,Language
+mm 12,Aarakocra,Medium,Humanoid,aarakocra,NG,0.25,50,10,14,10,11,12,11,,,,,,,,,,,,5,,,,,,,Auran
+mm 13,Aboleth,Large,Aberration,,LE,10,5900,21,9,15,18,15,18,,,,,,12,,,,,,20,,,,,,,Deep Speech / Telepathy 120ft.
+mm 306,Abominable Yeti,Huge,Monstrosity,,CE,9,5000,25,10,21,13,5,10,,10,,,,5,2,,,,12,,,,,,,,C++
+mm 88,Adult Black Dragon,Huge,Dragon,,CE,14,11500,30,20,20,15,50,12,5,,,,,,20,,,,,,,,,,,10,Coolkids
+cs 301,Lulofs,Large,Theoretical,PDF,CS,9001,0,5,1,4,20,20,9,,50,,,,,,,,,20,,,,,,,,Java
+cs 312,Popescu,Huge,Jigabyte,Karnuagh,CS,9001,0,12,5,0,50,50,1,,,,,100,20,,20,,,,,,,,,,,????

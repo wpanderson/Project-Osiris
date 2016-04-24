@@ -31,10 +31,6 @@ public class DatabaseViewerUI extends javax.swing.JFrame {
         openDatabaseJButton = new javax.swing.JButton();
         databaseJScrollPane = new javax.swing.JScrollPane();
         viewDatabaseJTable = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        viewDatabaseJTextArea = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        viewDatabaseJList = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("D.R.A.G.O.N.S. Database Viewer");
@@ -57,17 +53,6 @@ public class DatabaseViewerUI extends javax.swing.JFrame {
         ));
         databaseJScrollPane.setViewportView(viewDatabaseJTable);
 
-        viewDatabaseJTextArea.setColumns(20);
-        viewDatabaseJTextArea.setRows(5);
-        jScrollPane2.setViewportView(viewDatabaseJTextArea);
-
-        viewDatabaseJList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane3.setViewportView(viewDatabaseJList);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,10 +70,7 @@ public class DatabaseViewerUI extends javax.swing.JFrame {
                         .addGap(0, 110, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(databaseJScrollPane)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jScrollPane3))))
+                        .addComponent(databaseJScrollPane)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -99,11 +81,7 @@ public class DatabaseViewerUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(openDatabaseJButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(databaseJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                .addComponent(databaseJScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -148,12 +126,8 @@ public class DatabaseViewerUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane databaseJScrollPane;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton openDatabaseJButton;
     private javax.swing.JLabel titleJlabel;
-    private javax.swing.JList viewDatabaseJList;
     private javax.swing.JTable viewDatabaseJTable;
-    private javax.swing.JTextArea viewDatabaseJTextArea;
     // End of variables declaration//GEN-END:variables
 }
