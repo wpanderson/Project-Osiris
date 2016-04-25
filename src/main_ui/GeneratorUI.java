@@ -42,21 +42,26 @@ public class GeneratorUI extends javax.swing.JFrame {
         difficultyComboBox = new javax.swing.JComboBox();
         environmentJLabel = new javax.swing.JLabel();
         environmentComboBox = new javax.swing.JComboBox();
-        enemyJPanel = new javax.swing.JPanel();
-        partyLevelJLabel1 = new javax.swing.JLabel();
-        partyLevelComboBox1 = new javax.swing.JComboBox();
-        partyLevelJLabel2 = new javax.swing.JLabel();
-        partyLevelComboBox2 = new javax.swing.JComboBox();
+        eventJPanel = new javax.swing.JPanel();
+        encounterTypeJlabel = new javax.swing.JLabel();
+        encounterTypeComboBox = new javax.swing.JComboBox();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        amountJLabel = new javax.swing.JLabel();
+        amountComboBox = new javax.swing.JComboBox();
         itemJPanel = new javax.swing.JPanel();
+        itemScrollPane = new javax.swing.JScrollPane();
+        itemJTable = new javax.swing.JTable();
         locationJPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("D.R.A.G.O.N.S. Generators");
+        setResizable(false);
 
         titleJlabel.setFont(new java.awt.Font("Calibri", 0, 84)); // NOI18N
         titleJlabel.setText("Generators");
 
-        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Encounter", "Enemy", "Item", "Location" }));
+        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Encounter", "Event", "Item", "Location" }));
         typeComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 typeComboBoxActionPerformed(evt);
@@ -121,52 +126,81 @@ public class GeneratorUI extends javax.swing.JFrame {
 
         generatorJPanel.add(encounterJPanel, "encounterCard");
 
-        partyLevelJLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        partyLevelJLabel1.setText("Challenge Rating:");
+        encounterTypeJlabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        encounterTypeJlabel.setText("Type:");
 
-        partyLevelComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
 
-        partyLevelJLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        partyLevelJLabel2.setText("Type:");
+        amountJLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        amountJLabel.setText("How Many:");
 
-        javax.swing.GroupLayout enemyJPanelLayout = new javax.swing.GroupLayout(enemyJPanel);
-        enemyJPanel.setLayout(enemyJPanelLayout);
-        enemyJPanelLayout.setHorizontalGroup(
-            enemyJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(enemyJPanelLayout.createSequentialGroup()
+        amountComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "5", "10" }));
+
+        javax.swing.GroupLayout eventJPanelLayout = new javax.swing.GroupLayout(eventJPanel);
+        eventJPanel.setLayout(eventJPanelLayout);
+        eventJPanelLayout.setHorizontalGroup(
+            eventJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eventJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(partyLevelJLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(partyLevelComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(partyLevelJLabel2)
+                .addGroup(eventJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(eventJPanelLayout.createSequentialGroup()
+                        .addComponent(encounterTypeJlabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(encounterTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(amountJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(amountComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 422, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        eventJPanelLayout.setVerticalGroup(
+            eventJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eventJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(eventJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(encounterTypeJlabel)
+                    .addComponent(encounterTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(amountJLabel)
+                    .addComponent(amountComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(partyLevelComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(455, Short.MAX_VALUE))
-        );
-        enemyJPanelLayout.setVerticalGroup(
-            enemyJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(enemyJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(enemyJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partyLevelJLabel1)
-                    .addComponent(partyLevelComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(partyLevelJLabel2)
-                    .addComponent(partyLevelComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(417, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        generatorJPanel.add(enemyJPanel, "enemyCard");
+        generatorJPanel.add(eventJPanel, "eventCard");
+
+        itemJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        itemScrollPane.setViewportView(itemJTable);
 
         javax.swing.GroupLayout itemJPanelLayout = new javax.swing.GroupLayout(itemJPanel);
         itemJPanel.setLayout(itemJPanelLayout);
         itemJPanelLayout.setHorizontalGroup(
             itemJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 718, Short.MAX_VALUE)
+            .addGroup(itemJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(itemScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+                .addContainerGap())
         );
         itemJPanelLayout.setVerticalGroup(
             itemJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 448, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, itemJPanelLayout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(itemScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         generatorJPanel.add(itemJPanel, "itemCard");
@@ -232,9 +266,9 @@ public class GeneratorUI extends javax.swing.JFrame {
         {
             card.show(generatorJPanel, "encounterCard");
         }
-        else if(typeComboBox.getSelectedItem() == "Enemy")
+        else if(typeComboBox.getSelectedItem() == "Event")
         {
-            card.show(generatorJPanel, "enemyCard");
+            card.show(generatorJPanel, "eventCard");
         }
         else if(typeComboBox.getSelectedItem() == "Item")
         {
@@ -257,7 +291,7 @@ public class GeneratorUI extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -285,23 +319,27 @@ public class GeneratorUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox amountComboBox;
+    private javax.swing.JLabel amountJLabel;
     private javax.swing.JComboBox difficultyComboBox;
     private javax.swing.JLabel difficultyJLabel;
     private javax.swing.JPanel encounterJPanel;
-    private javax.swing.JPanel enemyJPanel;
+    private javax.swing.JComboBox encounterTypeComboBox;
+    private javax.swing.JLabel encounterTypeJlabel;
     private javax.swing.JComboBox environmentComboBox;
     private javax.swing.JLabel environmentJLabel;
+    private javax.swing.JPanel eventJPanel;
     private javax.swing.JPanel generatorJPanel;
     private javax.swing.JPanel itemJPanel;
+    private javax.swing.JTable itemJTable;
+    private javax.swing.JScrollPane itemScrollPane;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel locationJPanel;
     private javax.swing.JComboBox partyLevelComboBox;
-    private javax.swing.JComboBox partyLevelComboBox1;
-    private javax.swing.JComboBox partyLevelComboBox2;
     private javax.swing.JLabel partyLevelJLabel;
-    private javax.swing.JLabel partyLevelJLabel1;
-    private javax.swing.JLabel partyLevelJLabel2;
     private javax.swing.JLabel titleJlabel;
     private javax.swing.JComboBox typeComboBox;
     private javax.swing.JLabel typeJLabel;
