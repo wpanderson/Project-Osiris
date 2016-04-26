@@ -102,15 +102,19 @@ public class MainGUI extends javax.swing.JFrame {
         playerItemsJPanel = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         addPlayerItemJButton = new javax.swing.JButton();
+        removePlayerItemJButton1 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         playerItemsJTable = new javax.swing.JTable();
-        removePlayerItemJButton1 = new javax.swing.JButton();
-        jLabel20 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         playerWeaponsJTable = new javax.swing.JTable();
+        jLabel20 = new javax.swing.JLabel();
         addPlayerWeaponJButton = new javax.swing.JButton();
         removePlayerWeaponJButton = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        playerSpellsJTable = new javax.swing.JTable();
+        jLabel21 = new javax.swing.JLabel();
+        addPlayerSpellJButton = new javax.swing.JButton();
+        removePlayerSpellJButton = new javax.swing.JButton();
         npcJPanel = new javax.swing.JPanel();
         pagesJPanel = new javax.swing.JPanel();
         pagesJScrollPanel = new javax.swing.JScrollPane();
@@ -128,6 +132,7 @@ public class MainGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dungeon Master Companion");
         setBackground(new java.awt.Color(51, 51, 51));
+        setMaximumSize(new java.awt.Dimension(1000, 1000));
         setResizable(false);
 
         mainToolBar.setBorder(null);
@@ -201,7 +206,8 @@ public class MainGUI extends javax.swing.JFrame {
 
         tabPanel.add(homeJPanel, "homeCard");
 
-        playersJPanel.setBackground(new java.awt.Color(51, 51, 51));
+        playersJPanel.setBackground(new java.awt.Color(204, 204, 204));
+        playersJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         playersJList.setBackground(new java.awt.Color(77, 67, 67));
         playersJList.setForeground(new java.awt.Color(255, 255, 255));
@@ -217,23 +223,32 @@ public class MainGUI extends javax.swing.JFrame {
         });
         playersJScrollPanel.setViewportView(playersJList);
 
+        playersJPanel.add(playersJScrollPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 94, 117));
+
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Player Notes:");
+        playersJPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 131, -1, -1));
 
         playerNotesJTextArea.setEditable(false);
+        playerNotesJTextArea.setBackground(new java.awt.Color(255, 255, 255));
         playerNotesJTextArea.setColumns(20);
         playerNotesJTextArea.setRows(5);
         playerNotesJTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(playerNotesJTextArea);
 
+        playersJPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 159, 268, 488));
+
         saveNotesJButton.setMnemonic('s');
         saveNotesJButton.setText("Save Notes");
+        playersJPanel.add(saveNotesJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 167, -1, -1));
 
         newPlayerJButton.setMnemonic('n');
         newPlayerJButton.setText("New Player");
+        playersJPanel.add(newPlayerJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 129, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Attributes:");
+        playersJPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 6, -1, -1));
 
         attributesJPanel.setBackground(new java.awt.Color(51, 51, 51));
         attributesJPanel.setToolTipText("");
@@ -287,26 +302,36 @@ public class MainGUI extends javax.swing.JFrame {
         charismaJTextField.setText("10");
         attributesJPanel.add(charismaJTextField);
 
+        playersJPanel.add(attributesJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 31, 144, -1));
+
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Class:");
+        playersJPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 56, -1, -1));
 
         characterClassJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         characterClassJLabel.setText("CHARACTERS CLASS");
+        playersJPanel.add(characterClassJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 56, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Skills:");
+        playersJPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 235, -1, -1));
 
         skillsJTextArea.setEditable(false);
+        skillsJTextArea.setBackground(new java.awt.Color(255, 255, 255));
         skillsJTextArea.setColumns(20);
         skillsJTextArea.setRows(5);
         skillsJTextArea.setWrapStyleWord(true);
         skillsJScrollPane.setViewportView(skillsJTextArea);
 
+        playersJPanel.add(skillsJScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 260, -1, 153));
+
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Player Name:");
+        playersJPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 6, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("PLAYER_NAME_HERE");
+        playersJPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 6, -1, -1));
 
         editPlayerJCheckBox.setText("Edit Player");
         editPlayerJCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -314,18 +339,23 @@ public class MainGUI extends javax.swing.JFrame {
                 editPlayerJCheckBoxActionPerformed(evt);
             }
         });
+        playersJPanel.add(editPlayerJCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 129, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("Allignment");
+        playersJPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 84, -1, -1));
 
         allignmentJComboBox.setEditable(true);
         allignmentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lawful good", "Neutral good", "Chaotic good", "Lawful neutral", "Neutral", "Chaotic neutral", "Lawful evil", "Neutral evil", "Chaotic evil" }));
+        playersJPanel.add(allignmentJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 81, 143, -1));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setText("Character Name:");
+        playersJPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 31, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setText("CHARACTER_NAME_HERE");
+        playersJPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 31, -1, -1));
 
         modifiersJPanel.setBackground(new java.awt.Color(51, 51, 51));
         modifiersJPanel.setLayout(new java.awt.GridLayout(6, 2));
@@ -385,11 +415,17 @@ public class MainGUI extends javax.swing.JFrame {
         charModTempJSpinner.setToolTipText("Temporary attribute modifier.");
         modifiersJPanel.add(charModTempJSpinner);
 
+        playersJPanel.add(modifiersJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 31, -1, -1));
+
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setText("Modifiers");
+        playersJPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 6, 104, -1));
+
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel14.setText("G:");
 
+        jTextField1.setBackground(new java.awt.Color(102, 102, 102));
         jTextField1.setText("0");
 
         jLabel15.setText("Arrows:");
@@ -398,12 +434,15 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel17.setText("P:");
 
+        jTextField2.setBackground(new java.awt.Color(102, 102, 102));
         jTextField2.setText("0");
 
         jLabel18.setText("C:");
 
+        jTextField3.setBackground(new java.awt.Color(102, 102, 102));
         jTextField3.setText("0");
 
+        jTextField4.setBackground(new java.awt.Color(102, 102, 102));
         jTextField4.setText("0");
 
         jLabel19.setText("S:");
@@ -441,7 +480,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -471,9 +510,14 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGap(87, 87, 87))
         );
 
-        playerItemsJPanel.setBackground(new java.awt.Color(51, 51, 51));
+        playersJPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 494, 223, 75));
 
+        playerItemsJPanel.setBackground(new java.awt.Color(204, 204, 204));
+        playerItemsJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel23.setText("Plot Items:");
+        playerItemsJPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         addPlayerItemJButton.setText("Add Item");
         addPlayerItemJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -481,7 +525,17 @@ public class MainGUI extends javax.swing.JFrame {
                 addPlayerItemJButtonActionPerformed(evt);
             }
         });
+        playerItemsJPanel.add(addPlayerItemJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
+        removePlayerItemJButton1.setText("Remove Selected Item");
+        removePlayerItemJButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removePlayerItemJButton1ActionPerformed(evt);
+            }
+        });
+        playerItemsJPanel.add(removePlayerItemJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+
+        playerItemsJTable.setBackground(new java.awt.Color(255, 255, 255));
         playerItemsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"", null, null, null, null},
@@ -505,47 +559,9 @@ public class MainGUI extends javax.swing.JFrame {
         jScrollPane4.setViewportView(playerItemsJTable);
         playerItemsJTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        removePlayerItemJButton1.setText("Remove Selected Item");
-        removePlayerItemJButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removePlayerItemJButton1ActionPerformed(evt);
-            }
-        });
+        playerItemsJPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 640, 100));
 
-        javax.swing.GroupLayout playerItemsJPanelLayout = new javax.swing.GroupLayout(playerItemsJPanel);
-        playerItemsJPanel.setLayout(playerItemsJPanelLayout);
-        playerItemsJPanelLayout.setHorizontalGroup(
-            playerItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(playerItemsJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(playerItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(playerItemsJPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addPlayerItemJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removePlayerItemJButton1))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        playerItemsJPanelLayout.setVerticalGroup(
-            playerItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(playerItemsJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(playerItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(addPlayerItemJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(removePlayerItemJButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel20.setText("Weapons:");
-
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+        playerWeaponsJTable.setBackground(new java.awt.Color(255, 255, 255));
         playerWeaponsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -570,7 +586,11 @@ public class MainGUI extends javax.swing.JFrame {
         jScrollPane3.setViewportView(playerWeaponsJTable);
         playerWeaponsJTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 100));
+        playerItemsJPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 640, 100));
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setText("Weapons:");
+        playerItemsJPanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         addPlayerWeaponJButton.setText("Add Weapon");
         addPlayerWeaponJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -578,6 +598,7 @@ public class MainGUI extends javax.swing.JFrame {
                 addPlayerWeaponJButtonActionPerformed(evt);
             }
         });
+        playerItemsJPanel.add(addPlayerWeaponJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
 
         removePlayerWeaponJButton.setText("Remove Selected Weapon");
         removePlayerWeaponJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -585,138 +606,55 @@ public class MainGUI extends javax.swing.JFrame {
                 removePlayerWeaponJButtonActionPerformed(evt);
             }
         });
+        playerItemsJPanel.add(removePlayerWeaponJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, -1));
 
-        javax.swing.GroupLayout playersJPanelLayout = new javax.swing.GroupLayout(playersJPanel);
-        playersJPanel.setLayout(playersJPanelLayout);
-        playersJPanelLayout.setHorizontalGroup(
-            playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(playersJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(playersJPanelLayout.createSequentialGroup()
-                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(saveNotesJButton)
-                            .addComponent(newPlayerJButton))
-                        .addGap(18, 18, 18)
-                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(playersJPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(editPlayerJCheckBox))))
-                    .addGroup(playersJPanelLayout.createSequentialGroup()
-                        .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(playersJPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7))
-                            .addGroup(playersJPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12))
-                            .addGroup(playersJPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(characterClassJLabel))
-                            .addGroup(playersJPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(allignmentJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(18, 18, 18)
-                .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addGroup(playersJPanelLayout.createSequentialGroup()
-                        .addComponent(skillsJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(playersJPanelLayout.createSequentialGroup()
-                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(attributesJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(modifiersJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(playersJPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addPlayerWeaponJButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(removePlayerWeaponJButton))
-                            .addComponent(playerItemsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(playersJPanelLayout.createSequentialGroup()
-                        .addGap(266, 266, 266)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        playersJPanelLayout.setVerticalGroup(
-            playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(playersJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(playersJPanelLayout.createSequentialGroup()
-                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel13))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(playersJPanelLayout.createSequentialGroup()
-                                .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(characterClassJLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(allignmentJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(playersJPanelLayout.createSequentialGroup()
-                                .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(playersJPanelLayout.createSequentialGroup()
-                                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel20)
-                                            .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(addPlayerWeaponJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(removePlayerWeaponJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(playerItemsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(playersJPanelLayout.createSequentialGroup()
-                                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(modifiersJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(attributesJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(191, 191, 191)
-                                        .addComponent(jLabel6)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                                .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(skillsJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(55, 55, 55))))
-                    .addGroup(playersJPanelLayout.createSequentialGroup()
-                        .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(playersJPanelLayout.createSequentialGroup()
-                                .addGroup(playersJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(editPlayerJCheckBox))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(playersJPanelLayout.createSequentialGroup()
-                                .addComponent(newPlayerJButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(saveNotesJButton)))))
-                .addGap(26, 26, 26))
-        );
+        playerSpellsJTable.setBackground(new java.awt.Color(255, 255, 255));
+        playerSpellsJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Spell", "Type", "Damage", "Effect", "Note"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        playerSpellsJTable.setToolTipText("Double click cell to edit.");
+        jScrollPane5.setViewportView(playerSpellsJTable);
+        playerSpellsJTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        playerItemsJPanel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 640, 100));
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel21.setText("Spells:");
+        playerItemsJPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+
+        addPlayerSpellJButton.setText("Add Spell");
+        addPlayerSpellJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPlayerSpellJButtonActionPerformed(evt);
+            }
+        });
+        playerItemsJPanel.add(addPlayerSpellJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+
+        removePlayerSpellJButton.setText("Remove Selected Spell");
+        removePlayerSpellJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removePlayerSpellJButtonActionPerformed(evt);
+            }
+        });
+        playerItemsJPanel.add(removePlayerSpellJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, -1, -1));
+
+        playersJPanel.add(playerItemsJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, -1, 460));
 
         tabPanel.add(playersJPanel, "playersCard");
 
@@ -724,11 +662,11 @@ public class MainGUI extends javax.swing.JFrame {
         npcJPanel.setLayout(npcJPanelLayout);
         npcJPanelLayout.setHorizontalGroup(
             npcJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1376, Short.MAX_VALUE)
+            .addGap(0, 1350, Short.MAX_VALUE)
         );
         npcJPanelLayout.setVerticalGroup(
             npcJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 675, Short.MAX_VALUE)
+            .addGap(0, 676, Short.MAX_VALUE)
         );
 
         tabPanel.add(npcJPanel, "npcCard");
@@ -991,6 +929,34 @@ public class MainGUI extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_removePlayerItemJButton1ActionPerformed
+    /**
+     * Adds a new row to playerSpellsJTable
+     * @param evt 
+     */
+    private void addPlayerSpellJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlayerSpellJButtonActionPerformed
+        DefaultTableModel model = (DefaultTableModel)playerSpellsJTable.getModel();
+        model.addRow(new Object[]{});
+    }//GEN-LAST:event_addPlayerSpellJButtonActionPerformed
+
+    private void removePlayerSpellJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removePlayerSpellJButtonActionPerformed
+        int selection = JOptionPane.showConfirmDialog(pagesJPanel, "This will remove the selected"
+                + "value from the Spell Table. Would you like to continue?");
+        
+        if(selection == JOptionPane.YES_OPTION)
+        {
+            if(playerSpellsJTable.getSelectedRow() != -1)
+            {
+                //remove selected row from Table
+                DefaultTableModel model = (DefaultTableModel)playerSpellsJTable.getModel();
+                model.removeRow(playerSpellsJTable.getSelectedRow());
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(pagesJPanel, "No value selected.");
+            }
+            
+        }
+    }//GEN-LAST:event_removePlayerSpellJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1029,6 +995,7 @@ public class MainGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPlayerItemJButton;
+    private javax.swing.JButton addPlayerSpellJButton;
     private javax.swing.JButton addPlayerWeaponJButton;
     private javax.swing.JComboBox allignmentJComboBox;
     private javax.swing.JPanel attributesJPanel;
@@ -1069,6 +1036,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1080,10 +1048,10 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTextField jTextField1;
@@ -1101,11 +1069,13 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel playerItemsJPanel;
     private javax.swing.JTable playerItemsJTable;
     private javax.swing.JTextArea playerNotesJTextArea;
+    private javax.swing.JTable playerSpellsJTable;
     private javax.swing.JTable playerWeaponsJTable;
     private javax.swing.JList playersJList;
     private javax.swing.JPanel playersJPanel;
     private javax.swing.JScrollPane playersJScrollPanel;
     private javax.swing.JButton removePlayerItemJButton1;
+    private javax.swing.JButton removePlayerSpellJButton;
     private javax.swing.JButton removePlayerWeaponJButton;
     private javax.swing.JButton saveNotesJButton;
     private javax.swing.JScrollPane skillsJScrollPane;
