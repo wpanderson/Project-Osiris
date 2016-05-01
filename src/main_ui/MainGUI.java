@@ -239,7 +239,21 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
         locationsJPanel = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        locationNotesJTextArea = new javax.swing.JTextArea();
+        jLabel33 = new javax.swing.JLabel();
+        npcItemsJPanel1 = new javax.swing.JPanel();
+        jLabel55 = new javax.swing.JLabel();
+        addNPCItemJButton1 = new javax.swing.JButton();
+        removeNPCItemJButton1 = new javax.swing.JButton();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        npcItemsJTable1 = new javax.swing.JTable();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel56 = new javax.swing.JLabel();
         eventsNotesJPanel = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        eventNotesJTextArea = new javax.swing.JTextArea();
+        jLabel57 = new javax.swing.JLabel();
         pagesJPanel = new javax.swing.JPanel();
         pagesJScrollPanel = new javax.swing.JScrollPane();
         pagesList = new javax.swing.JList();
@@ -251,13 +265,24 @@ public class MainGUI extends javax.swing.JFrame {
         newPlayerJButton = new javax.swing.JButton();
         saveNotesJButton = new javax.swing.JButton();
         removePlayerJButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        welcomeLabel2 = new javax.swing.JLabel();
         npcControlsJPanel = new javax.swing.JPanel();
         playersJScrollPanel1 = new javax.swing.JScrollPane();
         playersJList1 = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
         addNPCJButton = new javax.swing.JButton();
         removeNPCJButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        welcomeLabel1 = new javax.swing.JLabel();
         locationControlsJPanel = new javax.swing.JPanel();
+        playersJScrollPanel2 = new javax.swing.JScrollPane();
+        locationsJList = new javax.swing.JList();
+        newLocationJButton = new javax.swing.JButton();
+        removeLocationJButton = new javax.swing.JButton();
+        saveLocationNotesJButton = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        welcomeLabel3 = new javax.swing.JLabel();
         eventControlsJPanel = new javax.swing.JPanel();
         mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -1589,28 +1614,136 @@ public class MainGUI extends javax.swing.JFrame {
 
         tabPanel.add(npcJPanel, "npcCard");
 
+        locationNotesJTextArea.setEditable(false);
+        locationNotesJTextArea.setBackground(new java.awt.Color(255, 255, 255));
+        locationNotesJTextArea.setColumns(20);
+        locationNotesJTextArea.setRows(5);
+        locationNotesJTextArea.setWrapStyleWord(true);
+        jScrollPane9.setViewportView(locationNotesJTextArea);
+
+        jLabel33.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel33.setText("Location Notes:");
+
+        npcItemsJPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        npcItemsJPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel55.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel55.setText("Shop:");
+        npcItemsJPanel1.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        addNPCItemJButton1.setText("Add Item");
+        addNPCItemJButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNPCItemJButton1ActionPerformed(evt);
+            }
+        });
+        npcItemsJPanel1.add(addNPCItemJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, -1, -1));
+
+        removeNPCItemJButton1.setText("Remove Selected Item");
+        removeNPCItemJButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeNPCItemJButton1ActionPerformed(evt);
+            }
+        });
+        npcItemsJPanel1.add(removeNPCItemJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, -1));
+
+        npcItemsJTable1.setBackground(new java.awt.Color(255, 255, 255));
+        npcItemsJTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"", null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Item", "Type", "Value", "Weight", "Note"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        npcItemsJTable1.setToolTipText("Double click cell to edit.");
+        npcItemsJTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane10.setViewportView(npcItemsJTable1);
+        npcItemsJTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        npcItemsJPanel1.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 640, 450));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        npcItemsJPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
+        jLabel56.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel56.setText("Shop Inventory:");
+        npcItemsJPanel1.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
         javax.swing.GroupLayout locationsJPanelLayout = new javax.swing.GroupLayout(locationsJPanel);
         locationsJPanel.setLayout(locationsJPanelLayout);
         locationsJPanelLayout.setHorizontalGroup(
             locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1350, Short.MAX_VALUE)
+            .addGroup(locationsJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
+                .addComponent(npcItemsJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         locationsJPanelLayout.setVerticalGroup(
             locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locationsJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(locationsJPanelLayout.createSequentialGroup()
+                        .addGap(0, 107, Short.MAX_VALUE)
+                        .addComponent(npcItemsJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(locationsJPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane9)))
+                .addContainerGap())
         );
 
         tabPanel.add(locationsJPanel, "locationsCard");
+
+        eventNotesJTextArea.setColumns(20);
+        eventNotesJTextArea.setRows(5);
+        jScrollPane11.setViewportView(eventNotesJTextArea);
+
+        jLabel57.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel57.setText("Location Notes:");
 
         javax.swing.GroupLayout eventsNotesJPanelLayout = new javax.swing.GroupLayout(eventsNotesJPanel);
         eventsNotesJPanel.setLayout(eventsNotesJPanelLayout);
         eventsNotesJPanelLayout.setHorizontalGroup(
             eventsNotesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1350, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, eventsNotesJPanelLayout.createSequentialGroup()
+                .addGap(0, 21, Short.MAX_VALUE)
+                .addGroup(eventsNotesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel57)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 1329, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         eventsNotesJPanelLayout.setVerticalGroup(
             eventsNotesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGroup(eventsNotesJPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel57)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         tabPanel.add(eventsNotesJPanel, "eventsCard");
@@ -1660,7 +1793,7 @@ public class MainGUI extends javax.swing.JFrame {
         homeControlsJPanel.setLayout(homeControlsJPanelLayout);
         homeControlsJPanelLayout.setHorizontalGroup(
             homeControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
         homeControlsJPanelLayout.setVerticalGroup(
             homeControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1696,6 +1829,13 @@ public class MainGUI extends javax.swing.JFrame {
 
         removePlayerJButton.setText("Remove Player");
 
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        welcomeLabel2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        welcomeLabel2.setText("Player Information");
+        welcomeLabel2.setToolTipText("");
+        jPanel2.add(welcomeLabel2, new java.awt.GridBagConstraints());
+
         javax.swing.GroupLayout playerControlsJPanelLayout = new javax.swing.GroupLayout(playerControlsJPanel);
         playerControlsJPanel.setLayout(playerControlsJPanelLayout);
         playerControlsJPanelLayout.setHorizontalGroup(
@@ -1708,7 +1848,8 @@ public class MainGUI extends javax.swing.JFrame {
                     .addComponent(newPlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(saveNotesJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(removePlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         playerControlsJPanelLayout.setVerticalGroup(
             playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1723,6 +1864,7 @@ public class MainGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(saveNotesJButton)))
                 .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pageControlsJPanel.add(playerControlsJPanel, "playerControlsCard");
@@ -1747,6 +1889,13 @@ public class MainGUI extends javax.swing.JFrame {
 
         removeNPCJButton.setText("Remove NPC/Enemy");
 
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        welcomeLabel1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        welcomeLabel1.setText("NPC/Enemy Information");
+        welcomeLabel1.setToolTipText("");
+        jPanel1.add(welcomeLabel1, new java.awt.GridBagConstraints());
+
         javax.swing.GroupLayout npcControlsJPanelLayout = new javax.swing.GroupLayout(npcControlsJPanel);
         npcControlsJPanel.setLayout(npcControlsJPanelLayout);
         npcControlsJPanelLayout.setHorizontalGroup(
@@ -1754,41 +1903,102 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                         .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addNPCJButton)
-                            .addComponent(removeNPCJButton)))
-                    .addComponent(jLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(removeNPCJButton)
+                            .addComponent(addNPCJButton))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         npcControlsJPanelLayout.setVerticalGroup(
             npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, npcControlsJPanelLayout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(npcControlsJPanelLayout.createSequentialGroup()
-                        .addComponent(addNPCJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(removeNPCJButton)))
+            .addGroup(npcControlsJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, npcControlsJPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(npcControlsJPanelLayout.createSequentialGroup()
+                                .addComponent(addNPCJButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 33, Short.MAX_VALUE)
+                                .addComponent(removeNPCJButton))))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pageControlsJPanel.add(npcControlsJPanel, "npcControlsCard");
 
+        locationsJList.setBackground(new java.awt.Color(77, 67, 67));
+        locationsJList.setForeground(new java.awt.Color(255, 255, 255));
+        locationsJList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Location 1", "Location 2", "Location 3" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        locationsJList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                locationsJListValueChanged(evt);
+            }
+        });
+        playersJScrollPanel2.setViewportView(locationsJList);
+
+        newLocationJButton.setMnemonic('n');
+        newLocationJButton.setText("New Location");
+        newLocationJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newLocationJButtonActionPerformed(evt);
+            }
+        });
+
+        removeLocationJButton.setText("Remove Location");
+
+        saveLocationNotesJButton.setMnemonic('s');
+        saveLocationNotesJButton.setText("Save Location");
+
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        welcomeLabel3.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        welcomeLabel3.setText("Location Information");
+        welcomeLabel3.setToolTipText("");
+        jPanel3.add(welcomeLabel3, new java.awt.GridBagConstraints());
+
         javax.swing.GroupLayout locationControlsJPanelLayout = new javax.swing.GroupLayout(locationControlsJPanel);
         locationControlsJPanel.setLayout(locationControlsJPanelLayout);
         locationControlsJPanelLayout.setHorizontalGroup(
             locationControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGroup(locationControlsJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(playersJScrollPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(locationControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(newLocationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(saveLocationNotesJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(removeLocationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         locationControlsJPanelLayout.setVerticalGroup(
             locationControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+            .addGroup(locationControlsJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(locationControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(playersJScrollPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(locationControlsJPanelLayout.createSequentialGroup()
+                        .addComponent(newLocationJButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(removeLocationJButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(saveLocationNotesJButton))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pageControlsJPanel.add(locationControlsJPanel, "locationControlsCard");
@@ -1797,7 +2007,7 @@ public class MainGUI extends javax.swing.JFrame {
         eventControlsJPanel.setLayout(eventControlsJPanelLayout);
         eventControlsJPanelLayout.setHorizontalGroup(
             eventControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
         eventControlsJPanelLayout.setVerticalGroup(
             eventControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1806,7 +2016,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         pageControlsJPanel.add(eventControlsJPanel, "eventControlsCard");
 
-        getContentPane().add(pageControlsJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 470, 130));
+        getContentPane().add(pageControlsJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 590, 130));
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -2112,6 +2322,22 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_playerGoldJTextField1FocusLost
 
+    private void locationsJListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_locationsJListValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_locationsJListValueChanged
+
+    private void newLocationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newLocationJButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newLocationJButtonActionPerformed
+
+    private void addNPCItemJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNPCItemJButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addNPCItemJButton1ActionPerformed
+
+    private void removeNPCItemJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNPCItemJButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeNPCItemJButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2149,6 +2375,7 @@ public class MainGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addNPCItemJButton;
+    private javax.swing.JButton addNPCItemJButton1;
     private javax.swing.JButton addNPCJButton;
     private javax.swing.JButton addNPCSpellJButton;
     private javax.swing.JButton addNPCWeaponJButton;
@@ -2190,6 +2417,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JMenu editMenu;
     private javax.swing.JCheckBox editPlayerJCheckBox;
     private javax.swing.JPanel eventControlsJPanel;
+    private javax.swing.JTextArea eventNotesJTextArea;
     private javax.swing.JPanel eventsNotesJPanel;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JButton forwardButton;
@@ -2208,6 +2436,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2234,6 +2463,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
@@ -2257,13 +2487,21 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2271,16 +2509,20 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JPanel locationControlsJPanel;
+    private javax.swing.JTextArea locationNotesJTextArea;
+    private javax.swing.JList locationsJList;
     private javax.swing.JPanel locationsJPanel;
     private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JToolBar mainToolBar;
     private javax.swing.JPanel modifiersJPanel;
     private javax.swing.JPanel modifiersJPanel1;
+    private javax.swing.JButton newLocationJButton;
     private javax.swing.JButton newPlayerJButton;
     private javax.swing.JTextField npcACJTextField;
     private javax.swing.JButton npcAddHPJButton;
@@ -2291,7 +2533,9 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel npcCurrentHPJLabel;
     private javax.swing.JPanel npcDetailsJPanel;
     private javax.swing.JPanel npcItemsJPanel;
+    private javax.swing.JPanel npcItemsJPanel1;
     private javax.swing.JTable npcItemsJTable;
+    private javax.swing.JTable npcItemsJTable1;
     private javax.swing.JPanel npcJPanel;
     private javax.swing.JLabel npcLocationJLabel;
     private javax.swing.JLabel npcNameJLabel;
@@ -2338,7 +2582,10 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel playersJPanel;
     private javax.swing.JScrollPane playersJScrollPanel;
     private javax.swing.JScrollPane playersJScrollPanel1;
+    private javax.swing.JScrollPane playersJScrollPanel2;
+    private javax.swing.JButton removeLocationJButton;
     private javax.swing.JButton removeNPCItemJButton;
+    private javax.swing.JButton removeNPCItemJButton1;
     private javax.swing.JButton removeNPCJButton;
     private javax.swing.JButton removeNPCSpellJButton;
     private javax.swing.JButton removeNPCWeaponJButton;
@@ -2346,6 +2593,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton removePlayerJButton;
     private javax.swing.JButton removePlayerSpellJButton;
     private javax.swing.JButton removePlayerWeaponJButton;
+    private javax.swing.JButton saveLocationNotesJButton;
     private javax.swing.JButton saveNotesJButton;
     private javax.swing.JLabel savingThrowsJLabel;
     private javax.swing.JScrollPane skillsJScrollPane;
@@ -2368,6 +2616,9 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JMenu viewMenu;
     private javax.swing.JLabel welcomeImageLabel;
     private javax.swing.JLabel welcomeLabel;
+    private javax.swing.JLabel welcomeLabel1;
+    private javax.swing.JLabel welcomeLabel2;
+    private javax.swing.JLabel welcomeLabel3;
     private javax.swing.JTextField wisModJTextField;
     private javax.swing.JTextField wisModJTextField1;
     private javax.swing.JSpinner wisModTempJSpinner;
