@@ -7,13 +7,13 @@ import java.util.*;
 import java.io.*;
 
 public class Demonstrations {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // Call whatever demos we want to run at a given time here
         CSVImportDemo();
     }
     
     // Demonstrates CSV import and basic database functionality.
-    public static void CSVImportDemo() {
+    public static void CSVImportDemo() throws IOException {
         Scanner console = new Scanner(System.in);
         System.out.println("Enter the path to the CSV file of enemies you wish to import.");
         System.out.println("Sample file named \"Test_Database_Monsters.csv\"");
