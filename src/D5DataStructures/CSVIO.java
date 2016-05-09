@@ -2,6 +2,7 @@
 // to (and from) a readable format that may be compatible with other programs.
 package D5DataStructures;
 
+import D5DataStructures.DraftClasses.Item;
 import java.io.*;
 import java.util.*;
 
