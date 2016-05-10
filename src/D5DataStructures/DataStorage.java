@@ -41,11 +41,8 @@ public class DataStorage implements java.io.Serializable {
             System.out.println("File not found : " + filePath);
             System.out.println("Dump: \n" + f);
         }
-        catch (IOException i){
-            System.out.println(i);
-        }
     }
-    public void addPlayersFromCSV(String filePath) throws FileNotFoundException {
+    public void addPlayersFromCSV(String filePath){
         try{
             playerList.addAll(CSVIO.importPlayers(filePath));
         }
@@ -53,11 +50,8 @@ public class DataStorage implements java.io.Serializable {
             System.out.println("File not found : " + filePath);
             System.out.println("Dump: \n" + f);
         }
-        catch (IOException i){
-            System.out.println(i);
-        }
     }
-    public void addItemsFromCSV(String filePath) throws FileNotFoundException {
+    public void addItemsFromCSV(String filePath){
         try{
             itemList.addAll(CSVIO.importItems(filePath));
             for (Item i: itemList){
@@ -67,9 +61,6 @@ public class DataStorage implements java.io.Serializable {
         catch (FileNotFoundException f){
             System.out.println("File not found : " + filePath);
             System.out.println("Dump: \n" + f);
-        }
-        catch (IOException i){
-            System.out.println(i);
         }
         
     }

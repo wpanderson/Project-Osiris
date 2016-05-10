@@ -20,19 +20,15 @@ public class Demonstrations {
         System.out.println("Sample file named \"Test_Players.csv\"");
         System.out.print("Filepath: ");
         String filePath = console.next();
-        System.out.println();
-        DataStorage database = new DataStorage();
-        try {
-            database.addPlayersFromCSV(filePath);
-            System.out.println("Successful. Names of players in database:\n");
-            for(Player p : database.getPlayerList()) {  
-                System.out.println(p);
-            }
 
-        } catch(FileNotFoundException e) {
-            System.out.println("File not found. Details:");
-            System.out.println(e.getMessage());
+        DataStorage database = new DataStorage();
+ 
+        database.addPlayersFromCSV(filePath);
+        System.out.println("Successful. Names of players in database : \n");
+        for(Player p : database.getPlayerList()) {  
+            System.out.println(p);
         }
+
     }
     
     public static void CSVItemImportDemo(){
@@ -41,19 +37,16 @@ public class Demonstrations {
         System.out.println("Sample file named \"Test_Items.csv\"");
         System.out.print("Filepath: ");
         String filePath = console.next();
-        System.out.println();
-        DataStorage database = new DataStorage();
-        try {
-            database.addItemsFromCSV(filePath);
-            System.out.println("Successful. Names of Items in database:\n");
-            for(Item p : database.getItemList()) {  
-                System.out.println(p);
-            }
 
-        } catch(FileNotFoundException e) {
-            System.out.println("File not found. Details:");
-            System.out.println(e.getMessage());
+        DataStorage database = new DataStorage();
+  
+        database.addItemsFromCSV(filePath);
+        System.out.println("Successful. Names of Items in database : \n");
+        
+        for(Item p : database.getItemList()) {  
+            System.out.println(p);
         }
+
     }
     
     
@@ -64,20 +57,16 @@ public class Demonstrations {
         System.out.println("Sample file named \"Test_Database_Monsters.csv\"");
         System.out.print("Filepath: ");
         String filePath = console.next();
-        System.out.println();
+
         DataStorage database = new DataStorage();
-        try {
-            database.addEnemiesFromCSV(filePath);
-            System.out.println("Successful. Names of monsters in database:");
-            System.out.println();
-            for(Enemy enemy : database.getEnemyList()) {  
-                System.out.println(" - " + enemy);
-            }
-            System.out.println();
-        } catch(FileNotFoundException e) {
-            System.out.println("File not found. Details:");
-            System.out.println(e.getMessage());
+
+        database.addEnemiesFromCSV(filePath);
+        System.out.println("Successful. Names of monsters in database : \n");
+
+        for(Enemy enemy : database.getEnemyList()) {  
+            System.out.println(enemy);
         }
+
     }
     
     // Add new demos as static methods below, then call in main to use 
