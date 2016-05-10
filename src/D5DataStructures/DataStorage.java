@@ -39,11 +39,14 @@ public class DataStorage implements java.io.Serializable {
     // that contains enemies to be imported.
     // Adds enemies found in the file to the existing database of enemies.
     // To consider: where to perform exception handling.
-    public void addEnemiesFromCSV(String importFilePath) throws FileNotFoundException, IOException {
-        enemyList.addAll(CSVIO.importEnemiesFromCSV(importFilePath));
+    public void addEnemiesFromCSV(String filePath) throws FileNotFoundException, IOException {
+        enemyList.addAll(CSVIO.importEnemies(filePath));
     }
-    public void addPlayersFromCSV(String importFilePath) throws FileNotFoundException {
-        playerList.addAll(CSVIO.importPlayersFromCSV(importFilePath));
+    public void addPlayersFromCSV(String filePath) throws FileNotFoundException {
+        playerList.addAll(CSVIO.importPlayers(filePath));
+    }
+    public void addItemsFromCSV(String filePath) throws FileNotFoundException {
+        itemList.addAll(CSVIO.importItems(filePath));
     }
     
     // Methods to return the lists of entries currently in database.  The UI will

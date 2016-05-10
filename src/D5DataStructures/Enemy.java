@@ -19,17 +19,8 @@ public class Enemy extends Entity {
         expValue = 0;
     }
     
-    public Enemy(String source, String name, String size, String type,
-            ArrayList<String> tags, Entity.Align1 align1, Entity.Align2 align2,
-            
-            // These are unique to Enemy
-            double challenge, int expValue,
-                    
-            int[] stats, int[] skillModifiers) {
-        
-        super(source, name, size, type, tags, align1, align2, stats, skillModifiers);
-        this.challenge = challenge;
-        this.expValue = expValue;
+    public Enemy(HashMap<String, String> stats){
+        super(stats);
     }
     
     // Automatically sets or overwrites the Enemy's challenge rating with a value

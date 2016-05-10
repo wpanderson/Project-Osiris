@@ -8,17 +8,17 @@ package D5DataStructures;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
+import static java.util.UUID.randomUUID;
 
 public class Item {
     
-    private UUID itemID;
-    private UUID getID(){
-        return itemID;
+    public static UUID generateID(){
+        return randomUUID();
     }
 
-    public enum Type { AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, 
-                       THROWN, TWOHANDED, VERSITILE };
+    // Types AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, THROWN, TWOHANDED, VERSITILE
     
     private HashMap<String, String> stats;
     
@@ -76,22 +76,58 @@ public class Item {
     }
     
     public String getNormalRange(){
-        return normal_range;
+        String q = stats.get("Normal_Range");
+        if (q == null){
+            System.out.println("This item does not contain a normal range");
+        }
+        return q;
     }
     
     public String getName(){
-        return name;
+        String q = stats.get("Name");
+        if (q == null){
+            System.out.println("This item does not contain a name");
+        }
+        return q;
     }
     
     public String getCost(){
-        return cost_cp;
+        String q = stats.get("Cost");
+        if (q == null){
+            System.out.println("This item does not contain a cost");
+        }
+        return q;
     }
     
     public String getWeight(){
-        return weight_lb;
+        String q = stats.get("Weight");
+        if (q == null){
+            System.out.println("This item does not contain a weight");
+        }
+        return q;
     }
     
     public String getDamage(){
-        return damage;
+        String q = stats.get("Damage");
+        if (q == null){
+            System.out.println("This item does not contain a damage");
+        }
+        return q;
     }    
+    
+    public UUID getID(){
+        UUID q = UUID.fromString(stats.get("ID"));
+        if (q == null){
+            System.out.println("This item does not contain an id");
+        }
+        return q;
+    }
+    
+    public String toString(){
+        String data = new String();
+        for (Map.Entry<String, String> entry : stats.entrySet()) {
+            data += entry.getKey() + ", " + entry.getValue() + "\n";
+        }
+        return data;
+    }
 }
