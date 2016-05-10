@@ -19,10 +19,7 @@ public class DataStorage implements java.io.Serializable {
     private ArrayList<Item> itemList;
     private ArrayList<Encounter> encounterList;
     
-    // Maps of UUIDs for existing entities and items to pointers to their object
-    // and data. Allows resolution of references to entities and items that may
-    // not have been imported yet.
-    private HashMap<UUID, Entity> entityRefMap;
+    // Item pointer map, allows UI to populate item data for the selected ents
     private HashMap<UUID, Item>   itemRefMap;
     
     // Default constructor; initializes a new empty database.
@@ -31,28 +28,64 @@ public class DataStorage implements java.io.Serializable {
         playerList = new ArrayList<Player>();
         itemList = new ArrayList<Item>();
         encounterList = new ArrayList<Encounter>();
-        entityRefMap = new HashMap<UUID, Entity>();
         itemRefMap = new HashMap<UUID, Item>();
     }
     
-    // Takes in a String representing the file path of a CSV file
-    // that contains enemies to be imported.
-    // Adds enemies found in the file to the existing database of enemies.
-    // To consider: where to perform exception handling.
-    public void addEnemiesFromCSV(String filePath) throws FileNotFoundException, IOException {
-        enemyList.addAll(CSVIO.importEnemies(filePath));
+    // CSV import functions take the path to the CSV and
+    // then parse the data into their respective data types generically
+    public void addEnemiesFromCSV(String filePath){
+        try{
+            enemyList.addAll(CSVIO.importEnemies(filePath));
+        }
+        catch (FileNotFoundException f){
+            System.out.println("File not found : " + filePath);
+            System.out.println("Dump: \n" + f);
+        }
+        catch (IOException i){
+            System.out.println(i);
+        }
     }
     public void addPlayersFromCSV(String filePath) throws FileNotFoundException {
-        playerList.addAll(CSVIO.importPlayers(filePath));
+        try{
+            playerList.addAll(CSVIO.importPlayers(filePath));
+        }
+        catch (FileNotFoundException f){
+            System.out.println("File not found : " + filePath);
+            System.out.println("Dump: \n" + f);
+        }
+        catch (IOException i){
+            System.out.println(i);
+        }
     }
     public void addItemsFromCSV(String filePath) throws FileNotFoundException {
-        itemList.addAll(CSVIO.importItems(filePath));
+        try{
+            itemList.addAll(CSVIO.importItems(filePath));
+            for (Item i: itemList){
+                itemRefMap.put(i.getID(), i);
+            }
+        }
+        catch (FileNotFoundException f){
+            System.out.println("File not found : " + filePath);
+            System.out.println("Dump: \n" + f);
+        }
+        catch (IOException i){
+            System.out.println(i);
+        }
+        
     }
     
-    // Methods to return the lists of entries currently in database.  The UI will
-    // need these.
-    // To do: doesn't make sense to return the entire database each time, so 
-    // modify to only return a single element based on index given as argument.
+    // Add single data values into their respective containers
+    public void addEnemy(Enemy e){
+        enemyList.add(e);
+    }
+    public void addItem(Item i){
+        itemList.add(i);
+    }
+    public void addPlayer(Player p){
+        playerList.add(p);
+    }
+    
+    // Return the entire data containers for iteration, serching, whatever
     public ArrayList<Enemy> getEnemyList() {
         return enemyList;
     }
@@ -64,7 +97,37 @@ public class DataStorage implements java.io.Serializable {
     public ArrayList<Item> getItemList() {
         return itemList;
     }
-
+    
+    // Return a list of items matching a list of UUID's. Single items are
+    // just fine too, just pass it an array of 1 UUID
+    public ArrayList<Item> getItemsMatchingIDs(ArrayList<UUID> ids){
+        ArrayList<Item> items = new ArrayList<Item>();
+        
+        for (UUID u: ids){
+            Item i = itemRefMap.get(u);
+            if (i == null){
+                System.out.println("No item in instance matching : " + u);
+                System.out.println("Perhaps it hasn't been loaded yet?");
+            }
+            else{
+                items.add(i);
+            }
+        }
+        
+        return items;
+    }
+    
+    // Get the player value matching the given name. Name must be exact!!
+    public Player getPlayerByName(String name){
+        for (Player p : playerList){
+            if (p.getStat("Name").equals(name)){
+                return p;
+            }
+        }
+        System.out.println("No player found with name : " + name);
+        return null;
+    }
+    
     public ArrayList<Encounter> getEncounterList() {
         return encounterList;
     }

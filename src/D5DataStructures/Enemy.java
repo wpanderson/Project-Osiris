@@ -5,27 +5,32 @@ package D5DataStructures;
 import java.util.*;
 
 public class Enemy extends Entity {
-    
-    // Indicates the enemy's contribution to the challenge rating of an enemy party.
-    protected double challenge;
-    
-    // Indicates how much experience the enemy will yield when defeated.
-    protected int expValue;
-    
-    // Default constructor; uses dummy values, for initialization only
-    public Enemy() {
+
+    public Enemy(
+            String Name,
+            String ChallengeRating,
+            String XP,
+            String ArmorClassType,
+            String ArmorClass,
+            String Strength,
+            String StrengthMod,
+            String Dexterity,
+            String DexterityMod,
+            String Constitution,
+            String ConstitutionMod,
+            String Intelligence,
+            String IntelligenceMod,
+            String Wisdom,
+            String WidsomMod,
+            String Charisma,
+            String CharismaMod,
+            String HPDice,
+            String HP) {
         super();
-        challenge = 0;
-        expValue = 0;
     }
     
     public Enemy(HashMap<String, String> stats){
         super(stats);
     }
     
-    // Automatically sets or overwrites the Enemy's challenge rating with a value
-    // determined based on its possessed stats.
-    public void determineChallenge() {
-        
-    }
 }
