@@ -7,6 +7,7 @@
 package D5DataStructures;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class Entity {
     
@@ -67,6 +68,7 @@ public class Entity {
     protected int[] skillModifiers;
     
     protected ArrayList<UUID> inventory;
+    protected HashMap<String, String> stat_map;
     
     // Default constructor; sets all entity values to defaults, many of which make
     // little sense from a D&D standpoint. For initialization only.
@@ -91,6 +93,27 @@ public class Entity {
         this.skillModifiers = skillModifiers;
         
         // entity_id = UUID.randomUUID();
+    }
+    
+    public void addStat(String name, String val){
+        if (stat_map.containsKey(name)){
+            System.out.println("Error adding stat, already present : " + name);
+            System.out.println("Overwriting!!!");
+        }
+        
+        stat_map.put(name, val);
+    }
+    
+    public void modStat(String name, String val){
+        String prev_val = stat_map.get(name);
+        
+        if (prev_val == null){
+            System.out.println("Entity does not contain stat : " + name);
+            System.out.println("No modification preformed");
+        }
+        else{
+            prev_val = val;
+        }
     }
     
     // Constructor for populating all values of an entity
@@ -121,6 +144,11 @@ public class Entity {
         calculateStatModifiers();
     }
     
+    public Entity(HashMap<String, String> stats){
+        this();
+        stat_map = stats; 
+    }
+    
     // To do: constructor to populate from import file
     // Runs method to calculate stat modifiers from stats, after stats have been
     // entered
@@ -140,6 +168,10 @@ public class Entity {
     
     // To do: make this return more more meaningful data, for more thorough testing
     public String toString() {
-        return name;
+        String data = new String();
+        for (Map.Entry<String, String> entry : stat_map.entrySet()) {
+            data += entry.getKey() + ", " + entry.getValue() + "\n";
+        }
+        return data;
     }
 }

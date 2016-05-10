@@ -9,8 +9,31 @@ import java.io.*;
 public class Demonstrations {
     public static void main(String[] args) throws IOException {
         // Call whatever demos we want to run at a given time here
-        CSVImportDemo();
+        //CSVImportDemo();
+        CSVPlayerImportDemo();
     }
+    
+    public static void CSVPlayerImportDemo(){
+        Scanner console = new Scanner(System.in);
+        System.out.println("Enter the path to the CSV file of players you wish to import.");
+        System.out.println("Sample file named \"Test_Players.csv\"");
+        System.out.print("Filepath: ");
+        String filePath = console.next();
+        System.out.println();
+        DataStorage database = new DataStorage();
+        try {
+            database.addPlayersFromCSV(filePath);
+            System.out.println("Successful. Names of players in database:\n");
+            for(Player p : database.getPlayerList()) {  
+                System.out.println(p);
+            }
+
+        } catch(FileNotFoundException e) {
+            System.out.println("File not found. Details:");
+            System.out.println(e.getMessage());
+        }
+    }
+    
     
     // Demonstrates CSV import and basic database functionality.
     public static void CSVImportDemo() throws IOException {

@@ -9,6 +9,49 @@ import java.util.*;
 
 public class CSVIO {
     
+    
+    public static ArrayList<Player> importPlayersFromCSV(String filePath)
+            throws FileNotFoundException {
+        ArrayList<Player> players = new ArrayList<Player>();
+        FileReader importFile = new FileReader(filePath);
+        Scanner s = new Scanner(importFile);
+        
+        ArrayList<String> stat_tags = new ArrayList<String>();
+       
+        // Import the stat tags
+        String dict_line = s.nextLine();
+        Scanner delimits = new Scanner(dict_line).useDelimiter(",");
+        while (delimits.hasNext()){
+            stat_tags.add(delimits.next());
+        }
+
+        for (String i : stat_tags){
+            System.out.println(i);
+        }
+        
+        while (s.hasNextLine()){
+            
+            String line = s.nextLine();
+            Scanner stats = new Scanner(line).useDelimiter(",");
+            
+            HashMap<String, String> stat = new HashMap<String, String>();
+            
+            int i = 0;
+            while (stats.hasNext()){
+                String q = stats.next();
+                if (q.equals("")){
+                    q = "nullVal";
+                }
+                stat.put(stat_tags.get(i), q);
+                i++;
+            }
+            
+            players.add(new Player(stat));
+        }
+        
+        return players;
+    }
+    
     // Takes in a String representing the file path of a CSV file
     // that contains enemies to be imported.
     // Returns an ArrayList of enemies found in the file.

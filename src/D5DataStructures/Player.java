@@ -43,6 +43,10 @@ public class Player extends Entity {
         Arrays.fill(skillProfs,false);
     }
     
+    public Player(HashMap<String, String> stats){
+        super(stats);
+    }
+    
     // To do: constructor to populate from import file.  Player's will take in
     // most things normally, but will not take in skill modifiers; instead, these
     // will be calculated from base stats and proficiency bonus.  Will use a
