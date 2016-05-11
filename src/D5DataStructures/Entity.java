@@ -15,21 +15,29 @@ public class Entity {
     // Class : CIVILIAN, BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROUGE, SORCERER, WARLOCK, WIZARD
     // Race  : DRAGONBORN, DWARF, ELF, GNOME, HALF_ELF, HALF_ORC, HALFING, HUMAN, TIEFLING, AARAKOCRA, GENASI, GOLIATH
 
-    protected HashMap<String, String> stat_map;
+    protected HashMap<String, String> stats;
     
     public Entity(){
     }
     
     public void addStat(String name, String val){
-        if (stat_map.containsKey(name)){
+        
+        // Quotes screws things up. Change to double apostrophes
+        val.replaceAll("\"", "''");
+        
+        if (stats.containsKey(name)){
             System.out.println("Error adding stat, already present : " + name);
             System.out.println("Overwriting!!!");
         }   
-        stat_map.put(name, val);
+        stats.put(name, val);
     }
     
     public void modStat(String name, String val){
-        String prev_val = stat_map.get(name);
+        
+        // Quotes screws things up. Change to double apostrophes
+        val.replaceAll("\"", "''");
+        
+        String prev_val = stats.get(name);
         
         if (prev_val == null){
             System.out.println("Entity does not contain stat : " + name);
@@ -40,7 +48,7 @@ public class Entity {
         }
     }
     public String getStat(String name){
-        String val = stat_map.get(name);
+        String val = stats.get(name);
         
         if (val == null){
             System.out.println("Entity does not contain stat : " + name);
@@ -50,14 +58,14 @@ public class Entity {
     }
     
     public Entity(HashMap<String, String> stats){
-        stat_map = stats; 
+        this.stats = stats; 
     }
     
     // To do: make this return more more meaningful data, for more thorough testing
     public String toString() {
         String data = new String();
-        for (Map.Entry<String, String> entry : stat_map.entrySet()) {
-            data += entry.getKey() + ", " + entry.getValue() + "\n";
+        for (Map.Entry<String, String> entry : stats.entrySet()) {
+            data += entry.getKey() + ": " + entry.getValue() + "\n";
         }
         return data;
     }

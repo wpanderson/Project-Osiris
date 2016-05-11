@@ -58,4 +58,31 @@ public class Player extends Entity {
     public Player(HashMap<String, String> stats){
         super(stats);
     }
+    
+    public ArrayList<UUID> getInventoryUUIDs(){
+        String unsplit_ids = stats.get("Inventory");
+        
+        if (unsplit_ids == null){
+            System.out.println("This Player does not contain an Inventory");
+            return null;
+        }
+        
+        String[] split_ids = unsplit_ids.split(", ");
+        
+        ArrayList<UUID> ids = new ArrayList<UUID>();
+        
+        for(String s : split_ids){
+            UUID uuid = null;
+            try{
+                uuid = UUID.fromString(s);
+                ids.add(uuid);
+            }
+            catch (IllegalArgumentException e){
+                System.out.println("UUID invalid for Player Inventory UUID : " + s);
+            }
+            
+        }
+        
+        return ids;
+    }
 }

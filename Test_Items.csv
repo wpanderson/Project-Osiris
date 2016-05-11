@@ -1,3 +1,5 @@
 Name,Cost,Weight,Damage,Normal_Range,Max_Range,ID,Type,Notes
-Dagger,10gp,2lbs,2D4,10,20,120912123,"Finesse, Light, Range","Frost damage, Whispers sweet nothings"
-Sword,21gp,4lbs,2D8,5,10,sdiofj9813948u,"Two Handed, Heavy, Versatile",It glows in the dark
+Dagger,10gp,2lbs,2D4,10,20,d0dca429-d4f9-4448-8172-ce46cfdc7d0e,"Finesse, Light, Range","Frost damage, Whispers sweet nothings"
+Sword,21gp,4lbs,2D8,5,10,9ef1b21d-fb3d-48ca-a93f-ac6e1881d8e7,"Two Handed, Heavy, Versatile",It glows in the dark
+Bow,13gp,2lbs,2D8+missile,20,40,4aaf7582-ed74-4e89-a116-4aae1e99acef,"Range, Thrown",Shoots arrows and other pointy things
+Wagon,100gp,400lbs,,,,328cec7e-c972-4f9f-8c4b-2d5cf77f1555,Special,It has 4 wheels

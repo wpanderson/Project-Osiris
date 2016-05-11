@@ -32,7 +32,7 @@ public class Encounter implements java.io.Serializable {
     }
     
     public void AddEntity(Entity e){
-        entity_ids.add(e.getID());
+       // entity_ids.add(e.getID());
     }
     
     public void RemoveEntity(UUID entity_id){

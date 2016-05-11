@@ -7,7 +7,7 @@ import D5DataStructures.DraftClasses.*;
 import java.util.*;
 import java.io.*;
 
-public class DataStorage implements java.io.Serializable {
+public class DataStorage {
     
     // To consider for future:
     // If we use ArrayLists, we have to implemenet sorting by different variables
@@ -29,6 +29,23 @@ public class DataStorage implements java.io.Serializable {
         itemList = new ArrayList<Item>();
         encounterList = new ArrayList<Encounter>();
         itemRefMap = new HashMap<UUID, Item>();
+    }
+    
+    public DataStorage(String itemsPath, String playersPath){
+        this();
+        // No monster path was given, defaults
+        addEnemiesFromCSV("Default_Monsters.csv");
+    
+        addPlayersFromCSV(playersPath);
+        addItemsFromCSV(itemsPath);
+    }
+    
+    public DataStorage(String itemsPath, String playersPath, String monstersPath){
+        this();
+       
+        addEnemiesFromCSV(monstersPath);
+        addPlayersFromCSV(playersPath);
+        addItemsFromCSV(itemsPath);
     }
     
     // CSV import functions take the path to the CSV and
@@ -113,6 +130,16 @@ public class DataStorage implements java.io.Serializable {
         for (Player p : playerList){
             if (p.getStat("Name").equals(name)){
                 return p;
+            }
+        }
+        System.out.println("No player found with name : " + name);
+        return null;
+    }
+    
+    public Enemy getEnemyByName(String name){
+        for (Enemy e : enemyList){
+            if (e.getStat("Name").equals(name)){
+                return e;
             }
         }
         System.out.println("No player found with name : " + name);

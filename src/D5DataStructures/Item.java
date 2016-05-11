@@ -18,12 +18,13 @@ public class Item {
         return randomUUID();
     }
 
-    // Types AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, THROWN, TWOHANDED, VERSITILE
+   public enum Item_Properties {Ammunition, Finesse, Heavy, Light, Loading, RANGE, REACH, SPECIAL, THROWN, TWOHANDED, VERSITILE, MISC};
     
     private HashMap<String, String> stats;
     
     public Item (HashMap<String, String> stats){
         this.stats = stats;
+ 
     }
     
     public Item(String name,
@@ -32,7 +33,7 @@ public class Item {
                 String damage,
                 String normal_range,
                 String max_range,
-                String id,
+                UUID id,
                 String type,
                 String notes){
         
@@ -43,7 +44,7 @@ public class Item {
         stats.put("Damage", damage);
         stats.put("Normal_Range", normal_range);
         stats.put("Max_Range", max_range);
-        stats.put("ID", id);
+        stats.put("ID", id.toString());
         stats.put("Type", type);
         stats.put("Notes", notes);
         
@@ -65,6 +66,8 @@ public class Item {
         else{
             q += ", " + property;
         } 
+        
+        
     }
     
     public String getMaxRange(){
@@ -116,17 +119,24 @@ public class Item {
     }    
     
     public UUID getID(){
-        UUID q = UUID.fromString(stats.get("ID"));
-        if (q == null){
-            System.out.println("This item does not contain an id");
+        UUID q = null;
+        try{
+            q = UUID.fromString(stats.get("ID"));
+            if (q == null){
+                System.out.println("This item does not contain an id");
+            }
         }
+        catch (IllegalArgumentException e){
+            System.out.println("UUID invalid for Item : " + stats.get("Name") + "\nFailed UUID : " + stats.get("ID"));
+        }
+
         return q;
     }
     
     public String toString(){
         String data = new String();
         for (Map.Entry<String, String> entry : stats.entrySet()) {
-            data += entry.getKey() + ", " + entry.getValue() + "\n";
+            data += entry.getKey() + ": " + entry.getValue() + "\n";
         }
         return data;
     }
