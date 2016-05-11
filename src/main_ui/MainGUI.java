@@ -280,7 +280,6 @@ public class MainGUI extends javax.swing.JFrame {
         locationsJList = new javax.swing.JList();
         newLocationJButton = new javax.swing.JButton();
         removeLocationJButton = new javax.swing.JButton();
-        saveLocationNotesJButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         welcomeLabel3 = new javax.swing.JLabel();
         eventControlsJPanel = new javax.swing.JPanel();
@@ -1696,9 +1695,11 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(locationsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
+                    .addGroup(locationsJPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel33)
+                        .addGap(0, 548, Short.MAX_VALUE))
+                    .addComponent(jScrollPane9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(npcItemsJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1706,14 +1707,11 @@ public class MainGUI extends javax.swing.JFrame {
             locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locationsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(locationsJPanelLayout.createSequentialGroup()
-                        .addGap(0, 107, Short.MAX_VALUE)
-                        .addComponent(npcItemsJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(locationsJPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane9)))
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(npcItemsJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1724,7 +1722,7 @@ public class MainGUI extends javax.swing.JFrame {
         jScrollPane11.setViewportView(eventNotesJTextArea);
 
         jLabel57.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel57.setText("Location Notes:");
+        jLabel57.setText("Campaign Notes:");
 
         javax.swing.GroupLayout eventsNotesJPanelLayout = new javax.swing.GroupLayout(eventsNotesJPanel);
         eventsNotesJPanel.setLayout(eventsNotesJPanelLayout);
@@ -1753,7 +1751,7 @@ public class MainGUI extends javax.swing.JFrame {
         pagesList.setBackground(new java.awt.Color(77, 67, 67));
         pagesList.setForeground(new java.awt.Color(255, 255, 255));
         pagesList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Home", "Players", "NPC's", "Locations", "Events/Notes" };
+            String[] strings = { "Home", "Players", "NPC's", "Locations", "Notes" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -1959,9 +1957,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         removeLocationJButton.setText("Remove Location");
 
-        saveLocationNotesJButton.setMnemonic('s');
-        saveLocationNotesJButton.setText("Save Location");
-
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         welcomeLabel3.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
@@ -1979,7 +1974,6 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(locationControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(newLocationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(saveLocationNotesJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(removeLocationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1995,10 +1989,9 @@ public class MainGUI extends javax.swing.JFrame {
                         .addComponent(newLocationJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(removeLocationJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(saveLocationNotesJButton))
+                        .addGap(44, 44, 44))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         pageControlsJPanel.add(locationControlsJPanel, "locationControlsCard");
@@ -2593,7 +2586,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton removePlayerJButton;
     private javax.swing.JButton removePlayerSpellJButton;
     private javax.swing.JButton removePlayerWeaponJButton;
-    private javax.swing.JButton saveLocationNotesJButton;
     private javax.swing.JButton saveNotesJButton;
     private javax.swing.JLabel savingThrowsJLabel;
     private javax.swing.JScrollPane skillsJScrollPane;
