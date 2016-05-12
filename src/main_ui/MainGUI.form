@@ -3008,10 +3008,13 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane9" min="-2" pref="370" max="-2" attributes="0"/>
-                          <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="548" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane9" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="328" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="npcItemsJPanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -3021,16 +3024,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="107" max="32767" attributes="0"/>
-                              <Component id="npcItemsJPanel1" min="-2" pref="551" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane9" max="32767" attributes="0"/>
-                          </Group>
+                      <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="npcItemsJPanel1" max="32767" attributes="0"/>
+                          <Component id="jScrollPane9" pref="628" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -3282,7 +3280,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Location Notes:"/>
+                <Property name="text" type="java.lang.String" value="Campaign Notes:"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -3344,7 +3342,7 @@
                     <StringItem index="1" value="Players"/>
                     <StringItem index="2" value="NPC&apos;s"/>
                     <StringItem index="3" value="Locations"/>
-                    <StringItem index="4" value="Events/Notes"/>
+                    <StringItem index="4" value="Notes"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -3641,7 +3639,6 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="newLocationJButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="saveLocationNotesJButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="removeLocationJButton" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="54" max="32767" attributes="0"/>
@@ -3660,12 +3657,11 @@
                               <Component id="newLocationJButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="removeLocationJButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="saveLocationNotesJButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3712,12 +3708,6 @@
             <Component class="javax.swing.JButton" name="removeLocationJButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remove Location"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="saveLocationNotesJButton">
-              <Properties>
-                <Property name="mnemonic" type="int" value="115"/>
-                <Property name="text" type="java.lang.String" value="Save Location"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel3">
