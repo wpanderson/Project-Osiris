@@ -1,5 +1,4 @@
-// Maintains all entries in the databases while the program is running.  Can
-// be serialized to store all data currently in program.
+// Maintains all entries in the databases while the program is running.
 
 package D5DataStructures;
 
@@ -9,14 +8,12 @@ import java.io.*;
 
 public class DataStorage {
     
-    // To consider for future:
-    // If we use ArrayLists, we have to implemenet sorting by different variables
-    // of our Enemies, Items, Encounters, etc. manually, and write our own sorting
-    // algorithms.  But I do not know of a data structure that can dynamically sort
-    // by more than one thing anyways.
+    // Containers for the respective data types
     private ArrayList<Enemy> enemyList;
     private ArrayList<Player> playerList;
     private ArrayList<Item> itemList;
+    
+    // Not currently implemented
     private ArrayList<Encounter> encounterList;
     
     // Item pointer map, allows UI to populate item data for the selected ents
@@ -79,7 +76,6 @@ public class DataStorage {
             System.out.println("File not found : " + filePath);
             System.out.println("Dump: \n" + f);
         }
-        
     }
     
     // Add single data values into their respective containers
@@ -132,7 +128,7 @@ public class DataStorage {
                 return p;
             }
         }
-        System.out.println("No player found with name : " + name);
+        System.out.println("No player was found with name : " + name);
         return null;
     }
     
@@ -142,7 +138,7 @@ public class DataStorage {
                 return e;
             }
         }
-        System.out.println("No player found with name : " + name);
+        System.out.println("No enemy was found with name : " + name);
         return null;
     }
     
