@@ -2,145 +2,370 @@
 // to (and from) a readable format that may be compatible with other programs.
 package D5DataStructures;
 
-import D5DataStructures.DraftClasses.Item;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 import java.io.*;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class CSVIO {
     
-    // Takes in a String representing the file path of a CSV file
-    // that contains enemies to be imported.
-    // Returns an ArrayList of enemies found in the file.
-    // Known limitations:
-    // Requires every line to have the expected number of fields (commas) or more.
-    // Will crash if there are too few.
-    public static ArrayList<Enemy> importEnemiesFromCSV(String importFilePath) 
-            throws FileNotFoundException, IOException {
-        BufferedReader br = null;   
-	    String line; // To hold each line read in
-
-        ArrayList<Enemy> enemyList = new ArrayList(); // Hold array of enemies
-        br = new BufferedReader(new FileReader(importFilePath));
-        br.readLine(); // Skip the first title line in file
-        while ((line = br.readLine()) != null) {
-
-		    // Creates a string array with the stats/info for the enemy
-            // delimited by "," or tags are "tag1, tag2, tag3"
-            String[] enemy = line.split("\"?(,|$)(?=(([^\"]*\"){2})*[^\"]*$)\"?");
-            String source = enemy[0];
-            String name = enemy[1];
-            String size = enemy[2];
-            String type = enemy[3];
-
-            // Mutliple tags are added as a single string
-            // For example: human, shapechanger is stored as a single
-            // string "human, shapechanger"
-            String tagString = enemy[4];
-            ArrayList<String> tags = new ArrayList();
+    private static String csv_regex = "\"([^\"]*)\"|(?<=,|^)([^,]*)(?:,|$)";
+    
+    public static ArrayList<Player> importPlayers(String filePath)
+            throws FileNotFoundException {
+        
+        // Open up the file
+        FileReader importFile = new FileReader(filePath);
+        Scanner s = new Scanner(importFile);
+        
+        ArrayList<Player> players = new ArrayList<Player>();
+        ArrayList<String> stat_tags = new ArrayList<String>();
+       
+        // Import the stat tags
+        String dict_line = s.nextLine();
+        Scanner delimits = new Scanner(dict_line).useDelimiter(",");
+        while (delimits.hasNext()){
+            stat_tags.add(delimits.next());
+        }
+        
+        // Populate the hashmap
+        while (s.hasNextLine()){
             
-            // For multiple tags, each tag is converted into a string
-            // then added to the tags ArrayList
-            if (tagString.contains(",")){
-                Scanner tagScanner = new Scanner(tagString).useDelimiter(",");
-                while (tagScanner.hasNext())
-                // add each tag and remove extra space
-                tags.add(tagScanner.next().replace(" ", ""));
+            // luv u stackoverflow
+            String line = s.nextLine();
+            Matcher m = Pattern.compile(csv_regex).matcher(line);
+            
+            HashMap<String, String> stat = new HashMap<String, String>();
+            
+            int i = 0;
+            while (m.find()) {
+                String q;
+                if (m.group(1) != null) {
+                    q = m.group(1);
+                } 
+                else {
+                    q = m.group(2);
+                }
+                if (q.equals("")){
+                    q = "nullVal"; // If no val was given, set to null
+                }
+                stat.put(stat_tags.get(i), q); // Add to the hashmap
+                
+                i++;
             }
-            // Otherwise add single tag
-            else{
-                tags.add(tagString);
+            
+            players.add(new Player(stat));
+        }
+        
+        return players;
+    }
+    public static ArrayList<Enemy> importEnemies(String filePath)
+            throws FileNotFoundException {
+        
+        // Open up the file
+        FileReader importFile = new FileReader(filePath);
+        Scanner s = new Scanner(importFile);
+        
+        ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+        ArrayList<String> stat_tags = new ArrayList<String>();
+       
+        // Import the stat tags
+        String dict_line = s.nextLine();
+        Scanner delimits = new Scanner(dict_line).useDelimiter(",");
+        while (delimits.hasNext()){
+            stat_tags.add(delimits.next());
+        }
+        
+        // Populate the hashmap
+        while (s.hasNextLine()){
+
+            // luv u stackoverflow
+            String line = s.nextLine();
+            Matcher m = Pattern.compile(csv_regex).matcher(line);
+            
+            HashMap<String, String> stat = new HashMap<String, String>();
+            
+            int i = 0;
+            while (m.find()) {
+                String q;
+                if (m.group(1) != null) {
+                    q = m.group(1);
+                } 
+                else {
+                    q = m.group(2);
+                }
+                if (q.equals("")){
+                    q = "nullVal"; // If no val was given, set to null
+                }
+                stat.put(stat_tags.get(i), q); // Add to the hashmap
+                
+                i++;
             }
+    
+            enemies.add(new Enemy(stat));
+        }
+        
+        return enemies;
+    }
+    public static ArrayList<Item> importItems(String filePath)
+            throws FileNotFoundException {
+
+        ArrayList<Item> items = new ArrayList<Item>();
+        FileReader importFile = new FileReader(filePath);
+        Scanner s = new Scanner(importFile);
+
+        ArrayList<String> stat_tags = new ArrayList<String>();
+
+        // Import the stat tags
+        String dict_line = s.nextLine();
+        Scanner delimits = new Scanner(dict_line).useDelimiter(",");
+        while (delimits.hasNext()){
+            stat_tags.add(delimits.next());
+        }
+
+        while (s.hasNextLine()){
+            // luv u stackoverflow
+            String line = s.nextLine();
+            Matcher m = Pattern.compile(csv_regex).matcher(line);
+            
+            HashMap<String, String> stat = new HashMap<String, String>();
+            
+            int i = 0;
+            while (m.find()) {
+                String q;
+                if (m.group(1) != null) {
+                    q = m.group(1);
+                } 
+                else {
+                    q = m.group(2);
+                }
+                if (q.equals("")){
+                    q = "nullVal"; // If no val was given, set to null
+                }
+                stat.put(stat_tags.get(i), q); // Add to the hashmap
                 
-            Entity.Align1 align1;
-            Entity.Align2 align2;
-                        
-            String alignString = enemy[5]; // Holds alignment string
-                      
-            if(alignString.contains("L")) 
-                align1 = Entity.Align1.LAWFUL;
-            else if(alignString.contains("C"))
-                align1 = Entity.Align1.CHAOTIC;
-            else 
-                align1 = Entity.Align1.NEUTRAL;
-             
-            if(alignString.contains("G")) 
-                align2 = Entity.Align2.GOOD;
-            else if(alignString.contains("E")) 
-                align2 = Entity.Align2.EVIL;
-            else if(alignString.contains("S")) 
-                align2 = Entity.Align2.SCIENTIFIC;
-            else 
-                align2 = Entity.Align2.NEUTRAL;
-         
-            // Sets challenge rating if present
-            double challenge = 0.0;
-            if (!enemy[6].equals(""))
-                challenge = Double.parseDouble(enemy[6]);
-                
-            // Sets expValue if present
-            int expValue = 0;
-            if (!enemy[7].equals(""))
-                expValue = Integer.parseInt(enemy[7]);
-                
-            // Holds stats if present, otherwise set to 0
-            int[] stats = new int[6];
-            Arrays.fill(stats, 0);
-            for (int i = 8; i < (8+6); i++){
-                if (!enemy[i].equals(""))
-                stats[i-8] = Integer.parseInt(enemy[i]);
+                i++;
             }
-                
-            // Holds skill modifiers if present, otherwise set to 0
-            int[] skillModifiers = new int[18];
-            Arrays.fill(skillModifiers, 0);
-            for (int i = 14; i < (14+18); i++){
-                if (!enemy[i].equals(""))
-                    skillModifiers[i-14] = Integer.parseInt(enemy[i]);
-            }
-                
-            Enemy currentEnemy = new Enemy(source, name, size, type, tags, align1, 
-                align2, challenge, expValue, stats, skillModifiers);
-            enemyList.add(currentEnemy);
-        } // end while loop
-     
-        return enemyList;
+            
+            items.add(new Item(stat));
+        }
+
+        return items;
     }
     
-    
-    // Takes in a string file path of item list to be imported.
-    // No return is specified yet because I'm not sure how we want the 
-    // imported information to be stored.
-    public ArrayList<Item> importItemsFromCSV (String filePath)
-        throws FileNotFoundException, IOException{
-        BufferedReader br = null;   
-	    String line; // To hold each line read in
-        ArrayList<Enemy> itemList = new ArrayList(); // Hold arrayList of items
+    public static void exportPlayers(String filePath, ArrayList<Player> players) {
+        
+        // The main output array
+        ArrayList<String[]> fileRows = new ArrayList<String[]>();
+        
+        // To add things without the full set of items you must find the union
+        // of all of them
+        HashMap<String, String> header_hash_map = new HashMap<String, String>();
+        
+        // This is pretty slow
+        for(Player p: players){
+            HashMap<String, String> player_stat_map = p.exportStats(); 
+ 
+            for (Map.Entry<String, String> e: player_stat_map.entrySet()){ // For each stat that the player contains
+                header_hash_map.put(e.getKey(), "null");                   // Add it to the list. May overwrite duplicate value 
+            }                                                              // but that's the point
+        }
+        
+        // Now transpose that into an array so it can be written to the head of the csv
+        String csv_header[] = new String[header_hash_map.size()];
+        int i = 0;
+        for (Map.Entry<String, String> e: header_hash_map.entrySet()){
+                csv_header[i] = e.getKey();
+                i++;
+        }
+       
+        // Sort it to make it purty
+        Arrays.sort(csv_header);
+        
+        // Add the header, and now we're good to go to start writing player values
+        fileRows.add(csv_header);
 
-        br = new BufferedReader(new FileReader(filePath));
-        br.readLine(); // Skip the first title line in file
-        while ((line = br.readLine()) != null) {
+        // For each stat is the header, lookup the stat for the player and add it
+        // to it's row. And then add that row to the main output array
+        for(Player p: players){
+            HashMap<String, String> player_stats = p.exportStats(); 
             
-            // To split each string by "," or multiple commas in quotes
-            String[] item = line.split("\"?(,|$)(?=(([^\"]*\"){2})*[^\"]*$)\"?");
-            String source, name, type, rarity, attunement="", notes="";
+            String[] data = new String[csv_header.length];
             
-            // Set specified variables
-            source = item[0];
-            name = item [1]; 
-            type = item[2];
-            rarity = item [3];
+            int q = 0;
+            for (String stat_header: csv_header){
+                String val = player_stats.get(stat_header);
+                if (val == null){                  // If the player didn't have the stat
+                    val = "null";                  // put null in its place
+                }
+                data[q] = val;
+                q++;
+            }
             
-            // Sets attunement if present
-            if (item.length > 4)
-                attunement = item[4];
-      
-            // Sets notes if present
-            if (item.length > 5)
-                notes = item[5];
-
-            } // end while loop                
-
-        return null; // Will change once a better item() constructor is specified
+            // Now that we have gotten all of the players stats, 
+            // add it to the main output file
+            fileRows.add(data);
+        }
+        
+        // Now we have all of the data for all of the players. Start writing the file
+        
+        try{
+            CSVWriter writer = new CSVWriter(new FileWriter(filePath), ',');
+            for (String[] s: fileRows){
+                writer.writeNext(s);
+            }
+            
+            // And now close the file
+            writer.close();
+        }
+        catch(IOException e){
+            System.out.println("CSVIO export failed.");
+            System.out.println(e);
+        }
+        
     }
+    public static void exportEnemies(String filePath, ArrayList<Enemy> enemies){
+        
+        // The main output array
+        ArrayList<String[]> fileRows = new ArrayList<String[]>();
+        
+        // To add things without the full set of items you must find the union
+        // of all of them
+        HashMap<String, String> header_hash_map = new HashMap<String, String>();
+        
+        // This is pretty slow
+        for(Enemy p: enemies){
+            HashMap<String, String> player_stat_map = p.exportStats(); 
+ 
+            for (Map.Entry<String, String> e: player_stat_map.entrySet()){ // For each stat that the player contains
+                header_hash_map.put(e.getKey(), "null");                   // Add it to the list. May overwrite duplicate value 
+            }                                                              // but that's the point
+        }
+        
+        // Now transpose that into an array so it can be written to the head of the csv
+        String csv_header[] = new String[header_hash_map.size()];
+        int i = 0;
+        for (Map.Entry<String, String> e: header_hash_map.entrySet()){
+                csv_header[i] = e.getKey();
+                i++;
+        }
+       
+        // Sort it to make it purty
+        Arrays.sort(csv_header);
+        
+        // Add the header, and now we're good to go to start writing player values
+        fileRows.add(csv_header);
+
+        // For each stat is the header, lookup the stat for the player and add it
+        // to it's row. And then add that row to the main output array
+        for(Enemy p: enemies){
+            HashMap<String, String> player_stats = p.exportStats(); 
+            
+            String[] data = new String[csv_header.length];
+            
+            int q = 0;
+            for (String stat_header: csv_header){
+                String val = player_stats.get(stat_header);
+                if (val == null){                  // If the player didn't have the stat
+                    val = "null";                  // put null in its place
+                }
+                data[q] = val;
+                q++;
+            }
+            
+            // Now that we have gotten all of the players stats, 
+            // add it to the main output file
+            fileRows.add(data);
+        }
+        
+        // Now we have all of the data for all of the players. Start writing the file
+        
+        try{
+            CSVWriter writer = new CSVWriter(new FileWriter(filePath), ',');
+            for (String[] s: fileRows){
+                writer.writeNext(s);
+            }
+            
+            // And now close the file
+            writer.close();
+        }
+        catch(IOException e){
+            System.out.println("CSVIO export failed.");
+            System.out.println(e);
+        }
+    }
+    public static void exportItems(String filePath, ArrayList<Item> items){
+        // The main output array
+        ArrayList<String[]> fileRows = new ArrayList<String[]>();
+        
+        // To add things without the full set of items you must find the union
+        // of all of them
+        HashMap<String, String> header_hash_map = new HashMap<String, String>();
+        
+        // This is pretty slow
+        for(Item p: items){
+            HashMap<String, String> player_stat_map = p.exportStats(); 
+ 
+            for (Map.Entry<String, String> e: player_stat_map.entrySet()){ // For each stat that the player contains
+                header_hash_map.put(e.getKey(), "null");                   // Add it to the list. May overwrite duplicate value 
+            }                                                              // but that's the point
+        }
+        
+        // Now transpose that into an array so it can be written to the head of the csv
+        String csv_header[] = new String[header_hash_map.size()];
+        int i = 0;
+        for (Map.Entry<String, String> e: header_hash_map.entrySet()){
+                csv_header[i] = e.getKey();
+                i++;
+        }
+       
+        // Sort it to make it purty
+        Arrays.sort(csv_header);
+        
+        // Add the header, and now we're good to go to start writing player values
+        fileRows.add(csv_header);
+
+        // For each stat is the header, lookup the stat for the player and add it
+        // to it's row. And then add that row to the main output array
+        for(Item p: items){
+            HashMap<String, String> player_stats = p.exportStats(); 
+            
+            String[] data = new String[csv_header.length];
+            
+            int q = 0;
+            for (String stat_header: csv_header){
+                String val = player_stats.get(stat_header);
+                if (val == null){                  // If the player didn't have the stat
+                    val = "null";                  // put null in its place
+                }
+                data[q] = val;
+                q++;
+            }
+            
+            // Now that we have gotten all of the players stats, 
+            // add it to the main output file
+            fileRows.add(data);
+        }
+        
+        // Now we have all of the data for all of the players. Start writing the file
+        
+        try{
+            CSVWriter writer = new CSVWriter(new FileWriter(filePath), ',');
+            for (String[] s: fileRows){
+                writer.writeNext(s);
+            }
+            
+            // And now close the file
+            writer.close();
+        }
+        catch(IOException e){
+            System.out.println("CSVIO export failed.");
+            System.out.println(e);
+        }
+    }
+    
+
 }

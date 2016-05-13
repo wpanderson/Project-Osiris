@@ -1,0 +1,5 @@
+"Cost","Damage","ID","Max_Range","Name","Normal_Range","Notes","Type","Weight"
+"10gp","2D4","d0dca429-d4f9-4448-8172-ce46cfdc7d0e","20","Dagger","10","Frost damage, Whispers sweet nothings","Finesse, Light, Range","2lbs"
+"21gp","2D8","9ef1b21d-fb3d-48ca-a93f-ac6e1881d8e7","10","Sword","5","It glows in the dark","Two Handed, Heavy, Versatile","4lbs"
+"13gp","2D8+missile","4aaf7582-ed74-4e89-a116-4aae1e99acef","40","Bow","20","Shoots arrows and other pointy things","Range, Thrown","2lbs"
+"100gp","nullVal","328cec7e-c972-4f9f-8c4b-2d5cf77f1555","nullVal","Wagon","nullVal","It has 4 wheels","Special","400lbs"
