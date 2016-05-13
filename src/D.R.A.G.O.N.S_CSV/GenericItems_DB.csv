@@ -1,0 +1,182 @@
+Item,Cost,Weight
+Abacus,2gp,2
+Acid,25gp,1
+Alchemist's fire (flask),50gp,1
+Arrows,1gp,1
+Blowgun needles,1gp,1
+Crossbow bolts,1gp,1.5
+Sling bullets,4cp,1.5
+Antitoxin(vial),50gp,
+Crystal,10gp,1
+Orb,20gp,3
+Rod,10gp,2
+Staff,5gp,4
+Wand,10gp,1
+Backpack,2gp,5
+Ball bearings(1000),1gp,2
+Barrel,2gp,70
+Basket,4sp,2
+Bedroll,1gp,7
+Bell,1gp,
+Blanket,5sp,3
+Block and tackle,1gp,5
+Book,25gp,5
+Bottle(glass),2gp,2
+Bucket,5cp,2
+Caltrops(20),1gp,2
+Candle,1cp,
+Case(crossbow bolt),1gp,1
+Case(map or scroll),1gp,1
+Chain(10ft),5gp,10
+Chalk(1piece,1cp,
+Chest,5gp,25
+Climber's kit,25gp,12
+Clothes(common),5sp,3
+Clothes(costume),5gp,4
+Clothes(fine),15gp,6
+Clothes(traveler's),2gp,4
+Component pouch,25gp,2
+Crowbar,2gp,5
+Sprig of mistletoe,1gp,
+Totem,1gp,
+Wooden staff,5gp,4
+Yew wand,10gp,1
+Fishing tackle,1gp,4
+Flask or tankard,2cp,1
+Grappling hook,2gp,4
+Hammer,1gp,3
+Sledge Hammer,2gp,10
+Healer's kit,5gp,3
+Amulet,5gp,1
+Emblem,5gp,
+Reliquary,5gp,2
+Holy water (flask),25gp,1
+Hourglass,25gp,1
+Hunting trap,5gp,25
+Ink(1 ounce bottle),10gp,
+Ink pen,2cp,
+Jug or pitcher,2cp,4
+Ladder (10-foot),1sp,25
+Lamp,5sp,1
+Lantern(bullseye),10gp,2
+Lantern(hooded),5gp,2
+Lock,10gp,1
+Magnifying glass,100gp,
+Manacles,2gp,6
+Mess kit,2sp,1
+Mirror(steel),5gp,0.5
+Oil(flask),1sp,1
+Paper(one sheet),2sp,
+Parchment,1sp,
+Perfume(vial),5gp,
+Pick(miner's),2gp,10
+Piton,5cp,0.25
+Poison(vial/basic),100gp,
+Pole(10-foot),5cp,7
+Pot(iron),2gp,10
+Potion of healing,50gp,0.5
+Pouch,5sp,1
+Quiver,1gp,1
+Ram(portable),4gp,35
+Rations(1 day),5gp,2
+Robes,1gp,4
+Rope(hempen/50 feet),1gp,10
+Rope(silk/50 feet),10gp,5
+Sack,1cp,0.5
+scale(merchant's),5gp,3
+Sealing wax,5sp,
+Shovel,2gp,5
+Signal whistle,5cp,
+Signet ring,5gp,
+Soap,2cp,
+Spellbook,50gp,3
+Spikes(iron/10),1gp,5
+Spyglass,1000gp,1
+Tent(two person),2gp,20
+Tinderbox,5sp,1
+Torch,1cp,1
+Vial,1gp,
+Waterskin,2sp,5
+Whetstone,1cp,1
+Alchemist's supplies,50gp,8
+Brewer's Supplies,20gp,9
+Caligraphger's supplies,10gp,5
+Carpenter's toolfs,8gp,6
+Cartographer's tools,15gp,6
+Cobbler's tools,5gp,5
+Cook's utensils,1gp,8
+Glassblower's tools,30gp,5
+Jeweler's tools,25gp,2
+Leatherworker's tools,5gp,5
+Mason's tools,10gp,8
+Painter's supplies,10gp,5
+Potter's tools,10gp,3
+Smith's Tools,20gp,8
+Tinker's tools,50gp,10
+Weaver's tools,1gp,5
+Woodcarver's tools,1gp,5
+Disguise kit,25gp,3
+Forgery kit,15gp,5
+Dive set,1sp,
+Dragonchess set,1gp,0.5
+Player card set,5sp,
+Three-Dragon Ante set,1gp,
+Herbalism kit,5gp,3
+Bagppes,30gp,6
+Drum,6gp,3
+Dulcimer,25gp,10
+Flue,2gp,1
+Lute,35gp,2
+Lure,30gp,2
+Horn,3gp,2
+Pan Flute,12gp,2
+Shawm,2gp,1
+Viol,30gp,1
+Navigator's tools,25gp,2
+Poisoner;s kit,50gp,2
+Thieves' tools,25gp,1
+Barding,x4,x2
+Bit and bridle,2gp,1
+Carriage,100gp,600
+Cartographer's tools,15gp,200
+Chariot,250gp,100
+Feed(daily),5cp,10
+Exotic saddle,60gp,40
+Military saddle,20gp,30
+Pack saddle,5gp,15
+Riding saddle,10gp,25
+Saddlebags,4gp,8
+Sledge Hammer,20gp,300
+Stabling(daily),5sp,
+Wagon,35gp,400
+Wheat,1cp,1
+Flour,2cp,1
+Chicken,2cp,
+Salt,5cp,1
+Iron,1sp,1
+Canvas,1sp,1
+Copper,5sp,1
+Cotton cloth(1sq.yd),5sp,
+Ginger,1gp,1
+Goat,1gp,
+Cinnamon,2gp,1
+Pepper,2gp,1
+Sheep,2gp,
+Cloves,3gp,1
+Pig,3gp,
+Silver,5gp,1
+Linen(1sq.yd),5gp,
+Silk(1sq.yd),10gp,
+Cow,10gp,
+Saffron,15gp,1
+Ox,15gp,
+Gold,50gp,1
+Platinum,500gp,1
+Ale(gallon),2sp,
+Ale(Mug),4cp,
+Banquet,10gp,
+Bread loaf,2cp,
+Cheese,1sp,
+Meat,3sp,
+Wine(common),2sp,
+Wine(fine),10GP,

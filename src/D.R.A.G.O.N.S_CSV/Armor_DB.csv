@@ -1,0 +1,14 @@
+Type,Subtype,Name,Cost,ArmorClass,Strength,weight,Stealth
+Armor,Light,Padded,5gp,11+Dex modifier,,8,Disadvantage
+Armor,Light,Leather,10gp,11+Dex modifier,,10,
+Armor,Light,Studded,45gp,12+Dex modifier,,13,
+Armor,Medium,Hide,10gp,12+Dex modifer(max 2),,12,
+Armor,Medium,Chain Shirt,50gp,13+Dex modifier(max 2),,20,
+Armor,Medium,Scale mail,50gp,14+Dex modifier(max 2),,45,Disadvantage
+Armor,Medium,Breastplate,400gp,14+Dex modifier(max 2),,20,
+Armor,Medium,Half place,750gp,15+Dex modifier(max 2),,40,Disadvantage
+Armor,Heavy,Ring mail,30gp,14,,40,Disadvantage
+Armor,Heavy,Chain mail,75gp,16,13,55,Disadvantage
+Armor,Heavy,Splint,200gp,17,15,60,Disadvantage
+Armor,Heavy,Plate,1500gp,18,15,65,Disadvantage
+Armor,Shield,Shield,10gp,2,,6,

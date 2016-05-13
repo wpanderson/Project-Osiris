@@ -1,0 +1,16 @@
+Mount,Cost,Speed,Carraying Capacity
+Camel,50gp,50,480ft
+Donkey,8gp,40,420ft
+Mule,200gp,40,420ft
+Elephant,50gp,40,1320ft
+Draft horse,75gp,40,540ft
+Riding horse,25gp,60,480ft
+Mastiff,30gp,40,195ft
+Pony,400gp,40,225ft
+Warhorse,,60,540ft
+Galley,30000gp,4mph,
+Keelboat,3000gp,1mph,
+Longship,10000gp,3mph,
+Rowboat,50gp,1.5mph,
+Sailing ship,10000gp,2mph,
+Warship,25000gp,2.5mph,

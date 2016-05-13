@@ -1,0 +1,39 @@
+Type,SubType,Cost,Damage,DamageType,Weight,Properties,Range
+Simple melee,Club,1sp,1d4,bludgeoning,2,Light,
+Simple melee,Dagger,2gp,1d3,piercing,1,Finesse/Light/Thrown,20/60
+Simple melee,Greatclub,2sp,1d8,bludgeoning,10,Two-handed,
+Simple melee,Handaxe,5gp,1d6,slashing,2,Light/Thrown,20/60
+Simple melee,javelin,5sp,1d6,piercing,range,Thrown,30/120
+Simple melee,Light hammer,2gp,1d4 ,bludgeoning,2,Light/Thrown,20/60
+Simple melee,Mace,5gp,1d6,bludgeoning,4,,
+Simple melee,Quarterstaff,2sp,1d6,bludgeoning,4,Versatile(1d8),
+Simple melee,Sickle,1gp,1d4 ,slashing,2,Light,
+Simple melee,Spear,1gp,1d6,piercing,3,Thrown,20/60
+Simple melee,Unarmed,,1,,,,
+Simple ranged,Crossbow,25gp,1d8,piercing,5,Ammunition/loading/two-handed,80/320
+Simple ranged,Dart,5cp,1d4,piercing,0.25,Finesse/Thrown,20/60
+Simple ranged,Shortbow,25gp,1d6,piercing,2,"Ammunition,two-handed",80/320
+Simple ranged,Sling,1sp,1d4,bludgeoning,,Amunition,30/120
+Martial Melee,Battleaxe,10gp,1d8,slashing,4,Versatile(1d10),
+Martial Melee,Flail,10gp,1d8,bludgeoning,2,,
+Martial Melee,Glaive,20gp,1d10,slashing,6,Heavy/reach/two-handed,
+Martial Melee,Greataxe,30gp,1d12,slashing,7,Heavy/two-handed,
+Martial Melee,Greatsword,50gp,2d6,slashing,6,Heavy/two-handed,
+Martial Melee,Halberd,20gp,1d10,slashing,6,Heavy/reach/two-handed,
+Martial Melee,Lance,10gp,1d12,slashing,6,Reach/speacial,
+Martial Melee,Longsword,15gp,1d8,slashing,3,Versatile(1d10),
+Martial Melee,Maul,10gp,2d6,bludgeoning,10,Heavy/two-handed,
+Martial Melee,Morningstar,15gp,1d8,piercing,4,,
+Martial Melee,Pike,5gp,1d10,piercing,18,Heavy/reach/two-handed,
+Martial Melee,Rapier,25gp,1d8,piercing,2,Finesse,
+Martial Melee,scimitar,25gp,1d6,slashing,3,Finesse/light,
+Martial Melee,Shortsword,10gp,1d6,piercing,2,Finesse/light,
+Martial Melee,Trident,5gp,1d6,piercing,4,Thrown/versatile(1d10),20/60
+Martial Melee,War pick,5gp,1d8,piercing,2,,
+Martial Melee,Warhammer,15gp,1d8,bludgeoning,2,Versatile(1d10),
+Martial Melee,Whip,2gp,1d4,slashing,3,Finesse/reach,
+Martial Ranged,Blowgun,10gp,1,,1,Ammunition/loading,25/100
+Martial Ranged,Crossbow(hand),75gp,1d6,,3,Ammunition/light/loading,30/120
+Martial Ranged,Crossbow(heavy),50gp,1d10,,18,Ammunition/heavy/loading/two-handed,100/400
+Martial Ranged,Longbow,50gp,1d8,,2,Ammunition/loading/two-handed,150/600
+Martial Ranged,net,1gp,,,3,Special/thrown,5/15
