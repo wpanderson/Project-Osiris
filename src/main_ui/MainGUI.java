@@ -22,7 +22,7 @@ public class MainGUI extends javax.swing.JFrame {
     //strings These are the main lists that will
     //be needed. :)
     private ArrayList<Player> playerList = new ArrayList();
-    private ArrayList<Entity> npcList = new ArrayList();
+    //private ArrayList<Entity> npcList = new ArrayList();
     private ArrayList<Enemy> enemyList = new ArrayList();
     //private ArrayList<Location> locationList = new ArrayList();
     
@@ -145,6 +145,8 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        playerLevelDownJButton = new javax.swing.JButton();
+        playerLevelUpJButton = new javax.swing.JButton();
         npcJPanel = new javax.swing.JPanel();
         npcDetailsJPanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -263,7 +265,6 @@ public class MainGUI extends javax.swing.JFrame {
         playersJScrollPanel = new javax.swing.JScrollPane();
         playersJList = new javax.swing.JList();
         newPlayerJButton = new javax.swing.JButton();
-        saveNotesJButton = new javax.swing.JButton();
         removePlayerJButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         welcomeLabel2 = new javax.swing.JLabel();
@@ -280,10 +281,11 @@ public class MainGUI extends javax.swing.JFrame {
         locationsJList = new javax.swing.JList();
         newLocationJButton = new javax.swing.JButton();
         removeLocationJButton = new javax.swing.JButton();
-        saveLocationNotesJButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         welcomeLabel3 = new javax.swing.JLabel();
         eventControlsJPanel = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        welcomeLabel4 = new javax.swing.JLabel();
         mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -297,7 +299,6 @@ public class MainGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dungeon Master Companion");
         setBackground(new java.awt.Color(51, 51, 51));
-        setMaximumSize(new java.awt.Dimension(1000, 1000));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mainToolBar.setBorder(null);
@@ -341,10 +342,6 @@ public class MainGUI extends javax.swing.JFrame {
         welcomeLabel.setText("Welcome to version 1.0 of D.R.A.G.O.N.S");
         welcomeLabel.setToolTipText("");
 
-        welcomeImageLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Wes\\Documents\\CWU Stuff\\Software Engineering\\Project Osiris\\Project Osiris\\smaller.jpg")); // NOI18N
-
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Wes\\Documents\\CWU Stuff\\Software Engineering\\Project Osiris\\Project Osiris\\bruh.jpg")); // NOI18N
-
         javax.swing.GroupLayout homeJPanelLayout = new javax.swing.GroupLayout(homeJPanel);
         homeJPanel.setLayout(homeJPanelLayout);
         homeJPanelLayout.setHorizontalGroup(
@@ -379,12 +376,10 @@ public class MainGUI extends javax.swing.JFrame {
         playersJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Player Notes:");
         playersJPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
         playerNotesJTextArea.setEditable(false);
-        playerNotesJTextArea.setBackground(new java.awt.Color(255, 255, 255));
         playerNotesJTextArea.setColumns(20);
         playerNotesJTextArea.setRows(5);
         playerNotesJTextArea.setWrapStyleWord(true);
@@ -393,7 +388,6 @@ public class MainGUI extends javax.swing.JFrame {
         playersJPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 370, 490));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Attributes:");
         playersJPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 6, -1, -1));
 
@@ -401,7 +395,6 @@ public class MainGUI extends javax.swing.JFrame {
         attributesJPanel.setToolTipText("");
         attributesJPanel.setLayout(new java.awt.GridLayout(6, 3));
 
-        strengthJLabel.setForeground(new java.awt.Color(0, 0, 0));
         strengthJLabel.setText("Strength:");
         attributesJPanel.add(strengthJLabel);
 
@@ -411,7 +404,6 @@ public class MainGUI extends javax.swing.JFrame {
         strengthJTextField.setToolTipText("(Athletics)");
         attributesJPanel.add(strengthJTextField);
 
-        dexterityJLabel.setForeground(new java.awt.Color(0, 0, 0));
         dexterityJLabel.setText("Dexterity:");
         attributesJPanel.add(dexterityJLabel);
 
@@ -421,7 +413,6 @@ public class MainGUI extends javax.swing.JFrame {
         dexterityJTextField.setToolTipText("(Acrobatics, Stealth)");
         attributesJPanel.add(dexterityJTextField);
 
-        constitutionJLabel.setForeground(new java.awt.Color(0, 0, 0));
         constitutionJLabel.setText("Constitution:");
         attributesJPanel.add(constitutionJLabel);
 
@@ -431,7 +422,6 @@ public class MainGUI extends javax.swing.JFrame {
         constitutionJTextField.setToolTipText("");
         attributesJPanel.add(constitutionJTextField);
 
-        intelligenceJLabel.setForeground(new java.awt.Color(0, 0, 0));
         intelligenceJLabel.setText("Intelligence:");
         attributesJPanel.add(intelligenceJLabel);
 
@@ -441,7 +431,6 @@ public class MainGUI extends javax.swing.JFrame {
         intelligenceJTextField.setToolTipText("(Arcana, History, Investigation, Nature, Religion)");
         attributesJPanel.add(intelligenceJTextField);
 
-        wisdomJLabel.setForeground(new java.awt.Color(0, 0, 0));
         wisdomJLabel.setText("Wisdom:");
         attributesJPanel.add(wisdomJLabel);
 
@@ -451,7 +440,6 @@ public class MainGUI extends javax.swing.JFrame {
         wisdomJTextField.setToolTipText("(Animal Handling, Insight, Medicine, Perception, Survival)");
         attributesJPanel.add(wisdomJTextField);
 
-        charismaJLabel.setForeground(new java.awt.Color(0, 0, 0));
         charismaJLabel.setText("Charisma:");
         attributesJPanel.add(charismaJLabel);
 
@@ -464,23 +452,19 @@ public class MainGUI extends javax.swing.JFrame {
         playersJPanel.add(attributesJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 31, 144, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("XXXX");
         playersJPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
 
         characterRaceJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        characterRaceJLabel.setForeground(new java.awt.Color(0, 0, 0));
         characterRaceJLabel.setText("CHARACTERS_RACE");
         playersJPanel.add(characterRaceJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
         playerPBJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerPBJLabel.setForeground(new java.awt.Color(0, 0, 0));
         playerPBJLabel.setText("+0");
         playerPBJLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         playersJPanel.add(playerPBJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
 
         skillsJTextArea.setEditable(false);
-        skillsJTextArea.setBackground(new java.awt.Color(255, 255, 255));
         skillsJTextArea.setColumns(20);
         skillsJTextArea.setRows(5);
         skillsJTextArea.setWrapStyleWord(true);
@@ -489,12 +473,10 @@ public class MainGUI extends javax.swing.JFrame {
         playersJPanel.add(skillsJScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 280, 320));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Player Name:");
         playersJPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         playerNameJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerNameJLabel.setForeground(new java.awt.Color(0, 0, 0));
         playerNameJLabel.setText("PLAYER_NAME_HERE");
         playersJPanel.add(playerNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
@@ -511,12 +493,10 @@ public class MainGUI extends javax.swing.JFrame {
         playersJPanel.add(allignmentJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 143, -1));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Character Name:");
         playersJPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         characterNameJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        characterNameJLabel.setForeground(new java.awt.Color(0, 0, 0));
         characterNameJLabel.setText("CHARACTER_NAME_HERE");
         playersJPanel.add(characterNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
@@ -581,13 +561,11 @@ public class MainGUI extends javax.swing.JFrame {
         playersJPanel.add(modifiersJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 31, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Modifiers");
         playersJPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 6, 104, -1));
 
         trackablesJPanel.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("G:");
 
         playerGoldJTextField.setBackground(new java.awt.Color(102, 102, 102));
@@ -598,19 +576,15 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Arrows:");
 
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Bolts:");
 
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("P:");
 
         playerPlatinumJTextField.setBackground(new java.awt.Color(102, 102, 102));
         playerPlatinumJTextField.setText("0");
 
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("C:");
 
         playerCopperJTextField.setBackground(new java.awt.Color(102, 102, 102));
@@ -619,7 +593,6 @@ public class MainGUI extends javax.swing.JFrame {
         playerSilverJTextField.setBackground(new java.awt.Color(102, 102, 102));
         playerSilverJTextField.setText("0");
 
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("S:");
 
         javax.swing.GroupLayout trackablesJPanelLayout = new javax.swing.GroupLayout(trackablesJPanel);
@@ -690,7 +663,6 @@ public class MainGUI extends javax.swing.JFrame {
         playerItemsJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("Plot Items:");
         playerItemsJPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -710,7 +682,6 @@ public class MainGUI extends javax.swing.JFrame {
         });
         playerItemsJPanel.add(removePlayerItemJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
-        playerItemsJTable.setBackground(new java.awt.Color(255, 255, 255));
         playerItemsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"", null, null, null, null},
@@ -738,7 +709,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         playerItemsJPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 640, 100));
 
-        playerWeaponsJTable.setBackground(new java.awt.Color(255, 255, 255));
         playerWeaponsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -767,7 +737,6 @@ public class MainGUI extends javax.swing.JFrame {
         playerItemsJPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 640, 100));
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Weapons:");
         playerItemsJPanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
@@ -787,7 +756,6 @@ public class MainGUI extends javax.swing.JFrame {
         });
         playerItemsJPanel.add(removePlayerWeaponJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
 
-        playerSpellsJTable.setBackground(new java.awt.Color(255, 255, 255));
         playerSpellsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -816,7 +784,6 @@ public class MainGUI extends javax.swing.JFrame {
         playerItemsJPanel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 640, 190));
 
         jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("Spells/Special Abilities:");
         playerItemsJPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
@@ -839,21 +806,17 @@ public class MainGUI extends javax.swing.JFrame {
         playersJPanel.add(playerItemsJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, -1, 540));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Alignment:");
         playersJPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("Hit Points (Total/Current):");
 
         playerTotalHPJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerTotalHPJLabel.setForeground(new java.awt.Color(0, 0, 0));
         playerTotalHPJLabel.setText("XX");
         playerTotalHPJLabel.setToolTipText("Total hitpoints of the player.");
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("/");
 
         jTextField2.setText("0");
@@ -865,12 +828,10 @@ public class MainGUI extends javax.swing.JFrame {
         jButton2.setText("Add to HP");
 
         playerCurrentHPJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerCurrentHPJLabel.setForeground(new java.awt.Color(0, 0, 0));
         playerCurrentHPJLabel.setText("XX");
         playerCurrentHPJLabel.setToolTipText("Current hit points of the player.");
 
         jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("Armor Class:");
 
         jTextField1.setEditable(false);
@@ -878,18 +839,15 @@ public class MainGUI extends javax.swing.JFrame {
         jTextField1.setToolTipText("Base AC is 13 + Dexterity Modifier");
 
         jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
         jLabel28.setText("+");
 
         jTextField4.setText("0");
         jTextField4.setToolTipText("Other AC not including Dexterity modifier");
 
         jLabel31.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
         jLabel31.setText("Saving Throws:");
 
         savingThrowsJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        savingThrowsJLabel.setForeground(new java.awt.Color(0, 0, 0));
         savingThrowsJLabel.setText("XXXXXXXXXX");
 
         javax.swing.GroupLayout playerDefenceJPanelLayout = new javax.swing.GroupLayout(playerDefenceJPanel);
@@ -959,43 +917,48 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(playerDefenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         playersJPanel.add(playerDefenceJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 640, -1));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Class & Level:");
         playersJPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         characterClassJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        characterClassJLabel.setForeground(new java.awt.Color(0, 0, 0));
         characterClassJLabel.setText("CHARACTERS CLASS");
         playersJPanel.add(characterClassJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("Skills:");
         playersJPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
         jLabel30.setText("Proficiency Bonus:");
         playersJPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Race:");
         playersJPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("XP:");
         playersJPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
 
         jButton3.setText("Add Experience");
         playersJPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
+
+        playerLevelDownJButton.setText("-");
+        playerLevelDownJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerLevelDownJButtonActionPerformed(evt);
+            }
+        });
+        playersJPanel.add(playerLevelDownJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 40, 20));
+
+        playerLevelUpJButton.setText("+");
+        playersJPanel.add(playerLevelUpJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 40, 20));
 
         tabPanel.add(playersJPanel, "playersCard");
 
@@ -1004,32 +967,26 @@ public class MainGUI extends javax.swing.JFrame {
         npcDetailsJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Character Name:");
         npcDetailsJPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         npcNameJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        npcNameJLabel.setForeground(new java.awt.Color(0, 0, 0));
         npcNameJLabel.setText("CHARACTER_NAME_HERE");
         npcDetailsJPanel.add(npcNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("Class & Level:");
         npcDetailsJPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         npcClassJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        npcClassJLabel.setForeground(new java.awt.Color(0, 0, 0));
         npcClassJLabel.setText("CHARACTERS CLASS");
         npcDetailsJPanel.add(npcClassJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Race:");
         npcDetailsJPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         npcRaceJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        npcRaceJLabel.setForeground(new java.awt.Color(0, 0, 0));
         npcRaceJLabel.setText("CHARACTERS_RACE");
         npcDetailsJPanel.add(npcRaceJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
 
@@ -1037,29 +994,24 @@ public class MainGUI extends javax.swing.JFrame {
         npcDetailsJPanel.add(npcAlignmentJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 143, -1));
 
         jLabel35.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(0, 0, 0));
         jLabel35.setText("Type:");
         npcDetailsJPanel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jLabel36.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(0, 0, 0));
         jLabel36.setText("XXXXXXXX");
         npcDetailsJPanel.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         jLabel40.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
         jLabel40.setText("Alignment:");
         npcDetailsJPanel.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         npcJPanel.add(npcDetailsJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 130));
 
         npcLocationJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        npcLocationJLabel.setForeground(new java.awt.Color(0, 0, 0));
         npcLocationJLabel.setText("XXXXX");
         npcJPanel.add(npcLocationJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
 
         npcNotesJTextArea.setEditable(false);
-        npcNotesJTextArea.setBackground(new java.awt.Color(255, 255, 255));
         npcNotesJTextArea.setColumns(20);
         npcNotesJTextArea.setRows(5);
         npcNotesJTextArea.setWrapStyleWord(true);
@@ -1071,7 +1023,6 @@ public class MainGUI extends javax.swing.JFrame {
         npcItemsJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel37.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
         jLabel37.setText("Items:");
         npcItemsJPanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -1091,7 +1042,6 @@ public class MainGUI extends javax.swing.JFrame {
         });
         npcItemsJPanel.add(removeNPCItemJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
-        npcItemsJTable.setBackground(new java.awt.Color(255, 255, 255));
         npcItemsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"", null, null, null, null},
@@ -1124,7 +1074,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         npcItemsJPanel.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 640, 180));
 
-        npcWeaponsJTable.setBackground(new java.awt.Color(255, 255, 255));
         npcWeaponsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -1153,7 +1102,6 @@ public class MainGUI extends javax.swing.JFrame {
         npcItemsJPanel.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 640, 100));
 
         jLabel38.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
         jLabel38.setText("Weapons:");
         npcItemsJPanel.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
@@ -1173,7 +1121,6 @@ public class MainGUI extends javax.swing.JFrame {
         });
         npcItemsJPanel.add(removeNPCWeaponJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, -1, -1));
 
-        npcSpellsJTable.setBackground(new java.awt.Color(255, 255, 255));
         npcSpellsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -1202,7 +1149,6 @@ public class MainGUI extends javax.swing.JFrame {
         npcItemsJPanel.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 640, 100));
 
         jLabel39.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(0, 0, 0));
         jLabel39.setText("Spells/Special Abilities:");
         npcItemsJPanel.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
 
@@ -1225,13 +1171,11 @@ public class MainGUI extends javax.swing.JFrame {
         npcJPanel.add(npcItemsJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, -1, 500));
 
         jLabel32.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
         jLabel32.setText("Inventory:");
         npcJPanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, -1, -1));
 
         trackablesJPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
         jLabel34.setText("G:");
 
         playerGoldJTextField1.setBackground(new java.awt.Color(102, 102, 102));
@@ -1242,19 +1186,15 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel41.setForeground(new java.awt.Color(0, 0, 0));
         jLabel41.setText("Arrows:");
 
-        jLabel42.setForeground(new java.awt.Color(0, 0, 0));
         jLabel42.setText("Bolts:");
 
-        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
         jLabel43.setText("P:");
 
         playerPlatinumJTextField1.setBackground(new java.awt.Color(102, 102, 102));
         playerPlatinumJTextField1.setText("0");
 
-        jLabel44.setForeground(new java.awt.Color(0, 0, 0));
         jLabel44.setText("C:");
 
         playerCopperJTextField1.setBackground(new java.awt.Color(102, 102, 102));
@@ -1263,7 +1203,6 @@ public class MainGUI extends javax.swing.JFrame {
         playerSilverJTextField1.setBackground(new java.awt.Color(102, 102, 102));
         playerSilverJTextField1.setText("0");
 
-        jLabel45.setForeground(new java.awt.Color(0, 0, 0));
         jLabel45.setText("S:");
 
         javax.swing.GroupLayout trackablesJPanel1Layout = new javax.swing.GroupLayout(trackablesJPanel1);
@@ -1334,7 +1273,6 @@ public class MainGUI extends javax.swing.JFrame {
         attributesJPanel1.setToolTipText("");
         attributesJPanel1.setLayout(new java.awt.GridLayout(6, 3, 10, 0));
 
-        strengthJLabel1.setForeground(new java.awt.Color(0, 0, 0));
         strengthJLabel1.setText("Strength:");
         attributesJPanel1.add(strengthJLabel1);
 
@@ -1344,7 +1282,6 @@ public class MainGUI extends javax.swing.JFrame {
         strengthJTextField1.setToolTipText("(Athletics)");
         attributesJPanel1.add(strengthJTextField1);
 
-        dexterityJLabel1.setForeground(new java.awt.Color(0, 0, 0));
         dexterityJLabel1.setText("Dexterity:");
         attributesJPanel1.add(dexterityJLabel1);
 
@@ -1354,7 +1291,6 @@ public class MainGUI extends javax.swing.JFrame {
         dexterityJTextField1.setToolTipText("(Acrobatics, Stealth)");
         attributesJPanel1.add(dexterityJTextField1);
 
-        constitutionJLabel1.setForeground(new java.awt.Color(0, 0, 0));
         constitutionJLabel1.setText("Constitution:");
         attributesJPanel1.add(constitutionJLabel1);
 
@@ -1364,7 +1300,6 @@ public class MainGUI extends javax.swing.JFrame {
         constitutionJTextField1.setToolTipText("");
         attributesJPanel1.add(constitutionJTextField1);
 
-        intelligenceJLabel1.setForeground(new java.awt.Color(0, 0, 0));
         intelligenceJLabel1.setText("Intelligence:");
         attributesJPanel1.add(intelligenceJLabel1);
 
@@ -1374,7 +1309,6 @@ public class MainGUI extends javax.swing.JFrame {
         intelligenceJTextField1.setToolTipText("(Arcana, History, Investigation, Nature, Religion)");
         attributesJPanel1.add(intelligenceJTextField1);
 
-        wisdomJLabel1.setForeground(new java.awt.Color(0, 0, 0));
         wisdomJLabel1.setText("Wisdom:");
         attributesJPanel1.add(wisdomJLabel1);
 
@@ -1384,7 +1318,6 @@ public class MainGUI extends javax.swing.JFrame {
         wisdomJTextField1.setToolTipText("(Animal Handling, Insight, Medicine, Perception, Survival)");
         attributesJPanel1.add(wisdomJTextField1);
 
-        charismaJLabel1.setForeground(new java.awt.Color(0, 0, 0));
         charismaJLabel1.setText("Charisma:");
         attributesJPanel1.add(charismaJLabel1);
 
@@ -1457,23 +1390,19 @@ public class MainGUI extends javax.swing.JFrame {
         npcJPanel.add(modifiersJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
 
         jLabel46.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(0, 0, 0));
         jLabel46.setText("Proficiency Bonus:");
         npcJPanel.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, -1, -1));
 
         playerPBJLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerPBJLabel1.setForeground(new java.awt.Color(0, 0, 0));
         playerPBJLabel1.setText("+0");
         playerPBJLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         npcJPanel.add(playerPBJLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
 
         jLabel47.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(0, 0, 0));
         jLabel47.setText("Skills:");
         npcJPanel.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, -1, -1));
 
         skillsJTextArea1.setEditable(false);
-        skillsJTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         skillsJTextArea1.setColumns(20);
         skillsJTextArea1.setRows(5);
         skillsJTextArea1.setWrapStyleWord(true);
@@ -1482,16 +1411,13 @@ public class MainGUI extends javax.swing.JFrame {
         npcJPanel.add(skillsJScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 280, 320));
 
         jLabel48.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
         jLabel48.setText("Hit Points (Total/Current):");
 
         npcTotalHPJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        npcTotalHPJLabel.setForeground(new java.awt.Color(0, 0, 0));
         npcTotalHPJLabel.setText("XX");
         npcTotalHPJLabel.setToolTipText("Total hitpoints of the player.");
 
         jLabel49.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
         jLabel49.setText("/");
 
         npcSubHPJTextField.setText("0");
@@ -1503,12 +1429,10 @@ public class MainGUI extends javax.swing.JFrame {
         npcAddHPJButton.setText("Add to HP");
 
         npcCurrentHPJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        npcCurrentHPJLabel.setForeground(new java.awt.Color(0, 0, 0));
         npcCurrentHPJLabel.setText("XX");
         npcCurrentHPJLabel.setToolTipText("Current hit points of the player.");
 
         jLabel50.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel50.setForeground(new java.awt.Color(0, 0, 0));
         jLabel50.setText("Armor Class:");
 
         npcACJTextField.setEditable(false);
@@ -1516,18 +1440,15 @@ public class MainGUI extends javax.swing.JFrame {
         npcACJTextField.setToolTipText("Base AC is 13 + Dexterity Modifier");
 
         jLabel51.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel51.setForeground(new java.awt.Color(0, 0, 0));
         jLabel51.setText("+");
 
         npcOtherACJTextField.setText("0");
         npcOtherACJTextField.setToolTipText("Other AC not including Dexterity modifier");
 
         jLabel52.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel52.setForeground(new java.awt.Color(0, 0, 0));
         jLabel52.setText("Saving Throws:");
 
         npcSavingThrowsJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        npcSavingThrowsJLabel.setForeground(new java.awt.Color(0, 0, 0));
         npcSavingThrowsJLabel.setText("XXXXXXXXXX");
 
         javax.swing.GroupLayout playerDefenceJPanel1Layout = new javax.swing.GroupLayout(playerDefenceJPanel1);
@@ -1597,25 +1518,22 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(playerDefenceJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(npcAddHPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(npcAddHPJButton))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         npcJPanel.add(playerDefenceJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 640, -1));
 
         jLabel53.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
         jLabel53.setText("Character Notes:");
         npcJPanel.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jLabel54.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel54.setForeground(new java.awt.Color(0, 0, 0));
         jLabel54.setText("Location:");
         npcJPanel.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
         tabPanel.add(npcJPanel, "npcCard");
 
         locationNotesJTextArea.setEditable(false);
-        locationNotesJTextArea.setBackground(new java.awt.Color(255, 255, 255));
         locationNotesJTextArea.setColumns(20);
         locationNotesJTextArea.setRows(5);
         locationNotesJTextArea.setWrapStyleWord(true);
@@ -1628,7 +1546,6 @@ public class MainGUI extends javax.swing.JFrame {
         npcItemsJPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel55.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
         jLabel55.setText("Shop:");
         npcItemsJPanel1.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
@@ -1648,7 +1565,6 @@ public class MainGUI extends javax.swing.JFrame {
         });
         npcItemsJPanel1.add(removeNPCItemJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, -1));
 
-        npcItemsJTable1.setBackground(new java.awt.Color(255, 255, 255));
         npcItemsJTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"", null, null, null, null},
@@ -1685,7 +1601,6 @@ public class MainGUI extends javax.swing.JFrame {
         npcItemsJPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         jLabel56.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel56.setForeground(new java.awt.Color(0, 0, 0));
         jLabel56.setText("Shop Inventory:");
         npcItemsJPanel1.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
@@ -1696,9 +1611,11 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(locationsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
+                    .addGroup(locationsJPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel33)
+                        .addGap(0, 548, Short.MAX_VALUE))
+                    .addComponent(jScrollPane9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(npcItemsJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1706,14 +1623,11 @@ public class MainGUI extends javax.swing.JFrame {
             locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locationsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(locationsJPanelLayout.createSequentialGroup()
-                        .addGap(0, 107, Short.MAX_VALUE)
-                        .addComponent(npcItemsJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(locationsJPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane9)))
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(npcItemsJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1724,7 +1638,7 @@ public class MainGUI extends javax.swing.JFrame {
         jScrollPane11.setViewportView(eventNotesJTextArea);
 
         jLabel57.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel57.setText("Location Notes:");
+        jLabel57.setText("Campaign Notes:");
 
         javax.swing.GroupLayout eventsNotesJPanelLayout = new javax.swing.GroupLayout(eventsNotesJPanel);
         eventsNotesJPanel.setLayout(eventsNotesJPanelLayout);
@@ -1753,7 +1667,7 @@ public class MainGUI extends javax.swing.JFrame {
         pagesList.setBackground(new java.awt.Color(77, 67, 67));
         pagesList.setForeground(new java.awt.Color(255, 255, 255));
         pagesList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Home", "Players", "NPC's", "Locations", "Events/Notes" };
+            String[] strings = { "Home", "Players", "NPC's", "Locations", "Notes" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -1804,11 +1718,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         playersJList.setBackground(new java.awt.Color(77, 67, 67));
         playersJList.setForeground(new java.awt.Color(255, 255, 255));
-        playersJList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         playersJList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 playersJListValueChanged(evt);
@@ -1823,9 +1732,6 @@ public class MainGUI extends javax.swing.JFrame {
                 newPlayerJButtonActionPerformed(evt);
             }
         });
-
-        saveNotesJButton.setMnemonic('s');
-        saveNotesJButton.setText("Save Notes");
 
         removePlayerJButton.setText("Remove Player");
 
@@ -1846,7 +1752,6 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(newPlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(saveNotesJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(removePlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1854,16 +1759,16 @@ public class MainGUI extends javax.swing.JFrame {
         playerControlsJPanelLayout.setVerticalGroup(
             playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerControlsJPanelLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
-                .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(playerControlsJPanelLayout.createSequentialGroup()
                         .addComponent(newPlayerJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(removePlayerJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(saveNotesJButton)))
-                .addContainerGap())
+                        .addGap(50, 50, 50))
+                    .addGroup(playerControlsJPanelLayout.createSequentialGroup()
+                        .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -1903,13 +1808,12 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(npcControlsJPanelLayout.createSequentialGroup()
-                        .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(removeNPCJButton)
-                            .addComponent(addNPCJButton))))
+                    .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(removeNPCJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addNPCJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1919,17 +1823,19 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, npcControlsJPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                                 .addComponent(addNPCJButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 33, Short.MAX_VALUE)
-                                .addComponent(removeNPCJButton))))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(removeNPCJButton))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, npcControlsJPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3)))))
                 .addContainerGap())
         );
 
@@ -1959,9 +1865,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         removeLocationJButton.setText("Remove Location");
 
-        saveLocationNotesJButton.setMnemonic('s');
-        saveLocationNotesJButton.setText("Save Location");
-
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         welcomeLabel3.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
@@ -1979,7 +1882,6 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(locationControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(newLocationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(saveLocationNotesJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(removeLocationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1995,23 +1897,31 @@ public class MainGUI extends javax.swing.JFrame {
                         .addComponent(newLocationJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(removeLocationJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(saveLocationNotesJButton))
+                        .addGap(44, 44, 44))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pageControlsJPanel.add(locationControlsJPanel, "locationControlsCard");
 
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        welcomeLabel4.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        welcomeLabel4.setText("Notes");
+        welcomeLabel4.setToolTipText("");
+        jPanel4.add(welcomeLabel4, new java.awt.GridBagConstraints());
+
         javax.swing.GroupLayout eventControlsJPanelLayout = new javax.swing.GroupLayout(eventControlsJPanel);
         eventControlsJPanel.setLayout(eventControlsJPanelLayout);
         eventControlsJPanelLayout.setHorizontalGroup(
             eventControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, eventControlsJPanelLayout.createSequentialGroup()
+                .addGap(0, 306, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         eventControlsJPanelLayout.setVerticalGroup(
             eventControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pageControlsJPanel.add(eventControlsJPanel, "eventControlsCard");
@@ -2287,7 +2197,11 @@ public class MainGUI extends javax.swing.JFrame {
      * @param evt 
      */
     private void newPlayerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPlayerJButtonActionPerformed
-        // TODO add your handling code here:
+        // open then recieve player information upon user pressing "add" on 
+        // newPlayerUI
+        newPlayerUI newPlayer = new newPlayerUI();
+        newPlayer.setLocationRelativeTo(null);
+        newPlayer.setVisible(true);
     }//GEN-LAST:event_newPlayerJButtonActionPerformed
 
     private void playersJList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_playersJList1ValueChanged
@@ -2337,6 +2251,10 @@ public class MainGUI extends javax.swing.JFrame {
     private void removeNPCItemJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNPCItemJButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_removeNPCItemJButton1ActionPerformed
+
+    private void playerLevelDownJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerLevelDownJButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playerLevelDownJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2499,6 +2417,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -2566,6 +2485,8 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField playerGoldJTextField1;
     private javax.swing.JPanel playerItemsJPanel;
     private javax.swing.JTable playerItemsJTable;
+    private javax.swing.JButton playerLevelDownJButton;
+    private javax.swing.JButton playerLevelUpJButton;
     private javax.swing.JLabel playerNameJLabel;
     private javax.swing.JTextArea playerNotesJTextArea;
     private javax.swing.JLabel playerPBJLabel;
@@ -2593,8 +2514,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton removePlayerJButton;
     private javax.swing.JButton removePlayerSpellJButton;
     private javax.swing.JButton removePlayerWeaponJButton;
-    private javax.swing.JButton saveLocationNotesJButton;
-    private javax.swing.JButton saveNotesJButton;
     private javax.swing.JLabel savingThrowsJLabel;
     private javax.swing.JScrollPane skillsJScrollPane;
     private javax.swing.JScrollPane skillsJScrollPane1;
@@ -2619,6 +2538,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel welcomeLabel1;
     private javax.swing.JLabel welcomeLabel2;
     private javax.swing.JLabel welcomeLabel3;
+    private javax.swing.JLabel welcomeLabel4;
     private javax.swing.JTextField wisModJTextField;
     private javax.swing.JTextField wisModJTextField1;
     private javax.swing.JSpinner wisModTempJSpinner;

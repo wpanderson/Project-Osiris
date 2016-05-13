@@ -61,7 +61,7 @@ public class GeneratorUI extends javax.swing.JFrame {
         titleJlabel.setFont(new java.awt.Font("Calibri", 0, 84)); // NOI18N
         titleJlabel.setText("Generators");
 
-        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Encounter", "Event", "Item", "Location" }));
+        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Encounter", "Event", "Item" }));
         typeComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 typeComboBoxActionPerformed(evt);
