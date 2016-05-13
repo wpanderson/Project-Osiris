@@ -138,4 +138,8 @@ public class Item {
         }
         return data;
     }
+    
+    public HashMap<String, String> exportStats(){
+        return new HashMap<String, String>(stats); // I think this copies? Depends on String class
+    }
 }

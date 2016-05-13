@@ -80,10 +80,16 @@ public class Demonstrations {
         System.out.println("\nAll of Player1's Stats : \n" + p1);
         
         
-        ArrayList<Player> players = new ArrayList<Player>();
-        players.add(p1);
-        players.add(p2);
-        CSVIO.exportPlayers("players.bin", players);
+        // This is copy pasta crazy. Gonna clean up the class heirachy here soon
+        // But after I get things working correctly
+        // Anyway though. CSVIO.exportXXXXX(file name, ArrayList<data>)
+        // will take all the data given to it. Parse it into csv format
+        // and then write it to the file specified.
+        CSVIO.exportPlayers("players.csv", d.getPlayerList());
+        CSVIO.exportEnemies("enemies.csv", d.getEnemyList());
+        CSVIO.exportItems("items.csv", d.getItemList());
+        
+        
 
     }
     
