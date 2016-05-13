@@ -21,7 +21,7 @@ public abstract class DataItem {
     }
     
     
-    public enum Data_Type {PLAYER, ENEMY, ECNOUNTER, ITEM, NOTE}
+    public enum Data_Type {PLAYER, ENEMY, ENCOUNTER, ITEM, NOTE}
     
     
     protected HashMap<String, String> stats;
@@ -66,41 +66,70 @@ public abstract class DataItem {
 
     }
     
-    public void addStat(String name, String val){
+    public void addStat(String stat_name, String val){
         
         // Quotes screws things up. Change to double apostrophes
         val.replaceAll("\"", "''");
         
-        if (stats.containsKey(name)){
-            System.out.println("Error adding stat, already present : " + name);
+        if (stats.containsKey(stat_name)){
+            System.out.println("Error adding stat, already present : " + stat_name);
             System.out.println("Overwriting!!!");
         }   
-        stats.put(name, val);
+        stats.put(stat_name, val);
     }
     
-    public void overwriteStat(String name, String val){
+    public void overwriteStringStat(String stat_name, String val){
         
         // Quotes screws things up. Change to double apostrophes
         val.replaceAll("\"", "''");
         
-        String prev_val = stats.get(name);
+        String prev_val = stats.get(stat_name);
         
         if (prev_val == null){
-            System.out.println("Entity does not contain stat : " + name);
+            System.out.println("Entity does not contain stat : " + stat_name);
             System.out.println("No modification preformed");
         }
         else{
             prev_val = val;
         }
     }
-    public String getStat(String name){
-        String val = stats.get(name);
+    
+    public void overwriteIntegerStat(String stat_name, int val){
+        String stat = stats.get(stat_name);
+        
+        if (stat == null){
+            System.out.println("Entity does not contain stat : " + stat_name);
+            return;
+        }
+        try{
+            // Parse to an int, and add to the input
+            val = Integer.parseInt(stat);
+            
+            // Save back to the map, overwriting the old value
+            stats.put(stat_name, String.valueOf(val));
+        }
+        catch(NumberFormatException e){
+            System.out.println("Unable to parse stat from string. "
+                    + "Are you calling to the correct data type?");
+            System.out.println(e);
+        }
+    }
+    public String getStat(String stat_name){
+        String val = stats.get(stat_name);
         
         if (val == null){
-            System.out.println("Entity does not contain stat : " + name);
+            System.out.println("Entity does not contain stat : " + stat_name);
             return "null";
         }
         return val;
+    }
+    
+    public ArrayList<String> listAvailableStats(){
+        ArrayList<String> data = new ArrayList<String>();
+        for (Map.Entry<String, String> entry : stats.entrySet()) {
+            data.add(entry.getKey());
+        }
+        return data;
     }
     
     public DataItem(HashMap<String, String> stats){

@@ -58,7 +58,7 @@ public class DataStorage {
     }
     public void addPlayersFromCSV(String filePath){
         try{
-            enemyList = CSVIO.importDataItems(filePath, DataItem.Data_Type.ENEMY);
+            playerList = CSVIO.importDataItems(filePath, DataItem.Data_Type.PLAYER);
         }
         catch (FileNotFoundException f){
             System.out.println("File not found : " + filePath);

@@ -64,7 +64,7 @@ public class CSVIO {
                 case ENEMY:
                     data_items.add(new Enemy(stat));
                     break;
-                case ECNOUNTER:
+                case ENCOUNTER:
                     //data_items.add(new Player(stat));
                     break;
                 case ITEM:
