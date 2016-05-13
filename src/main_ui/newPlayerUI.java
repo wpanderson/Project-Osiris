@@ -31,22 +31,6 @@ public class newPlayerUI extends javax.swing.JFrame {
     private void initComponents() {
 
         titleJlabel = new javax.swing.JLabel();
-        multiJCheckBox = new javax.swing.JCheckBox();
-        classJPanel = new javax.swing.JPanel();
-        singleJPanel = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        singleClassJComboBox = new javax.swing.JComboBox();
-        jLabel6 = new javax.swing.JLabel();
-        singleLevelJComboBox = new javax.swing.JComboBox();
-        multiJPanel = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        multiClassJComboBox1 = new javax.swing.JComboBox();
-        jLabel9 = new javax.swing.JLabel();
-        multiLevelJComboBox1 = new javax.swing.JComboBox();
-        jLabel11 = new javax.swing.JLabel();
-        multiClassJComboBox2 = new javax.swing.JComboBox();
-        jLabel12 = new javax.swing.JLabel();
-        multiLevelJComboBox2 = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         attributesJPanel = new javax.swing.JPanel();
         strengthJLabel = new javax.swing.JLabel();
@@ -117,7 +101,7 @@ public class newPlayerUI extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-        jPanel3 = new javax.swing.JPanel();
+        playerInfoJPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         playerNameJTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -137,6 +121,8 @@ public class newPlayerUI extends javax.swing.JFrame {
         halflingJComboBox = new javax.swing.JComboBox();
         gnomeJPanel = new javax.swing.JPanel();
         gnomeJComboBox = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
+        singleClassJComboBox = new javax.swing.JComboBox();
         lvlJLabel1 = new javax.swing.JLabel();
         characterHPJTextField = new javax.swing.JTextField();
 
@@ -144,114 +130,6 @@ public class newPlayerUI extends javax.swing.JFrame {
 
         titleJlabel.setFont(new java.awt.Font("Calibri", 0, 84)); // NOI18N
         titleJlabel.setText("New Player");
-
-        multiJCheckBox.setText("Multi Class");
-        multiJCheckBox.setEnabled(false);
-        multiJCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                multiJCheckBoxActionPerformed(evt);
-            }
-        });
-
-        classJPanel.setLayout(new java.awt.CardLayout());
-
-        jLabel5.setText("Class:");
-
-        singleClassJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rouge", "Sorcerer", "Warlock" }));
-
-        jLabel6.setText("Level:");
-
-        singleLevelJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
-
-        javax.swing.GroupLayout singleJPanelLayout = new javax.swing.GroupLayout(singleJPanel);
-        singleJPanel.setLayout(singleJPanelLayout);
-        singleJPanelLayout.setHorizontalGroup(
-            singleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(singleJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(singleClassJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addGap(12, 12, 12)
-                .addComponent(singleLevelJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        singleJPanelLayout.setVerticalGroup(
-            singleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(singleJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(singleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(singleClassJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(singleLevelJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        classJPanel.add(singleJPanel, "single");
-
-        jLabel8.setText("Class:");
-
-        multiClassJComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rouge", "Sorcerer", "Warlock" }));
-
-        jLabel9.setText("Level:");
-
-        multiLevelJComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
-
-        jLabel11.setText("Class:");
-
-        multiClassJComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rouge", "Sorcerer", "Warlock" }));
-
-        jLabel12.setText("Level:");
-
-        multiLevelJComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
-
-        javax.swing.GroupLayout multiJPanelLayout = new javax.swing.GroupLayout(multiJPanel);
-        multiJPanel.setLayout(multiJPanelLayout);
-        multiJPanelLayout.setHorizontalGroup(
-            multiJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(multiJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(multiJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(multiJPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(multiClassJComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addGap(12, 12, 12)
-                        .addComponent(multiLevelJComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(multiJPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(multiClassJComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addGap(12, 12, 12)
-                        .addComponent(multiLevelJComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
-        multiJPanelLayout.setVerticalGroup(
-            multiJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(multiJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(multiJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(multiClassJComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(multiLevelJComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(multiJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(multiClassJComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(multiLevelJComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addContainerGap())
-        );
-
-        classJPanel.add(multiJPanel, "multi");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Attributes:");
@@ -512,7 +390,7 @@ public class newPlayerUI extends javax.swing.JFrame {
                         .addComponent(traitsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(character_traitsJPanelLayout.createSequentialGroup()
-                        .addComponent(lvlJLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                        .addComponent(lvlJLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(185, 185, 185))))
         );
         character_traitsJPanelLayout.setVerticalGroup(
@@ -525,15 +403,24 @@ public class newPlayerUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        playerInfoJPanel.setLayout(new java.awt.GridLayout(7, 2));
+
         jLabel1.setText("Player Name:");
+        playerInfoJPanel.add(jLabel1);
+        playerInfoJPanel.add(playerNameJTextField);
 
         jLabel2.setText("Character Name:");
+        playerInfoJPanel.add(jLabel2);
+        playerInfoJPanel.add(characterNameJTextField);
 
         lvlJLabel.setText("Level:");
+        playerInfoJPanel.add(lvlJLabel);
 
         levelJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+        playerInfoJPanel.add(levelJComboBox);
 
         jLabel10.setText("Race:");
+        playerInfoJPanel.add(jLabel10);
 
         playerRaceJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dragonborn", "Dwarf", "Elf", "Gnome", "Half-Elf", "Half-Orc", "Halfling", "Human", "Tiefling" }));
         playerRaceJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -541,8 +428,10 @@ public class newPlayerUI extends javax.swing.JFrame {
                 playerRaceJComboBoxActionPerformed(evt);
             }
         });
+        playerInfoJPanel.add(playerRaceJComboBox);
 
         jLabel13.setText("Sub Race:");
+        playerInfoJPanel.add(jLabel13);
 
         subraceJPanel.setLayout(new java.awt.CardLayout());
 
@@ -550,11 +439,11 @@ public class newPlayerUI extends javax.swing.JFrame {
         noRaceJPanel.setLayout(noRaceJPanelLayout);
         noRaceJPanelLayout.setHorizontalGroup(
             noRaceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
+            .addGap(0, 216, Short.MAX_VALUE)
         );
         noRaceJPanelLayout.setVerticalGroup(
             noRaceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 31, Short.MAX_VALUE)
+            .addGap(0, 22, Short.MAX_VALUE)
         );
 
         subraceJPanel.add(noRaceJPanel, "none");
@@ -576,7 +465,7 @@ public class newPlayerUI extends javax.swing.JFrame {
             dwarfSubraceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dwarfSubraceJPanelLayout.createSequentialGroup()
                 .addComponent(dwarfJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         subraceJPanel.add(dwarfSubraceJPanel, "dwarf");
@@ -592,7 +481,7 @@ public class newPlayerUI extends javax.swing.JFrame {
         elfSuraceJPanel.setLayout(elfSuraceJPanelLayout);
         elfSuraceJPanelLayout.setHorizontalGroup(
             elfSuraceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
+            .addGap(0, 216, Short.MAX_VALUE)
             .addGroup(elfSuraceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(elfSuraceJPanelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -622,7 +511,7 @@ public class newPlayerUI extends javax.swing.JFrame {
         HalflingJPanel.setLayout(HalflingJPanelLayout);
         HalflingJPanelLayout.setHorizontalGroup(
             HalflingJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
+            .addGap(0, 216, Short.MAX_VALUE)
             .addGroup(HalflingJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(HalflingJPanelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -652,7 +541,7 @@ public class newPlayerUI extends javax.swing.JFrame {
         gnomeJPanel.setLayout(gnomeJPanelLayout);
         gnomeJPanelLayout.setHorizontalGroup(
             gnomeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
+            .addGap(0, 216, Short.MAX_VALUE)
             .addGroup(gnomeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(gnomeJPanelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -671,89 +560,30 @@ public class newPlayerUI extends javax.swing.JFrame {
 
         subraceJPanel.add(gnomeJPanel, "gnome");
 
-        lvlJLabel1.setText("Starting HP:");
+        playerInfoJPanel.add(subraceJPanel);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(lvlJLabel)
-                            .addComponent(jLabel10)))
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(playerRaceJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(playerNameJTextField)
-                            .addComponent(characterNameJTextField))
-                        .addGap(2, 2, 2))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(levelJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(subraceJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lvlJLabel1)
-                .addGap(35, 35, 35)
-                .addComponent(characterHPJTextField)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(playerNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(characterNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lvlJLabel)
-                    .addComponent(levelJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(playerRaceJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addComponent(subraceJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lvlJLabel1)
-                    .addComponent(characterHPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
+        jLabel5.setText("Class:");
+        playerInfoJPanel.add(jLabel5);
+
+        singleClassJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rouge", "Sorcerer", "Warlock" }));
+        playerInfoJPanel.add(singleClassJComboBox);
+
+        lvlJLabel1.setText("HP:");
+        playerInfoJPanel.add(lvlJLabel1);
+        playerInfoJPanel.add(characterHPJTextField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titleJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(character_traitsJPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(classJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(3, 3, 3)
-                                .addComponent(multiJCheckBox)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(character_traitsJPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(playerInfoJPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -767,11 +597,14 @@ public class newPlayerUI extends javax.swing.JFrame {
                                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(saves_proficienciesJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cancelJButton))))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cancelJButton)
+                                        .addContainerGap())
+                                    .addComponent(saves_proficienciesJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -781,13 +614,9 @@ public class newPlayerUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(classJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(multiJCheckBox))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(character_traitsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(playerInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(character_traitsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -799,27 +628,15 @@ public class newPlayerUI extends javax.swing.JFrame {
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saves_proficienciesJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(addJButton)
                             .addComponent(cancelJButton))))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void multiJCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiJCheckBoxActionPerformed
-        CardLayout card = (CardLayout)classJPanel.getLayout();
-        if(multiJCheckBox.isSelected() == true)
-        {
-            card.show(classJPanel, "single");
-        }
-        else if(multiJCheckBox.isSelected() == false)
-        {
-            card.show(classJPanel, "playersCard");
-        }
-    }//GEN-LAST:event_multiJCheckBoxActionPerformed
     /**
      * Dispose newPlayerUI without getting any information
      * @param evt 
@@ -1000,7 +817,6 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JLabel charismaJLabel;
     private javax.swing.JTextField charismaJTextField;
     private javax.swing.JCheckBox charismaSaveJComboBox;
-    private javax.swing.JPanel classJPanel;
     private javax.swing.JLabel constitutionJLabel;
     private javax.swing.JTextField constitutionJTextField;
     private javax.swing.JCheckBox constitutionSaveJComboBox;
@@ -1025,8 +841,6 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1039,13 +853,9 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -1057,12 +867,6 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JLabel lvlJLabel1;
     private javax.swing.JLabel lvlJLabel2;
     private javax.swing.JCheckBox medicineJCheckbox;
-    private javax.swing.JComboBox multiClassJComboBox1;
-    private javax.swing.JComboBox multiClassJComboBox2;
-    private javax.swing.JCheckBox multiJCheckBox;
-    private javax.swing.JPanel multiJPanel;
-    private javax.swing.JComboBox multiLevelJComboBox1;
-    private javax.swing.JComboBox multiLevelJComboBox2;
     private javax.swing.JCheckBox natureJCheckbox;
     private javax.swing.JPanel noRaceJPanel;
     private javax.swing.JCheckBox perceptionJCheckbox;
@@ -1071,6 +875,7 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JLabel playerCharismaModifierJLabel;
     private javax.swing.JLabel playerConstitutionModifierJLabel;
     private javax.swing.JLabel playerDexterityModifierJLabel;
+    private javax.swing.JPanel playerInfoJPanel;
     private javax.swing.JLabel playerIntelligenceModifierJLabel;
     private javax.swing.JTextField playerNameJTextField;
     private javax.swing.JComboBox playerRaceJComboBox;
@@ -1081,8 +886,6 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JPanel savesJPanel;
     private javax.swing.JPanel saves_proficienciesJPanel;
     private javax.swing.JComboBox singleClassJComboBox;
-    private javax.swing.JPanel singleJPanel;
-    private javax.swing.JComboBox singleLevelJComboBox;
     private javax.swing.JCheckBox sleightJComboBox;
     private javax.swing.JCheckBox stealthJComboBox;
     private javax.swing.JLabel strengthJLabel;
