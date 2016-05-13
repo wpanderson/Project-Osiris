@@ -12,11 +12,8 @@ public class Entity {
     
     // Uniquie identifier for every entity, so that it can be referenced even if
     // it is not present
-    protected UUID entityID;
-    public UUID getID(){
-        return entityID;
-    }
-    
+    private UUID entityID;
+  
     // Two enums for the two categories that make up alignment
     // To do: move enums and other custom variables for enitre app to inedepentent
     // class for organization.
@@ -31,17 +28,17 @@ public class Entity {
     // since many Entities have no explicit Class (like Players).
     // Race is not yet implemented in nondefault constructor for Entities,
     // since our test database of enemies does not include their race values.
-    protected String name;
+    private String name;
     // private Class classType;
-    protected Race race;
+    private Race race;
     protected Align1 align1;
     protected Align2 align2;
     
     // Field for maximum HP
-    protected int maxHealthPoints;
+    private int maxHealthPoints;
     
     // Field for AC; not implemented in constructor yet
-    protected int armorClass;
+    private int armorClass;
     
     // Two arrays (both always initialized with a size of 6).  These store stats
     // and the stat modifiers.  Stat modifiers can be determined based on stats
@@ -55,8 +52,8 @@ public class Entity {
     // This implementation improves ease of calculation of stat modifiers from
     // actual stats by enabling use of a loop, since modifiers are calculated the
     // same way for each stat.
-    protected int[] stats;
-    protected int[] statModifiers;
+    private int[] stats;
+    private int[] statModifiers;
     
     // An array to store skill modifier values.  Array always size 18 (number of 
     // skills present in D&D).  Like for stats, each index maps to a specific
@@ -64,7 +61,7 @@ public class Entity {
     // skills (see Player class).  Will be populated differently in child classes
     // since skill modifiers are determined differently for Players (based on
     // stats and proficiencies) and Enemies/NPCs (usually predetermined value).
-    protected int[] skillModifiers;
+    private int[] skillModifiers;
     
     protected ArrayList<UUID> inventory;
     
@@ -134,12 +131,74 @@ public class Entity {
     // calculation and storage of stat modifiers Entity does not consider valid.
     public final void calculateStatModifiers() {
         for(int i = 0; i < 6; i++) {
-            statModifiers[i] = (stats[i]/2) - 5;
+            getStatModifiers()[i] = (getStats()[i]/2) - 5;
         }
     }
     
     // To do: make this return more more meaningful data, for more thorough testing
     public String toString() {
+        return getName();
+    }
+    
+    // Accessors and mutators
+    
+    public UUID getEntityID() {
+        return entityID;
+    }
+
+    public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Race getRace() {
+        return race;
+    }
+
+    public void setRace(Race race) {
+        this.race = race;
+    }
+
+    public int getMaxHealthPoints() {
+        return maxHealthPoints;
+    }
+
+    public void setMaxHealthPoints(int maxHealthPoints) {
+        this.maxHealthPoints = maxHealthPoints;
+    }
+
+    public int getArmorClass() {
+        return armorClass;
+    }
+
+    public void setArmorClass(int armorClass) {
+        this.armorClass = armorClass;
+    }
+
+    public int[] getStats() {
+        return stats;
+    }
+
+    public void setStats(int[] stats) {
+        this.stats = stats;
+    }
+
+    public int[] getStatModifiers() {
+        return statModifiers;
+    }
+
+    public void setStatModifiers(int[] statModifiers) {
+        this.statModifiers = statModifiers;
+    }
+
+    public int[] getSkillModifiers() {
+        return skillModifiers;
+    }
+
+    public void setSkillModifiers(int[] skillModifiers) {
+        this.skillModifiers = skillModifiers;
     }
 }
