@@ -7,13 +7,13 @@ package D5DataStructures;
 
 import java.util.*;
 
-public class Player extends Entity {
+public class Player extends DataItem {
 
     // You shouldn't ever call the default constructor by itself, but
     // it could be useful if you want to populate the entities values
     // through Entity.addStat(String, String);
     public Player(){
-        super();  
+        super();
     }
     
     // 

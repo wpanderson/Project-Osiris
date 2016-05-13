@@ -75,7 +75,7 @@ public class Demonstrations {
         // Example on how to increment stats. Select the name of the stat. And
         // if it can parse into an int. It is incremented. Only works on integer values!!!!!
         // P.S, decrement by passing in negative values
-        p1.incrementStat("XP", 100);
+        //p1.incrementStat("XP", 100);
         System.out.println(p1.getStat("XP"));
         System.out.println("\nAll of Player1's Stats : \n" + p1);
         
@@ -85,9 +85,9 @@ public class Demonstrations {
         // Anyway though. CSVIO.exportXXXXX(file name, ArrayList<data>)
         // will take all the data given to it. Parse it into csv format
         // and then write it to the file specified.
-        CSVIO.exportPlayers("players.csv", d.getPlayerList());
-        CSVIO.exportEnemies("enemies.csv", d.getEnemyList());
-        CSVIO.exportItems("items.csv", d.getItemList());
+        //CSVIO.exportPlayers("players.csv", d.getPlayerList());
+        //CSVIO.exportEnemies("enemies.csv", d.getEnemyList());
+        //CSVIO.exportItems("items.csv", d.getItemList());
         
         
 

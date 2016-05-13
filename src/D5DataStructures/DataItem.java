@@ -8,23 +8,32 @@ package D5DataStructures;
 
 import java.util.*;
 import java.util.Map.Entry;
+import static java.util.UUID.randomUUID;
 
-public class Entity {
+public abstract class DataItem {
     
     // Align : LAWFUL GOOD, LAWFUL NEUTRAL, LAWFUL EVIL, NEUTRAL GOOD, TRUE NEUTRAL, NEUTRAL EVIL, CHAOTIC GOOD, CHAOTIC NEUTRAL, CHAOTIC EVIL
     // Class : CIVILIAN, BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROUGE, SORCERER, WARLOCK, WIZARD
     // Race  : DRAGONBORN, DWARF, ELF, GNOME, HALF_ELF, HALF_ORC, HALFING, HUMAN, TIEFLING, AARAKOCRA, GENASI, GOLIATH
-
-    protected HashMap<String, String> stats;
     
-    public Entity(){
+    public static UUID generateID(){
+        return randomUUID();
     }
     
-    public void incrementStat(String name, int val){
-        String stat = stats.get(name);
+    
+    public enum Data_Type {PLAYER, ENEMY, ECNOUNTER, ITEM, NOTE}
+    
+    
+    protected HashMap<String, String> stats;
+    
+    public DataItem(){
+    }
+    
+    public void incrementIntegerStat(String stat_name, int val){
+        String stat = stats.get(stat_name);
         
         if (stat == null){
-            System.out.println("Entity does not contain stat : " + name);
+            System.out.println("Entity does not contain stat : " + stat_name);
             return;
         }
         try{
@@ -32,13 +41,29 @@ public class Entity {
             val += Integer.parseInt(stat);
             
             // Save back to the map, overwriting the old value
-            stats.put(name, String.valueOf(val));
+            stats.put(stat_name, String.valueOf(val));
         }
         catch(NumberFormatException e){
             System.out.println("Unable to parse stat from string. "
                     + "Are you calling to the correct data type?");
             System.out.println(e);
         }
+    }
+    
+    public void appendStringStat(String stat_name, String val){
+        String stat = stats.get(stat_name);
+        
+        if (stat == null){
+            System.out.println("Entity does not contain stat : " + stat_name);
+            return;
+        }
+
+        // Append the stat to the old value, using a comma
+        val += ", " + stat;
+
+        // Save back to the map, overwriting the old value
+        stats.put(stat_name, val);
+
     }
     
     public void addStat(String name, String val){
@@ -53,7 +78,7 @@ public class Entity {
         stats.put(name, val);
     }
     
-    public void modStat(String name, String val){
+    public void overwriteStat(String name, String val){
         
         // Quotes screws things up. Change to double apostrophes
         val.replaceAll("\"", "''");
@@ -78,7 +103,7 @@ public class Entity {
         return val;
     }
     
-    public Entity(HashMap<String, String> stats){
+    public DataItem(HashMap<String, String> stats){
         this.stats = stats; 
     }
     
@@ -94,6 +119,7 @@ public class Entity {
     public HashMap<String, String> exportStats(){
         return new HashMap<String, String>(stats); // I think this copies? Depends on String class
     }
+    
     
     
 }

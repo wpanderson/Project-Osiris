@@ -4,7 +4,7 @@ package D5DataStructures;
 
 import java.util.*;
 
-public class Enemy extends Entity {
+public class Enemy extends DataItem {
 
     public Enemy(){
         super();

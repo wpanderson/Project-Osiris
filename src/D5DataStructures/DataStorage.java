@@ -2,22 +2,20 @@
 
 package D5DataStructures;
 
-import D5DataStructures.DraftClasses.*;
 import java.util.*;
 import java.io.*;
 
 public class DataStorage {
     
     // Containers for the respective data types
-    private ArrayList<Enemy> enemyList;
-    private ArrayList<Player> playerList;
-    private ArrayList<Item> itemList;
-    
-    // Not currently implemented
-    private ArrayList<Encounter> encounterList;
+    private ArrayList<? super Enemy> enemyList;
+    private ArrayList<? super Player> playerList;
+    private ArrayList<? super Item> itemList;
+    private ArrayList<? super Encounter> encounterList;
     
     // Item pointer map, allows UI to populate item data for the selected ents
     private HashMap<UUID, Item>   itemRefMap;
+    private HashMap<UUID, Player> playerRefMap;
     
     // Default constructor; initializes a new empty database.
     public DataStorage() {
@@ -25,6 +23,8 @@ public class DataStorage {
         playerList = new ArrayList<Player>();
         itemList = new ArrayList<Item>();
         encounterList = new ArrayList<Encounter>();
+        
+        itemRefMap = new HashMap<UUID, Item>();
         itemRefMap = new HashMap<UUID, Item>();
     }
     
@@ -49,7 +49,7 @@ public class DataStorage {
     // then parse the data into their respective data types generically
     public void addEnemiesFromCSV(String filePath){
         try{
-            enemyList.addAll(CSVIO.importEnemies(filePath));
+            enemyList = CSVIO.importDataItems(filePath, DataItem.Data_Type.ENEMY);
         }
         catch (FileNotFoundException f){
             System.out.println("File not found : " + filePath);
@@ -58,7 +58,7 @@ public class DataStorage {
     }
     public void addPlayersFromCSV(String filePath){
         try{
-            playerList.addAll(CSVIO.importPlayers(filePath));
+            enemyList = CSVIO.importDataItems(filePath, DataItem.Data_Type.ENEMY);
         }
         catch (FileNotFoundException f){
             System.out.println("File not found : " + filePath);
@@ -67,9 +67,11 @@ public class DataStorage {
     }
     public void addItemsFromCSV(String filePath){
         try{
-            itemList.addAll(CSVIO.importItems(filePath));
-            for (Item i: itemList){
-                itemRefMap.put(i.getID(), i);
+            itemList = CSVIO.importDataItems(filePath, DataItem.Data_Type.ITEM);
+
+            for (Object i: itemList){
+                Item q = (Item) i;
+                itemRefMap.put(q.getID(), q);
             }
         }
         catch (FileNotFoundException f){
@@ -90,16 +92,25 @@ public class DataStorage {
     }
     
     // Return the entire data containers for iteration, serching, whatever
+    // Really janky casting, but hey, you do what you do for dat polymorphic love
     public ArrayList<Enemy> getEnemyList() {
-        return enemyList;
+        ArrayList<Enemy> e = (ArrayList<Enemy>)enemyList;
+        return e;
     }
 
     public ArrayList<Player> getPlayerList() {
-        return playerList;
+        ArrayList<Player> p = (ArrayList<Player>)playerList;
+        return p;
     }
 
     public ArrayList<Item> getItemList() {
-        return itemList;
+        ArrayList<Item> i = (ArrayList<Item>)itemList;
+        return i;
+    }
+    
+    public ArrayList<Encounter> getEncounterList() {
+        ArrayList<Encounter> e = (ArrayList<Encounter>)encounterList;
+        return e;
     }
     
     // Return a list of items matching a list of UUID's. Single items are
@@ -122,10 +133,17 @@ public class DataStorage {
     }
     
     // Get the player value matching the given name. Name must be exact!!
+    // Again groos-ass casting shit
     public Player getPlayerByName(String name){
-        for (Player p : playerList){
-            if (p.getStat("Name").equals(name)){
-                return p;
+        for (Object q : playerList){
+            try{
+                Player p = (Player)q;
+                if (p.getStat("Name").equals(name)){
+                    return p;
+                }
+            }
+            catch(ClassCastException e){ 
+                System.out.println(e);
             }
         }
         System.out.println("No player was found with name : " + name);
@@ -133,16 +151,20 @@ public class DataStorage {
     }
     
     public Enemy getEnemyByName(String name){
-        for (Enemy e : enemyList){
-            if (e.getStat("Name").equals(name)){
-                return e;
+        for (Object q : enemyList){
+            try{
+                Enemy e = (Enemy)q;
+                if (e.getStat("Name").equals(name)){
+                    return e;
+                }
+            }
+            catch(ClassCastException e){ 
+                System.out.println(e);
             }
         }
         System.out.println("No enemy was found with name : " + name);
         return null;
     }
     
-    public ArrayList<Encounter> getEncounterList() {
-        return encounterList;
-    }
+
 }

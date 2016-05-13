@@ -3,14 +3,14 @@
 // I can imagine ways in which an encounter is distinct from an event, but
 // this seems to fit my idea of an encounter more than my idea of an event.
 
-package D5DataStructures.DraftClasses;
+package D5DataStructures;
 
-import D5DataStructures.Entity;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class Encounter implements java.io.Serializable {
+public class Encounter extends DataItem {
 
     
     private UUID event_id;
@@ -31,7 +31,7 @@ public class Encounter implements java.io.Serializable {
         entity_ids = new ArrayList<UUID>();
     }
     
-    public void AddEntity(Entity e){
+    public void AddEntity(DataItem e){
        // entity_ids.add(e.getID());
     }
     

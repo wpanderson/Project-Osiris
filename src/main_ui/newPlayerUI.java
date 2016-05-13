@@ -697,48 +697,7 @@ public class newPlayerUI extends javax.swing.JFrame {
      * @param evt 
      */
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-        Player newPlayer = new Player(
-        playerNameJTextField.getText(),        
-            null,//height      
-            playerRaceJComboBox.getSelectedItem(),//race      
-            String Subrace,
-            String Class,
-            String Alignment,
-            String Sex,
-            String Inventory,
-            String HPBase,
-            String HPConstitutionBonus,
-            String HPRaceBonus,
-            String XP,
-            String Saves,
-            String ArmorProficiencies,
-            String WeaponProficiences,
-            String ProficiencyBonus,
-            String Strength,
-            String Dexterity,
-            String Constitution,
-            String Intelligence,
-            String Wisdom,
-            String Charisma,
-            String Acrobatics,
-            String AnimalHandling,
-            String Arcana,
-            String Athletics,
-            String Deception,
-            String History,
-            String Insight,
-            String Intimidation,
-            String Investigation,
-            String Medicine,
-            String Nature,
-            String Perception,
-            String Performance,
-            String Persuasion,
-            String Religion,
-            String SleightOfHand,
-            String Stealth,
-            String Survival,
-            String Language);
+
     }//GEN-LAST:event_addJButtonActionPerformed
 
     private void dwarfJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwarfJComboBoxActionPerformed

@@ -12,17 +12,14 @@ import java.util.Map;
 import java.util.UUID;
 import static java.util.UUID.randomUUID;
 
-public class Item {
-    
-    public static UUID generateID(){
-        return randomUUID();
-    }
-
+public class Item extends DataItem{
+   
    public enum Item_Properties {Ammunition, Finesse, Heavy, Light, Loading, RANGE, REACH, SPECIAL, THROWN, TWOHANDED, VERSITILE, MISC};
     
     private HashMap<String, String> stats;
     
     public Item (HashMap<String, String> stats){
+        super();
         this.stats = stats;
  
     }
@@ -36,7 +33,7 @@ public class Item {
                 UUID id,
                 String type,
                 String notes){
-        
+        super();
         stats = new HashMap<String, String>();
         stats.put("Name", name);
         stats.put("Cost", cost);
