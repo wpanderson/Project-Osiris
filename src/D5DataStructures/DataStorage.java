@@ -43,9 +43,14 @@ public class DataStorage implements java.io.Serializable {
         enemyList.addAll(CSVIO.importEnemiesFromCSV(importFilePath));
     }
     
+    // Adds a new 
+    public void addPlayer(Player p) {
+        playerList.add(p);
+    }
+    
     // Methods to return the lists of entries currently in database.  The UI will
     // need these.
-    // To do: doesn't make sense to return the entire database each time, so 
+    // Possible: doesn't make sense to return the entire database each time, so 
     // modify to only return a single element based on index given as argument.
     public ArrayList<Enemy> getEnemyList() {
         return enemyList;
@@ -61,5 +66,13 @@ public class DataStorage implements java.io.Serializable {
 
     public ArrayList<Encounter> getEncounterList() {
         return encounterList;
+    }
+    
+    public void saveToFile(String filename) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }
