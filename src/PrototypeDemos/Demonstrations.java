@@ -71,6 +71,19 @@ public class Demonstrations {
                 System.out.println(i);
             }
         }
+        
+        // Example on how to increment stats. Select the name of the stat. And
+        // if it can parse into an int. It is incremented. Only works on integer values!!!!!
+        // P.S, decrement by passing in negative values
+        p1.incrementStat("XP", 100);
+        System.out.println(p1.getStat("XP"));
+        System.out.println("\nAll of Player1's Stats : \n" + p1);
+        
+        
+        ArrayList<Player> players = new ArrayList<Player>();
+        players.add(p1);
+        players.add(p2);
+        CSVIO.exportPlayers("players.bin", players);
 
     }
     

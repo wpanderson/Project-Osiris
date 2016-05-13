@@ -66,8 +66,6 @@ public class Item {
         else{
             q += ", " + property;
         } 
-        
-        
     }
     
     public String getMaxRange(){

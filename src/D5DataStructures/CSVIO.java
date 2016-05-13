@@ -2,6 +2,8 @@
 // to (and from) a readable format that may be compatible with other programs.
 package D5DataStructures;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -108,7 +110,6 @@ public class CSVIO {
         
         return enemies;
     }
-    
     public static ArrayList<Item> importItems(String filePath)
             throws FileNotFoundException {
 
@@ -153,6 +154,47 @@ public class CSVIO {
         }
 
         return items;
+    }
+    
+    /////// CURRENTLY WORKING ON, PRETTY MUCH JUST A CSV EXPORTER. GONNA BE TWIDDLY
+    public static void exportPlayers(String filePath, ArrayList<Player> players) {
+        ArrayList<String> fileRows = new ArrayList<String>();
+        
+        // To add things without the full set of items you must find the union
+        // of all of them
+        HashMap<String, String> final_list = new HashMap<String, String>();
+        
+        // This is pretty slow
+        for(Player p: players){
+            HashMap<String, String> map = p.exportStats();
+ 
+            for (Map.Entry<String, String> e: map.entrySet()){
+                final_list.put(e.getKey(), e.getValue());
+            }
+        }
+        
+        fileRows.add("sdfa, oiasdf, asdfasd, werqwer, asdfasdf, rt. asdasd, asdfwef\n   ");
+        fileRows.add("12341234\"\"\"\", 123412341234, 12351324, 12341234, 12341,234, 12341234123,4 1324");
+        
+        String[] lines = new String[fileRows.size()];
+        lines = fileRows.toArray(lines);
+        
+        try{
+            CSVWriter writer = new CSVWriter(new FileWriter("test.csv"), '\t');
+            writer.writeNext(lines);
+            writer.writeNext(lines);
+            writer.close();
+        }
+        catch(IOException e){
+            
+        }
+        
+    }
+    public static void exportEnemies(String filePath, ArrayList<Enemy> enemies){
+        
+    }
+    public static void exportItems(String filePath, ArrayList<Item> items){
+        
     }
     
 

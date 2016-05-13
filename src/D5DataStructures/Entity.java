@@ -20,6 +20,27 @@ public class Entity {
     public Entity(){
     }
     
+    public void incrementStat(String name, int val){
+        String stat = stats.get(name);
+        
+        if (stat == null){
+            System.out.println("Entity does not contain stat : " + name);
+            return;
+        }
+        try{
+            // Parse to an int, and add to the input
+            val += Integer.parseInt(stat);
+            
+            // Save back to the map, overwriting the old value
+            stats.put(name, String.valueOf(val));
+        }
+        catch(NumberFormatException e){
+            System.out.println("Unable to parse stat from string. "
+                    + "Are you calling to the correct data type?");
+            System.out.println(e);
+        }
+    }
+    
     public void addStat(String name, String val){
         
         // Quotes screws things up. Change to double apostrophes
@@ -69,4 +90,10 @@ public class Entity {
         }
         return data;
     }
+    
+    public HashMap<String, String> exportStats(){
+        return new HashMap<String, String>(stats); // I think this copies? Depends on String class
+    }
+    
+    
 }
