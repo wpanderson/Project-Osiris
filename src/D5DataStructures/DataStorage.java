@@ -67,19 +67,4 @@ public class DataStorage implements java.io.Serializable {
     public ArrayList<Encounter> getEncounterList() {
         return encounterList;
     }
-    
-    
-    public void saveToFile(String filename) {
-        try {
-            FileOutputStream fileOut = new FileOutputStream(filename);
-            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
-            objectOut.writeObject(this);
-            objectOut.close();
-            fileOut.close();
-            System.out.println("Saved to: " + filename);
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-    }
-    
 }
