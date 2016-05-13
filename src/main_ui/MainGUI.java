@@ -145,6 +145,8 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        playerLevelDownJButton = new javax.swing.JButton();
+        playerLevelUpJButton = new javax.swing.JButton();
         npcJPanel = new javax.swing.JPanel();
         npcDetailsJPanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -263,7 +265,6 @@ public class MainGUI extends javax.swing.JFrame {
         playersJScrollPanel = new javax.swing.JScrollPane();
         playersJList = new javax.swing.JList();
         newPlayerJButton = new javax.swing.JButton();
-        saveNotesJButton = new javax.swing.JButton();
         removePlayerJButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         welcomeLabel2 = new javax.swing.JLabel();
@@ -283,6 +284,8 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         welcomeLabel3 = new javax.swing.JLabel();
         eventControlsJPanel = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        welcomeLabel4 = new javax.swing.JLabel();
         mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -995,6 +998,17 @@ public class MainGUI extends javax.swing.JFrame {
 
         jButton3.setText("Add Experience");
         playersJPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
+
+        playerLevelDownJButton.setText("-");
+        playerLevelDownJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerLevelDownJButtonActionPerformed(evt);
+            }
+        });
+        playersJPanel.add(playerLevelDownJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 40, 20));
+
+        playerLevelUpJButton.setText("+");
+        playersJPanel.add(playerLevelUpJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 40, 20));
 
         tabPanel.add(playersJPanel, "playersCard");
 
@@ -1802,11 +1816,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         playersJList.setBackground(new java.awt.Color(77, 67, 67));
         playersJList.setForeground(new java.awt.Color(255, 255, 255));
-        playersJList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         playersJList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 playersJListValueChanged(evt);
@@ -1821,9 +1830,6 @@ public class MainGUI extends javax.swing.JFrame {
                 newPlayerJButtonActionPerformed(evt);
             }
         });
-
-        saveNotesJButton.setMnemonic('s');
-        saveNotesJButton.setText("Save Notes");
 
         removePlayerJButton.setText("Remove Player");
 
@@ -1844,7 +1850,6 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(newPlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(saveNotesJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(removePlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1853,15 +1858,15 @@ public class MainGUI extends javax.swing.JFrame {
             playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerControlsJPanelLayout.createSequentialGroup()
                 .addContainerGap(7, Short.MAX_VALUE)
-                .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(playerControlsJPanelLayout.createSequentialGroup()
                         .addComponent(newPlayerJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(removePlayerJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(saveNotesJButton)))
-                .addContainerGap())
+                        .addGap(50, 50, 50))
+                    .addGroup(playerControlsJPanelLayout.createSequentialGroup()
+                        .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -1901,13 +1906,12 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(npcControlsJPanelLayout.createSequentialGroup()
-                        .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(removeNPCJButton)
-                            .addComponent(addNPCJButton))))
+                    .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(removeNPCJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addNPCJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1917,17 +1921,19 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, npcControlsJPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                                 .addComponent(addNPCJButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 33, Short.MAX_VALUE)
-                                .addComponent(removeNPCJButton))))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(removeNPCJButton))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, npcControlsJPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(playersJScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3)))))
                 .addContainerGap())
         );
 
@@ -1996,15 +2002,24 @@ public class MainGUI extends javax.swing.JFrame {
 
         pageControlsJPanel.add(locationControlsJPanel, "locationControlsCard");
 
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        welcomeLabel4.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        welcomeLabel4.setText("Notes");
+        welcomeLabel4.setToolTipText("");
+        jPanel4.add(welcomeLabel4, new java.awt.GridBagConstraints());
+
         javax.swing.GroupLayout eventControlsJPanelLayout = new javax.swing.GroupLayout(eventControlsJPanel);
         eventControlsJPanel.setLayout(eventControlsJPanelLayout);
         eventControlsJPanelLayout.setHorizontalGroup(
             eventControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, eventControlsJPanelLayout.createSequentialGroup()
+                .addGap(0, 306, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         eventControlsJPanelLayout.setVerticalGroup(
             eventControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pageControlsJPanel.add(eventControlsJPanel, "eventControlsCard");
@@ -2280,7 +2295,11 @@ public class MainGUI extends javax.swing.JFrame {
      * @param evt 
      */
     private void newPlayerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPlayerJButtonActionPerformed
-        // TODO add your handling code here:
+        // open then recieve player information upon user pressing "add" on 
+        // newPlayerUI
+        newPlayerUI newPlayer = new newPlayerUI();
+        newPlayer.setLocationRelativeTo(null);
+        newPlayer.setVisible(true);
     }//GEN-LAST:event_newPlayerJButtonActionPerformed
 
     private void playersJList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_playersJList1ValueChanged
@@ -2330,6 +2349,10 @@ public class MainGUI extends javax.swing.JFrame {
     private void removeNPCItemJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNPCItemJButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_removeNPCItemJButton1ActionPerformed
+
+    private void playerLevelDownJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerLevelDownJButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playerLevelDownJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2492,6 +2515,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -2559,6 +2583,8 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField playerGoldJTextField1;
     private javax.swing.JPanel playerItemsJPanel;
     private javax.swing.JTable playerItemsJTable;
+    private javax.swing.JButton playerLevelDownJButton;
+    private javax.swing.JButton playerLevelUpJButton;
     private javax.swing.JLabel playerNameJLabel;
     private javax.swing.JTextArea playerNotesJTextArea;
     private javax.swing.JLabel playerPBJLabel;
@@ -2586,7 +2612,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton removePlayerJButton;
     private javax.swing.JButton removePlayerSpellJButton;
     private javax.swing.JButton removePlayerWeaponJButton;
-    private javax.swing.JButton saveNotesJButton;
     private javax.swing.JLabel savingThrowsJLabel;
     private javax.swing.JScrollPane skillsJScrollPane;
     private javax.swing.JScrollPane skillsJScrollPane1;
@@ -2611,6 +2636,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel welcomeLabel1;
     private javax.swing.JLabel welcomeLabel2;
     private javax.swing.JLabel welcomeLabel3;
+    private javax.swing.JLabel welcomeLabel4;
     private javax.swing.JTextField wisModJTextField;
     private javax.swing.JTextField wisModJTextField1;
     private javax.swing.JSpinner wisModTempJSpinner;
