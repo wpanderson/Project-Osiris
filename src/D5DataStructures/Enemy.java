@@ -7,10 +7,10 @@ import java.util.*;
 public class Enemy extends Entity {
     
     // Indicates the enemy's contribution to the challenge rating of an enemy party.
-    protected double challenge;
+    private double challenge;
     
     // Indicates how much experience the enemy will yield when defeated.
-    protected int expValue;
+    private int expValue;
     
     // Default constructor; uses dummy values, for initialization only
     public Enemy() {
@@ -36,5 +36,21 @@ public class Enemy extends Entity {
     // determined based on its possessed stats.
     public void determineChallenge() {
         
+    }
+
+    public double getChallenge() {
+        return challenge;
+    }
+
+    public void setChallenge(double challenge) {
+        this.challenge = challenge;
+    }
+
+    public int getExpValue() {
+        return expValue;
+    }
+
+    public void setExpValue(int expValue) {
+        this.expValue = expValue;
     }
 }

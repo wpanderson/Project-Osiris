@@ -10,15 +10,15 @@ import java.util.*;
 public class Player extends Entity {
     
     // Field for player's class. Uses enum defined in superclass Entity
-    protected Entity.Class playerClass;
+    private Entity.Class playerClass;
     
     // Fields which represent the total exp the player possesses, and their current
     // level based on that value.
-    protected int level;
-    protected int exp;
+    private int level;
+    private int exp;
     
     // Field for proficiency bonus.
-    protected int profBonus;
+    private int profBonus;
     
     // Arrays that record which skills a player is proficient in.
     // Skill bonuses are implemented in the superclass, since all entities
@@ -28,7 +28,7 @@ public class Player extends Entity {
     // stats, proficiency bonus and which skills they are proficient in.
     // (Possible exceptions for rogues and other classes with abilities that give
     // extra bonuses to skills.  Will handle these cases later.)
-    protected boolean[] skillProfs;
+    private boolean[] skillProfs;
     
     // Default constructor; uses dummy values for initialization only
     public Player() {
@@ -59,5 +59,46 @@ public class Player extends Entity {
     public boolean levelUpCheck() {
         // To do: implement logic (must look up level calculation based on exp)
         return false;
+    }
+
+
+    public Entity.Class getPlayerClass() {
+        return playerClass;
+    }
+
+    public void setPlayerClass(Entity.Class playerClass) {
+        this.playerClass = playerClass;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+
+    public int getProfBonus() {
+        return profBonus;
+    }
+
+    public void setProfBonus(int profBonus) {
+        this.profBonus = profBonus;
+    }
+
+    public boolean[] getSkillProfs() {
+        return skillProfs;
+    }
+
+    public void setSkillProfs(boolean[] skillProfs) {
+        this.skillProfs = skillProfs;
     }
 }
