@@ -19,6 +19,7 @@ public class Enemy extends Entity {
         expValue = 0;
     }
     
+    
     public Enemy(String source, String name, String size, String type,
             ArrayList<String> tags, Entity.Align1 align1, Entity.Align2 align2,
             

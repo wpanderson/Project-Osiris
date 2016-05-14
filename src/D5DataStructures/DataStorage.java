@@ -16,6 +16,7 @@ public class DataStorage implements java.io.Serializable {
     // by more than one thing anyways.
     private ArrayList<Enemy> enemyList;
     private ArrayList<Player> playerList;
+    private ArrayList<Player> npcList;
     private ArrayList<Item> itemList;
     private ArrayList<Encounter> encounterList;
     
@@ -29,6 +30,7 @@ public class DataStorage implements java.io.Serializable {
     public DataStorage() {
         enemyList = new ArrayList<Enemy>();
         playerList = new ArrayList<Player>();
+        npcList = new ArrayList<Player>();
         itemList = new ArrayList<Item>();
         encounterList = new ArrayList<Encounter>();
         entityRefMap = new HashMap<UUID, Entity>();
@@ -43,9 +45,14 @@ public class DataStorage implements java.io.Serializable {
         enemyList.addAll(CSVIO.importEnemiesFromCSV(importFilePath));
     }
     
-    // Adds a new 
+    // Adds a new player
     public void addPlayer(Player p) {
         playerList.add(p);
+    }
+    
+    // Adds a new NPC
+    public void addNPC(Player npc) {
+        npcList.add(npc);
     }
     
     // Methods to return the lists of entries currently in database.  The UI will
