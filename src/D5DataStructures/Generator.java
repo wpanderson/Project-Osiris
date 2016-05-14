@@ -13,35 +13,35 @@ public class Generator {
     public enum Encounter_Type {SWARM, SMALLSWARM, SINGLEBOSS, BOSS, MIXED};
     
     private static boolean init = false;
-    private static HashMap<Integer, List<Integer>> xp_thresholds;
+    private static HashMap<Integer, List<Integer>> encounter_xp_thresholds;
     
     private static void Initialize(){
         init = true;
         
-        xp_thresholds = new HashMap<Integer, List<Integer>>();
+        encounter_xp_thresholds = new HashMap<Integer, List<Integer>>();
         
         // Oh boy
         // The xp mods per level for max level cap
-        xp_thresholds.put(1, Arrays.asList(25, 50, 75, 100));
-        xp_thresholds.put(2, Arrays.asList(50, 100, 150, 200));
-        xp_thresholds.put(3, Arrays.asList(75, 150, 225, 400));
-        xp_thresholds.put(4, Arrays.asList(125, 250, 375, 500));
-        xp_thresholds.put(5, Arrays.asList(250, 500, 750, 1100));
-        xp_thresholds.put(6, Arrays.asList(300, 600, 900, 1400));
-        xp_thresholds.put(7, Arrays.asList(350, 750, 1100, 1700));
-        xp_thresholds.put(8, Arrays.asList(450, 900, 1400, 2100));
-        xp_thresholds.put(9, Arrays.asList(550, 1100, 1600, 2400));
-        xp_thresholds.put(10, Arrays.asList(600, 1200, 1900, 2800));
-        xp_thresholds.put(11, Arrays.asList(800, 1600, 2400, 3600));
-        xp_thresholds.put(12, Arrays.asList(1000, 2000, 3000, 4500));
-        xp_thresholds.put(13, Arrays.asList(1100, 2200, 3400, 5100));
-        xp_thresholds.put(14, Arrays.asList(1250, 2500, 3800, 5700));
-        xp_thresholds.put(15, Arrays.asList(1400, 2800, 4300, 6400));
-        xp_thresholds.put(16, Arrays.asList(1600, 3200, 4800, 7200));
-        xp_thresholds.put(17, Arrays.asList(2000, 3900, 5900, 8800));
-        xp_thresholds.put(18, Arrays.asList(2100, 4200, 6300, 9500));
-        xp_thresholds.put(19, Arrays.asList(2400, 4900, 7300, 10900));
-        xp_thresholds.put(20, Arrays.asList(2800, 5700, 8500, 12700));
+        encounter_xp_thresholds.put(1, Arrays.asList(25, 50, 75, 100));
+        encounter_xp_thresholds.put(2, Arrays.asList(50, 100, 150, 200));
+        encounter_xp_thresholds.put(3, Arrays.asList(75, 150, 225, 400));
+        encounter_xp_thresholds.put(4, Arrays.asList(125, 250, 375, 500));
+        encounter_xp_thresholds.put(5, Arrays.asList(250, 500, 750, 1100));
+        encounter_xp_thresholds.put(6, Arrays.asList(300, 600, 900, 1400));
+        encounter_xp_thresholds.put(7, Arrays.asList(350, 750, 1100, 1700));
+        encounter_xp_thresholds.put(8, Arrays.asList(450, 900, 1400, 2100));
+        encounter_xp_thresholds.put(9, Arrays.asList(550, 1100, 1600, 2400));
+        encounter_xp_thresholds.put(10, Arrays.asList(600, 1200, 1900, 2800));
+        encounter_xp_thresholds.put(11, Arrays.asList(800, 1600, 2400, 3600));
+        encounter_xp_thresholds.put(12, Arrays.asList(1000, 2000, 3000, 4500));
+        encounter_xp_thresholds.put(13, Arrays.asList(1100, 2200, 3400, 5100));
+        encounter_xp_thresholds.put(14, Arrays.asList(1250, 2500, 3800, 5700));
+        encounter_xp_thresholds.put(15, Arrays.asList(1400, 2800, 4300, 6400));
+        encounter_xp_thresholds.put(16, Arrays.asList(1600, 3200, 4800, 7200));
+        encounter_xp_thresholds.put(17, Arrays.asList(2000, 3900, 5900, 8800));
+        encounter_xp_thresholds.put(18, Arrays.asList(2100, 4200, 6300, 9500));
+        encounter_xp_thresholds.put(19, Arrays.asList(2400, 4900, 7300, 10900));
+        encounter_xp_thresholds.put(20, Arrays.asList(2800, 5700, 8500, 12700));
 
     }
     
@@ -76,16 +76,16 @@ public class Generator {
             
             switch (difficulty){
                 case EASY:
-                    xp_cap += xp_thresholds.get(level).get(0);
+                    xp_cap += encounter_xp_thresholds.get(level).get(0);
                     break;
                 case MEDIUM:
-                    xp_cap += xp_thresholds.get(level).get(1);
+                    xp_cap += encounter_xp_thresholds.get(level).get(1);
                     break;
                 case HARD:
-                    xp_cap += xp_thresholds.get(level).get(2);
+                    xp_cap += encounter_xp_thresholds.get(level).get(2);
                     break;
                 case DEADLY:
-                    xp_cap += xp_thresholds.get(level).get(3);
+                    xp_cap += encounter_xp_thresholds.get(level).get(3);
                     break;
                 default:
                     throw new AssertionError(difficulty.name());

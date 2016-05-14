@@ -47,4 +47,9 @@ public class Player extends DataItem {
         
         return ids;
     }
+
+    @Override
+    protected void validateValues() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

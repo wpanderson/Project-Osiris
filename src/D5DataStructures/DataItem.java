@@ -19,7 +19,10 @@ public abstract class DataItem {
     public static UUID generateID(){
         return randomUUID();
     }
-    
+    protected UUID data_item_id;
+    public UUID getDataItemID(){
+        return data_item_id;
+    }
     
     public enum Data_Type {PLAYER, ENEMY, ENCOUNTER, ITEM, NOTE}
     
@@ -27,7 +30,33 @@ public abstract class DataItem {
     protected HashMap<String, String> stats;
     
     public DataItem(){
+        stats = new HashMap<String, String>();
+        data_item_id = UUID.randomUUID();
     }
+    
+    public DataItem(HashMap<String, String> stats){
+        
+        // Removes everything but letters, numbers, underscores, quotes, and commas
+        String stipper_regex = "/([^\\w!?,\"])/g";
+        this.stats = new HashMap<String, String>();
+        
+        for (Map.Entry<String, String> e: stats.entrySet()){
+            this.stats.put(
+                    e.getKey().replaceAll(stipper_regex, "").toLowerCase(), // Strip the values, and set to lower case
+                    e.getValue());                                          // leave the value for sub class validation
+        }
+        
+        data_item_id = UUID.randomUUID();
+        
+        validateValues();
+    }
+    
+    public DataItem(DataItem d){
+        this.data_item_id = d.getDataItemID();
+        this.stats = new HashMap<String, String>(d.exportStats());
+    }
+    
+    protected abstract void validateValues();
     
     public void incrementIntegerStat(String stat_name, int val){
         String stat = stats.get(stat_name);
@@ -152,9 +181,6 @@ public abstract class DataItem {
         return data;
     }
     
-    public DataItem(HashMap<String, String> stats){
-        this.stats = stats; 
-    }
     
     // To do: make this return more more meaningful data, for more thorough testing
     public String toString() {

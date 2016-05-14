@@ -12,10 +12,9 @@ import java.util.UUID;
 
 public class Encounter extends DataItem {
 
-    
-    private UUID event_id;
-    public UUID getID(){
-        return event_id;
+    @Override
+    protected void validateValues() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public enum LOCATION { PLAINS, FOREST, HILLS, MOUNTAINS, MARSH, DESERT, UNDERGROUND,
@@ -30,6 +29,7 @@ public class Encounter extends DataItem {
     public Encounter() {
         enemies = new ArrayList<Enemy>();
     }
+    
     public Encounter(ArrayList<Enemy> enemies, LOCATION location, DIFFICULTY difficulty) {
         this.enemies = enemies;
         this.location = location;
@@ -37,11 +37,13 @@ public class Encounter extends DataItem {
     }
     
     public void AddEnemy(Enemy e){
-       // entity_ids.add(e.getID());
+       enemies.add(e);
     }
     
     public void RemoveEnemy(Enemy enemy){
-        
+        enemies.remove(enemy); // Not sure if the equals operation is smart enough
+                               // or if it's just comparing references. But I think
+                               // the reference should be correct regardless
     }
     
     public LOCATION getLocation(){

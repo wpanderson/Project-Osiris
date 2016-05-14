@@ -13,15 +13,17 @@ import java.util.UUID;
 import static java.util.UUID.randomUUID;
 
 public class Item extends DataItem{
+
+
    
-   public enum Item_Properties {AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, THROWN, TWOHANDED, VERSITILE, MISC};
+    public enum Item_Properties {AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, THROWN, TWOHANDED, VERSITILE, MISC};
+    public enum Item_Stat_Options {NAME, COST, WEIGHT, DAMAGE, NORMAL_RANGE, MAX_RANGE, ID, TYPE, NOTES};
+    
     
     private HashMap<String, String> stats;
     
     public Item (HashMap<String, String> stats){
-        super();
-        this.stats = stats;
- 
+        super(stats);
     }
     
     public Item(String name,
@@ -44,6 +46,11 @@ public class Item extends DataItem{
         stats.put("ID", id.toString());
         stats.put("Type", type);
         stats.put("Notes", notes);
+        
+    }
+    
+    @Override
+    protected void validateValues() {
         
     }
     

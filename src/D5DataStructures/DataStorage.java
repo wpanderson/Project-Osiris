@@ -90,6 +90,24 @@ public class DataStorage {
     public void addPlayer(Player p){
         playerList.add(p);
     }
+    public void addEncounter(Encounter e){
+        encounterList.add(e);
+    }
+    
+    // Remove single data values from their respective containers
+    public void removeEnemy(Enemy e){
+        enemyList.remove(e);
+    }
+    public void removeItem(Item i){
+        itemList.remove(i);
+    }
+    public void removePlayer(Player p){
+        playerList.remove(p);
+    }
+    public void removeEncounter(Encounter e){
+        encounterList.remove(e);
+    }
+    
     
     // Return the entire data containers for iteration, serching, whatever
     // Really janky casting, but hey, you do what you do for dat polymorphic love
@@ -133,7 +151,7 @@ public class DataStorage {
     }
     
     // Get the player value matching the given name. Name must be exact!!
-    // Again groos-ass casting shit
+    // Again gross-ass casting shit
     public Player getPlayerByName(String name){
         for (Object q : playerList){
             try{
@@ -149,6 +167,25 @@ public class DataStorage {
         System.out.println("No player was found with name : " + name);
         return null;
     }
+    
+    public void removePlayerByName(String name){
+        for (Object q : playerList){
+            try{
+                Player p = (Player)q;
+                if (p.getStat("Name").equals(name)){
+                    playerList.remove(q);
+                    return;
+                }
+                
+            }
+            catch(ClassCastException e){ 
+                System.out.println(e);
+            }
+        }
+        System.out.println("No player was found with name : " + name);
+    }
+    
+    
     
     public Enemy getEnemyByName(String name){
         for (Object q : enemyList){
