@@ -14,7 +14,7 @@ import static java.util.UUID.randomUUID;
 
 public class Item extends DataItem{
    
-   public enum Item_Properties {Ammunition, Finesse, Heavy, Light, Loading, RANGE, REACH, SPECIAL, THROWN, TWOHANDED, VERSITILE, MISC};
+   public enum Item_Properties {AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, THROWN, TWOHANDED, VERSITILE, MISC};
     
     private HashMap<String, String> stats;
     

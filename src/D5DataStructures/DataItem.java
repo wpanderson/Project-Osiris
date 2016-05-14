@@ -124,6 +124,26 @@ public abstract class DataItem {
         return val;
     }
     
+    public int getIntegerStat(String stat_name){
+        String stat = stats.get(stat_name);
+        
+        if (stat == null){
+            System.out.println("Entity does not contain stat : " + stat_name);
+            return -1;
+        }
+        try{
+            // Parse to an int, and add to the input
+            return Integer.parseInt(stat);
+            
+        }
+        catch(NumberFormatException e){
+            System.out.println("Unable to parse stat from string. "
+                    + "Are you calling to the correct data type?");
+            System.out.println(e);
+            return -1;
+        }
+    }
+    
     public ArrayList<String> listAvailableStats(){
         ArrayList<String> data = new ArrayList<String>();
         for (Map.Entry<String, String> entry : stats.entrySet()) {

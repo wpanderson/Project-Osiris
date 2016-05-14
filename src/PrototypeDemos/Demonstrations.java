@@ -89,8 +89,16 @@ public class Demonstrations {
         //CSVIO.exportEnemies("enemies.csv", d.getEnemyList());
         //CSVIO.exportItems("items.csv", d.getItemList());
         
-        
+        Encounter e = 
+                Generator.Generate_Encounter(
+                        d.getEnemyList(), 
+                        d.getPlayerList(), 
+                        Encounter.DIFFICULTY.DEADLY, 
+                        Encounter.LOCATION.ABYSS, 
+                        Generator.Encounter_Type.SWARM);
 
+        
+        ArrayList<Enemy> ens = e.getEnemies();
     }
     
 
