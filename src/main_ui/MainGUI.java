@@ -26,6 +26,8 @@ public class MainGUI extends javax.swing.JFrame {
     private ArrayList<Enemy> enemyList = new ArrayList();
     //private ArrayList<Location> locationList = new ArrayList();
     
+    public static DataStorage DATABASE = new DataStorage();
+    
     /**
      * Creates new form MainGUI
      */
@@ -34,6 +36,7 @@ public class MainGUI extends javax.swing.JFrame {
         initComponents();
         //UI startup commands:================================================
     }
+    
 
     /**
      * Netbeans created objects.
@@ -270,6 +273,7 @@ public class MainGUI extends javax.swing.JFrame {
         removePlayerJButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         welcomeLabel2 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         npcControlsJPanel = new javax.swing.JPanel();
         playersJScrollPanel1 = new javax.swing.JScrollPane();
         playersJList1 = new javax.swing.JList();
@@ -1745,6 +1749,13 @@ public class MainGUI extends javax.swing.JFrame {
         welcomeLabel2.setToolTipText("");
         jPanel2.add(welcomeLabel2, new java.awt.GridBagConstraints());
 
+        jButton4.setText("Hey");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout playerControlsJPanelLayout = new javax.swing.GroupLayout(playerControlsJPanel);
         playerControlsJPanel.setLayout(playerControlsJPanelLayout);
         playerControlsJPanelLayout.setHorizontalGroup(
@@ -1752,10 +1763,15 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(playerControlsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(newPlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removePlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(playerControlsJPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(newPlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(removePlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(playerControlsJPanelLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1768,7 +1784,9 @@ public class MainGUI extends javax.swing.JFrame {
                         .addComponent(newPlayerJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(removePlayerJButton)
-                        .addGap(50, 50, 50))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4)
+                        .addGap(12, 12, 12))
                     .addGroup(playerControlsJPanelLayout.createSequentialGroup()
                         .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -2261,6 +2279,10 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_playerLevelDownJButtonActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        System.out.println(DATABASE.getPlayerList().get(0));
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2359,6 +2381,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

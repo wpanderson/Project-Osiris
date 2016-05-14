@@ -6,8 +6,10 @@
 package main_ui;
 
 import D5DataStructures.DataStorage;
+import D5DataStructures.Entity;
 import D5DataStructures.Player;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 
 /**
  *
@@ -716,8 +718,27 @@ public class newPlayerUI extends javax.swing.JFrame {
      * @param evt 
      */
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-       // DataStorage newPlayer = new DataStorage();
-        
+       
+        int[] dumb = {0,0,0,0,0,0};
+        //int[] skills = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        boolean[] skills = {true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true};
+        ArrayList<String> butts = null;
+        Player newPlayer = new Player("",//Source
+               characterNameJTextField.getText(),//character name
+                "",//size
+                "",//type
+                butts,//tags
+                Entity.Align1.CHAOTIC,//Allignment
+                Entity.Align2.SCIENTIFIC,//Allignment
+                dumb,//Attributes
+                Entity.Class.BARBARIAN,//class
+                Integer.parseInt(levelJComboBox.getSelectedItem().toString()),//Lvl
+                0,//XP
+                1,//Prof Bonus
+                skills,//skillz
+                playerNameJTextField.getText()//player name
+                );
+        MainGUI.DATABASE.addPlayer(newPlayer);
         
         
         
