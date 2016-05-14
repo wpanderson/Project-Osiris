@@ -50,7 +50,7 @@ public class Player extends Entity {
     // Calculates stat modifiers automatically
     public Player(String source, String name, String size, String type,
             ArrayList<String> tags, Entity.Align1 align1, Entity.Align2 align2,
-            int[] stats, int[] skillModifiers,
+            int[] stats,
             
             Entity.Class playerClass, int level,
             int exp, int profBonus, boolean[] skillProfs, String playerName) {
