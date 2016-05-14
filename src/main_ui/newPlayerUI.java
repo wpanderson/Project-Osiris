@@ -29,6 +29,9 @@ public class newPlayerUI extends javax.swing.JFrame {
     private int intAdd = 0;
     private int wisAdd = 0;
     private int charAdd = 0;
+    private Entity.Race characterRace = Entity.Race.DRAGONBORN;
+    private Entity.Class characterClass = Entity.Class.BARBARIAN;
+    
     private int profBonus = 0;
 
     /**
@@ -482,7 +485,12 @@ public class newPlayerUI extends javax.swing.JFrame {
         jLabel5.setText("Class:");
         playerInfoJPanel.add(jLabel5);
 
-        singleClassJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rouge", "Sorcerer", "Warlock" }));
+        singleClassJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rouge", "Sorcerer", "Warlock", "Wizard" }));
+        singleClassJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                singleClassJComboBoxActionPerformed(evt);
+            }
+        });
         playerInfoJPanel.add(singleClassJComboBox);
 
         lvlJLabel1.setText("HP:");
@@ -674,41 +682,50 @@ public class newPlayerUI extends javax.swing.JFrame {
                 playerCharismaModifierJLabel.setText("+1");
                 strAdd = 2;
                 charAdd = 1;
+                characterRace = characterRace.DRAGONBORN;
                 card.show(subraceJPanel, "none");
                 break;
             case 1: //Dwarf +2 Strength
                 playerConstitutionModifierJLabel.setText("+2");
                 conAdd = 2;
+                characterRace = characterRace.DWARF;
                 card.show(subraceJPanel, "dwarf");
                 break;
             case 2: //Elf +2 Dexterity
                 playerDexterityModifierJLabel.setText("+2");
                 dexAdd = 2;
+                characterRace = characterRace.ELF;
                 card.show(subraceJPanel, "elf");
                 break;
             case 3: //Gnome
                 intAdd = 2;
+                characterRace = characterRace.GNOME;
                 card.show(subraceJPanel, "gnome");
                 break;
             case 4: //Half-Elf
                 charAdd = 2;
+                characterRace = characterRace.HALF_ELF;
                 card.show(subraceJPanel, "none");
                 break;
             case 5: //Half-Orc 
                 strAdd = 2;
                 conAdd = 1;
+                characterRace = characterRace.HALF_ORC;
                 card.show(subraceJPanel, "none");
                 break;
             case 6: //Halfling
                 dexAdd = 2;
+                characterRace = characterRace.HALFING;
                 card.show(subraceJPanel, "halfling");
                 break;
             case 7: //Human
+                characterRace = characterRace.HUMAN;
                 card.show(subraceJPanel, "none");
                 break;
             case 8: //Tiefling
                 intAdd = 1;
                 charAdd = 2;
+                characterRace = characterRace.TIEFLING;
                 card.show(subraceJPanel, "none");
                 break;
         }
@@ -731,7 +748,7 @@ public class newPlayerUI extends javax.swing.JFrame {
                 Entity.Align1.CHAOTIC,//Allignment
                 Entity.Align2.SCIENTIFIC,//Allignment
                 dumb,//Attributes
-                Entity.Class.BARBARIAN,//class
+                characterClass,//class
                 Integer.parseInt(levelJComboBox.getSelectedItem().toString()),//Lvl
                 0,//XP
                 1,//Prof Bonus
@@ -832,6 +849,51 @@ public class newPlayerUI extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_gnomeJComboBoxActionPerformed
+    /**
+     * Based on selection changes the currently selected class enum
+     * @param evt 
+     */
+    private void singleClassJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleClassJComboBoxActionPerformed
+        switch(singleClassJComboBox.getSelectedIndex())
+        {
+            case 0:
+                characterClass = Entity.Class.BARBARIAN;
+                break;
+            case 1:
+                characterClass = Entity.Class.BARD;
+                break;
+            case 2:
+                characterClass = Entity.Class.CLERIC;
+                break;
+            case 3:
+                characterClass = Entity.Class.DRUID;
+                break;
+            case 4:
+                characterClass = Entity.Class.FIGHTER;
+                break;
+            case 5:
+                characterClass = Entity.Class.MONK;
+                break;
+            case 6:
+                characterClass = Entity.Class.PALADIN;
+                break;
+            case 7:
+                characterClass = Entity.Class.RANGER;
+                break;
+            case 8:
+                characterClass = Entity.Class.ROUGE;
+                break;
+            case 9:
+                characterClass = Entity.Class.SORCERER;
+                break;
+            case 10:
+                characterClass = Entity.Class.WARLOCK;
+                break;
+            case 11:
+                characterClass = Entity.Class.WIZARD;
+                break;
+        }
+    }//GEN-LAST:event_singleClassJComboBoxActionPerformed
     /**
      * clear ability modifiers
      */

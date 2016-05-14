@@ -714,7 +714,7 @@
         <Component class="javax.swing.JComboBox" name="singleClassJComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="11">
+              <StringArray count="12">
                 <StringItem index="0" value="Barbarian"/>
                 <StringItem index="1" value="Bard"/>
                 <StringItem index="2" value="Cleric"/>
@@ -726,9 +726,13 @@
                 <StringItem index="8" value="Rouge"/>
                 <StringItem index="9" value="Sorcerer"/>
                 <StringItem index="10" value="Warlock"/>
+                <StringItem index="11" value="Wizard"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="singleClassJComboBoxActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lvlJLabel1">
           <Properties>
