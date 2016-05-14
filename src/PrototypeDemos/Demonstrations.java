@@ -101,7 +101,7 @@ public class Demonstrations {
             Generator.Generate_Encounter(
                     d.getEnemyList(), 
                     d.getPlayerList(), 
-                    Encounter.DIFFICULTY.EASY, 
+                    Encounter.DIFFICULTY.HARD, 
                     Encounter.LOCATION.DEFAULT, 
                     Generator.Encounter_Type.SINGLEBOSS);
 

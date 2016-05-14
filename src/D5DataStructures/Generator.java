@@ -178,7 +178,9 @@ public class Generator {
             while (xp_cap - xp_cap / 10 > current_xp){
                 // Get a random entity from the range
                 
-                Enemy e = selection_list.get(rand.nextInt((selection_list.size())));
+                 long seed2 = System.nanoTime();
+                Random rand2 = new Random(seed2);
+                Enemy e = selection_list.get(rand2.nextInt((selection_list.size())));
 
                 int xp = e.getIntegerStat("XP");
                 

@@ -31,7 +31,7 @@ public class DataStorage {
     public DataStorage(String itemsPath, String playersPath){
         this();
         // No monster path was given, defaults
-        addEnemiesFromCSV("Default_Monsters.csv");
+        addEnemiesFromCSV("Monsters_DB.csv");
     
         addPlayersFromCSV(playersPath);
         addItemsFromCSV(itemsPath);
