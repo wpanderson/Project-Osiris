@@ -89,16 +89,38 @@ public class Demonstrations {
         //CSVIO.exportEnemies("enemies.csv", d.getEnemyList());
         //CSVIO.exportItems("items.csv", d.getItemList());
         
-        Encounter e = 
+        Encounter e1 = 
                 Generator.Generate_Encounter(
                         d.getEnemyList(), 
                         d.getPlayerList(), 
                         Encounter.DIFFICULTY.DEADLY, 
-                        Encounter.LOCATION.ABYSS, 
+                        Encounter.LOCATION.DEFAULT, 
                         Generator.Encounter_Type.SWARM);
 
-        
-        ArrayList<Enemy> ens = e.getEnemies();
+        Encounter e2 = 
+            Generator.Generate_Encounter(
+                    d.getEnemyList(), 
+                    d.getPlayerList(), 
+                    Encounter.DIFFICULTY.EASY, 
+                    Encounter.LOCATION.DEFAULT, 
+                    Generator.Encounter_Type.SINGLEBOSS);
+
+        Encounter e3 = 
+            Generator.Generate_Encounter(
+                    d.getEnemyList(), 
+                    d.getPlayerList(), 
+                    Encounter.DIFFICULTY.HARD, 
+                    Encounter.LOCATION.DEFAULT, 
+                    Generator.Encounter_Type.BOSS);
+
+        Encounter e4 = 
+            Generator.Generate_Encounter(
+                    d.getEnemyList(), 
+                    d.getPlayerList(), 
+                    Encounter.DIFFICULTY.DEADLY, 
+                    Encounter.LOCATION.DEFAULT, 
+                    Generator.Encounter_Type.MIXED);
+ 
     }
     
 

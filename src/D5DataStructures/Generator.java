@@ -151,7 +151,7 @@ public class Generator {
         // fill the selection list with enemies that are within the range
         // defined by the deviation, if 0 then retry
         while (initial_selection_list.size() == 0){
-            deviation += prefered_xp_level / 10;
+            deviation += prefered_xp_level / 3;
             for (Enemy e: parsed_location_list){
                 int xp_level = e.getIntegerStat("XP");
                 if (xp_level < prefered_xp_level + deviation &&
@@ -216,8 +216,9 @@ public class Generator {
             
             // Give it a little breathing room. Who cares if it's a little few more
             // or less mobs. Scales on the mob count as well
-            if (prefered_enemy_count + prefered_enemy_count / 4 >= output_list.size()   &&
-                prefered_enemy_count - prefered_enemy_count / 4 <= selection_list.size() ){
+            if (prefered_enemy_count + prefered_enemy_count / 3 >= output_list.size()   &&
+                prefered_enemy_count - prefered_enemy_count / 3 <= output_list.size() ){
+                int a = prefered_enemy_count + prefered_enemy_count / 3;
                 success = true;
             }
             else{ // Do it again, it failed
@@ -232,6 +233,8 @@ public class Generator {
         for (Enemy i: output_list){
             System.out.print(i.getStat("XP") + " : " + i.getStat("Name") + "\n");
         }
+        
+        System.out.println("\n");
         
         return new Encounter(output_list, location, difficulty);
     } 
