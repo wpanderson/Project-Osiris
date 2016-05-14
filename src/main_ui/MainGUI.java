@@ -299,7 +299,6 @@ public class MainGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dungeon Master Companion");
         setBackground(new java.awt.Color(51, 51, 51));
-        setMaximumSize(new java.awt.Dimension(1000, 1000));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mainToolBar.setBorder(null);
