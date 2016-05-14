@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Wes/Documents/CWU%20Stuff/Software%20Engineering/Project%20Osiris/Project%20Osiris/src/D5DataStructures/DataStorage.java</file>
-            <file>file:/C:/Users/Wes/Documents/CWU%20Stuff/Software%20Engineering/Project%20Osiris/Project%20Osiris/src/PrototypeDemos/Demonstrations.java</file>
-            <file>file:/C:/Users/Wes/Documents/CWU%20Stuff/Software%20Engineering/Project%20Osiris/Project%20Osiris/src/main_ui/MainGUI.java</file>
-            <file>file:/C:/Users/Wes/Documents/CWU%20Stuff/Software%20Engineering/Project%20Osiris/Project%20Osiris/src/main_ui/GeneratorUI.java</file>
-            <file>file:/C:/Users/Wes/Documents/CWU%20Stuff/Software%20Engineering/Project%20Osiris/Project%20Osiris/src/main_ui/newPlayerUI.java</file>
-            <file>file:/C:/Users/Wes/Documents/CWU%20Stuff/Software%20Engineering/Project%20Osiris/Project%20Osiris/src/D5DataStructures/Enemy.java</file>
-            <file>file:/C:/Users/Wes/Documents/CWU%20Stuff/Software%20Engineering/Project%20Osiris/Project%20Osiris/src/main_ui/DatabaseViewerUI.java</file>
+            <file>file:/E:/Users/ryanpatel/Documents/GitHub/Project-Osiris/src/D5DataStructures/Player.java</file>
+            <file>file:/E:/Users/ryanpatel/Documents/GitHub/Project-Osiris/src/D5DataStructures/Enemy.java</file>
+            <file>file:/E:/Users/ryanpatel/Documents/GitHub/Project-Osiris/src/D5DataStructures/Entity.java</file>
+            <file>file:/E:/Users/ryanpatel/Documents/GitHub/Project-Osiris/src/D5DataStructures/Serializer.java</file>
         </group>
     </open-files>
 </project-private>

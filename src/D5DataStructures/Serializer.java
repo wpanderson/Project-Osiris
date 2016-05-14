@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package D5DataStructures;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -11,11 +6,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class Serializer {
-    public static void saveToFile(String filename) {
+    public static void saveToFile(String filename, DataStorage toSave) {
         try {
             FileOutputStream fileOut = new FileOutputStream(filename);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
-            objectOut.writeObject(this);
+            objectOut.writeObject(toSave);
             objectOut.close();
             fileOut.close();
             System.out.println("Saved to: " + filename);
@@ -24,13 +19,11 @@ public class Serializer {
         }
     }
     
-    public static void loadFromFile(String filename) {
-        DataStorage d;
+    public static void loadFromFile(String filename, DataStorage toLoadInto) {
         try {
             FileInputStream fileIn = new FileInputStream(filename);
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-            d = (DataStorage) in.readObject();
-            this = d;
+            toLoadInto = (DataStorage) objectIn.readObject();
         } catch(IOException e) {
             System.out.println(e);
         } catch(ClassNotFoundException c) {
