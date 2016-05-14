@@ -48,12 +48,13 @@ public class Player extends Entity {
     public Player(String source, String name, String size, String type,
             ArrayList<String> tags, Entity.Align1 align1, Entity.Align2 align2,
             int[] stats, int[] skillModifiers, Entity.Class playerClass, int level,
-            int exp, int profBonus) {
-        super(source, name, size, type, tags, align1, align2, stats, skillModifiers);
+            int exp, int profBonus, boolean[] skillProfs) {
+        super(source, name, size, type, tags, align1, align2, stats);
         this.playerClass = playerClass;
         this.level = level;
         this.exp = exp;
         this.profBonus = profBonus;
+        // calculateSkillModifiers();
         calculateStatModifiers();
     }
     

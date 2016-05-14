@@ -61,7 +61,7 @@ public class Entity {
     // skills (see Player class).  Will be populated differently in child classes
     // since skill modifiers are determined differently for Players (based on
     // stats and proficiencies) and Enemies/NPCs (usually predetermined value).
-    private int[] skillModifiers;
+    protected int[] skillModifiers;
     
     protected ArrayList<UUID> inventory;
     
@@ -103,7 +103,7 @@ public class Entity {
     // towards putting it with the reading logic.
     public Entity(String source, String name, String size, String type,
             ArrayList<String> tags, Entity.Align1 align1, Entity.Align2 align2,
-            int[] stats, int[] skillModifiers) {
+            int[] stats) {
         
         // Calls default constructor to make sure we initialize everything with
         // dummy values, since our real constructor does not yet take in all the
@@ -114,7 +114,8 @@ public class Entity {
         this.align1 = align1;
         this.align2 = align2;
         this.stats = stats;
-        this.skillModifiers = skillModifiers;
+        // Comment since will be initialized by child
+        // this.skillModifiers = skillModifiers;
         calculateStatModifiers();
     }
     
