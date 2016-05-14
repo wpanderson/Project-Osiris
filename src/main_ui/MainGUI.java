@@ -30,7 +30,9 @@ public class MainGUI extends javax.swing.JFrame {
      * Creates new form MainGUI
      */
     public MainGUI() {
+        //Database pre load:==================================================
         initComponents();
+        //UI startup commands:================================================
     }
 
     /**
@@ -299,6 +301,7 @@ public class MainGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dungeon Master Companion");
         setBackground(new java.awt.Color(51, 51, 51));
+        setMaximumSize(new java.awt.Dimension(1000, 1000));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mainToolBar.setBorder(null);
@@ -2202,6 +2205,8 @@ public class MainGUI extends javax.swing.JFrame {
         newPlayerUI newPlayer = new newPlayerUI();
         newPlayer.setLocationRelativeTo(null);
         newPlayer.setVisible(true);
+        
+        
     }//GEN-LAST:event_newPlayerJButtonActionPerformed
 
     private void playersJList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_playersJList1ValueChanged
