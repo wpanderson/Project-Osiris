@@ -27,9 +27,10 @@ public class Enemy extends Entity {
                     
             int[] stats, int[] skillModifiers) {
         
-        super(source, name, size, type, tags, align1, align2, stats, skillModifiers);
+        super(source, name, size, type, tags, align1, align2, stats);
         this.challenge = challenge;
         this.expValue = expValue;
+        this.skillModifiers = skillModifiers;
         calculateStatModifiers();
     }
     
