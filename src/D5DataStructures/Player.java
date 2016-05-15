@@ -42,6 +42,10 @@ public class Player extends Entity {
         level = 0;
         exp = 0;
         profBonus = 0;
+        
+        // Ahh, don't know how many there are. How about 100, that sounds nice
+        skillProfs = new boolean[100];
+        
         Arrays.fill(skillProfs,false);
         playerName = "";
     }

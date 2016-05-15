@@ -3,6 +3,7 @@
 
 package D5DataStructures;
 
+import D5DataStructures.DraftClasses.Encounter;
 import D5DataStructures.DraftClasses.*;
 import java.util.*;
 import java.io.*;
@@ -73,5 +74,9 @@ public class DataStorage implements java.io.Serializable {
 
     public ArrayList<Encounter> getEncounterList() {
         return encounterList;
+    }
+
+    public Iterable<Player> getPlayers() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

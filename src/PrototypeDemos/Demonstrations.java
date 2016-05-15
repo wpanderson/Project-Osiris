@@ -2,6 +2,7 @@
 
 package PrototypeDemos;
 
+import D5DataStructures.DraftClasses.Encounter;
 import D5DataStructures.*;
 import java.util.*;
 import java.io.*;
@@ -9,7 +10,8 @@ import java.io.*;
 public class Demonstrations {
     public static void main(String[] args) throws IOException {
         // Call whatever demos we want to run at a given time here
-        CSVImportDemo();
+        //CSVImportDemo();
+        GeneratorDemo();
     }
     
     // Demonstrates CSV import and basic database functionality.
@@ -29,6 +31,41 @@ public class Demonstrations {
                 System.out.println(" - " + enemy);
             }
             System.out.println();
+        } catch(FileNotFoundException e) {
+            System.out.println("File not found. Details:");
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public static void GeneratorDemo() throws IOException{
+        Scanner console = new Scanner(System.in);
+        //String filePath = console.next();
+        System.out.println();
+        DataStorage database = new DataStorage();
+        try {                           // No ti
+            database.addEnemiesFromCSV("src//D.R.A.G.O.N.S_CSV//Monsters_DB.csv");
+            database.addPlayer(new Player());
+            database.addPlayer(new Player());
+            database.addPlayer(new Player());
+            database.addPlayer(new Player());
+            
+            long seed = System.nanoTime();
+            Random rng = new Random(seed);
+            
+            int level = rng.nextInt(20);
+            for (Player p : database.getPlayerList()){
+                p.setLevel(level);
+            }
+            
+            Encounter e = Generator.Generate_Encounter(
+                            database.getEnemyList(),
+                            database.getPlayerList(),
+                            Encounter.DIFFICULTY.DEADLY,
+                            Encounter.LOCATION.NULL,       // No locations currently
+                            Encounter.Encounter_Type.BOSS);
+            
+            System.out.println(e.toString());
+            
         } catch(FileNotFoundException e) {
             System.out.println("File not found. Details:");
             System.out.println(e.getMessage());
