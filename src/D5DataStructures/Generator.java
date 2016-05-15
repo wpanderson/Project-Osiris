@@ -224,9 +224,9 @@ public class Generator {
             
             // Give it a little breathing room. Who cares if it's a little few more
             // or less mobs. Scales on the mob count as well
-            if (prefered_enemy_count + prefered_enemy_count / 3 >= output_list.size()   &&
-                prefered_enemy_count - prefered_enemy_count / 3 <= output_list.size()   &&
-                prefered_enemy_count + 1 > output_list.size()){ // Dumb edge case for small parties
+            if ((prefered_enemy_count + prefered_enemy_count / 3 >= output_list.size()   &&
+                prefered_enemy_count - prefered_enemy_count / 3 <= output_list.size())   ||
+                prefered_enemy_count + 1 == output_list.size()){ // Dumb edge case for small parties
                 int a = prefered_enemy_count + prefered_enemy_count / 3;
                 success = true;
             }
