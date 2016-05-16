@@ -5,6 +5,8 @@
  */
 package main_ui;
 
+import D5DataStructures.*;
+import D5DataStructures.DraftClasses.Encounter;
 import java.awt.CardLayout;
 
 /**
@@ -12,6 +14,8 @@ import java.awt.CardLayout;
  * @author Wes
  */
 public class GeneratorUI extends javax.swing.JFrame {
+    
+    private Encounter.DIFFICULTY encounterDifficulty = Encounter.DIFFICULTY.EASY;
 
     /**
      * Creates new form GeneratorsGUI
@@ -34,14 +38,15 @@ public class GeneratorUI extends javax.swing.JFrame {
         typeJLabel = new javax.swing.JLabel();
         generatorJPanel = new javax.swing.JPanel();
         encounterJPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
         partyLevelJLabel = new javax.swing.JLabel();
         partyLevelComboBox = new javax.swing.JComboBox();
         difficultyJLabel = new javax.swing.JLabel();
         difficultyComboBox = new javax.swing.JComboBox();
         environmentJLabel = new javax.swing.JLabel();
-        environmentComboBox = new javax.swing.JComboBox();
+        encounterTypeJComboBox = new javax.swing.JComboBox();
+        encounterGeneratorJButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        encounterJTextArea = new javax.swing.JTextArea();
         eventJPanel = new javax.swing.JPanel();
         encounterTypeJlabel = new javax.swing.JLabel();
         encounterTypeComboBox = new javax.swing.JComboBox();
@@ -74,8 +79,6 @@ public class GeneratorUI extends javax.swing.JFrame {
         generatorJPanel.setBackground(new java.awt.Color(0, 153, 153));
         generatorJPanel.setLayout(new java.awt.CardLayout(10, 10));
 
-        jScrollPane1.setViewportView(jList1);
-
         partyLevelJLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         partyLevelJLabel.setText("Party Level:");
 
@@ -85,43 +88,68 @@ public class GeneratorUI extends javax.swing.JFrame {
         difficultyJLabel.setText("Difficulty:");
 
         difficultyComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Easy", "Moderate", "Hard", "Extreme" }));
+        difficultyComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                difficultyComboBoxActionPerformed(evt);
+            }
+        });
 
         environmentJLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        environmentJLabel.setText("Environment:");
+        environmentJLabel.setText("Type:");
+
+        encounterGeneratorJButton.setText("Generate");
+        encounterGeneratorJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                encounterGeneratorJButtonActionPerformed(evt);
+            }
+        });
+
+        encounterJTextArea.setEditable(false);
+        encounterJTextArea.setColumns(20);
+        encounterJTextArea.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        encounterJTextArea.setRows(5);
+        jScrollPane3.setViewportView(encounterJTextArea);
 
         javax.swing.GroupLayout encounterJPanelLayout = new javax.swing.GroupLayout(encounterJPanel);
         encounterJPanel.setLayout(encounterJPanelLayout);
         encounterJPanelLayout.setHorizontalGroup(
             encounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(encounterJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(partyLevelJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(partyLevelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(difficultyJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(difficultyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(environmentJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(environmentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(192, 192, 192))
+                .addGroup(encounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(encounterJPanelLayout.createSequentialGroup()
+                        .addComponent(partyLevelJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(partyLevelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(difficultyJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(difficultyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(environmentJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(encounterTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                        .addComponent(encounterGeneratorJButton)
+                        .addContainerGap())))
         );
         encounterJPanelLayout.setVerticalGroup(
             encounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, encounterJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(encounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partyLevelJLabel)
-                    .addComponent(partyLevelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(difficultyJLabel)
-                    .addComponent(difficultyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(environmentJLabel)
-                    .addComponent(environmentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
+                .addGroup(encounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(encounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(partyLevelJLabel)
+                        .addComponent(partyLevelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(difficultyJLabel)
+                        .addComponent(difficultyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(environmentJLabel)
+                        .addComponent(encounterTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(encounterGeneratorJButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         generatorJPanel.add(encounterJPanel, "encounterCard");
@@ -279,6 +307,42 @@ public class GeneratorUI extends javax.swing.JFrame {
             card.show(generatorJPanel, "locationCard");
         }
     }//GEN-LAST:event_typeComboBoxActionPerformed
+    /**
+     * Calls Generator.java to get get a random encounter and populate the 
+     * list with said encounter.
+     * @param evt 
+     */
+    private void encounterGeneratorJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encounterGeneratorJButtonActionPerformed
+        Generator generate = new Generator();
+        Encounter encounter = new Encounter();
+        encounter = Generator.Generate_Encounter(MainGUI.DATABASE.getEnemyList(),
+                MainGUI.DATABASE.getPlayerList(), encounterDifficulty,
+                Encounter.LOCATION.NULL, Encounter.Encounter_Type.SWARM);
+        
+        encounterJTextArea.setText(encounter.toString());
+        
+    }//GEN-LAST:event_encounterGeneratorJButtonActionPerformed
+    /**
+     * 
+     * @param evt 
+     */
+    private void difficultyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_difficultyComboBoxActionPerformed
+        switch(difficultyComboBox.getSelectedIndex())
+        {
+            case 0:
+                encounterDifficulty = Encounter.DIFFICULTY.EASY;
+                break;
+            case 1:
+                encounterDifficulty = Encounter.DIFFICULTY.MEDIUM;
+                break;
+            case 2:
+                encounterDifficulty = Encounter.DIFFICULTY.HARD;
+                break;
+            case 3:
+                encounterDifficulty = Encounter.DIFFICULTY.DEADLY;
+                break;
+        }
+    }//GEN-LAST:event_difficultyComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,19 +387,20 @@ public class GeneratorUI extends javax.swing.JFrame {
     private javax.swing.JLabel amountJLabel;
     private javax.swing.JComboBox difficultyComboBox;
     private javax.swing.JLabel difficultyJLabel;
+    private javax.swing.JButton encounterGeneratorJButton;
     private javax.swing.JPanel encounterJPanel;
+    private javax.swing.JTextArea encounterJTextArea;
     private javax.swing.JComboBox encounterTypeComboBox;
+    private javax.swing.JComboBox encounterTypeJComboBox;
     private javax.swing.JLabel encounterTypeJlabel;
-    private javax.swing.JComboBox environmentComboBox;
     private javax.swing.JLabel environmentJLabel;
     private javax.swing.JPanel eventJPanel;
     private javax.swing.JPanel generatorJPanel;
     private javax.swing.JPanel itemJPanel;
     private javax.swing.JTable itemJTable;
     private javax.swing.JScrollPane itemScrollPane;
-    private javax.swing.JList jList1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel locationJPanel;
     private javax.swing.JComboBox partyLevelComboBox;

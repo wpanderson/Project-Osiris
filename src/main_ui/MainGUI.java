@@ -6,7 +6,9 @@ package main_ui;
 
 import D5DataStructures.*;
 import java.awt.CardLayout;
+import java.io.IOException;
 import java.util.*;
+import javax.swing.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,6 +28,10 @@ public class MainGUI extends javax.swing.JFrame {
     private ArrayList<Enemy> enemyList = new ArrayList();
     //private ArrayList<Location> locationList = new ArrayList();
     
+    /**
+     * This is the datastorage for the entire program. Any program adding
+     * to the database at runtime will add to this.
+     */
     public static DataStorage DATABASE = new DataStorage();
     
     /**
@@ -33,10 +39,34 @@ public class MainGUI extends javax.swing.JFrame {
      */
     public MainGUI() {
         //Database pre load:==================================================
+        LoadDatabase();
         initComponents();
         //UI startup commands:================================================
+        
     }
-    
+    /**
+     * Load database from CSV on startup
+     */
+    private static void LoadDatabase()
+    {
+        
+        //CSVIO readIn = new CSVIO();
+        try {
+            //change this at a later time to get the path at runtime
+            DATABASE.addEnemiesFromCSV("src\\D.R.A.G.O.N.S_CSV/Monsters_DB.csv");
+        } catch (IOException ex) {
+            System.out.println("Some stuff didn't happen");
+        }
+        
+        System.out.println(DATABASE.getEnemyList());
+    }
+    /**
+     * Displays content that is in the database to all the pages.
+     */
+    private void displayContent()
+    {
+        
+    }
 
     /**
      * Netbeans created objects.
@@ -2220,13 +2250,29 @@ public class MainGUI extends javax.swing.JFrame {
     private void newPlayerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPlayerJButtonActionPerformed
         // open then recieve player information upon user pressing "add" on 
         // newPlayerUI
-        newPlayerUI newPlayer = new newPlayerUI();
+        newPlayerUI newPlayer = new newPlayerUI(this);
         newPlayer.setLocationRelativeTo(null);
         newPlayer.setVisible(true);
         
         
     }//GEN-LAST:event_newPlayerJButtonActionPerformed
-
+    /**
+     * Called from outside class to update the player list if a new one is added
+     * 
+     */
+    public void updatePlayerList()
+    {
+        playerList = DATABASE.getPlayerList();
+        DefaultListModel model = new DefaultListModel();
+        
+        for(int i= 0; i < playerList.size(); i++)
+        {
+            model.addElement(playerList.get(i).getName());
+        }
+        playersJList.setModel(model);
+        
+    }
+    
     private void playersJList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_playersJList1ValueChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_playersJList1ValueChanged

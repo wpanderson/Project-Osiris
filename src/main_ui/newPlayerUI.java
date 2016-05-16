@@ -1,11 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * newPlayerUI.java
+ * 
+ * Purpose: UI for user to input data to create a new player as well as an
+ * NPC or Enemy of similar type to a player character. Once all data has been
+ * entered user will select the "add" button which will call DATABASE from 
+ * MainUI.java and add the new player, npc, or enemy to the database to be 
+ * displayed.
  */
 package main_ui;
 
-import D5DataStructures.DataStorage;
 import D5DataStructures.Entity;
 import D5DataStructures.Player;
 import java.awt.CardLayout;
@@ -13,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Wes
+ * @author Weston Anderson
  */
 public class newPlayerUI extends javax.swing.JFrame {
 
@@ -23,6 +26,15 @@ public class newPlayerUI extends javax.swing.JFrame {
     public newPlayerUI() {
         initComponents();
     }
+    /**
+     * 
+     */
+    public newPlayerUI(MainGUI ui)
+    {
+        this.ui = ui;
+        initComponents();
+    }
+    private MainGUI ui;
     private int strAdd = 0;
     private int dexAdd = 0;
     private int conAdd = 0;
@@ -31,6 +43,8 @@ public class newPlayerUI extends javax.swing.JFrame {
     private int charAdd = 0;
     private Entity.Race characterRace = Entity.Race.DRAGONBORN;
     private Entity.Class characterClass = Entity.Class.BARBARIAN;
+    private Entity.Align1 align1 = Entity.Align1.LAWFUL;
+    private Entity.Align2 align2 = Entity.Align2.GOOD;
     
     private int profBonus = 0;
 
@@ -92,7 +106,7 @@ public class newPlayerUI extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        alignmentJComboBox = new javax.swing.JComboBox();
         playerInfoJPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         playerNameJTextField = new javax.swing.JTextField();
@@ -321,8 +335,13 @@ public class newPlayerUI extends javax.swing.JFrame {
         jLabel20.setText("Allignment");
         traitsJPanel.add(jLabel20);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lawful good", "Neutral good", "Chaotic good", "Lawful neutral", "Neutral", "Chaotic neutral", "Lawful evil", "Neutral evil", "Chaotic evil" }));
-        traitsJPanel.add(jComboBox1);
+        alignmentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lawful good", "Neutral good", "Chaotic good", "Lawful neutral", "Neutral", "Chaotic neutral", "Lawful evil", "Neutral evil", "Chaotic evil" }));
+        alignmentJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alignmentJComboBoxActionPerformed(evt);
+            }
+        });
+        traitsJPanel.add(alignmentJComboBox);
 
         javax.swing.GroupLayout character_traitsJPanelLayout = new javax.swing.GroupLayout(character_traitsJPanel);
         character_traitsJPanel.setLayout(character_traitsJPanelLayout);
@@ -506,7 +525,6 @@ public class newPlayerUI extends javax.swing.JFrame {
         strengthJLabel.setText("Strength:");
         attributesJPanel.add(strengthJLabel);
 
-        strengthJTextField.setEditable(false);
         strengthJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         strengthJTextField.setText("10");
         attributesJPanel.add(strengthJTextField);
@@ -514,7 +532,6 @@ public class newPlayerUI extends javax.swing.JFrame {
         dexterityJLabel.setText("Dexterity:");
         attributesJPanel.add(dexterityJLabel);
 
-        dexterityJTextField.setEditable(false);
         dexterityJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         dexterityJTextField.setText("10");
         attributesJPanel.add(dexterityJTextField);
@@ -522,7 +539,6 @@ public class newPlayerUI extends javax.swing.JFrame {
         constitutionJLabel.setText("Constitution:");
         attributesJPanel.add(constitutionJLabel);
 
-        constitutionJTextField.setEditable(false);
         constitutionJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         constitutionJTextField.setText("10");
         attributesJPanel.add(constitutionJTextField);
@@ -530,7 +546,6 @@ public class newPlayerUI extends javax.swing.JFrame {
         intelligenceJLabel.setText("Intelligence:");
         attributesJPanel.add(intelligenceJLabel);
 
-        intelligenceJTextField.setEditable(false);
         intelligenceJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         intelligenceJTextField.setText("10");
         attributesJPanel.add(intelligenceJTextField);
@@ -538,7 +553,6 @@ public class newPlayerUI extends javax.swing.JFrame {
         wisdomJLabel.setText("Wisdom:");
         attributesJPanel.add(wisdomJLabel);
 
-        wisdomJTextField.setEditable(false);
         wisdomJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         wisdomJTextField.setText("10");
         attributesJPanel.add(wisdomJTextField);
@@ -546,7 +560,6 @@ public class newPlayerUI extends javax.swing.JFrame {
         charismaJLabel.setText("Charisma:");
         attributesJPanel.add(charismaJLabel);
 
-        charismaJTextField.setEditable(false);
         charismaJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         charismaJTextField.setText("10");
         attributesJPanel.add(charismaJTextField);
@@ -736,6 +749,7 @@ public class newPlayerUI extends javax.swing.JFrame {
      */
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
        
+        
         int[] dumb = {0,0,0,0,0,0};
         //int[] skills = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         boolean[] skills = {true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true};
@@ -756,6 +770,8 @@ public class newPlayerUI extends javax.swing.JFrame {
                 playerNameJTextField.getText()//player name
                 );
         MainGUI.DATABASE.addPlayer(newPlayer);
+        ui.updatePlayerList();
+        this.dispose(); //close page
         
         
         
@@ -895,6 +911,53 @@ public class newPlayerUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_singleClassJComboBoxActionPerformed
     /**
+     * Based on selection changes private alignment enmus to the specified
+     * value.
+     * @param evt 
+     */
+    private void alignmentJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alignmentJComboBoxActionPerformed
+        
+        switch(alignmentJComboBox.getSelectedIndex())
+        {
+            case 0:
+                align1 = Entity.Align1.LAWFUL;
+                align2 = Entity.Align2.GOOD;
+                break;
+            case 1:
+                align1 = Entity.Align1.NEUTRAL;
+                align2 = Entity.Align2.GOOD;
+                break;
+            case 2:
+                align1 = Entity.Align1.CHAOTIC;
+                align2 = Entity.Align2.GOOD;
+                break;
+            case 3:
+                align1 = Entity.Align1.LAWFUL;
+                align2 = Entity.Align2.NEUTRAL;
+                break;
+            case 4:
+                align1 = Entity.Align1.NEUTRAL;
+                align2 = Entity.Align2.NEUTRAL;
+                break;
+            case 5:
+                align1 = Entity.Align1.CHAOTIC;
+                align2 = Entity.Align2.NEUTRAL;
+                break;
+            case 6:
+                align1 = Entity.Align1.LAWFUL;
+                align2 = Entity.Align2.EVIL;
+                break;
+            case 7:
+                align1 = Entity.Align1.NEUTRAL;
+                align2 = Entity.Align2.EVIL;
+                break;
+            case 8:
+                align1 = Entity.Align1.CHAOTIC;
+                align2 = Entity.Align2.EVIL;
+                break;
+        }
+    }//GEN-LAST:event_alignmentJComboBoxActionPerformed
+    /**
      * clear ability modifiers
      */
     private void clearModifiers()
@@ -952,6 +1015,7 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox acrobaticsJCheckbox;
     private javax.swing.JButton addJButton;
     private javax.swing.JPanel additionsJPanel;
+    private javax.swing.JComboBox alignmentJComboBox;
     private javax.swing.JCheckBox animalJCheckbox;
     private javax.swing.JCheckBox arcanaJCheckbox;
     private javax.swing.JCheckBox athleticsJCheckbox;
@@ -984,7 +1048,6 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox intelligenceSaveJComboBox;
     private javax.swing.JCheckBox intimidationJCheckbox;
     private javax.swing.JCheckBox investigationJCheckbox;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;

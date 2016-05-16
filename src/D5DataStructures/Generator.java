@@ -1,3 +1,10 @@
+/**
+ * Generator.java
+ * 
+ * Purpose: logic for generating encounters, items, and events.
+ * 
+ * @author Mitchell Hansen
+ */
 package D5DataStructures;
 
 import D5DataStructures.DraftClasses.Encounter;
@@ -48,7 +55,16 @@ public class Generator {
         encounter_xp_thresholds.put(20, Arrays.asList(2800, 5700, 8500, 12700));
 
     }
-    
+    /**
+     * Generate an Encounter based on input from the user.
+     * 
+     * @param enemies 
+     * @param players
+     * @param difficulty
+     * @param location
+     * @param encounter_type
+     * @return 
+     */
     public static Encounter Generate_Encounter(ArrayList<Enemy> enemies, ArrayList<Player> players, 
                                                Encounter.DIFFICULTY difficulty, Encounter.LOCATION location,
                                                Encounter.Encounter_Type encounter_type){
