@@ -12,7 +12,9 @@ package main_ui;
 import D5DataStructures.Entity;
 import D5DataStructures.Player;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.JCheckBox;
 
 /**
  *
@@ -27,7 +29,7 @@ public class newPlayerUI extends javax.swing.JFrame {
         initComponents();
     }
     /**
-     * 
+     * Passes in reference to MainGUI so it can be referenced from newPlayerUI
      */
     public newPlayerUI(MainGUI ui)
     {
@@ -45,6 +47,9 @@ public class newPlayerUI extends javax.swing.JFrame {
     private Entity.Class characterClass = Entity.Class.BARBARIAN;
     private Entity.Align1 align1 = Entity.Align1.LAWFUL;
     private Entity.Align2 align2 = Entity.Align2.GOOD;
+    private boolean[] playerSkills = {false,false,false,false,false,false,false,
+        false,false,false,false,false,false,false,false,false,false,false};
+    private int[] playerAttributes = {0,0,0,0,0,0};
     
     private int profBonus = 0;
 
@@ -178,6 +183,11 @@ public class newPlayerUI extends javax.swing.JFrame {
         playerSkillsJPanel.setLayout(new java.awt.GridLayout(9, 2));
 
         acrobaticsJCheckbox.setText("Acrobatics");
+        acrobaticsJCheckbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acrobaticsJCheckboxActionPerformed(evt);
+            }
+        });
         playerSkillsJPanel.add(acrobaticsJCheckbox);
 
         animalJCheckbox.setText("Animal Handling");
@@ -748,12 +758,9 @@ public class newPlayerUI extends javax.swing.JFrame {
      * @param evt 
      */
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-       
+       calculations();
         
-        int[] dumb = {0,0,0,0,0,0};
-        //int[] skills = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-        boolean[] skills = {true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true};
-        ArrayList<String> butts = null;
+        ArrayList<String> butts = null;//probably wont need these soon
         Player newPlayer = new Player("",//Source
                characterNameJTextField.getText(),//character name
                 "",//size
@@ -761,12 +768,12 @@ public class newPlayerUI extends javax.swing.JFrame {
                 butts,//tags
                 Entity.Align1.CHAOTIC,//Allignment
                 Entity.Align2.SCIENTIFIC,//Allignment
-                dumb,//Attributes
+                playerAttributes,//Attributes
                 characterClass,//class
                 Integer.parseInt(levelJComboBox.getSelectedItem().toString()),//Lvl
                 0,//XP
-                1,//Prof Bonus
-                skills,//skillz
+                profBonus,//Prof Bonus
+                playerSkills,//skillz
                 playerNameJTextField.getText()//player name
                 );
         MainGUI.DATABASE.addPlayer(newPlayer);
@@ -777,7 +784,55 @@ public class newPlayerUI extends javax.swing.JFrame {
         
         //newPlayer.addPlayer(p);
     }//GEN-LAST:event_addJButtonActionPerformed
-
+    /**
+     * Calculate proficiency bonus, Attributes saving throws, xp, skills acquired
+     */
+    private void calculations()
+    {
+        int count = 0;
+        for(Component c : playerSkillsJPanel.getComponents())
+        {
+            if(((JCheckBox)c).isSelected() == true)
+            {
+                playerSkills[count] = true;
+            }
+            count += 1;
+        }
+        
+        //proficiency bonus
+        int level = Integer.parseInt(levelJComboBox.getSelectedItem().toString());
+        if(level <= 4)
+        {
+            profBonus = 2;
+        }
+        else if(level <= 8)
+        {
+            profBonus = 3;
+        }
+        else if(level <= 12)
+        {
+            profBonus = 4;
+        }
+        else if(level <= 16)
+        {
+            profBonus = 5;
+        }
+        else if(level <= 20)
+        {
+            profBonus = 6;
+        }
+        
+        //player attributes
+        playerAttributes[0] = Integer.parseInt(strengthJTextField.getText())+strAdd;
+        playerAttributes[1] = Integer.parseInt(dexterityJTextField.getText())+dexAdd;
+        playerAttributes[2] = Integer.parseInt(constitutionJTextField.getText())+conAdd;
+        playerAttributes[3] = Integer.parseInt(intelligenceJTextField.getText())+intAdd;
+        playerAttributes[4] = Integer.parseInt(wisdomJTextField.getText())+wisAdd;
+        playerAttributes[5] = Integer.parseInt(charismaJTextField.getText())+charAdd;
+        
+        //Calculate XP based on Level
+    }
+    
     private void dwarfJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwarfJComboBoxActionPerformed
         wisAdd = 0;
         strAdd = 2;
@@ -957,6 +1012,10 @@ public class newPlayerUI extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_alignmentJComboBoxActionPerformed
+
+    private void acrobaticsJCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acrobaticsJCheckboxActionPerformed
+
+    }//GEN-LAST:event_acrobaticsJCheckboxActionPerformed
     /**
      * clear ability modifiers
      */

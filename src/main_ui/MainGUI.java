@@ -2264,12 +2264,13 @@ public class MainGUI extends javax.swing.JFrame {
     {
         playerList = DATABASE.getPlayerList();
         DefaultListModel model = new DefaultListModel();
-        
         for(int i= 0; i < playerList.size(); i++)
         {
-            model.addElement(playerList.get(i).getName());
+            model.addElement(playerList.get(i).getPlayerName());
         }
         playersJList.setModel(model);
+        
+        //System.out.println(DATABASE.getPlayerList().get(0).getLevel());
         
     }
     
