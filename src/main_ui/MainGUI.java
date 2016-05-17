@@ -2252,18 +2252,34 @@ public class MainGUI extends javax.swing.JFrame {
         wisdomJTextField.setText(Integer.toString(playerAttributes[4]));
         charismaJTextField.setText(Integer.toString(playerAttributes[5]));
         playerPBJLabel.setText("+" + currentPlayer.getProfBonus());
-        populateSkills(currentPlayer);
+        strModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[0])));
+        dexModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[1])));
+        conModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[2])));
+        intModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[3])));
+        wisModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[4])));
+        charModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[5])));
+        
+        populateSkills(currentPlayer.getSkillProfs());
         
         
         
     }//GEN-LAST:event_playersJListValueChanged
-    private void populateSkills(Player currentPlayer)
+    /**
+     * With parameter player skillProficiencies populate the skills on 
+     * playerSkillsJPanel with the appropriate values. 
+     * @param skillProficiencies 
+     */
+    private void populateSkills(boolean[] skillProficiencies)
     {
         int count = 0;
         for(Component c : playerSkillsJPanel.getComponents())
         {
-            if(currentPlayer.getSkillProfs()[count] == true)
+            if(skillProficiencies[count] == true)
             {
+                
+                ((JCheckBox)c).setSelected(true);
+                //lulz cut out all this code with one line.... fml
+                /*
                 switch(count)
                 {
                     case 0:
@@ -2322,10 +2338,62 @@ public class MainGUI extends javax.swing.JFrame {
                         break;
 
                 }
+                */
             }
             count++;
             
         }
+    }
+    
+    public int calculateModifier(int attributeValue)
+    {
+        int modifier = 0;
+        if(attributeValue == 0)
+        {
+            return -5;
+        }
+        else if(attributeValue < 2)
+        {
+            return -4;
+        }
+        else if(attributeValue < 4)
+        {
+            return -3;
+        }
+        else if(attributeValue < 6)
+        {
+            return -2;
+        }
+        else if(attributeValue < 8)
+        {
+            return -1;
+        }
+        if(attributeValue < 12)
+        {
+            return 0;
+        }
+        else if(attributeValue < 14)
+        {
+            return 1;
+        }
+        else if(attributeValue < 16)
+        {
+            return 2;
+        }
+        else if(attributeValue < 18)
+        {
+            return 3;
+        }
+        else if(attributeValue < 20)
+        {
+            return 4;
+        }
+        else if(attributeValue >= 20)
+        {
+            return 5;
+        }
+        
+        return modifier;
     }
     
     /**
@@ -2473,7 +2541,7 @@ public class MainGUI extends javax.swing.JFrame {
             model.addElement(playerList.get(i).getPlayerName());
         }
         playersJList.setModel(model);
-        
+        playersJList.setSelectedIndex(playersJList.getModel().getSize()-1);
         //System.out.println(DATABASE.getPlayerList().get(0).getLevel());
         
     }

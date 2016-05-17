@@ -63,6 +63,7 @@ public class Player extends Entity {
         this.exp = exp;
         this.profBonus = profBonus;
         this.playerName = playerName;
+        this.skillProfs = skillProfs;
         // calculateSkillModifiers();
         calculateStatModifiers();
     }

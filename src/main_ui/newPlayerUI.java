@@ -799,6 +799,11 @@ public class newPlayerUI extends javax.swing.JFrame {
             }
             count += 1;
         }
+        //test values to see if it read in correctly
+        for(boolean value: playerSkills)
+        {
+            System.out.println(value);
+        }
         
         //proficiency bonus
         int level = Integer.parseInt(levelJComboBox.getSelectedItem().toString());
