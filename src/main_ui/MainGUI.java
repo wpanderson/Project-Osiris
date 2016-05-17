@@ -6,6 +6,7 @@ package main_ui;
 
 import D5DataStructures.*;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.io.IOException;
 import java.util.*;
 import javax.swing.*;
@@ -103,15 +104,12 @@ public class MainGUI extends javax.swing.JFrame {
         wisdomJTextField = new javax.swing.JTextField();
         charismaJLabel = new javax.swing.JLabel();
         charismaJTextField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        characterRaceJLabel = new javax.swing.JLabel();
+        playerXPJLabel = new javax.swing.JLabel();
+        characterAlignmentJLabel = new javax.swing.JLabel();
         playerPBJLabel = new javax.swing.JLabel();
-        skillsJScrollPane = new javax.swing.JScrollPane();
-        skillsJTextArea = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         playerNameJLabel = new javax.swing.JLabel();
         editPlayerJCheckBox = new javax.swing.JCheckBox();
-        allignmentJComboBox = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
         characterNameJLabel = new javax.swing.JLabel();
         modifiersJPanel = new javax.swing.JPanel();
@@ -175,13 +173,34 @@ public class MainGUI extends javax.swing.JFrame {
         savingThrowsJLabel = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         characterClassJLabel = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         playerLevelDownJButton = new javax.swing.JButton();
         playerLevelUpJButton = new javax.swing.JButton();
+        characterRaceJLabel = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        playerSkillsJPanel = new javax.swing.JPanel();
+        acrobaticsJCheckbox = new javax.swing.JCheckBox();
+        animalJCheckbox = new javax.swing.JCheckBox();
+        arcanaJCheckbox = new javax.swing.JCheckBox();
+        athleticsJCheckbox = new javax.swing.JCheckBox();
+        deceptionJCheckbox = new javax.swing.JCheckBox();
+        historyJCheckbox = new javax.swing.JCheckBox();
+        insightJCheckbox = new javax.swing.JCheckBox();
+        intimidationJCheckbox = new javax.swing.JCheckBox();
+        investigationJCheckbox = new javax.swing.JCheckBox();
+        medicineJCheckbox = new javax.swing.JCheckBox();
+        natureJCheckbox = new javax.swing.JCheckBox();
+        perceptionJCheckbox = new javax.swing.JCheckBox();
+        performanceJCheckbox = new javax.swing.JCheckBox();
+        persuasionJCheckbox = new javax.swing.JCheckBox();
+        religionJCheckbox = new javax.swing.JCheckBox();
+        sleightJCheckbox = new javax.swing.JCheckBox();
+        stealthJCheckbox = new javax.swing.JCheckBox();
+        survivalJCheckbox = new javax.swing.JCheckBox();
         npcJPanel = new javax.swing.JPanel();
         npcDetailsJPanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -488,26 +507,18 @@ public class MainGUI extends javax.swing.JFrame {
 
         playersJPanel.add(attributesJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 31, 144, -1));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("XXXX");
-        playersJPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+        playerXPJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        playerXPJLabel.setText("XXXX");
+        playersJPanel.add(playerXPJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
 
-        characterRaceJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        characterRaceJLabel.setText("CHARACTERS_RACE");
-        playersJPanel.add(characterRaceJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+        characterAlignmentJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        characterAlignmentJLabel.setText("Alignment");
+        playersJPanel.add(characterAlignmentJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
         playerPBJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         playerPBJLabel.setText("+0");
         playerPBJLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         playersJPanel.add(playerPBJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
-
-        skillsJTextArea.setEditable(false);
-        skillsJTextArea.setColumns(20);
-        skillsJTextArea.setRows(5);
-        skillsJTextArea.setWrapStyleWord(true);
-        skillsJScrollPane.setViewportView(skillsJTextArea);
-
-        playersJPanel.add(skillsJScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 280, 320));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Player Name:");
@@ -525,9 +536,6 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
         playersJPanel.add(editPlayerJCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
-
-        allignmentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lawful good", "Neutral good", "Chaotic good", "Lawful neutral", "Neutral", "Chaotic neutral", "Lawful evil", "Neutral evil", "Chaotic evil" }));
-        playersJPanel.add(allignmentJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 143, -1));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setText("Character Name:");
@@ -967,10 +975,6 @@ public class MainGUI extends javax.swing.JFrame {
         characterClassJLabel.setText("CHARACTERS CLASS");
         playersJPanel.add(characterClassJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, -1));
 
-        jLabel29.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel29.setText("Skills:");
-        playersJPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, -1, -1));
-
         jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel30.setText("Proficiency Bonus:");
         playersJPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, -1, -1));
@@ -996,6 +1000,115 @@ public class MainGUI extends javax.swing.JFrame {
 
         playerLevelUpJButton.setText("+");
         playersJPanel.add(playerLevelUpJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 40, 20));
+
+        characterRaceJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        characterRaceJLabel.setText("CHARACTERS_RACE");
+        playersJPanel.add(characterRaceJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel29.setText("Skills:");
+
+        playerSkillsJPanel.setLayout(new java.awt.GridLayout(9, 2));
+
+        acrobaticsJCheckbox.setText("Acrobatics(Dex)");
+        acrobaticsJCheckbox.setEnabled(false);
+        acrobaticsJCheckbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acrobaticsJCheckboxActionPerformed(evt);
+            }
+        });
+        playerSkillsJPanel.add(acrobaticsJCheckbox);
+
+        animalJCheckbox.setText("Animal Handling(Wis)");
+        animalJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(animalJCheckbox);
+
+        arcanaJCheckbox.setText("Arcana");
+        arcanaJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(arcanaJCheckbox);
+
+        athleticsJCheckbox.setText("Athletics");
+        athleticsJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(athleticsJCheckbox);
+
+        deceptionJCheckbox.setText("Deception");
+        deceptionJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(deceptionJCheckbox);
+
+        historyJCheckbox.setText("History");
+        historyJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(historyJCheckbox);
+
+        insightJCheckbox.setText("Insight");
+        insightJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(insightJCheckbox);
+
+        intimidationJCheckbox.setText("Intimidation");
+        intimidationJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(intimidationJCheckbox);
+
+        investigationJCheckbox.setText("Investigation");
+        investigationJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(investigationJCheckbox);
+
+        medicineJCheckbox.setText("Medicine");
+        medicineJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(medicineJCheckbox);
+
+        natureJCheckbox.setText("Nature");
+        natureJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(natureJCheckbox);
+
+        perceptionJCheckbox.setText("Perception");
+        perceptionJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(perceptionJCheckbox);
+
+        performanceJCheckbox.setText("Performance");
+        performanceJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(performanceJCheckbox);
+
+        persuasionJCheckbox.setText("Persuasion");
+        persuasionJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(persuasionJCheckbox);
+
+        religionJCheckbox.setText("Religion");
+        religionJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(religionJCheckbox);
+
+        sleightJCheckbox.setText("Sleight Of Hand(Dex)");
+        sleightJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(sleightJCheckbox);
+
+        stealthJCheckbox.setText("Stealth");
+        stealthJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(stealthJCheckbox);
+
+        survivalJCheckbox.setText("Survival");
+        survivalJCheckbox.setEnabled(false);
+        playerSkillsJPanel.add(survivalJCheckbox);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel29)
+                    .addComponent(playerSkillsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(playerSkillsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(73, 73, 73))
+        );
+
+        playersJPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 320, 320));
 
         tabPanel.add(playersJPanel, "playersCard");
 
@@ -2099,7 +2212,7 @@ public class MainGUI extends javax.swing.JFrame {
             intelligenceJTextField.setEditable(true);
             wisdomJTextField.setEditable(true);
             charismaJTextField.setEditable(true);
-            skillsJTextArea.setEditable(true);
+            //skillsJTextArea.setEditable(true);
         }
         else if(editPlayerJCheckBox.isSelected() == false)
         {
@@ -2110,7 +2223,7 @@ public class MainGUI extends javax.swing.JFrame {
             intelligenceJTextField.setEditable(false);
             wisdomJTextField.setEditable(false);
             charismaJTextField.setEditable(false);
-            skillsJTextArea.setEditable(false);
+            //skillsJTextArea.setEditable(false);
         }
     }//GEN-LAST:event_editPlayerJCheckBoxActionPerformed
     /**
@@ -2122,8 +2235,99 @@ public class MainGUI extends javax.swing.JFrame {
      * @param evt 
      */
     private void playersJListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_playersJListValueChanged
-        // TODO add your handling code here:
+        int index = playersJList.getSelectedIndex();
+        Player currentPlayer = DATABASE.getPlayerList().get(index);
+        playerNameJLabel.setText(currentPlayer.getPlayerName());
+        characterNameJLabel.setText(currentPlayer.getName());
+        characterClassJLabel.setText(currentPlayer.getPlayerClass().toString());
+        characterRaceJLabel.setText(currentPlayer.getRace().toString());
+        characterAlignmentJLabel.setText(currentPlayer.getAlignment());
+        playerXPJLabel.setText(Integer.toString(currentPlayer.getExp()));
+        int[] playerAttributes = currentPlayer.getStats();
+        
+        strengthJTextField.setText(Integer.toString(playerAttributes[0]));
+        dexterityJTextField.setText(Integer.toString(playerAttributes[1]));
+        constitutionJTextField.setText(Integer.toString(playerAttributes[2]));
+        intelligenceJTextField.setText(Integer.toString(playerAttributes[3]));
+        wisdomJTextField.setText(Integer.toString(playerAttributes[4]));
+        charismaJTextField.setText(Integer.toString(playerAttributes[5]));
+        playerPBJLabel.setText("+" + currentPlayer.getProfBonus());
+        populateSkills(currentPlayer);
+        
+        
+        
     }//GEN-LAST:event_playersJListValueChanged
+    private void populateSkills(Player currentPlayer)
+    {
+        int count = 0;
+        for(Component c : playerSkillsJPanel.getComponents())
+        {
+            if(currentPlayer.getSkillProfs()[count] == true)
+            {
+                switch(count)
+                {
+                    case 0:
+                        acrobaticsJCheckbox.setSelected(true);
+                        break;
+                    case 1:
+                        animalJCheckbox.setSelected(true);
+                        break;
+                    case 2:
+                        arcanaJCheckbox.setSelected(true);
+                        break;
+                    case 3:
+                        athleticsJCheckbox.setSelected(true);
+                        break;
+                    case 4:
+                        deceptionJCheckbox.setSelected(true);
+                        break;
+                    case 5:
+                        historyJCheckbox.setSelected(true);
+                        break;
+                    case 6:
+                        insightJCheckbox.setSelected(true);
+                        break;
+                    case 7:
+                        intimidationJCheckbox.setSelected(true);
+                        break;
+                    case 8:
+                        investigationJCheckbox.setSelected(true);
+                        break;
+                    case 9:
+                        medicineJCheckbox.setSelected(true);
+                        break;
+                    case 10:
+                        natureJCheckbox.setSelected(true);
+                        break;
+                    case 11:
+                        perceptionJCheckbox.setSelected(true);
+                        break;
+                    case 12:
+                        performanceJCheckbox.setSelected(true);
+                        break;
+                    case 13:
+                        persuasionJCheckbox.setSelected(true);
+                        break;
+                    case 14:
+                        religionJCheckbox.setSelected(true);
+                        break;
+                    case 15:
+                        sleightJCheckbox.setSelected(true);
+                        break;
+                    case 16:
+                        stealthJCheckbox.setSelected(true);
+                        break;
+                    case 17:
+                        survivalJCheckbox.setSelected(true);
+                        break;
+
+                }
+            }
+            count++;
+            
+        }
+    }
+    
     /**
      * Adds a new row to playerWeaponsJTable.
      * @param evt 
@@ -2330,6 +2534,10 @@ public class MainGUI extends javax.swing.JFrame {
         System.out.println(DATABASE.getPlayerList().get(0));
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void acrobaticsJCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acrobaticsJCheckboxActionPerformed
+
+    }//GEN-LAST:event_acrobaticsJCheckboxActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2366,6 +2574,7 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox acrobaticsJCheckbox;
     private javax.swing.JButton addNPCItemJButton;
     private javax.swing.JButton addNPCItemJButton1;
     private javax.swing.JButton addNPCJButton;
@@ -2374,7 +2583,9 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton addPlayerItemJButton;
     private javax.swing.JButton addPlayerSpellJButton;
     private javax.swing.JButton addPlayerWeaponJButton;
-    private javax.swing.JComboBox allignmentJComboBox;
+    private javax.swing.JCheckBox animalJCheckbox;
+    private javax.swing.JCheckBox arcanaJCheckbox;
+    private javax.swing.JCheckBox athleticsJCheckbox;
     private javax.swing.JPanel attributesJPanel;
     private javax.swing.JPanel attributesJPanel1;
     private javax.swing.JButton backButton;
@@ -2382,6 +2593,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField charModJTextField1;
     private javax.swing.JSpinner charModTempJSpinner;
     private javax.swing.JSpinner charModTempJSpinner1;
+    private javax.swing.JLabel characterAlignmentJLabel;
     private javax.swing.JLabel characterClassJLabel;
     private javax.swing.JLabel characterNameJLabel;
     private javax.swing.JLabel characterRaceJLabel;
@@ -2398,6 +2610,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField constitutionJTextField;
     private javax.swing.JTextField constitutionJTextField1;
     private javax.swing.JMenuItem databasesMenuItem;
+    private javax.swing.JCheckBox deceptionJCheckbox;
     private javax.swing.JTextField dexModJTextField;
     private javax.swing.JTextField dexModJTextField1;
     private javax.swing.JSpinner dexModTempJSpinner;
@@ -2415,8 +2628,10 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton forwardButton;
     private javax.swing.JMenu generatorMenu;
     private javax.swing.JMenuItem generatorMenuItem;
+    private javax.swing.JCheckBox historyJCheckbox;
     private javax.swing.JPanel homeControlsJPanel;
     private javax.swing.JPanel homeJPanel;
+    private javax.swing.JCheckBox insightJCheckbox;
     private javax.swing.JTextField intModJTextField;
     private javax.swing.JTextField intModJTextField1;
     private javax.swing.JSpinner intModTempJSpinner;
@@ -2425,6 +2640,8 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel intelligenceJLabel1;
     private javax.swing.JTextField intelligenceJTextField;
     private javax.swing.JTextField intelligenceJTextField1;
+    private javax.swing.JCheckBox intimidationJCheckbox;
+    private javax.swing.JCheckBox investigationJCheckbox;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -2463,7 +2680,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -2493,6 +2709,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -2514,8 +2731,10 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel locationsJPanel;
     private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JToolBar mainToolBar;
+    private javax.swing.JCheckBox medicineJCheckbox;
     private javax.swing.JPanel modifiersJPanel;
     private javax.swing.JPanel modifiersJPanel1;
+    private javax.swing.JCheckBox natureJCheckbox;
     private javax.swing.JButton newLocationJButton;
     private javax.swing.JButton newPlayerJButton;
     private javax.swing.JTextField npcACJTextField;
@@ -2546,6 +2765,9 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel pagesJPanel;
     private javax.swing.JScrollPane pagesJScrollPanel;
     private javax.swing.JList pagesList;
+    private javax.swing.JCheckBox perceptionJCheckbox;
+    private javax.swing.JCheckBox performanceJCheckbox;
+    private javax.swing.JCheckBox persuasionJCheckbox;
     private javax.swing.JSpinner playerArrowsJSpinner;
     private javax.swing.JSpinner playerArrowsJSpinner1;
     private javax.swing.JSpinner playerBoltsJSpinner;
@@ -2570,15 +2792,18 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField playerPlatinumJTextField1;
     private javax.swing.JTextField playerSilverJTextField;
     private javax.swing.JTextField playerSilverJTextField1;
+    private javax.swing.JPanel playerSkillsJPanel;
     private javax.swing.JTable playerSpellsJTable;
     private javax.swing.JLabel playerTotalHPJLabel;
     private javax.swing.JTable playerWeaponsJTable;
+    private javax.swing.JLabel playerXPJLabel;
     private javax.swing.JList playersJList;
     private javax.swing.JList playersJList1;
     private javax.swing.JPanel playersJPanel;
     private javax.swing.JScrollPane playersJScrollPanel;
     private javax.swing.JScrollPane playersJScrollPanel1;
     private javax.swing.JScrollPane playersJScrollPanel2;
+    private javax.swing.JCheckBox religionJCheckbox;
     private javax.swing.JButton removeLocationJButton;
     private javax.swing.JButton removeNPCItemJButton;
     private javax.swing.JButton removeNPCItemJButton1;
@@ -2590,10 +2815,10 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton removePlayerSpellJButton;
     private javax.swing.JButton removePlayerWeaponJButton;
     private javax.swing.JLabel savingThrowsJLabel;
-    private javax.swing.JScrollPane skillsJScrollPane;
     private javax.swing.JScrollPane skillsJScrollPane1;
-    private javax.swing.JTextArea skillsJTextArea;
     private javax.swing.JTextArea skillsJTextArea1;
+    private javax.swing.JCheckBox sleightJCheckbox;
+    private javax.swing.JCheckBox stealthJCheckbox;
     private javax.swing.JTextField strModJTextField;
     private javax.swing.JTextField strModJTextField1;
     private javax.swing.JSpinner strModTempJSpinner;
@@ -2602,6 +2827,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel strengthJLabel1;
     private javax.swing.JTextField strengthJTextField;
     private javax.swing.JTextField strengthJTextField1;
+    private javax.swing.JCheckBox survivalJCheckbox;
     private javax.swing.JPanel tabPanel;
     private javax.swing.JLabel titleJLabel;
     private javax.swing.JPanel titleJPanel;

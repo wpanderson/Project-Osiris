@@ -140,65 +140,150 @@ public class Entity {
     public String toString() {
         return getName();
     }
-    
-    // Accessors and mutators
-    
+    /**
+     * Get the first half of the alignment Lawful, Neutral, or Chaotic
+     * 
+     * @return Alignment: Lawful, Neutral, Chaotic
+     */
+    public Align1 getAlign1()
+    {
+        return align1;
+    }
+    /**
+     * 
+     * @param align1 
+     */
+    public void setAlign1(Align1 align1)
+    {
+        this.align1 = align1;
+    }
+    /**
+     * Return second half of the alignment. Good, Neutral, Evil
+     * @return align2 Good, Neutral, Evil
+     */
+    public Align2 getAlign2()
+    {
+        return align2;
+    }
+    /**
+     * Set alignment 2
+     * @param align2 
+     */
+    public void setAlign2(Align2 align2)
+    {
+        this.align2 = align2;
+    }
+    /**
+     * Get string representation of align1 and align2, which is appropriate to
+     * display on mainGUI
+     * @return String representation of alignment
+     */
+    public String getAlignment()
+    {
+        return align1.toString() + " " + align2.toString();
+    }
+    /**
+     * Return UUID of an Entity
+     * @return UUID entityID
+     */
     public UUID getEntityID() {
         return entityID;
     }
-
+    /**
+     * Return name of the Entity
+     * @return String name
+     */
     public String getName() {
         return name;
     }
-
+    /**
+     * Set name of Entity
+     * @param name 
+     */
     public void setName(String name) {
         this.name = name;
     }
-
+    /**
+     * Get the race of the Entity
+     * @return Race race
+     */
     public Race getRace() {
         return race;
     }
-
+    /**
+     * Set the race of the Entity
+     * @param race 
+     */
     public void setRace(Race race) {
         this.race = race;
     }
-
+    /**
+     * get total HP of the Entity.
+     * @return int maxHealthPoints
+     */
     public int getMaxHealthPoints() {
         return maxHealthPoints;
     }
-
+    /**
+     * Set maximum health points of Entity
+     * @param maxHealthPoints 
+     */
     public void setMaxHealthPoints(int maxHealthPoints) {
         this.maxHealthPoints = maxHealthPoints;
     }
-
+    /**
+     * get armor class of Entity
+     * @return int armorClass
+     */
     public int getArmorClass() {
         return armorClass;
     }
-
+    /**
+     * set armor class of the Entity
+     * @param armorClass 
+     */
     public void setArmorClass(int armorClass) {
         this.armorClass = armorClass;
     }
-
+    /**
+     * get stats of the entity
+     * @return int[] stats
+     */
     public int[] getStats() {
         return stats;
     }
-
+    /**
+     * 
+     * @param stats 
+     */
     public void setStats(int[] stats) {
         this.stats = stats;
     }
-
+    /**
+     * 
+     * @return int[] statModifiers
+     */
     public int[] getStatModifiers() {
         return statModifiers;
     }
-
+    /**
+     * 
+     * @param statModifiers 
+     */
     public void setStatModifiers(int[] statModifiers) {
         this.statModifiers = statModifiers;
     }
-
+    /**
+     * 
+     * @return int[] skillModifiers
+     */
     public int[] getSkillModifiers() {
         return skillModifiers;
     }
-
+    /**
+     * 
+     * @param skillModifiers 
+     */
     public void setSkillModifiers(int[] skillModifiers) {
         this.skillModifiers = skillModifiers;
     }
