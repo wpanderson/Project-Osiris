@@ -6,6 +6,7 @@
 package main_ui;
 
 import D5DataStructures.CSVIO;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -85,9 +86,25 @@ public class DatabaseViewerUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Opens JFileChooser for user to select a CSV or Serialized file and view
+     * it.
+     * @param evt 
+     */
     private void openDatabaseJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openDatabaseJButtonActionPerformed
-    
+        JFileChooser fileChooser = new JFileChooser();
+        int value = fileChooser.showOpenDialog(this);
+        
+        if(value == 0)
+        {
+            //this prints out the absolute path of the selected file so we can
+            //display it.
+            System.out.println(fileChooser.getSelectedFile().getAbsolutePath());
+        }
+        else
+        {
+            
+        }
     }//GEN-LAST:event_openDatabaseJButtonActionPerformed
 
     /**

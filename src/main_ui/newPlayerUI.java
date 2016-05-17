@@ -777,6 +777,7 @@ public class newPlayerUI extends javax.swing.JFrame {
                 playerNameJTextField.getText()//player name
                 );
         MainGUI.DATABASE.addPlayer(newPlayer);
+        
         ui.updatePlayerList();
         this.dispose(); //close page
         
