@@ -37,12 +37,12 @@ public class newPlayerUI extends javax.swing.JFrame {
         initComponents();
     }
     private MainGUI ui;
-    private int strAdd = 0;
+    private int strAdd = 2;
     private int dexAdd = 0;
     private int conAdd = 0;
     private int intAdd = 0;
     private int wisAdd = 0;
-    private int charAdd = 0;
+    private int charAdd = 1;
     private Entity.Race characterRace = Entity.Race.DRAGONBORN;
     private Entity.Class characterClass = Entity.Class.BARBARIAN;
     private Entity.Align1 align1 = Entity.Align1.LAWFUL;
@@ -751,6 +751,7 @@ public class newPlayerUI extends javax.swing.JFrame {
                 characterRace = characterRace.TIEFLING;
                 card.show(subraceJPanel, "none");
                 break;
+                
         }
     }//GEN-LAST:event_playerRaceJComboBoxActionPerformed
     /**
@@ -763,13 +764,13 @@ public class newPlayerUI extends javax.swing.JFrame {
         ArrayList<String> butts = null;//probably wont need these soon
         Player newPlayer = new Player("",//Source
                characterNameJTextField.getText(),//character name
-                "",//size
-                "",//type
+                Integer.parseInt(characterHPJTextField.getText()),//HP
                 butts,//tags
-                Entity.Align1.CHAOTIC,//Allignment
-                Entity.Align2.SCIENTIFIC,//Allignment
+                align1,//Allignment
+                align2,//Allignment
                 playerAttributes,//Attributes
                 characterClass,//class
+                characterRace,
                 Integer.parseInt(levelJComboBox.getSelectedItem().toString()),//Lvl
                 0,//XP
                 profBonus,//Prof Bonus
@@ -777,6 +778,7 @@ public class newPlayerUI extends javax.swing.JFrame {
                 playerNameJTextField.getText()//player name
                 );
         MainGUI.DATABASE.addPlayer(newPlayer);
+        
         
         ui.updatePlayerList();
         this.dispose(); //close page
@@ -1017,6 +1019,7 @@ public class newPlayerUI extends javax.swing.JFrame {
                 align2 = Entity.Align2.EVIL;
                 break;
         }
+        System.out.println(align1.toString() + "  " + align2.toString());
     }//GEN-LAST:event_alignmentJComboBoxActionPerformed
 
     private void acrobaticsJCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acrobaticsJCheckboxActionPerformed
