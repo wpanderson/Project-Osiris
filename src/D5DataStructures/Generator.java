@@ -72,12 +72,16 @@ public class Generator {
             Initialize();
         }
         
+        if (players.size() == 0 || enemies.size() == 0){
+            return null;
+        }
+        
         // Get the list of enemies matching the location
         ArrayList<Enemy> parsed_location_list = new ArrayList<Enemy>();
-        
-        if (location.equals(Encounter.LOCATION.NULL)){ // If default, add everything
-            parsed_location_list = enemies; 
-        }
+        parsed_location_list = enemies;
+//      if (location.equals(Encounter.LOCATION.NULL)){ // If default, add everything
+//          parsed_location_list = enemies; 
+//      }
 //        else
 //        {
 //            for (Enemy e : enemies){
@@ -170,7 +174,14 @@ public class Generator {
         
         // fill the selection list with enemies that are within the range
         // defined by the deviation, if 0 then retry
+        
+        // Catch non valid conditions with a max 
+        int fail_count = 0;
         while (initial_selection_list.size() == 0){
+            // Jank!
+            if (fail_count > 3)
+                return null;
+            
             deviation += prefered_xp_level / 3;
             for (Enemy e: parsed_location_list){
                 int xp_level = e.getExpValue();
@@ -179,11 +190,12 @@ public class Generator {
                     initial_selection_list.add(e);
                 }
             } 
+            fail_count++;
         }
         
         selection_list.addAll(initial_selection_list);
         
-
+        int not_success_count = 0;
         boolean success = false;
         while (!success){
             
@@ -253,6 +265,10 @@ public class Generator {
                 deviation = prefered_xp_level / 10;
                 current_xp = 0;
                 miss_count = 0;
+                if (not_success_count > 100){
+                    return null;
+                }
+                not_success_count++;
             }
         }
         
