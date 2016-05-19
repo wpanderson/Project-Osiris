@@ -308,9 +308,20 @@ public class Generator {
     }
     
     
-    public static ArrayList<Item> Generate_Magic_Item(Item.Rarity loot_rarity, int number_of_items, ArrayList<Item.Magic_Item_Type> loot_types){
+    public static ArrayList<Item> Generate_Magic_Items(
+            Item.Rarity loot_rarity, 
+            int number_of_items, 
+            ArrayList<Item.Magic_Item_Type> loot_types,
+            ArrayList<Item> itemList){
         
-    
+
+        
+        
+        
+        
+        
+        
+        
         return new ArrayList<Item>();
     }
 }

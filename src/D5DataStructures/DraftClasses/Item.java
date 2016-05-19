@@ -46,6 +46,8 @@ public class Item implements java.io.Serializable {
     private int weight_lb;
     private Dice_Option damage;
     
+    private Rarity rarity;
+    
     public Item (String name,
                  int cost,
                  int weight,
@@ -53,6 +55,8 @@ public class Item implements java.io.Serializable {
                  int normal_range,
                  int max_range,
                  ArrayList<Type> item_properties){
+        
+        
     }
     
     public Item (String raw_data){
@@ -61,9 +65,10 @@ public class Item implements java.io.Serializable {
     
     public String ListItemProperties(){
         String list = new String();
-        for (Type t: item_properties){
-            list += t + ", ";
-        }
+//        for (Type t: item_properties){
+//            list += t + ", ";
+//        }
+        list += name + " : " + '\n';
         return list;
     }
     public ArrayList<Type> getItemProperties(){

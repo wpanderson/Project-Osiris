@@ -111,7 +111,7 @@ public class CSVIO {
     // Takes in a string file path of item list to be imported.
     // No return is specified yet because I'm not sure how we want the 
     // imported information to be stored.
-    public ArrayList<Item> importItemsFromCSV (String filePath)
+    public static ArrayList<Item> importItemsFromCSV (String filePath)
         throws FileNotFoundException, IOException{
         BufferedReader br = null;   
 	    String line; // To hold each line read in
