@@ -309,7 +309,7 @@ public class GeneratorUI extends javax.swing.JFrame {
      * @param evt 
      */
     private void encounterGeneratorJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encounterGeneratorJButtonActionPerformed
-        Generator generate = new Generator();
+        //Generator generate = new Generator();
         Encounter encounter = new Encounter();
         encounter = Generator.Generate_Encounter(MainGUI.DATABASE.getEnemyList(),
                 MainGUI.DATABASE.getPlayerList(), encounterDifficulty,
