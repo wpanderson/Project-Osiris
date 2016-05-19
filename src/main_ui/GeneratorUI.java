@@ -314,7 +314,7 @@ public class GeneratorUI extends javax.swing.JFrame {
                 MainGUI.DATABASE.getPlayerList(), encounterDifficulty,
                 Encounter.LOCATION.NULL, encounterType);
         
-        if(!encounter.getEnemies().equals(null))
+        if(encounter != null)
         {
             StringBuilder d = new StringBuilder();
             for(Enemy enemy : encounter.getEnemies())

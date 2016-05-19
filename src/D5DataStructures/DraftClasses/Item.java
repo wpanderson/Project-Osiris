@@ -22,6 +22,13 @@ public class Item implements java.io.Serializable {
     public enum Type { AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, 
                        THROWN, TWOHANDED, VERSITILE };
     
+    // I don't really want to tear into this class. There needs to be some thinking into
+    // How we're going to display Items as there are 3 different types + the generic one as well
+    // So I'm just gonna plop this in here so I can finish generation
+    public enum Magic_Item_Type { WONDROUS, WEAPON, WAND, STAFF, SCROLL, ROD, RING, POTION, ARMOR};
+    
+    public enum Rarity { COMMON, UNCOMMON, RARE, VERYRARE, LEGENDARY };
+    
     // To do: better enumeration system for dice that is universal accross all
     // classes in program.
     public enum Dice_Option { ONE_D_FOUR, ONE_D_SIX, ONE_D_EIGHT, ONE_D_TEN, ONE_D_TWELVE, ONE_D_TWENTY,

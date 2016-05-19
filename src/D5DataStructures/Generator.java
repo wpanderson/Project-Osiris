@@ -8,6 +8,7 @@
 package D5DataStructures;
 
 import D5DataStructures.DraftClasses.Encounter;
+import D5DataStructures.DraftClasses.Item;
 import D5DataStructures.Enemy;
 import D5DataStructures.Player;
 import java.util.ArrayList;
@@ -21,17 +22,24 @@ public class Generator {
     
     public enum Generator_Type { ENCOUNTER, EVENT, ITEM };
 
-    
+    // Singleton initializer
     private static boolean init = false;
+    
+    // Hardcoded XP thresholds for encoutner XP caps
     private static HashMap<Integer, List<Integer>> encounter_xp_thresholds;
+    
+    // An easy way to grab hardcoded rarity spreads
+    private static HashMap<Item.Rarity, List<Integer>> probability_spreads;
+
     
     private static void Initialize(){
         init = true;
         
-        encounter_xp_thresholds = new HashMap<Integer, List<Integer>>();
+
         
         // Oh boy
         // The xp mods per level for max level cap
+        encounter_xp_thresholds = new HashMap<Integer, List<Integer>>();
         encounter_xp_thresholds.put(0, Arrays.asList(0, 0, 0, 0));
         encounter_xp_thresholds.put(1, Arrays.asList(25, 50, 75, 100));
         encounter_xp_thresholds.put(2, Arrays.asList(50, 100, 150, 200));
@@ -53,6 +61,17 @@ public class Generator {
         encounter_xp_thresholds.put(18, Arrays.asList(2100, 4200, 6300, 9500));
         encounter_xp_thresholds.put(19, Arrays.asList(2400, 4900, 7300, 10900));
         encounter_xp_thresholds.put(20, Arrays.asList(2800, 5700, 8500, 12700));
+        
+        // More hardcoded values.
+        // These set the probability of the rarity of items in generated item pools
+        
+        //                                                    Point Spread: pretty much abritrary
+        //                                                            C   U   R   V   L
+        probability_spreads.put(Item.Rarity.COMMON, Arrays.asList    (97, 2 , 1 , 0 , 0 ));
+        probability_spreads.put(Item.Rarity.UNCOMMON, Arrays.asList  (17, 80, 2 , 1 , 0 ));
+        probability_spreads.put(Item.Rarity.RARE, Arrays.asList      (4 , 13, 80, 2 , 1 ));
+        probability_spreads.put(Item.Rarity.VERYRARE, Arrays.asList  (1 , 3 , 13, 80, 3));
+        probability_spreads.put(Item.Rarity.LEGENDARY, Arrays.asList (0 , 1 , 3 , 13, 83));
 
     }
     /**
@@ -93,8 +112,9 @@ public class Generator {
 //        
 //        
         
+        // Get the XP cap of the party
+        
         int xp_cap = 0;
-        // Get the XP threshold for the party
         for (Player p: players){
             int level = p.getLevel();
             
@@ -113,15 +133,14 @@ public class Generator {
                     break;
                 default:
                     throw new AssertionError(difficulty.name());
-                
             }
         }
 
         // Determine approx. the number of enemies that we want to grab and adjust
         // the prefered xp level for the monsters, and the xp_cap that we build to
         
-        int prefered_xp_level = 0;
-        int prefered_enemy_count = 0;
+        int prefered_xp_level = 0;      // Of the monsters
+        int prefered_enemy_count = 0;   // Of the encounter
         
         switch (encounter_type){
             case SWARM:
@@ -173,24 +192,23 @@ public class Generator {
         ArrayList<Enemy> initial_selection_list = new ArrayList<Enemy>();
         
         // fill the selection list with enemies that are within the range
-        // defined by the deviation, if 0 then retry
+        // defined by the deviation, if 0 then retry with a higher deviation
         
-        // Catch non valid conditions with a max 
-        int fail_count = 0;
-        while (initial_selection_list.size() == 0){
-            // Jank!
-            if (fail_count > 3)
+        while (initial_selection_list.isEmpty()){
+            
+            // If the deviation becomes greater than the xp_cap. Somethings wrong
+            if (deviation > xp_cap)
                 return null;
             
             deviation += prefered_xp_level / 3;
             for (Enemy e: parsed_location_list){
                 int xp_level = e.getExpValue();
                 if (xp_level < prefered_xp_level + deviation &&
-                    xp_level > prefered_xp_level - deviation){
+                    xp_level > prefered_xp_level - deviation &&
+                    xp_level != 0){
                     initial_selection_list.add(e);
                 }
             } 
-            fail_count++;
         }
         
         selection_list.addAll(initial_selection_list);
@@ -207,14 +225,12 @@ public class Generator {
             int current_xp = 0;
             int miss_count = 0; // Deviation addition kicker
             
-            while (xp_cap - xp_cap / 10 > current_xp){
-                // Get a random entity from the range
+            // While we are under the xp cap, and we haven't deviated
+            // past the xp cap
+            while ((xp_cap - xp_cap / 10 > current_xp) &&
+                   (deviation < xp_cap) ){
                 
-                if (selection_list.size() <= 0){
-                    int x = 0;
-                    x += 1;
-                    System.out.print("asd");
-                }
+                // Get a random entity from the range
                 Enemy e = selection_list.get(rand.nextInt((selection_list.size())));
 
                 int xp = e.getExpValue();
@@ -228,21 +244,34 @@ public class Generator {
                 
                 else{
                     miss_count++;
+                    
+                    // If the miss count equals the selection list * some N
+                    // Then expand the bound. If you want the bound to expand more
+                    // rapidly, thus introducing more variation in mob XP levels,
+                    // Lower either the N or choose some small number, i.e
+                    // miss_count < 20
                     if (miss_count == selection_list.size() * 4){ // Lower the 4 to introduce more variation in enemy types
+                        
                         // Yuck, copy pasta, but it works!
+                        
+                        // Clear the selection list, we need to re-add everything
+                        // Lame, but I don't want to store more state
                         selection_list.clear();
                         miss_count = 0;
                         
+                        // The While should not be needed, but best to be safe
                         while (selection_list.isEmpty()){
                             for (Enemy enemy: parsed_location_list){
                                 int xp_level = enemy.getExpValue();
                                 if (xp_level < prefered_xp_level + deviation &&
-                                    xp_level > prefered_xp_level - deviation){
+                                    xp_level > prefered_xp_level - deviation && 
+                                    xp_level != 0){
                                     selection_list.add(enemy);
                                 }
                             }
                             
-                            deviation += prefered_xp_level / 10;
+                            // Advance the deviation, + lame edge case
+                            deviation += (prefered_xp_level / 10) + 1;
                         }
                     
                         Collections.shuffle(selection_list, rand);
@@ -255,24 +284,34 @@ public class Generator {
             if ((prefered_enemy_count + prefered_enemy_count / 3 >= output_list.size()   &&
                 prefered_enemy_count - prefered_enemy_count / 3 <= output_list.size())   ||
                 prefered_enemy_count + 1 == output_list.size()){ // Dumb edge case for small parties
-                int a = prefered_enemy_count + prefered_enemy_count / 3;
                 success = true;
             }
             else{ // Do it again, it failed
+                if (not_success_count > 100){ // Don't get stuck if the generation is
+                    return null;              // actually impossible
+                }
+                
+                // Reset all the values
                 selection_list.clear();
                 selection_list.addAll(initial_selection_list);
                 output_list.clear();
                 deviation = prefered_xp_level / 10;
                 current_xp = 0;
                 miss_count = 0;
-                if (not_success_count > 100){
-                    return null;
-                }
+
+                // Keep track of the fail state
                 not_success_count++;
             }
         }
         
         return new Encounter(output_list, location, difficulty);
+    }
+    
+    
+    public static ArrayList<Item> Generate_Magic_Item(Item.Rarity loot_rarity, int number_of_items, ArrayList<Item.Magic_Item_Type> loot_types){
+        
+    
+        return new ArrayList<Item>();
     }
 }
 
