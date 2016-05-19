@@ -110,8 +110,6 @@ public class newPlayerUI extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        alignmentJComboBox = new javax.swing.JComboBox();
         playerInfoJPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         playerNameJTextField = new javax.swing.JTextField();
@@ -136,6 +134,8 @@ public class newPlayerUI extends javax.swing.JFrame {
         singleClassJComboBox = new javax.swing.JComboBox();
         lvlJLabel1 = new javax.swing.JLabel();
         characterHPJTextField = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        alignmentJComboBox = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         attributesJPanel = new javax.swing.JPanel();
@@ -151,13 +151,6 @@ public class newPlayerUI extends javax.swing.JFrame {
         wisdomJTextField = new javax.swing.JTextField();
         charismaJLabel = new javax.swing.JLabel();
         charismaJTextField = new javax.swing.JTextField();
-        additionsJPanel = new javax.swing.JPanel();
-        playerStrengthModifierJLabel = new javax.swing.JLabel();
-        playerDexterityModifierJLabel = new javax.swing.JLabel();
-        playerConstitutionModifierJLabel = new javax.swing.JLabel();
-        playerIntelligenceModifierJLabel = new javax.swing.JLabel();
-        playerWisdomModifierJLabel = new javax.swing.JLabel();
-        playerCharismaModifierJLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -302,7 +295,7 @@ public class newPlayerUI extends javax.swing.JFrame {
                 .addGroup(saves_proficienciesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(savesJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
         saves_proficienciesJPanelLayout.setVerticalGroup(
             saves_proficienciesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,7 +309,7 @@ public class newPlayerUI extends javax.swing.JFrame {
 
         lvlJLabel2.setText("Character Traits:");
 
-        traitsJPanel.setLayout(new java.awt.GridLayout(7, 2));
+        traitsJPanel.setLayout(new java.awt.GridLayout(6, 2));
 
         jLabel14.setText("Age");
         traitsJPanel.add(jLabel14);
@@ -342,30 +335,17 @@ public class newPlayerUI extends javax.swing.JFrame {
         traitsJPanel.add(jLabel19);
         traitsJPanel.add(jTextField5);
 
-        jLabel20.setText("Allignment");
-        traitsJPanel.add(jLabel20);
-
-        alignmentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lawful good", "Neutral good", "Chaotic good", "Lawful neutral", "Neutral", "Chaotic neutral", "Lawful evil", "Neutral evil", "Chaotic evil" }));
-        alignmentJComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alignmentJComboBoxActionPerformed(evt);
-            }
-        });
-        traitsJPanel.add(alignmentJComboBox);
-
         javax.swing.GroupLayout character_traitsJPanelLayout = new javax.swing.GroupLayout(character_traitsJPanel);
         character_traitsJPanel.setLayout(character_traitsJPanelLayout);
         character_traitsJPanelLayout.setHorizontalGroup(
             character_traitsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(character_traitsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(character_traitsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(character_traitsJPanelLayout.createSequentialGroup()
-                        .addComponent(traitsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(character_traitsJPanelLayout.createSequentialGroup()
-                        .addComponent(lvlJLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(185, 185, 185))))
+                .addComponent(lvlJLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                .addGap(185, 185, 185))
+            .addGroup(character_traitsJPanelLayout.createSequentialGroup()
+                .addComponent(traitsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         character_traitsJPanelLayout.setVerticalGroup(
             character_traitsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,7 +356,7 @@ public class newPlayerUI extends javax.swing.JFrame {
                 .addComponent(traitsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        playerInfoJPanel.setLayout(new java.awt.GridLayout(7, 2));
+        playerInfoJPanel.setLayout(new java.awt.GridLayout(8, 2));
 
         jLabel1.setText("Player Name:");
         playerInfoJPanel.add(jLabel1);
@@ -416,7 +396,7 @@ public class newPlayerUI extends javax.swing.JFrame {
         );
         noRaceJPanelLayout.setVerticalGroup(
             noRaceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 26, Short.MAX_VALUE)
         );
 
         subraceJPanel.add(noRaceJPanel, "none");
@@ -526,6 +506,17 @@ public class newPlayerUI extends javax.swing.JFrame {
         playerInfoJPanel.add(lvlJLabel1);
         playerInfoJPanel.add(characterHPJTextField);
 
+        jLabel20.setText("Allignment");
+        playerInfoJPanel.add(jLabel20);
+
+        alignmentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lawful good", "Neutral good", "Chaotic good", "Lawful neutral", "Neutral", "Chaotic neutral", "Lawful evil", "Neutral evil", "Chaotic evil" }));
+        alignmentJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alignmentJComboBoxActionPerformed(evt);
+            }
+        });
+        playerInfoJPanel.add(alignmentJComboBox);
+
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Attributes:");
 
@@ -574,32 +565,6 @@ public class newPlayerUI extends javax.swing.JFrame {
         charismaJTextField.setText("10");
         attributesJPanel.add(charismaJTextField);
 
-        additionsJPanel.setLayout(new java.awt.GridLayout(6, 1));
-
-        playerStrengthModifierJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerStrengthModifierJLabel.setText("+0");
-        additionsJPanel.add(playerStrengthModifierJLabel);
-
-        playerDexterityModifierJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerDexterityModifierJLabel.setText("+0");
-        additionsJPanel.add(playerDexterityModifierJLabel);
-
-        playerConstitutionModifierJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerConstitutionModifierJLabel.setText("+0");
-        additionsJPanel.add(playerConstitutionModifierJLabel);
-
-        playerIntelligenceModifierJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerIntelligenceModifierJLabel.setText("+0");
-        additionsJPanel.add(playerIntelligenceModifierJLabel);
-
-        playerWisdomModifierJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerWisdomModifierJLabel.setText("+0");
-        additionsJPanel.add(playerWisdomModifierJLabel);
-
-        playerCharismaModifierJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerCharismaModifierJLabel.setText("+0");
-        additionsJPanel.add(playerCharismaModifierJLabel);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -608,11 +573,8 @@ public class newPlayerUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(attributesJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(additionsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(attributesJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,9 +582,7 @@ public class newPlayerUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(attributesJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(additionsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(attributesJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -645,11 +605,11 @@ public class newPlayerUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(saves_proficienciesJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(204, 204, 204)
                                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cancelJButton))))))
+                                .addComponent(cancelJButton))
+                            .addComponent(saves_proficienciesJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -657,24 +617,24 @@ public class newPlayerUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(titleJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(25, 25, 25)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(18, 18, 18)
-                            .addComponent(saves_proficienciesJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(saves_proficienciesJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(addJButton)
                             .addComponent(cancelJButton)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(playerInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(playerInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(character_traitsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -701,21 +661,21 @@ public class newPlayerUI extends javax.swing.JFrame {
         switch (playerRaceJComboBox.getSelectedIndex()) 
         {
             case 0: //Dragonborn +2 Strength +1 Charisma
-                playerStrengthModifierJLabel.setText("+2");
-                playerCharismaModifierJLabel.setText("+1");
+                //playerStrengthModifierJLabel.setText("+2");
+                //playerCharismaModifierJLabel.setText("+1");
                 strAdd = 2;
                 charAdd = 1;
                 characterRace = characterRace.DRAGONBORN;
                 card.show(subraceJPanel, "none");
                 break;
             case 1: //Dwarf +2 Strength
-                playerConstitutionModifierJLabel.setText("+2");
+                //playerConstitutionModifierJLabel.setText("+2");
                 conAdd = 2;
                 characterRace = characterRace.DWARF;
                 card.show(subraceJPanel, "dwarf");
                 break;
             case 2: //Elf +2 Dexterity
-                playerDexterityModifierJLabel.setText("+2");
+                //playerDexterityModifierJLabel.setText("+2");
                 dexAdd = 2;
                 characterRace = characterRace.ELF;
                 card.show(subraceJPanel, "elf");
@@ -1030,12 +990,12 @@ public class newPlayerUI extends javax.swing.JFrame {
      */
     private void clearModifiers()
     {
-        playerStrengthModifierJLabel.setText("+0");
-        playerDexterityModifierJLabel.setText("+0");
-        playerConstitutionModifierJLabel.setText("+0");
-        playerIntelligenceModifierJLabel.setText("+0");
-        playerWisdomModifierJLabel.setText("+0");
-        playerCharismaModifierJLabel.setText("+0");
+        //playerStrengthModifierJLabel.setText("+0");
+        //playerDexterityModifierJLabel.setText("+0");
+        //playerConstitutionModifierJLabel.setText("+0");
+        //playerIntelligenceModifierJLabel.setText("+0");
+        //playerWisdomModifierJLabel.setText("+0");
+        //playerCharismaModifierJLabel.setText("+0");
         strAdd = 0;
         dexAdd = 0;
         conAdd = 0;
@@ -1082,7 +1042,6 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JPanel HalflingJPanel;
     private javax.swing.JCheckBox acrobaticsJCheckbox;
     private javax.swing.JButton addJButton;
-    private javax.swing.JPanel additionsJPanel;
     private javax.swing.JComboBox alignmentJComboBox;
     private javax.swing.JCheckBox animalJCheckbox;
     private javax.swing.JCheckBox arcanaJCheckbox;
@@ -1149,16 +1108,10 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox perceptionJCheckbox;
     private javax.swing.JCheckBox performanceJCheckbox;
     private javax.swing.JCheckBox persuasionJCheckbox;
-    private javax.swing.JLabel playerCharismaModifierJLabel;
-    private javax.swing.JLabel playerConstitutionModifierJLabel;
-    private javax.swing.JLabel playerDexterityModifierJLabel;
     private javax.swing.JPanel playerInfoJPanel;
-    private javax.swing.JLabel playerIntelligenceModifierJLabel;
     private javax.swing.JTextField playerNameJTextField;
     private javax.swing.JComboBox playerRaceJComboBox;
     private javax.swing.JPanel playerSkillsJPanel;
-    private javax.swing.JLabel playerStrengthModifierJLabel;
-    private javax.swing.JLabel playerWisdomModifierJLabel;
     private javax.swing.JCheckBox religionJCheckbox;
     private javax.swing.JPanel savesJPanel;
     private javax.swing.JPanel saves_proficienciesJPanel;

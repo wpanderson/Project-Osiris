@@ -87,6 +87,9 @@ public class MainGUI extends javax.swing.JFrame {
         welcomeLabel = new javax.swing.JLabel();
         welcomeImageLabel = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        welcomeLabel5 = new javax.swing.JLabel();
+        welcomeLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         playersJPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -115,17 +118,11 @@ public class MainGUI extends javax.swing.JFrame {
         characterNameJLabel = new javax.swing.JLabel();
         modifiersJPanel = new javax.swing.JPanel();
         strModJTextField = new javax.swing.JTextField();
-        strModTempJSpinner = new javax.swing.JSpinner();
         dexModJTextField = new javax.swing.JTextField();
-        dexModTempJSpinner = new javax.swing.JSpinner();
         conModJTextField = new javax.swing.JTextField();
-        conModTempJSpinner = new javax.swing.JSpinner();
         intModJTextField = new javax.swing.JTextField();
-        intModTempJSpinner = new javax.swing.JSpinner();
         wisModJTextField = new javax.swing.JTextField();
-        wisModTempJSpinner = new javax.swing.JSpinner();
         charModJTextField = new javax.swing.JTextField();
-        charModTempJSpinner = new javax.swing.JSpinner();
         jLabel13 = new javax.swing.JLabel();
         trackablesJPanel = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -178,8 +175,6 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        playerLevelDownJButton = new javax.swing.JButton();
-        playerLevelUpJButton = new javax.swing.JButton();
         characterRaceJLabel = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
@@ -323,6 +318,7 @@ public class MainGUI extends javax.swing.JFrame {
         removePlayerJButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         welcomeLabel2 = new javax.swing.JLabel();
+        savePlayerJButton = new javax.swing.JButton();
         npcControlsJPanel = new javax.swing.JPanel();
         playersJScrollPanel1 = new javax.swing.JScrollPane();
         playersJList1 = new javax.swing.JList();
@@ -400,6 +396,18 @@ public class MainGUI extends javax.swing.JFrame {
         welcomeLabel.setText("Welcome to version 1.0 of D.R.A.G.O.N.S");
         welcomeLabel.setToolTipText("");
 
+        welcomeImageLabel.setText("<html><a href=\"http://project-osiris.herokuapp.com/\">http://project-osiris.herokuapp.com/</a></html>");
+
+        welcomeLabel5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        welcomeLabel5.setText("<html> <ahref=\"http://project-osiris.herokuapp.com/\"> </html>");
+        welcomeLabel5.setToolTipText("");
+
+        welcomeLabel6.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        welcomeLabel6.setText("For more information on D.R.A.G.O.N.S please visit:");
+        welcomeLabel6.setToolTipText("");
+
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout homeJPanelLayout = new javax.swing.GroupLayout(homeJPanel);
         homeJPanel.setLayout(homeJPanelLayout);
         homeJPanelLayout.setHorizontalGroup(
@@ -407,24 +415,40 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(homeJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(homeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(welcomeImageLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(439, 439, 439))
+                    .addGroup(homeJPanelLayout.createSequentialGroup()
+                        .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 540, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addGap(439, 439, 439))
+                    .addGroup(homeJPanelLayout.createSequentialGroup()
+                        .addComponent(welcomeLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(homeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(homeJPanelLayout.createSequentialGroup()
+                                .addComponent(welcomeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(welcomeLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         homeJPanelLayout.setVerticalGroup(
             homeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homeJPanelLayout.createSequentialGroup()
                 .addGroup(homeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(homeJPanelLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel9))
+                    .addGroup(homeJPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(welcomeImageLabel))
-                    .addGroup(homeJPanelLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel9)))
+                        .addGroup(homeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(welcomeLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(homeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(welcomeLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(welcomeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
 
@@ -473,6 +497,16 @@ public class MainGUI extends javax.swing.JFrame {
         strengthJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         strengthJTextField.setText("10");
         strengthJTextField.setToolTipText("(Athletics)");
+        strengthJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                strengthJTextFieldFocusLost(evt);
+            }
+        });
+        strengthJTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                strengthJTextFieldKeyTyped(evt);
+            }
+        });
         attributesJPanel.add(strengthJTextField);
 
         dexterityJLabel.setText("Dexterity:");
@@ -568,55 +602,30 @@ public class MainGUI extends javax.swing.JFrame {
         strModJTextField.setText("+0");
         modifiersJPanel.add(strModJTextField);
 
-        strModTempJSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        strModTempJSpinner.setToolTipText("Temporary attribute modifier.");
-        strModTempJSpinner.setEditor(new javax.swing.JSpinner.NumberEditor(strModTempJSpinner, ""));
-        modifiersJPanel.add(strModTempJSpinner);
-
         dexModJTextField.setEditable(false);
         dexModJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         dexModJTextField.setText("+0");
         modifiersJPanel.add(dexModJTextField);
-
-        dexModTempJSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        dexModTempJSpinner.setToolTipText("Temporary attribute modifier.");
-        modifiersJPanel.add(dexModTempJSpinner);
 
         conModJTextField.setEditable(false);
         conModJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         conModJTextField.setText("+0");
         modifiersJPanel.add(conModJTextField);
 
-        conModTempJSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        conModTempJSpinner.setToolTipText("Temporary attribute modifier.");
-        modifiersJPanel.add(conModTempJSpinner);
-
         intModJTextField.setEditable(false);
         intModJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         intModJTextField.setText("+0");
         modifiersJPanel.add(intModJTextField);
-
-        intModTempJSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        intModTempJSpinner.setToolTipText("Temporary attribute modifier.");
-        modifiersJPanel.add(intModTempJSpinner);
 
         wisModJTextField.setEditable(false);
         wisModJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         wisModJTextField.setText("+0");
         modifiersJPanel.add(wisModJTextField);
 
-        wisModTempJSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        wisModTempJSpinner.setToolTipText("Temporary attribute modifier.");
-        modifiersJPanel.add(wisModTempJSpinner);
-
         charModJTextField.setEditable(false);
         charModJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         charModJTextField.setText("+0");
         modifiersJPanel.add(charModJTextField);
-
-        charModTempJSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
-        charModTempJSpinner.setToolTipText("Temporary attribute modifier.");
-        modifiersJPanel.add(charModTempJSpinner);
 
         playersJPanel.add(modifiersJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 31, -1, -1));
 
@@ -649,9 +658,19 @@ public class MainGUI extends javax.swing.JFrame {
 
         playerCopperJTextField.setBackground(new java.awt.Color(102, 102, 102));
         playerCopperJTextField.setText("0");
+        playerCopperJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                playerCopperJTextFieldFocusLost(evt);
+            }
+        });
 
         playerSilverJTextField.setBackground(new java.awt.Color(102, 102, 102));
         playerSilverJTextField.setText("0");
+        playerSilverJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                playerSilverJTextFieldFocusLost(evt);
+            }
+        });
 
         jLabel19.setText("S:");
 
@@ -1015,17 +1034,6 @@ public class MainGUI extends javax.swing.JFrame {
         jButton3.setText("Add Experience");
         playersJPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
 
-        playerLevelDownJButton.setText("-");
-        playerLevelDownJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playerLevelDownJButtonActionPerformed(evt);
-            }
-        });
-        playersJPanel.add(playerLevelDownJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 40, 20));
-
-        playerLevelUpJButton.setText("+");
-        playersJPanel.add(playerLevelUpJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 40, 20));
-
         characterRaceJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         characterRaceJLabel.setText("CHARACTERS_RACE");
         playersJPanel.add(characterRaceJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
@@ -1048,15 +1056,15 @@ public class MainGUI extends javax.swing.JFrame {
         animalJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(animalJCheckbox);
 
-        arcanaJCheckbox.setText("Arcana(");
+        arcanaJCheckbox.setText("Arcana(Int)");
         arcanaJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(arcanaJCheckbox);
 
-        athleticsJCheckbox.setText("Athletics");
+        athleticsJCheckbox.setText("Athletics(Str)");
         athleticsJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(athleticsJCheckbox);
 
-        deceptionJCheckbox.setText("Deception");
+        deceptionJCheckbox.setText("Deception(Cha)");
         deceptionJCheckbox.setEnabled(false);
         deceptionJCheckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1065,43 +1073,43 @@ public class MainGUI extends javax.swing.JFrame {
         });
         playerSkillsJPanel.add(deceptionJCheckbox);
 
-        historyJCheckbox.setText("History");
+        historyJCheckbox.setText("History(Int)");
         historyJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(historyJCheckbox);
 
-        insightJCheckbox.setText("Insight");
+        insightJCheckbox.setText("Insight(Wis)");
         insightJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(insightJCheckbox);
 
-        intimidationJCheckbox.setText("Intimidation");
+        intimidationJCheckbox.setText("Intimidation(Cha)");
         intimidationJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(intimidationJCheckbox);
 
-        investigationJCheckbox.setText("Investigation");
+        investigationJCheckbox.setText("Investigation(Int)");
         investigationJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(investigationJCheckbox);
 
-        medicineJCheckbox.setText("Medicine");
+        medicineJCheckbox.setText("Medicine(Wis)");
         medicineJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(medicineJCheckbox);
 
-        natureJCheckbox.setText("Nature");
+        natureJCheckbox.setText("Nature(Int)");
         natureJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(natureJCheckbox);
 
-        perceptionJCheckbox.setText("Perception");
+        perceptionJCheckbox.setText("Perception(Wis)");
         perceptionJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(perceptionJCheckbox);
 
-        performanceJCheckbox.setText("Performance");
+        performanceJCheckbox.setText("Performance(Cha)");
         performanceJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(performanceJCheckbox);
 
-        persuasionJCheckbox.setText("Persuasion");
+        persuasionJCheckbox.setText("Persuasion(Cha)");
         persuasionJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(persuasionJCheckbox);
 
-        religionJCheckbox.setText("Religion");
+        religionJCheckbox.setText("Religion(Int)");
         religionJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(religionJCheckbox);
 
@@ -1109,11 +1117,11 @@ public class MainGUI extends javax.swing.JFrame {
         sleightJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(sleightJCheckbox);
 
-        stealthJCheckbox.setText("Stealth");
+        stealthJCheckbox.setText("Stealth(Dex)");
         stealthJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(stealthJCheckbox);
 
-        survivalJCheckbox.setText("Survival");
+        survivalJCheckbox.setText("Survival(Wis)");
         survivalJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(survivalJCheckbox);
 
@@ -1793,7 +1801,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(locationsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(locationsJPanelLayout.createSequentialGroup()
                         .addComponent(jLabel33)
-                        .addGap(0, 548, Short.MAX_VALUE))
+                        .addGap(0, 554, Short.MAX_VALUE))
                     .addComponent(jScrollPane9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(npcItemsJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1825,7 +1833,7 @@ public class MainGUI extends javax.swing.JFrame {
         eventsNotesJPanelLayout.setHorizontalGroup(
             eventsNotesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, eventsNotesJPanelLayout.createSequentialGroup()
-                .addGap(0, 21, Short.MAX_VALUE)
+                .addGap(0, 27, Short.MAX_VALUE)
                 .addGroup(eventsNotesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel57)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 1329, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1927,6 +1935,13 @@ public class MainGUI extends javax.swing.JFrame {
         welcomeLabel2.setToolTipText("");
         jPanel2.add(welcomeLabel2, new java.awt.GridBagConstraints());
 
+        savePlayerJButton.setText("Save Player");
+        savePlayerJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savePlayerJButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout playerControlsJPanelLayout = new javax.swing.GroupLayout(playerControlsJPanel);
         playerControlsJPanel.setLayout(playerControlsJPanelLayout);
         playerControlsJPanelLayout.setHorizontalGroup(
@@ -1937,7 +1952,8 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(newPlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removePlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(removePlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(savePlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1950,7 +1966,9 @@ public class MainGUI extends javax.swing.JFrame {
                         .addComponent(newPlayerJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(removePlayerJButton)
-                        .addGap(50, 50, 50))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(savePlayerJButton)
+                        .addGap(12, 12, 12))
                     .addGroup(playerControlsJPanelLayout.createSequentialGroup()
                         .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -2239,6 +2257,10 @@ public class MainGUI extends javax.swing.JFrame {
             intelligenceJTextField.setEditable(true);
             wisdomJTextField.setEditable(true);
             charismaJTextField.setEditable(true);
+            for(Component c : playerSkillsJPanel.getComponents())
+            {
+                ((JCheckBox)c).setEnabled(true);
+            }
             //skillsJTextArea.setEditable(true);
         }
         else if(editPlayerJCheckBox.isSelected() == false)
@@ -2250,6 +2272,10 @@ public class MainGUI extends javax.swing.JFrame {
             intelligenceJTextField.setEditable(false);
             wisdomJTextField.setEditable(false);
             charismaJTextField.setEditable(false);
+            for(Component c : playerSkillsJPanel.getComponents())
+            {
+                ((JCheckBox)c).setEnabled(false);
+            }
             //skillsJTextArea.setEditable(false);
         }
     }//GEN-LAST:event_editPlayerJCheckBoxActionPerformed
@@ -2287,6 +2313,12 @@ public class MainGUI extends javax.swing.JFrame {
             intModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[3])));
             wisModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[4])));
             charModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[5])));
+            
+            //Set text for monies
+            playerPlatinumJTextField.setText(Integer.toString(currentPlayer.getPlayerCurrency()[0]));
+            playerGoldJTextField.setText(Integer.toString(currentPlayer.getPlayerCurrency()[1]));
+            playerSilverJTextField.setText(Integer.toString(currentPlayer.getPlayerCurrency()[2]));
+            playerCopperJTextField.setText(Integer.toString(currentPlayer.getPlayerCurrency()[3]));
 
             savingThrowsJLabel.setText(currentPlayer.getSaves());
             playerTotalHPJLabel.setText(Integer.toString(currentPlayer.getTotalHP()));
@@ -2545,17 +2577,57 @@ public class MainGUI extends javax.swing.JFrame {
      * @param evt 
      */
     private void playerGoldJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_playerGoldJTextFieldFocusLost
-        int amount = Integer.parseInt(playerGoldJTextField.getText());
-        int newGoldAmount = 0;
-        int playerPlatinum = Integer.parseInt(playerPlatinumJTextField.getText());
-        int platinum;
-        if(amount > 9)
-        {
-            platinum = amount / 10;
-            playerPlatinumJTextField.setText(Integer.toString(playerPlatinum + platinum));
-            playerGoldJTextField.setText(Integer.toString((amount % 10)));
-        }
+        calculateCurrency();
+        //int amount = Integer.parseInt(playerGoldJTextField.getText());
+        //int newGoldAmount = 0;
+        //int playerPlatinum = Integer.parseInt(playerPlatinumJTextField.getText());
+        //int platinum;
+        //if(amount > 9)
+        //{
+       //     platinum = amount / 10;
+        //    playerPlatinumJTextField.setText(Integer.toString(playerPlatinum + platinum));
+        //    playerGoldJTextField.setText(Integer.toString((amount % 10)));
+       //}
     }//GEN-LAST:event_playerGoldJTextFieldFocusLost
+    private void calculateCurrency()
+    {
+        int copper = Integer.parseInt(playerCopperJTextField.getText());
+        int silver = Integer.parseInt(playerSilverJTextField.getText());
+        int gold = Integer.parseInt(playerGoldJTextField.getText());
+        int platinum = Integer.parseInt(playerPlatinumJTextField.getText());
+        int newCopper;
+        int newSilver;
+        int newGold;
+        int newPlatinum;
+        if(copper > 9)
+        {
+            newCopper = copper % 10;
+            playerCopperJTextField.setText(Integer.toString(newCopper));
+            silver = silver + (copper/10);
+            playerSilverJTextField.setText(Integer.toString(silver));
+            
+        }
+        if(silver > 9)
+        {
+            newSilver = silver % 10;
+            playerSilverJTextField.setText(Integer.toString(newSilver));
+            gold = gold +(silver/10);
+            playerGoldJTextField.setText(Integer.toString(gold));
+        }
+        if(gold > 9)
+        {
+            newGold = gold % 10;
+            playerGoldJTextField.setText(Integer.toString(newGold));
+            platinum = platinum + (gold/10);
+            playerPlatinumJTextField.setText(Integer.toString(platinum));
+        }
+        
+        //playerCopperJTextField.setText(Integer.toString(newCopper));
+        //playerSilverJTextField.setText(Integer.toString(silver));
+        //playerGoldJTextField.setText(Integer.toString(gold));
+        //playerPlatinumJTextField.setText(Integer.toString(platinum));
+        
+    }
     /**
      * Opens the newPlayerUI so the user can enter new information for a player.
      * Upon entering the information for the player and clicking "Add" or something
@@ -2637,10 +2709,6 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_removeNPCItemJButton1ActionPerformed
 
-    private void playerLevelDownJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerLevelDownJButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_playerLevelDownJButtonActionPerformed
-
     private void acrobaticsJCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acrobaticsJCheckboxActionPerformed
 
     }//GEN-LAST:event_acrobaticsJCheckboxActionPerformed
@@ -2690,7 +2758,82 @@ public class MainGUI extends javax.swing.JFrame {
             updatePlayerList();
         }
     }//GEN-LAST:event_removePlayerJButtonActionPerformed
+    /**
+     * Save the current state of the currently selected player.
+     * @param evt 
+     */
+    private void savePlayerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePlayerJButtonActionPerformed
+        Player player = DATABASE.getPlayerList().get(playersJList.getSelectedIndex());
+        
+        //save Player Notes
+        player.setPlayerNotes(playerNotesJTextArea.getText());
+        //Save Attributes
+        player.setStats(getPlayerStats());
+        //update modifiers
+        //Save Skills
+        player.setSkillProfs(getPlayerSkills());
+        //Save the monies
+        int[] moneyArray = {Integer.parseInt(playerPlatinumJTextField.getText()),
+                Integer.parseInt(playerGoldJTextField.getText()),
+                Integer.parseInt(playerSilverJTextField.getText()),
+                Integer.parseInt(playerCopperJTextField.getText())};
+        player.setPlayerCurrency(moneyArray);
+    }//GEN-LAST:event_savePlayerJButtonActionPerformed
 
+    private void strengthJTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_strengthJTextFieldKeyTyped
+        
+    }//GEN-LAST:event_strengthJTextFieldKeyTyped
+
+    private void strengthJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_strengthJTextFieldFocusLost
+        //int value = Integer.parseInt(strengthJTextField.getText());
+        //if(value > 20 || value < 1)
+        //{
+        //    JOptionPane.showMessageDialog(pagesJPanel, "Invalid entry. Please enter a number between 1 and 20");
+        //}
+        //else
+        //{
+        //    strModJTextField.setText("+ " + calculateModifier(value));
+        //}
+    }//GEN-LAST:event_strengthJTextFieldFocusLost
+
+    private void playerCopperJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_playerCopperJTextFieldFocusLost
+        calculateCurrency();
+    }//GEN-LAST:event_playerCopperJTextFieldFocusLost
+
+    private void playerSilverJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_playerSilverJTextFieldFocusLost
+        calculateCurrency();
+    }//GEN-LAST:event_playerSilverJTextFieldFocusLost
+    private int[] getPlayerStats()
+    {
+        int[] playerStats = new int[6];
+        playerStats[0] = Integer.parseInt(strengthJTextField.getText());
+        playerStats[1] = Integer.parseInt(dexterityJTextField.getText());
+        playerStats[2] = Integer.parseInt(constitutionJTextField.getText());
+        playerStats[3] = Integer.parseInt(intelligenceJTextField.getText());
+        playerStats[4] = Integer.parseInt(wisdomJTextField.getText());
+        playerStats[5] = Integer.parseInt(charismaJTextField.getText());
+        
+        return playerStats;
+    }
+    private boolean[] getPlayerSkills()
+    {
+        boolean[] skills = new boolean[18];
+        int index = 0;
+        for(Component c : playerSkillsJPanel.getComponents())
+        {
+            if(((JCheckBox)c).isSelected())
+            {
+                skills[index] = true;
+            }
+            else if(!((JCheckBox)c).isSelected())
+            {
+                skills[index] = false;
+            }
+            index += 1;
+        }
+        
+        return skills;
+    }
     /**
      * @param args the command line arguments
      */
@@ -2745,7 +2888,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JTextField charModJTextField;
     private javax.swing.JTextField charModJTextField1;
-    private javax.swing.JSpinner charModTempJSpinner;
     private javax.swing.JSpinner charModTempJSpinner1;
     private javax.swing.JLabel characterAlignmentJLabel;
     private javax.swing.JLabel characterClassJLabel;
@@ -2757,7 +2899,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField charismaJTextField1;
     private javax.swing.JTextField conModJTextField;
     private javax.swing.JTextField conModJTextField1;
-    private javax.swing.JSpinner conModTempJSpinner;
     private javax.swing.JSpinner conModTempJSpinner1;
     private javax.swing.JLabel constitutionJLabel;
     private javax.swing.JLabel constitutionJLabel1;
@@ -2767,7 +2908,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox deceptionJCheckbox;
     private javax.swing.JTextField dexModJTextField;
     private javax.swing.JTextField dexModJTextField1;
-    private javax.swing.JSpinner dexModTempJSpinner;
     private javax.swing.JSpinner dexModTempJSpinner1;
     private javax.swing.JLabel dexterityJLabel;
     private javax.swing.JLabel dexterityJLabel1;
@@ -2788,7 +2928,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox insightJCheckbox;
     private javax.swing.JTextField intModJTextField;
     private javax.swing.JTextField intModJTextField1;
-    private javax.swing.JSpinner intModTempJSpinner;
     private javax.swing.JSpinner intModTempJSpinner1;
     private javax.swing.JLabel intelligenceJLabel;
     private javax.swing.JLabel intelligenceJLabel1;
@@ -2796,6 +2935,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField intelligenceJTextField1;
     private javax.swing.JCheckBox intimidationJCheckbox;
     private javax.swing.JCheckBox investigationJCheckbox;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -2934,8 +3074,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField playerGoldJTextField1;
     private javax.swing.JPanel playerItemsJPanel;
     private javax.swing.JTable playerItemsJTable;
-    private javax.swing.JButton playerLevelDownJButton;
-    private javax.swing.JButton playerLevelUpJButton;
     private javax.swing.JLabel playerNameJLabel;
     private javax.swing.JTextArea playerNotesJTextArea;
     private javax.swing.JLabel playerPBJLabel;
@@ -2967,6 +3105,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton removePlayerJButton;
     private javax.swing.JButton removePlayerSpellJButton;
     private javax.swing.JButton removePlayerWeaponJButton;
+    private javax.swing.JButton savePlayerJButton;
     private javax.swing.JLabel savingThrowsJLabel;
     private javax.swing.JScrollPane skillsJScrollPane1;
     private javax.swing.JTextArea skillsJTextArea1;
@@ -2974,7 +3113,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox stealthJCheckbox;
     private javax.swing.JTextField strModJTextField;
     private javax.swing.JTextField strModJTextField1;
-    private javax.swing.JSpinner strModTempJSpinner;
     private javax.swing.JSpinner strModTempJSpinner1;
     private javax.swing.JLabel strengthJLabel;
     private javax.swing.JLabel strengthJLabel1;
@@ -2994,9 +3132,10 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel welcomeLabel2;
     private javax.swing.JLabel welcomeLabel3;
     private javax.swing.JLabel welcomeLabel4;
+    private javax.swing.JLabel welcomeLabel5;
+    private javax.swing.JLabel welcomeLabel6;
     private javax.swing.JTextField wisModJTextField;
     private javax.swing.JTextField wisModJTextField1;
-    private javax.swing.JSpinner wisModTempJSpinner;
     private javax.swing.JSpinner wisModTempJSpinner1;
     private javax.swing.JLabel wisdomJLabel;
     private javax.swing.JLabel wisdomJLabel1;

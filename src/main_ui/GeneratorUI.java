@@ -8,6 +8,7 @@ package main_ui;
 import D5DataStructures.*;
 import D5DataStructures.DraftClasses.Encounter;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -319,10 +320,15 @@ public class GeneratorUI extends javax.swing.JFrame {
             StringBuilder d = new StringBuilder();
             for(Enemy enemy : encounter.getEnemies())
             {
-                d.append(" Name:" + enemy.getName() + " Experience:" + enemy.getExpValue() + " Challenge Rating:" + enemy.getChallenge() + "\n");
+                d.append(" Name:" + enemy.getName() + "\n\t Experience:" + enemy.getExpValue() + "\n\t Challenge Rating:" + enemy.getChallenge() + "\n");
             }
             encounterJTextArea.setText(d.toString());
         }
+        else
+        {
+            JOptionPane.showMessageDialog(amountComboBox, "No encounter found. :(");
+        }
+        
         
     }//GEN-LAST:event_encounterGeneratorJButtonActionPerformed
     /**
