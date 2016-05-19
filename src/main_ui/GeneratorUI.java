@@ -358,14 +358,19 @@ public class GeneratorUI extends javax.swing.JFrame {
         {
             case 0:
                 encounterType = Encounter.Encounter_Type.MIXED;
+                break;
             case 1:
                 encounterType = Encounter.Encounter_Type.SMALLSWARM;
+                break;
             case 2:
                 encounterType = Encounter.Encounter_Type.SWARM;
+                break;
             case 3:
                 encounterType = Encounter.Encounter_Type.BOSS;
+                break;
             case 4:
                 encounterType = Encounter.Encounter_Type.SINGLEBOSS;
+                break;
         }
     }//GEN-LAST:event_encounterTypeJComboBoxActionPerformed
 
