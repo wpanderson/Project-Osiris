@@ -1960,7 +1960,7 @@ public class MainGUI extends javax.swing.JFrame {
         playerControlsJPanelLayout.setVerticalGroup(
             playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerControlsJPanelLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(playerControlsJPanelLayout.createSequentialGroup()
                         .addComponent(newPlayerJButton)

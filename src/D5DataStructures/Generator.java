@@ -200,7 +200,7 @@ public class Generator {
             if (deviation > xp_cap)
                 return null;
             
-            deviation += prefered_xp_level / 3;
+            deviation += prefered_xp_level / 3 + 1;
             for (Enemy e: parsed_location_list){
                 int xp_level = e.getExpValue();
                 if (xp_level < prefered_xp_level + deviation &&
