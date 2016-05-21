@@ -6,6 +6,16 @@
 package main_ui;
 
 import D5DataStructures.CSVIO;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
 /**
@@ -89,22 +99,35 @@ public class DatabaseViewerUI extends javax.swing.JFrame {
     /**
      * Opens JFileChooser for user to select a CSV or Serialized file and view
      * it.
-     * @param evt 
+     *
+     * @param evt
      */
     private void openDatabaseJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openDatabaseJButtonActionPerformed
         JFileChooser fileChooser = new JFileChooser();
         int value = fileChooser.showOpenDialog(this);
-        
-        if(value == 0)
-        {
+        //Read from file chooser. 
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(fileChooser.getSelectedFile().getAbsolutePath()));
+            String line = null;
+            jTextArea1.setText("");
+            while ((line = reader.readLine()) != null) {
+                jTextArea1.append(line+"\n");
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DatabaseViewerUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DatabaseViewerUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (value == 0) {
             //this prints out the absolute path of the selected file so we can
             //display it.
             System.out.println(fileChooser.getSelectedFile().getAbsolutePath());
+        } else {
+
         }
-        else
-        {
-            
-        }
+
+
     }//GEN-LAST:event_openDatabaseJButtonActionPerformed
 
     /**
