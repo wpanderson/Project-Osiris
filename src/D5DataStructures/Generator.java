@@ -64,7 +64,7 @@ public class Generator {
         
         // More hardcoded values.
         // These set the probability of the rarity of items in generated item pools
-        
+        probability_spreads = new HashMap<Item.Rarity, List<Integer>>();
         //                                                    Point Spread: pretty much abritrary
         //                                                            C   U   R   V   L
         probability_spreads.put(Item.Rarity.COMMON, Arrays.asList    (97, 2 , 1 , 0 , 0 ));
@@ -200,7 +200,7 @@ public class Generator {
             if (deviation > xp_cap)
                 return null;
             
-            deviation += prefered_xp_level / 3;
+            deviation += prefered_xp_level / 3 + 1;
             for (Enemy e: parsed_location_list){
                 int xp_level = e.getExpValue();
                 if (xp_level < prefered_xp_level + deviation &&

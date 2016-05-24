@@ -34,6 +34,7 @@ public class Player extends Entity {
     private String playerNotes;
     private int playerHP;
     private int currentHP;
+    private int[] playerCurrency;
     /**
      * Default Constructor
      */
@@ -72,6 +73,7 @@ public class Player extends Entity {
         this.playerHP = playerHP;
         this.currentHP = playerHP;
         this.playerNotes = "";
+        this.playerCurrency = new int[4];
         //determine saves based on playerClass
         determineSaves();
         // calculateSkillModifiers();
@@ -94,6 +96,31 @@ public class Player extends Entity {
     public boolean levelUpCheck() {
         // To do: implement logic (must look up level calculation based on exp)
         return false;
+    }/**
+     * Pass in int[] Array in the following order:
+     * 0:Platinum
+     * 1:Gold
+     * 2:Silver
+     * 3:Copper
+     * 
+     * @param currency 
+     */
+    public void setPlayerCurrency(int[] currency)
+    {
+        this.playerCurrency = currency;
+    }
+    /**
+     * Returns array of player currency in the following order:
+     * 0:Platinum
+     * 1:Gold
+     * 2:Silver
+     * 3:Copper
+     * 
+     * @return int[] playerCurrency
+     */
+    public int[] getPlayerCurrency()
+    {
+        return playerCurrency;
     }
     public void setPlayerNotes(String playerNotes)
     {
@@ -116,11 +143,15 @@ public class Player extends Entity {
     {
         return currentHP;
     }
+    /**
+     * Set the current HP of the entity. 
+     * @param currentHP 
+     */
     public void setCurrentHP(int currentHP)
     {
         if(currentHP > playerHP)
         {
-            currentHP = playerHP;
+            this.currentHP = playerHP;
         }
         else
         {

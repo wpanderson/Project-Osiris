@@ -203,12 +203,26 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="welcomeLabel" min="-2" pref="371" max="-2" attributes="0"/>
-                          <Component id="welcomeImageLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="welcomeLabel" min="-2" pref="371" max="-2" attributes="0"/>
+                              <EmptySpace pref="540" max="32767" attributes="0"/>
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="439" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="welcomeLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="welcomeImageLabel" min="-2" pref="315" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="welcomeLabel5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="439" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -216,17 +230,25 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="welcomeLabel" min="-2" pref="46" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="welcomeImageLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="welcomeLabel" min="-2" pref="46" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="welcomeLabel5" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="welcomeLabel6" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Component id="welcomeImageLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -243,8 +265,34 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="welcomeImageLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;a href=&quot;http://project-osiris.herokuapp.com/&quot;&gt;http://project-osiris.herokuapp.com/&lt;/a&gt;&lt;/html&gt;"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
+            </Component>
+            <Component class="javax.swing.JLabel" name="welcomeLabel5">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Calibri" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ahref=&quot;http://project-osiris.herokuapp.com/&quot;&gt; &lt;/html&gt;"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="welcomeLabel6">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Calibri" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="For more information on D.R.A.G.O.N.S please visit:"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jButton1"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -349,6 +397,10 @@
                     <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="toolTipText" type="java.lang.String" value="(Athletics)"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="strengthJTextFieldFocusLost"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="strengthJTextFieldKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="dexterityJLabel">
                   <Properties>
@@ -563,17 +615,6 @@
                     <Property name="text" type="java.lang.String" value="+0"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="strModTempJSpinner">
-                  <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0" maximum="10" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                    </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Temporary attribute modifier."/>
-                    <Property name="editor" type="javax.swing.JComponent" editor="org.netbeans.modules.form.editors.SpinnerEditorEditor">
-                      <SpinnerEditor format="" type="3"/>
-                    </Property>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="dexModJTextField">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
@@ -581,14 +622,6 @@
                       <Font name="Dialog" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+0"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSpinner" name="dexModTempJSpinner">
-                  <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0" maximum="10" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                    </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Temporary attribute modifier."/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="conModJTextField">
@@ -600,14 +633,6 @@
                     <Property name="text" type="java.lang.String" value="+0"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="conModTempJSpinner">
-                  <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0" maximum="10" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                    </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Temporary attribute modifier."/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="intModJTextField">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
@@ -615,14 +640,6 @@
                       <Font name="Dialog" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+0"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSpinner" name="intModTempJSpinner">
-                  <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0" maximum="10" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                    </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Temporary attribute modifier."/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="wisModJTextField">
@@ -634,14 +651,6 @@
                     <Property name="text" type="java.lang.String" value="+0"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="wisModTempJSpinner">
-                  <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0" maximum="10" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                    </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Temporary attribute modifier."/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="charModJTextField">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
@@ -649,14 +658,6 @@
                       <Font name="Dialog" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+0"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSpinner" name="charModTempJSpinner">
-                  <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0" maximum="10" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                    </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Temporary attribute modifier."/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -822,6 +823,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="0"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="playerCopperJTextFieldFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="playerSilverJTextField">
                   <Properties>
@@ -830,6 +834,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="0"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="playerSilverJTextFieldFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel19">
                   <Properties>
@@ -1452,29 +1459,6 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="playerLevelDownJButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="-"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playerLevelDownJButtonActionPerformed"/>
-              </Events>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="330" y="50" width="40" height="20"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JButton" name="playerLevelUpJButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="+"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="370" y="50" width="40" height="20"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="javax.swing.JLabel" name="characterRaceJLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1553,19 +1537,19 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="arcanaJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Arcana("/>
+                        <Property name="text" type="java.lang.String" value="Arcana(Int)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="athleticsJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Athletics"/>
+                        <Property name="text" type="java.lang.String" value="Athletics(Str)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="deceptionJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Deception"/>
+                        <Property name="text" type="java.lang.String" value="Deception(Cha)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <Events>
@@ -1574,61 +1558,61 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="historyJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="History"/>
+                        <Property name="text" type="java.lang.String" value="History(Int)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="insightJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Insight"/>
+                        <Property name="text" type="java.lang.String" value="Insight(Wis)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="intimidationJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Intimidation"/>
+                        <Property name="text" type="java.lang.String" value="Intimidation(Cha)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="investigationJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Investigation"/>
+                        <Property name="text" type="java.lang.String" value="Investigation(Int)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="medicineJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Medicine"/>
+                        <Property name="text" type="java.lang.String" value="Medicine(Wis)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="natureJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Nature"/>
+                        <Property name="text" type="java.lang.String" value="Nature(Int)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="perceptionJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Perception"/>
+                        <Property name="text" type="java.lang.String" value="Perception(Wis)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="performanceJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Performance"/>
+                        <Property name="text" type="java.lang.String" value="Performance(Cha)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="persuasionJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Persuasion"/>
+                        <Property name="text" type="java.lang.String" value="Persuasion(Cha)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="religionJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Religion"/>
+                        <Property name="text" type="java.lang.String" value="Religion(Int)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
@@ -1640,13 +1624,13 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="stealthJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Stealth"/>
+                        <Property name="text" type="java.lang.String" value="Stealth(Dex)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="survivalJCheckbox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Survival"/>
+                        <Property name="text" type="java.lang.String" value="Survival(Wis)"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
@@ -2899,7 +2883,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="548" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="554" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane9" max="32767" attributes="0"/>
                       </Group>
@@ -3116,7 +3100,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane11" min="-2" pref="1329" max="-2" attributes="0"/>
@@ -3277,6 +3261,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="newPlayerJButton" max="32767" attributes="0"/>
                           <Component id="removePlayerJButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="savePlayerJButton" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="73" max="32767" attributes="0"/>
                       <Component id="jPanel2" min="-2" pref="284" max="-2" attributes="0"/>
@@ -3286,13 +3271,15 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="7" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="newPlayerJButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="removePlayerJButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="savePlayerJButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="playersJScrollPanel" min="-2" pref="117" max="-2" attributes="0"/>
@@ -3367,6 +3354,14 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="savePlayerJButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Save Player"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="savePlayerJButtonActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="npcControlsJPanel">
