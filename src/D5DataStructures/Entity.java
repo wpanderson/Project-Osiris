@@ -30,6 +30,7 @@ public class Entity {
     // since our test database of enemies does not include their race values.
     private String name;
     // private Class classType;
+    private Class entityClass;
     private Race race;
     protected Align1 align1;
     protected Align2 align2;
@@ -89,7 +90,6 @@ public class Entity {
         
         // entity_id = UUID.randomUUID();
     }
-    
     // Constructor for populating all values of an entity
     // Notes:
     // Fields do not yet exist for all data we want to import.  The constructor
@@ -101,7 +101,8 @@ public class Entity {
     // Question: should validation/interpretation of text into other data types
     // be done here or with logic that reads csv as much as possible?  Ryan leans
     // towards putting it with the reading logic.
-    public Entity(String source, String name, String size, String type,
+    public Entity(String source, String name, Entity.Class entityClass,
+            Entity.Race entityRace,
             ArrayList<String> tags, Entity.Align1 align1, Entity.Align2 align2,
             int[] stats) {
         
@@ -111,6 +112,8 @@ public class Entity {
         // errors.
         this();
         this.name = name;
+        this.entityClass = entityClass;
+        this.race = entityRace;
         this.align1 = align1;
         this.align2 = align2;
         this.stats = stats;

@@ -127,6 +127,7 @@ public class CSVIO {
         return enemyList;
     }
 
+
    /**
     * Work in progress, will change upon further knowledge of how items will be
     * used. 
@@ -136,6 +137,7 @@ public class CSVIO {
     public static ArrayList<Item> importItemsFromCSV(String filePath) {
         BufferedReader br = null;
         String line; // To hold each line read in
+
         ArrayList<Enemy> itemList = new ArrayList(); // Hold arrayList of items
 
         try {

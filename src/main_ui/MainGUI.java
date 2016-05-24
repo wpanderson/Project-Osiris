@@ -28,7 +28,7 @@ public class MainGUI extends javax.swing.JFrame {
     //private ArrayList<Entity> npcList = new ArrayList();
     private ArrayList<Enemy> enemyList = new ArrayList();
     //private ArrayList<Location> locationList = new ArrayList();
-    
+    private int prevIndex = 0;
     /**
      * This is the datastorage for the entire program. Any program adding
      * to the database at runtime will add to this.
@@ -42,6 +42,7 @@ public class MainGUI extends javax.swing.JFrame {
         //Database pre load:==================================================
         LoadDatabase();
         initComponents();
+        this.setLocationRelativeTo(null);
         //UI startup commands:================================================
         
     }
@@ -160,10 +161,10 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         playerTotalHPJLabel = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        subHPJTextField = new javax.swing.JTextField();
+        playerSubJButton = new javax.swing.JButton();
+        addHPJTextField = new javax.swing.JTextField();
+        playerAddJButton = new javax.swing.JButton();
         playerCurrentHPJLabel = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -322,7 +323,6 @@ public class MainGUI extends javax.swing.JFrame {
         removePlayerJButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         welcomeLabel2 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
         npcControlsJPanel = new javax.swing.JPanel();
         playersJScrollPanel1 = new javax.swing.JScrollPane();
         playersJList1 = new javax.swing.JList();
@@ -345,6 +345,8 @@ public class MainGUI extends javax.swing.JFrame {
         fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         viewMenu = new javax.swing.JMenu();
         databasesMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
@@ -439,6 +441,19 @@ public class MainGUI extends javax.swing.JFrame {
         playerNotesJTextArea.setColumns(20);
         playerNotesJTextArea.setRows(5);
         playerNotesJTextArea.setWrapStyleWord(true);
+        playerNotesJTextArea.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                playerNotesJTextAreaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                playerNotesJTextAreaFocusLost(evt);
+            }
+        });
+        playerNotesJTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                playerNotesJTextAreaKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(playerNotesJTextArea);
 
         playersJPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 370, 490));
@@ -864,13 +879,23 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("/");
 
-        jTextField2.setText("0");
+        subHPJTextField.setText("0");
 
-        jButton1.setText("Subtract from HP");
+        playerSubJButton.setText("Subtract from HP");
+        playerSubJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerSubJButtonActionPerformed(evt);
+            }
+        });
 
-        jTextField3.setText("0");
+        addHPJTextField.setText("0");
 
-        jButton2.setText("Add to HP");
+        playerAddJButton.setText("Add to HP");
+        playerAddJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerAddJButtonActionPerformed(evt);
+            }
+        });
 
         playerCurrentHPJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         playerCurrentHPJLabel.setText("XX");
@@ -904,12 +929,12 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(playerDefenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(playerDefenceJPanelLayout.createSequentialGroup()
                         .addGroup(playerDefenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                            .addComponent(jTextField3))
+                            .addComponent(subHPJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                            .addComponent(addHPJTextField))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(playerDefenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(playerAddJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(playerSubJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(playerDefenceJPanelLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(jLabel25)
@@ -956,12 +981,12 @@ public class MainGUI extends javax.swing.JFrame {
                         .addComponent(jLabel31)
                         .addComponent(savingThrowsJLabel))
                     .addGroup(playerDefenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1)))
+                        .addComponent(subHPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(playerSubJButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(playerDefenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(addHPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(playerAddJButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1023,7 +1048,7 @@ public class MainGUI extends javax.swing.JFrame {
         animalJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(animalJCheckbox);
 
-        arcanaJCheckbox.setText("Arcana");
+        arcanaJCheckbox.setText("Arcana(");
         arcanaJCheckbox.setEnabled(false);
         playerSkillsJPanel.add(arcanaJCheckbox);
 
@@ -1033,6 +1058,11 @@ public class MainGUI extends javax.swing.JFrame {
 
         deceptionJCheckbox.setText("Deception");
         deceptionJCheckbox.setEnabled(false);
+        deceptionJCheckbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deceptionJCheckboxActionPerformed(evt);
+            }
+        });
         playerSkillsJPanel.add(deceptionJCheckbox);
 
         historyJCheckbox.setText("History");
@@ -1884,6 +1914,11 @@ public class MainGUI extends javax.swing.JFrame {
         });
 
         removePlayerJButton.setText("Remove Player");
+        removePlayerJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removePlayerJButtonActionPerformed(evt);
+            }
+        });
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
@@ -1892,13 +1927,6 @@ public class MainGUI extends javax.swing.JFrame {
         welcomeLabel2.setToolTipText("");
         jPanel2.add(welcomeLabel2, new java.awt.GridBagConstraints());
 
-        jButton4.setText("Hey");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout playerControlsJPanelLayout = new javax.swing.GroupLayout(playerControlsJPanel);
         playerControlsJPanel.setLayout(playerControlsJPanelLayout);
         playerControlsJPanelLayout.setHorizontalGroup(
@@ -1906,30 +1934,23 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(playerControlsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(playerControlsJPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(newPlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(removePlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(playerControlsJPanelLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton4)))
+                .addGap(18, 18, 18)
+                .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(newPlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(removePlayerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         playerControlsJPanelLayout.setVerticalGroup(
             playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerControlsJPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(7, Short.MAX_VALUE)
                 .addGroup(playerControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(playerControlsJPanelLayout.createSequentialGroup()
                         .addComponent(newPlayerJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(removePlayerJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addGap(12, 12, 12))
+                        .addGap(50, 50, 50))
                     .addGroup(playerControlsJPanelLayout.createSequentialGroup()
                         .addComponent(playersJScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -2104,6 +2125,12 @@ public class MainGUI extends javax.swing.JFrame {
         jMenuItem8.setText("Open");
         fileMenu.add(jMenuItem8);
 
+        jMenuItem2.setText("Save");
+        fileMenu.add(jMenuItem2);
+
+        jMenuItem3.setText("Load");
+        fileMenu.add(jMenuItem3);
+
         mainMenuBar.add(fileMenu);
 
         viewMenu.setMnemonic('v');
@@ -2236,34 +2263,51 @@ public class MainGUI extends javax.swing.JFrame {
      */
     private void playersJListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_playersJListValueChanged
         int index = playersJList.getSelectedIndex();
-        Player currentPlayer = DATABASE.getPlayerList().get(index);
-        playerNameJLabel.setText(currentPlayer.getPlayerName());
-        characterNameJLabel.setText(currentPlayer.getName());
-        characterClassJLabel.setText(currentPlayer.getPlayerClass().toString());
-        characterRaceJLabel.setText(currentPlayer.getRace().toString());
-        characterAlignmentJLabel.setText(currentPlayer.getAlignment());
-        playerXPJLabel.setText(Integer.toString(currentPlayer.getExp()));
-        int[] playerAttributes = currentPlayer.getStats();
-        
-        strengthJTextField.setText(Integer.toString(playerAttributes[0]));
-        dexterityJTextField.setText(Integer.toString(playerAttributes[1]));
-        constitutionJTextField.setText(Integer.toString(playerAttributes[2]));
-        intelligenceJTextField.setText(Integer.toString(playerAttributes[3]));
-        wisdomJTextField.setText(Integer.toString(playerAttributes[4]));
-        charismaJTextField.setText(Integer.toString(playerAttributes[5]));
-        playerPBJLabel.setText("+" + currentPlayer.getProfBonus());
-        strModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[0])));
-        dexModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[1])));
-        conModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[2])));
-        intModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[3])));
-        wisModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[4])));
-        charModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[5])));
-        
-        populateSkills(currentPlayer.getSkillProfs());
-        
+        if(index != -1)
+        {
+            Player currentPlayer = DATABASE.getPlayerList().get(index);
+            playerNameJLabel.setText(currentPlayer.getPlayerName());
+            characterNameJLabel.setText(currentPlayer.getName());
+            characterClassJLabel.setText(currentPlayer.getPlayerClass().toString());
+            characterRaceJLabel.setText(currentPlayer.getRace().toString());
+            characterAlignmentJLabel.setText(currentPlayer.getAlignment());
+            playerXPJLabel.setText(Integer.toString(currentPlayer.getExp()));
+            int[] playerAttributes = currentPlayer.getStats();
+            playerNotesJTextArea.setText(currentPlayer.getPlayerNotes());
+            strengthJTextField.setText(Integer.toString(playerAttributes[0]));
+            dexterityJTextField.setText(Integer.toString(playerAttributes[1]));
+            constitutionJTextField.setText(Integer.toString(playerAttributes[2]));
+            intelligenceJTextField.setText(Integer.toString(playerAttributes[3]));
+            wisdomJTextField.setText(Integer.toString(playerAttributes[4]));
+            charismaJTextField.setText(Integer.toString(playerAttributes[5]));
+            playerPBJLabel.setText("+" + currentPlayer.getProfBonus());
+            strModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[0])));
+            dexModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[1])));
+            conModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[2])));
+            intModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[3])));
+            wisModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[4])));
+            charModJTextField.setText("+" + Integer.toString(calculateModifier(playerAttributes[5])));
+
+            savingThrowsJLabel.setText(currentPlayer.getSaves());
+            playerTotalHPJLabel.setText(Integer.toString(currentPlayer.getTotalHP()));
+            playerCurrentHPJLabel.setText(Integer.toString(currentPlayer.getCurrentHP()));
+            clearSkills();
+            populateSkills(currentPlayer.getSkillProfs());
+        }
+        // save player notes in the player at prevIndex
+        //prevIndex = index;
         
         
     }//GEN-LAST:event_playersJListValueChanged
+    public void clearSkills()
+    {
+        int count = 0;
+        for(Component c : playerSkillsJPanel.getComponents())
+        {
+            ((JCheckBox)c).setSelected(false);
+        }
+    }
+    
     /**
      * With parameter player skillProficiencies populate the skills on 
      * playerSkillsJPanel with the appropriate values. 
@@ -2542,7 +2586,6 @@ public class MainGUI extends javax.swing.JFrame {
         }
         playersJList.setModel(model);
         playersJList.setSelectedIndex(playersJList.getModel().getSize()-1);
-        //System.out.println(DATABASE.getPlayerList().get(0).getLevel());
         
     }
     
@@ -2598,13 +2641,55 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_playerLevelDownJButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        System.out.println(DATABASE.getPlayerList().get(0));
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void acrobaticsJCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acrobaticsJCheckboxActionPerformed
 
     }//GEN-LAST:event_acrobaticsJCheckboxActionPerformed
+
+    private void playerSubJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerSubJButtonActionPerformed
+        int amount = Integer.parseInt(subHPJTextField.getText());
+        Player player = DATABASE.getPlayerList().get(playersJList.getSelectedIndex());
+        player.setCurrentHP(player.getCurrentHP() - amount);
+        playerCurrentHPJLabel.setText(Integer.toString(player.getCurrentHP()));
+        
+    }//GEN-LAST:event_playerSubJButtonActionPerformed
+
+    private void playerAddJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerAddJButtonActionPerformed
+        int amount = Integer.parseInt(addHPJTextField.getText());
+        Player player = DATABASE.getPlayerList().get(playersJList.getSelectedIndex());
+        player.setCurrentHP(player.getCurrentHP() + amount);
+        playerCurrentHPJLabel.setText(Integer.toString(player.getCurrentHP()));
+    }//GEN-LAST:event_playerAddJButtonActionPerformed
+
+    private void deceptionJCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deceptionJCheckboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deceptionJCheckboxActionPerformed
+
+    private void playerNotesJTextAreaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_playerNotesJTextAreaFocusLost
+        Player player = DATABASE.getPlayerList().get(playersJList.getSelectedIndex());
+        player.setPlayerNotes(playerNotesJTextArea.getText());
+    }//GEN-LAST:event_playerNotesJTextAreaFocusLost
+
+    private void playerNotesJTextAreaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_playerNotesJTextAreaFocusGained
+        Player player = DATABASE.getPlayerList().get(playersJList.getSelectedIndex());
+        player.setPlayerNotes(playerNotesJTextArea.getText());
+    }//GEN-LAST:event_playerNotesJTextAreaFocusGained
+
+    private void playerNotesJTextAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_playerNotesJTextAreaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playerNotesJTextAreaKeyTyped
+    /**
+     * Remove the currently selected player
+     * @param evt 
+     */
+    private void removePlayerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removePlayerJButtonActionPerformed
+        int selection = JOptionPane.showConfirmDialog(pagesJPanel,
+                "This will delete the currently selected player... Continue?");
+        if(selection == 0)
+        {
+            DATABASE.getPlayerList().remove(playersJList.getSelectedIndex());
+            updatePlayerList();
+        }
+    }//GEN-LAST:event_removePlayerJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2643,6 +2728,7 @@ public class MainGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox acrobaticsJCheckbox;
+    private javax.swing.JTextField addHPJTextField;
     private javax.swing.JButton addNPCItemJButton;
     private javax.swing.JButton addNPCItemJButton1;
     private javax.swing.JButton addNPCJButton;
@@ -2710,10 +2796,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField intelligenceJTextField1;
     private javax.swing.JCheckBox intimidationJCheckbox;
     private javax.swing.JCheckBox investigationJCheckbox;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2772,6 +2855,8 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -2790,8 +2875,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JPanel locationControlsJPanel;
     private javax.swing.JTextArea locationNotesJTextArea;
@@ -2836,6 +2919,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox perceptionJCheckbox;
     private javax.swing.JCheckBox performanceJCheckbox;
     private javax.swing.JCheckBox persuasionJCheckbox;
+    private javax.swing.JButton playerAddJButton;
     private javax.swing.JSpinner playerArrowsJSpinner;
     private javax.swing.JSpinner playerArrowsJSpinner1;
     private javax.swing.JSpinner playerBoltsJSpinner;
@@ -2862,6 +2946,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField playerSilverJTextField1;
     private javax.swing.JPanel playerSkillsJPanel;
     private javax.swing.JTable playerSpellsJTable;
+    private javax.swing.JButton playerSubJButton;
     private javax.swing.JLabel playerTotalHPJLabel;
     private javax.swing.JTable playerWeaponsJTable;
     private javax.swing.JLabel playerXPJLabel;
@@ -2895,6 +2980,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel strengthJLabel1;
     private javax.swing.JTextField strengthJTextField;
     private javax.swing.JTextField strengthJTextField1;
+    private javax.swing.JTextField subHPJTextField;
     private javax.swing.JCheckBox survivalJCheckbox;
     private javax.swing.JPanel tabPanel;
     private javax.swing.JLabel titleJLabel;

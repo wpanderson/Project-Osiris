@@ -12,6 +12,8 @@ public class Enemy extends Entity {
     // Indicates how much experience the enemy will yield when defeated.
     private int expValue;
     
+    //MAKE SIZE AND TYPE PRIVATE VARIABLES AND INITIALIZE
+    
     // Default constructor; uses dummy values, for initialization only
     public Enemy() {
         super();
@@ -28,7 +30,7 @@ public class Enemy extends Entity {
                     
             int[] stats, int[] skillModifiers) {
         
-        super(source, name, size, type, tags, align1, align2, stats);
+        super(source, name, null, null, tags, align1, align2, stats);
         this.challenge = challenge;
         this.expValue = expValue;
         this.skillModifiers = skillModifiers;

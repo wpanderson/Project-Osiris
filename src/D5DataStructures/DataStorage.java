@@ -46,6 +46,10 @@ public class DataStorage implements java.io.Serializable {
         enemyList.addAll(CSVIO.importEnemiesFromCSV(importFilePath));
     }
     
+    public void addItemsFromCSV(String importFilePath) throws FileNotFoundException, IOException {
+        itemList.addAll(CSVIO.importItemsFromCSV(importFilePath));
+    }
+    
     // Adds a new player
     public void addPlayer(Player p) {
         playerList.add(p);

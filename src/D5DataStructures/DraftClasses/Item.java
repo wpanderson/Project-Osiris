@@ -22,6 +22,13 @@ public class Item implements java.io.Serializable {
     public enum Type { AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, 
                        THROWN, TWOHANDED, VERSITILE };
     
+    // I don't really want to tear into this class. There needs to be some thinking into
+    // How we're going to display Items as there are 3 different types + the generic one as well
+    // So I'm just gonna plop this in here so I can finish generation
+    public enum Magic_Item_Type { WONDROUS, WEAPON, WAND, STAFF, SCROLL, ROD, RING, POTION, ARMOR};
+    
+    public enum Rarity { COMMON, UNCOMMON, RARE, VERYRARE, LEGENDARY };
+    
     // To do: better enumeration system for dice that is universal accross all
     // classes in program.
     public enum Dice_Option { ONE_D_FOUR, ONE_D_SIX, ONE_D_EIGHT, ONE_D_TEN, ONE_D_TWELVE, ONE_D_TWENTY,
@@ -39,6 +46,8 @@ public class Item implements java.io.Serializable {
     private int weight_lb;
     private Dice_Option damage;
     
+    private Rarity rarity;
+    
     public Item (String name,
                  int cost,
                  int weight,
@@ -46,6 +55,8 @@ public class Item implements java.io.Serializable {
                  int normal_range,
                  int max_range,
                  ArrayList<Type> item_properties){
+        
+        
     }
     
     public Item (String raw_data){
@@ -54,9 +65,10 @@ public class Item implements java.io.Serializable {
     
     public String ListItemProperties(){
         String list = new String();
-        for (Type t: item_properties){
-            list += t + ", ";
-        }
+//        for (Type t: item_properties){
+//            list += t + ", ";
+//        }
+        list += name + " : " + '\n';
         return list;
     }
     public ArrayList<Type> getItemProperties(){
