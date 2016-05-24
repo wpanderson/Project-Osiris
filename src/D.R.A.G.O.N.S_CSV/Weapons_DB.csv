@@ -12,7 +12,7 @@ Simple melee,Spear,1gp,1d6,piercing,3,Thrown,20/60
 Simple melee,Unarmed,,1,,,,
 Simple ranged,Crossbow,25gp,1d8,piercing,5,Ammunition/loading/two-handed,80/320
 Simple ranged,Dart,5cp,1d4,piercing,0.25,Finesse/Thrown,20/60
-Simple ranged,Shortbow,25gp,1d6,piercing,2,"Ammunition,two-handed",80/320
+Simple ranged,Shortbow,25gp,1d6,piercing,2,Ammunition/two-handed,80/320
 Simple ranged,Sling,1sp,1d4,bludgeoning,,Amunition,30/120
 Martial Melee,Battleaxe,10gp,1d8,slashing,4,Versatile(1d10),
 Martial Melee,Flail,10gp,1d8,bludgeoning,2,,

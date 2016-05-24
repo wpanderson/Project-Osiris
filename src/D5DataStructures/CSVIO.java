@@ -2,7 +2,6 @@
 // to (and from) a readable format that may be compatible with other programs.
 package D5DataStructures;
 
-import D5DataStructures.DraftClasses.Item;
 import java.io.*;
 import java.util.*;
 
@@ -127,59 +126,100 @@ public class CSVIO {
         return enemyList;
     }
 
-
-   /**
-    * Work in progress, will change upon further knowledge of how items will be
-    * used. 
-    * @param filePath
-    * @return nothing yet
-    */
-    public static ArrayList<Item> importItemsFromCSV(String filePath) {
+    /**
+     * Takes in string filepath for a magic item csv to create Item class
+     * objects.
+     *
+     * @param filePath
+     * @return itemList arraylist with Item objects
+     */
+    public static ArrayList<Item> importMagicItemsFromCSV(String filePath) {
         BufferedReader br = null;
         String line; // To hold each line read in
 
-        ArrayList<Enemy> itemList = new ArrayList(); // Hold arrayList of items
+        ArrayList<Item> itemList = new ArrayList(); // Hold arrayList of items
 
         try {
-            br = new BufferedReader(new FileReader(filePath));
-            br.readLine(); // Skip the first title line in file
+            br = new BufferedReader(new FileReader((filePath)));
+            br.readLine();
             while ((line = br.readLine()) != null) {
-
-                // To split each string by "," or multiple commas in quotes
+                String attune = ""; // set to "" if not present
+                String notes = "";  // set to "" if not present
+                Item.Rarity rarity; // to hold rarity enum
+                boolean attunement = false; // attunement false by default
+                Item.Type type;     // to hold type enum
                 String[] item = line.split("\"?(,|$)(?=(([^\"]*\"){2})*[^\"]*$)\"?");
-                String source, name, type, rarity, attunement = "", notes = "";
 
-                // Set specified variables
-                source = item[0];
-                name = item[1];
-                type = item[2];
-                rarity = item[3];
+                String source = item[0]; // holds source
+                String name = item[1];   // holds name
 
-                // Sets attunement if present
-                if (item.length > 4) {
-                    attunement = item[4];
+                String itemType = item[2]; // holds item type string
+                // check for type and set to POTION, RING, ROD, SCROLL, STAFF,
+                // WAND or WONDROUS
+                if (itemType.equals("Potion")) {
+                    type = Item.Type.POTION;
+                } else if (itemType.equals("Ring")) {
+                    type = Item.Type.RING;
+                } else if (itemType.equals("Rod")) {
+                    type = Item.Type.ROD;
+                } else if (itemType.equals("Scroll")) {
+                    type = Item.Type.SCROLL;
+                } else if (itemType.equals("Staff")) {
+                    type = Item.Type.STAFF;
+                } else if (itemType.equals("Wand")) {
+                    type = Item.Type.WAND;
+                } else if (itemType.equals("Weapon")) {
+                    type = Item.Type.WEAPON;
+                } else if (itemType.equals("Armor")) {
+                    type = Item.Type.ARMOR;
+                } else {
+                    type = Item.Type.WONDROUS;
                 }
 
-                // Sets notes if present
+                String rar = item[3]; // hold rarity string
+                
+                // check for rarity and set to 
+                // UNCOMMON, COMMON, RARE, VERY_RARE, or LEGENDARY
+                if (rar.equals("Uncommon")) {
+                    rarity = Item.Rarity.UNCOMMON;
+                } else if (rar.equals("Common")) {
+                    rarity = Item.Rarity.COMMON;
+                } else if (rar.equals("Rare")) {
+                    rarity = Item.Rarity.RARE;
+                } else if (rar.equals("Very Rare")) {
+                    rarity = Item.Rarity.VERY_RARE;
+                } else {
+                    rarity = Item.Rarity.LEGENDARY;
+                }
+
+                // set attunement = true if yes, otherwise false
+                if (item.length > 4) {
+
+                    attune = item[4];
+                    if (attune.equals("yes")) {
+                        attunement = true;
+                    }
+                }
+
+                // set notes if present
                 if (item.length > 5) {
                     notes = item[5];
                 }
 
+                Item itemToAdd = new Item(source, name, type, rarity,
+                        attunement, notes);
+
+                itemList.add(itemToAdd);
+
             } // end while loop                
         }// end try block
-        catch (IOException e) {
+        catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (br != null) {
-                    br.close();
-                }
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-        } // end finally
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
-        return null; // Will change once a better item() constructor is specified
+        return itemList; // item arraylist
     }
 
     /**
@@ -198,6 +238,7 @@ public class CSVIO {
             while ((line = br.readLine()) != null) {
                 outputList.add(line);
             }
+      
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -212,4 +253,58 @@ public class CSVIO {
 
         return outputList;
     }
+
+    /**
+     * Work in Progress Testing with player objects
+     *
+     * @param filePath
+     * @return
+     */
+    public ArrayList<Player> importPlayersFromCSV(String filePath) {
+        ArrayList<Player> players = new ArrayList();
+        Scanner scan = null;
+        try {
+            scan = new Scanner(new BufferedReader(new FileReader(filePath))).useDelimiter(",");
+            //Type,Person,Name,UUID,Level,Race,Alignment,XP,Stength,Dexterity,
+            //Constitution,Intelligence,Wisdom,Charism,Platinum,Gold,Silver,Copper,Arrows,Bolts,HP,Armor
+            /*
+             Player,Charles,Matriarchal pasta,9001,2,Dwarf,NN,5,10,5,2,0,0,10,999,5,5,5,0,0,500,12            
+             String source, String name, int playerHP,
+             ArrayList<String> tags, Entity.Align1 align1, Entity.Align2 align2,
+             int[] stats,
+             Entity.Class playerClass, Entity.Race playerRace, int level,
+             int exp, int profBonus, boolean[] skillProfs, String playerName*/
+            while (scan.hasNextLine()) {
+                System.out.println(scan.nextLine());
+                scan.nextLine(); // eat up the first line
+                String type = scan.next();
+                String person = scan.next();
+                String name = scan.next();
+                int uuid = scan.nextInt();
+                int level = scan.nextInt();
+                String race = scan.next();
+                String alignment = scan.next();
+                int xp = scan.nextInt();
+                int stength = scan.nextInt();
+                int dexterity = scan.nextInt();
+                int constitution = scan.nextInt();
+                int intelligence = scan.nextInt();
+                int wisdon = scan.nextInt();
+                int charisma = scan.nextInt();
+                int platinum = scan.nextInt();
+                int gold = scan.nextInt();
+                int silver = scan.nextInt();
+                int copper = scan.nextInt();
+                int arrows = scan.nextInt();
+                int bolts = scan.nextInt();
+                int hp = scan.nextInt();
+                int armor = scan.nextInt();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }
