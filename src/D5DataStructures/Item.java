@@ -8,8 +8,55 @@ package D5DataStructures;
  *
  * @author Wes Anderson
  */
-public class Item {
-
+public class Item { 
+    public enum Type {GENERIC, ARMOR, WEAPON, POTION, RING, ROD, SCROLL, STAFF,
+                        WAND, WONDROUS};
+    public enum Rarity {UNCOMMON, COMMON, RARE, VERY_RARE, LEGENDARY};
+    
+    private String name;
+    private int cost;
+    private double weight;
+    private Type type;
+    private String source;
+    private Rarity rarity;
+    private boolean attunememt;
+    private String notes;
+    
+    /**
+     * generic item constructor
+     * 
+     * @param name
+     * @param cost
+     * @param weight
+     * @param type
+     */
+    public Item(String name, int cost, double weight, Type type)
+    {
+        this.name = name;
+        this.cost = cost;
+        this.weight = weight;
+        this.type = type;
+    }
+    /**
+     * Magic Item constructor. 
+     * @param source
+     * @param name
+     * @param type
+     * @param rarity
+     * @param attunement
+     * @param notes
+    */
+    public Item(String source, String name, Type type, Rarity rarity,
+            boolean attunement, String notes)
+    {
+        this.source = source;
+        this.name = name;
+        this.type = type;
+        this.rarity = rarity;
+        this.attunememt = attunement;
+        this.notes = notes;
+    }
+    
     /**
      * @return the name
      */
@@ -121,51 +168,4 @@ public class Item {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-    public enum Type {GENERIC, ARMOR, WEAPON, POTION, RING, ROD, SCROLL, STAFF,
-                        WAND, WONDROUS};
-    public enum Rarity {UNCOMMON, COMMON, RARE, VERY_RARE, LEGENDARY};
-    
-    private String name;
-    private int cost;
-    private double weight;
-    private Type type;
-    private String source;
-    private Rarity rarity;
-    private boolean attunememt;
-    private String notes;
-    
-    /**
-     * generic item constructor
-     * 
-     * @param name
-     * @param cost
-     * @param weight
-     * @param type
-     */
-    public Item(String name, int cost, double weight, Type type)
-    {
-        this.name = name;
-        this.cost = cost;
-        this.weight = weight;
-        this.type = type;
-    }
-    /**
-     * Magic Item constructor. 
-     * @param source
-     * @param name
-     * @param type
-     * @param rarity
-    */
-    public Item(String source, String name, Type type, Rarity rarity,
-            boolean attunement, String notes)
-    {
-        this.source = source;
-        this.name = name;
-        this.cost = cost;
-        this.type = type;
-        this.rarity = rarity;
-        this.attunememt = attunement;
-        this.notes = notes;
-    }
-    
 }

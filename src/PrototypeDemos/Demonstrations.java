@@ -4,7 +4,7 @@ package PrototypeDemos;
 
 import D5DataStructures.DraftClasses.Encounter;
 import D5DataStructures.*;
-import D5DataStructures.DraftClasses.Item;
+//import D5DataStructures.DraftClasses.Item;
 import java.util.*;
 import java.io.*;
 
@@ -13,7 +13,8 @@ public class Demonstrations {
         // Call whatever demos we want to run at a given time here
         //CSVImportDemo();
         //GeneratorDemo();
-        ItemGeneratorDemo();
+        //ItemGeneratorDemo();
+        MagicItemDemo();
     }
     
     // Demonstrates CSV import and basic database functionality.
@@ -74,34 +75,41 @@ public class Demonstrations {
         }
     }
     
-    public static void ItemGeneratorDemo() throws IOException{
-        Scanner console = new Scanner(System.in);
-        //String filePath = console.next();
-        System.out.println();
-        DataStorage database = new DataStorage();
-        try {                           // No ti
-            database.addItemsFromCSV("src//D.R.A.G.O.N.S_CSV//Magic_items.csv");
-            
-            ArrayList<Item.Magic_Item_Type> item_type = new ArrayList<Item.Magic_Item_Type>();
-            item_type.add(Item.Magic_Item_Type.ARMOR);
-            item_type.add(Item.Magic_Item_Type.SCROLL);
-            
-            
-            ArrayList<Item> generated_items = 
-                    Generator.Generate_Magic_Items(Item.Rarity.LEGENDARY, 20, item_type, database.getItemList());
-            
-            
+    /*public static void ItemGeneratorDemo() throws IOException{
+    Scanner console = new Scanner(System.in);
+    //String filePath = console.next();
+    System.out.println();
+    DataStorage database = new DataStorage();
+    try {                           // No ti
+    database.addItemsFromCSV("src//D.R.A.G.O.N.S_CSV//Magic_items.csv");
+    
+    ArrayList<Item.Magic_Item_Type> item_type = new ArrayList<Item.Magic_Item_Type>();
+    item_type.add(Item.Magic_Item_Type.ARMOR);
+    item_type.add(Item.Magic_Item_Type.SCROLL);
+    
+    
+    ArrayList<Item> generated_items =
+    Generator.Generate_Magic_Items(Item.Rarity.LEGENDARY, 20, item_type, database.getItemList());
 
-
-            
-        } catch(FileNotFoundException e) {
-            System.out.println("File not found. Details:");
-            System.out.println(e.getMessage());
-        }
+    
+    } catch(FileNotFoundException e) {
+    System.out.println("File not found. Details:");
+    System.out.println(e.getMessage());
+    }*/
         
+    public static void MagicItemDemo(){
+        ArrayList<Item> test = CSVIO.importMagicItemsFromCSV("src//D.R.A.G.O.N.S_CSV//Magic_items.csv");
+        
+        for (Item itemToAdd : test){
+        System.out.println(itemToAdd.getSource() + " " + itemToAdd.getName() + " " + itemToAdd.getType()
+                + " " + itemToAdd.getRarity() + " " + itemToAdd.isAttunememt() + " " + itemToAdd.getNotes());
+        }  
+    }
         
     }
+
     
     // Add new demos as static methods below, then call in main to use 
     // (and comment out or remove other demos present in main if desired).
-}
+
+
