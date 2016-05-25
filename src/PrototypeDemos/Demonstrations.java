@@ -84,6 +84,9 @@ public class Demonstrations {
         item_type.add(Item.Type.WEAPON);
         item_type.add(Item.Type.SCROLL);
         item_type.add(Item.Type.POTION);
+        item_type.add(Item.Type.ROD);
+        item_type.add(Item.Type.WONDROUS);
+        
 
 
         ArrayList<Item> generated_items =
@@ -99,8 +102,7 @@ public class Demonstrations {
         ArrayList<Item> test = CSVIO.importMagicItemsFromCSV("src//D.R.A.G.O.N.S_CSV//Magic_items.csv");
         
         for (Item itemToAdd : test){
-        System.out.println(itemToAdd.getSource() + " " + itemToAdd.getName() + " " + itemToAdd.getType()
-                + " " + itemToAdd.getRarity() + " " + itemToAdd.isAttunememt() + " " + itemToAdd.getNotes());
+        System.out.println(itemToAdd.toString());
         }  
     }
         

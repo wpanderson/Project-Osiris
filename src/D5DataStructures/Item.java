@@ -175,7 +175,13 @@ public class Item {
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append(name + " : " + rarity);
+        sb.append("\nSource : " + getSource());
+        sb.append("\nName : " + getName());
+        sb.append("\nType : " + getType());
+        sb.append("\nRarity : " + getRarity());
+        sb.append("\nAttunement : " + isAttunememt());
+        sb.append("\nNotes : " + getNotes());
+        
         return sb.toString();
     }
     
