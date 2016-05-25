@@ -336,11 +336,12 @@ public class Generator {
         for (Item i : item_pool){
             boolean match = false;
             for (Item.Type t: loot_types){
-                if (i.getType() == t)
+                if (i.getType() == t){
                     match = true;
+                    culled_items.add(i);
+                    break;
+                }
             }
-            if (match)
-                culled_items.add(i);
         }
 
         // Get the correct spread
