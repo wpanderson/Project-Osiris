@@ -15,6 +15,7 @@ public class Demonstrations {
         //GeneratorDemo();
         ItemGeneratorDemo();
         //MagicItemDemo();
+        WeaponsDemo();
     }
     
     // Demonstrates CSV import and basic database functionality.
@@ -104,6 +105,23 @@ public class Demonstrations {
         for (Item itemToAdd : test){
         System.out.println(itemToAdd.toString());
         }  
+    }
+    
+    public static void WeaponsDemo() {
+        ArrayList<Item> test = CSVIO.importWeaponsFromCSV("src//D.R.A.G.O.N.S_CSV//Weapons_DB.csv");
+        for (Item itemToAdd : test) {
+            System.out.println(itemToAdd.getType() + " " + itemToAdd.getName() + " " + itemToAdd.getCost()
+                    + " " + itemToAdd.getDamage() + " " + itemToAdd.getDamageType()
+                    + " " + itemToAdd.getWeight() + " " + itemToAdd.getRange());
+            
+            // If properties are present, print the properties
+            if (itemToAdd.getWeaponProperties() != null) {
+                ArrayList<Item.Weapon_Type> props = itemToAdd.getWeaponProperties();
+                for (Item.Weapon_Type it : props) {
+                    System.out.println(it);
+                }
+            }
+        }
     }
         
     }
