@@ -8,7 +8,7 @@
 package D5DataStructures;
 
 import D5DataStructures.DraftClasses.Encounter;
-import D5DataStructures.DraftClasses.Item;
+import D5DataStructures.Item;
 import D5DataStructures.Enemy;
 import D5DataStructures.Player;
 import java.util.ArrayList;
@@ -30,6 +30,9 @@ public class Generator {
     
     // An easy way to grab hardcoded rarity spreads
     private static HashMap<Item.Rarity, List<Integer>> probability_spreads;
+    
+    // Java isn't super okay with you grabbing enums by their integer value
+    private static HashMap<Integer, Item.Rarity> item_rarity_lookup; 
 
     
     private static void Initialize(){
@@ -65,13 +68,23 @@ public class Generator {
         // More hardcoded values.
         // These set the probability of the rarity of items in generated item pools
         probability_spreads = new HashMap<Item.Rarity, List<Integer>>();
+        
         //                                                    Point Spread: pretty much abritrary
         //                                                            C   U   R   V   L
         probability_spreads.put(Item.Rarity.COMMON, Arrays.asList    (97, 2 , 1 , 0 , 0 ));
         probability_spreads.put(Item.Rarity.UNCOMMON, Arrays.asList  (17, 80, 2 , 1 , 0 ));
         probability_spreads.put(Item.Rarity.RARE, Arrays.asList      (4 , 13, 80, 2 , 1 ));
-        probability_spreads.put(Item.Rarity.VERYRARE, Arrays.asList  (1 , 3 , 13, 80, 3));
+        probability_spreads.put(Item.Rarity.VERY_RARE, Arrays.asList (1 , 3 , 13, 80, 3));
         probability_spreads.put(Item.Rarity.LEGENDARY, Arrays.asList (0 , 1 , 3 , 13, 83));
+        
+        
+        item_rarity_lookup = new HashMap<Integer, Item.Rarity>();
+        item_rarity_lookup.put(0, Item.Rarity.COMMON);
+        item_rarity_lookup.put(1, Item.Rarity.UNCOMMON);
+        item_rarity_lookup.put(2, Item.Rarity.RARE);
+        item_rarity_lookup.put(3, Item.Rarity.VERY_RARE);
+        item_rarity_lookup.put(4, Item.Rarity.LEGENDARY);
+        
 
     }
     /**
@@ -307,22 +320,67 @@ public class Generator {
         return new Encounter(output_list, location, difficulty);
     }
     
-    
     public static ArrayList<Item> Generate_Magic_Items(
-            Item.Rarity loot_rarity, 
+            D5DataStructures.Item.Rarity average_loot_rarity, 
             int number_of_items, 
-            ArrayList<Item.Magic_Item_Type> loot_types,
-            ArrayList<Item> itemList){
+            ArrayList<Item.Type> loot_types, 
+            ArrayList<Item> item_pool) {
         
+        if (!init){
+            Initialize();
+        }
+        
+        // Cull the list to match the requested item types
+        ArrayList<Item> culled_items = new ArrayList<Item>();
+        
+        for (Item i : item_pool){
+            boolean match = false;
+            for (Item.Type t: loot_types){
+                if (i.getType() == t)
+                    match = true;
+            }
+            if (match)
+                culled_items.add(i);
+        }
 
+        // Get the correct spread
+        List<Integer> spread = probability_spreads.get(average_loot_rarity);
         
+        // Now loop through and generate the items
+        ArrayList<Item> output = new ArrayList<Item>();
+        long seed = System.nanoTime();
+        Random rng = new Random(seed);
         
+        for (int i = 0; i < number_of_items; i++){
+            
+            // Give the list a shuffle so I can access it sequentially
+            Collections.shuffle(culled_items, rng);
+            
+            // Get the rarity of the item
+            int val = rng.nextInt(101);
+            Item.Rarity rarity;
+            
+            for (int q = 0; q < number_of_items; q++){
+                if (val < spread.get(q)){
+                    rarity = item_rarity_lookup.get(q);
+                    
+                    // Grab a random item with the same rarity
+                    for (Item item: culled_items){
+                        if (item.getRarity() == rarity){
+                            output.add(item); // Add it to output 
+                            break;            // And go again
+                        }
+                    }
+                    
+                    // Ah, I hate breaks, but I too lazy
+                    break;
+                }
+                val -= spread.get(q);
+            }
+        }
         
+        return output;
         
-        
-        
-        
-        return new ArrayList<Item>();
     }
 }
 

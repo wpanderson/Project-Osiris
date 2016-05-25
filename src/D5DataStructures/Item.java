@@ -168,4 +168,15 @@ public class Item {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+    
+     /**
+     * @return A string representing the Item
+     */
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(name + " : " + rarity);
+        return sb.toString();
+    }
+    
 }
