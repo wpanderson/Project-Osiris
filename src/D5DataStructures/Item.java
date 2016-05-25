@@ -10,8 +10,12 @@ package D5DataStructures;
  */
 public class Item { 
     public enum Type {GENERIC, ARMOR, WEAPON, POTION, RING, ROD, SCROLL, STAFF,
-                        WAND, WONDROUS};
+                        WAND, WONDROUS, MARTIAL_MELEE, MARTIAL_RANGED,
+                        SIMPLE_MELEE, SIMPLE_RANGED};
     public enum Rarity {UNCOMMON, COMMON, RARE, VERY_RARE, LEGENDARY};
+    public enum Weapon_Type { AMMUNITION, FINESSE, HEAVY, LIGHT, LOADING, RANGE, REACH, SPECIAL, 
+                            THROWN, TWOHANDED, VERSITILE , NULL};
+    private ArrayList<Weapon_Type> weaponProperties;
     
     private String name;
     private int cost;
@@ -21,6 +25,9 @@ public class Item {
     private Rarity rarity;
     private boolean attunememt;
     private String notes;
+    private String damageType;
+    private String damage;
+    private String range;
     
     /**
      * generic item constructor
@@ -55,6 +62,30 @@ public class Item {
         this.rarity = rarity;
         this.attunememt = attunement;
         this.notes = notes;
+    }
+    
+    /**
+     * Weapon Item constructor
+     * @param type
+     * @param name
+     * @param cost
+     * @param damage
+     * @param damageType
+     * @param weight
+     * @param weaponProperties
+     * @param range 
+     */
+    public Item(Type type, String name, int cost, String damage, 
+                String damageType, double weight, 
+                ArrayList<Weapon_Type> weaponProperties, String range){
+        this.type = type;
+        this.name = name;
+        this.cost = cost;
+        this.damage = damage;
+        this.damageType = damageType;
+        this.weight = weight;
+        this.weaponProperties = weaponProperties;
+        this.range = range;    
     }
     
     /**
@@ -167,6 +198,63 @@ public class Item {
      */
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+    
+     /**
+     * @return the damageType
+     */
+    public String getDamageType() {
+        return damageType;
+    }
+
+    /**
+     * @param damageType the damageType to set
+     */
+    public void setDamageType(String damageType) {
+        this.damageType = damageType;
+    }
+    
+     /**
+     * @return the damage
+     */
+    public String getDamage() {
+        return damage;
+    }
+
+    /**
+     * @param damage the damage to set
+     */
+    public void setDamage(String damage) {
+        this.damage = damage;
+    }
+
+    /**
+     * @return the range
+     */
+    public String getRange() {
+        return range;
+    }
+
+    /**
+     * @param range the range to set
+     */
+    public void setRange(String range) {
+        this.range = range;
+
+    }
+    
+     /**
+     * @return the weaponProperties
+     */
+    public ArrayList<Weapon_Type> getWeaponProperties() {
+        return weaponProperties;
+    }
+
+    /**
+     * @param weaponProperties the weaponProperties to set
+     */
+    public void setWeaponProperties(ArrayList<Weapon_Type> weaponProperties) {
+        this.weaponProperties = weaponProperties;
     }
     
      /**
