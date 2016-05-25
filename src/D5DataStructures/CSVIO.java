@@ -145,9 +145,9 @@ public class CSVIO {
             while ((line = br.readLine()) != null) {
                 String attune = ""; // set to "" if not present
                 String notes = "";  // set to "" if not present
-                Item.Rarity rarity; // to hold rarity enum
+                Item.Rarity rarity = null; // to hold rarity enum
                 boolean attunement = false; // attunement false by default
-                Item.Type type;     // to hold type enum
+                Item.Type type = null;     // to hold type enum
                 String[] item = line.split("\"?(,|$)(?=(([^\"]*\"){2})*[^\"]*$)\"?");
 
                 String source = item[0]; // holds source
@@ -156,41 +156,60 @@ public class CSVIO {
                 String itemType = item[2]; // holds item type string
                 // check for type and set to POTION, RING, ROD, SCROLL, STAFF,
                 // WAND or WONDROUS
-                if (itemType.equals("Potion")) {
-                    type = Item.Type.POTION;
-                } else if (itemType.equals("Ring")) {
-                    type = Item.Type.RING;
-                } else if (itemType.equals("Rod")) {
-                    type = Item.Type.ROD;
-                } else if (itemType.equals("Scroll")) {
-                    type = Item.Type.SCROLL;
-                } else if (itemType.equals("Staff")) {
-                    type = Item.Type.STAFF;
-                } else if (itemType.equals("Wand")) {
-                    type = Item.Type.WAND;
-                } else if (itemType.equals("Weapon")) {
-                    type = Item.Type.WEAPON;
-                } else if (itemType.equals("Armor")) {
-                    type = Item.Type.ARMOR;
-                } else {
-                    type = Item.Type.WONDROUS;
+                
+                // Perhaps this would be a slightly less error prone way to do this
+                // with the additional benefit that modifying the enum wont screw stuff up
+                // Though there could be a problem with whitespace characters and underscores
+                // but currently, the database and the enums share the same underscores so 
+                // everything is okay
+                for (Item.Type t: Item.Type.values()){
+                    if (itemType.equalsIgnoreCase(t.name())){
+                        type = t;
+                    }
                 }
+
+//                if (itemType.equals("Potion")) {
+//                    type = Item.Type.POTION;
+//                } else if (itemType.equals("Ring")) {
+//                    type = Item.Type.RING;
+//                } else if (itemType.equals("Rod")) {
+//                    type = Item.Type.ROD;
+//                } else if (itemType.equals("Scroll")) {
+//                    type = Item.Type.SCROLL;
+//                } else if (itemType.equals("Staff")) {
+//                    type = Item.Type.STAFF;
+//                } else if (itemType.equals("Wand")) {
+//                    type = Item.Type.WAND;
+//                } else if (itemType.equals("Weapon")) {
+//                    type = Item.Type.WEAPON;
+//                } else if (itemType.equals("Armor")) {
+//                    type = Item.Type.ARMOR;
+//                } else {
+//                    type = Item.Type.WONDROUS;
+//                }
+
 
                 String rar = item[3]; // hold rarity string
                 
                 // check for rarity and set to 
                 // UNCOMMON, COMMON, RARE, VERY_RARE, or LEGENDARY
-                if (rar.equals("Uncommon")) {
-                    rarity = Item.Rarity.UNCOMMON;
-                } else if (rar.equals("Common")) {
-                    rarity = Item.Rarity.COMMON;
-                } else if (rar.equals("Rare")) {
-                    rarity = Item.Rarity.RARE;
-                } else if (rar.equals("Very Rare")) {
-                    rarity = Item.Rarity.VERY_RARE;
-                } else {
-                    rarity = Item.Rarity.LEGENDARY;
+                for (Item.Rarity r: Item.Rarity.values()){
+                    if (rar.equalsIgnoreCase(r.name())){
+                        rarity = r;
+                    }
                 }
+       
+//                if (rar.equals("Uncommon")) {
+//                    rarity = Item.Rarity.UNCOMMON;
+//                } else if (rar.equals("Common")) {
+//                    rarity = Item.Rarity.COMMON;
+//                } else if (rar.equals("Rare")) {
+//                    rarity = Item.Rarity.RARE;
+//                } else if (rar.equals("Very Rare")) {
+//                    rarity = Item.Rarity.VERY_RARE;
+//                } else {
+//                    rarity = Item.Rarity.LEGENDARY;
+//                }
 
                 // set attunement = true if yes, otherwise false
                 if (item.length > 4) {
