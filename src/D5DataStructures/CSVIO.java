@@ -4,6 +4,8 @@ package D5DataStructures;
 
 import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CSVIO {
 
@@ -127,6 +129,64 @@ public class CSVIO {
     }
 
     /**
+     * Takes in a String file path of a csv file containing generic items.
+     * Determines the name, cost (in cp), and weight of each item and adds to an
+     * Item arrayList
+     *
+     * @param filePath
+     * @return ArrayList itemList of items
+     */
+    public static ArrayList<Item> importGenericItemsFromCSV(String filePath) {
+        BufferedReader br = null;
+        String line;
+        ArrayList<Item> itemList = new ArrayList();
+
+        try {
+            br = new BufferedReader(new FileReader(filePath));
+            br.readLine(); // consume header line
+
+            while ((line = br.readLine()) != null) {
+                String name;
+                int cost = 0;
+                double weight = 0.0;
+                String strCost;      // to hold raw cost string
+                String strNoCurrency; // to hold cost without currency type "gp" 
+
+                String[] item = line.split("\"?(,|$)(?=(([^\"]*\"){2})*[^\"]*$)\"?");
+                int length = item.length; // holds length to check if columns exist
+
+                name = item[0]; // set name
+
+                // checks for currency and converts sp or gp into cp
+                if (length > 1) {
+                    strCost = item[1]; // set raw cost string
+                    // Remove currency type then convert to cp
+                    strNoCurrency = strCost.replaceAll("[^\\d.]", "");
+                    if (strCost.contains("gp")) {
+                        cost = 100 * (Integer.parseInt(strNoCurrency));
+                    } else if (strCost.contains("sp")) {
+                        cost = 10 * (Integer.parseInt(strNoCurrency));
+                    } else {
+                        cost = Integer.parseInt(strNoCurrency);
+                    }
+                }
+                // set weight if exists
+                if (length > 2) {
+                    weight = Double.parseDouble(item[2]);
+                }
+
+                Item itemToAdd = new Item(name, cost, weight, Item.Type.GENERIC);
+                itemList.add(itemToAdd);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return itemList;
+    }
+
+    /**
      * Takes in string filepath for a magic item csv to create Item class
      * objects.
      *
@@ -140,7 +200,7 @@ public class CSVIO {
         ArrayList<Item> itemList = new ArrayList(); // Hold arrayList of items
 
         try {
-            br = new BufferedReader(new FileReader((filePath)));
+            br = new BufferedReader(new FileReader(filePath));
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String attune = ""; // set to "" if not present
@@ -177,7 +237,7 @@ public class CSVIO {
                 }
 
                 String rar = item[3]; // hold rarity string
-                
+
                 // check for rarity and set to 
                 // UNCOMMON, COMMON, RARE, VERY_RARE, or LEGENDARY
                 if (rar.equals("Uncommon")) {
@@ -223,6 +283,136 @@ public class CSVIO {
     }
 
     /**
+     * Takes in the String file path to a weapon csv file and creates Item
+     * objects using the constructor for weapons.
+     * 
+     * @param filePath
+     * @return ArrayList of Item objects
+     */
+    public static ArrayList<Item> importWeaponsFromCSV(String filePath) {
+        BufferedReader br = null;
+        String line; // To hold each line read in
+        ArrayList<Item> itemList = new ArrayList(); // Hold arrayList of items
+
+        try {
+            br = new BufferedReader(new FileReader(filePath));
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                //Type,SubType,Cost,Damage,DamageType,Weight,Properties,Range
+                Item.Type type;     // to hold type enum
+                int cost = 0;
+                String props; // to hold raw properties data
+                ArrayList<Item.Weapon_Type> properties = null; // to hold weapon type enums
+                String damage = ""; // to hold damage dice enum
+                double weight = 0.0;
+                String damageType = ""; // to hold damage type
+                String strCost;      // to hold raw cost string
+                String strNoCurrency; // to hold cost without currency type "gp" 
+                String range = ""; // to hold range
+
+                String[] item = line.split("\"?(,|$)(?=(([^\"]*\"){2})*[^\"]*$)\"?");
+
+                int length = item.length; // to check if columns exist
+
+                // Set item type
+                String itemType = item[0];
+                if (itemType.equalsIgnoreCase("Martial Melee")) {
+                    type = Item.Type.MARTIAL_MELEE;
+                } else if (itemType.equalsIgnoreCase("Martial Ranged")) {
+                    type = Item.Type.MARTIAL_RANGED;
+                } else if (itemType.equalsIgnoreCase("Simple Ranged")) {
+                    type = Item.Type.SIMPLE_RANGED;
+                } else {
+                    type = Item.Type.SIMPLE_MELEE;
+                }
+
+                String name = item[1]; // set name
+
+                // checks for currency and converts sp or gp into cp
+                if (length > 2 && !item[2].equals("")) {
+                    strCost = item[2]; // set raw cost string
+                    // Remove currency type then convert to cp
+                    strNoCurrency = strCost.replaceAll("[^\\d.]", "");
+                    if (strCost.contains("gp")) {
+                        cost = 100 * (Integer.parseInt(strNoCurrency));
+                    } else if (strCost.contains("sp")) {
+                        cost = 10 * (Integer.parseInt(strNoCurrency));
+                    } else {
+                        cost = Integer.parseInt(strNoCurrency);
+                    }
+                }
+
+                // set damage value if exists
+                if (length > 3) {
+                    damage = item[3];
+                }
+
+                // set damage type if exists
+                if (length > 4) {
+                    damageType = item[4];
+                }
+
+                // set weight if exists
+                if (length > 5 && !item[5].equals("")) {
+                    weight = Double.parseDouble(item[5]);
+                }
+
+                // set Weapon_Type enums if they exist and stores them in
+                // an array list of type Weapon_Type
+                if (length > 6) {
+                    properties = new ArrayList();
+                    props = item[6];
+                    Scanner scan = new Scanner(props).useDelimiter("/");
+                    while (scan.hasNext()) {
+                        String str = scan.next();
+                        if (str.equalsIgnoreCase("ammunition")) {
+                            properties.add(Item.Weapon_Type.AMMUNITION);
+                        } else if (str.equalsIgnoreCase("finesse")) {
+                            properties.add(Item.Weapon_Type.FINESSE);
+                        } else if (str.equalsIgnoreCase("heavy")) {
+                            properties.add(Item.Weapon_Type.HEAVY);
+                        } else if (str.equalsIgnoreCase("light")) {
+                            properties.add(Item.Weapon_Type.LIGHT);
+                        } else if (str.equalsIgnoreCase("loading")) {
+                            properties.add(Item.Weapon_Type.LOADING);
+                        } else if (str.equalsIgnoreCase("range")) {
+                            properties.add(Item.Weapon_Type.RANGE);
+                        } else if (str.equalsIgnoreCase("reach")) {
+                            properties.add(Item.Weapon_Type.REACH);
+                        } else if (str.equalsIgnoreCase("special")) {
+                            properties.add(Item.Weapon_Type.SPECIAL);
+                        } else if (str.equalsIgnoreCase("thrown")) {
+                            properties.add(Item.Weapon_Type.THROWN);
+                        } else if (str.equalsIgnoreCase("two-handed")) {
+                            properties.add(Item.Weapon_Type.TWOHANDED);
+                        } else if (str.equalsIgnoreCase("versitile")) {
+                            properties.add(Item.Weapon_Type.VERSITILE);
+                        } else {
+                        }
+                    }
+                }
+
+                // set range string if exists
+                if (length > 7) {
+                    range = item[7];
+                }
+
+                Item itemToAdd = new Item(type, name, cost, damage, damageType,
+                        weight, properties, range);
+                itemList.add(itemToAdd);
+
+            } // end while loop                
+        }// end try block
+        catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return itemList; // item arraylist
+    }
+
+    /**
      * Simple import for any csv file. Will read each line and append it to an
      * arrayList. May be useful for quick and dirty printing.
      *
@@ -238,7 +428,7 @@ public class CSVIO {
             while ((line = br.readLine()) != null) {
                 outputList.add(line);
             }
-      
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -301,7 +491,7 @@ public class CSVIO {
                 int armor = scan.nextInt();
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         return null;

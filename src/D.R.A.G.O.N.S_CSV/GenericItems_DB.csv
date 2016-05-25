@@ -135,7 +135,7 @@ Viol,30gp,1
 Navigator's tools,25gp,2
 Poisoner;s kit,50gp,2
 Thieves' tools,25gp,1
-Barding,x4,x2
+Barding,0,0
 Bit and bridle,2gp,1
 Carriage,100gp,600
 Cartographer's tools,15gp,200
@@ -179,4 +179,4 @@ Bread loaf,2cp,
 Cheese,1sp,
 Meat,3sp,
 Wine(common),2sp,
-Wine(fine),10GP,
+Wine(fine),10gp,
