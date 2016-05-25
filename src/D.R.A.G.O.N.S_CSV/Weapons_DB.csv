@@ -3,7 +3,7 @@ Simple melee,Club,1sp,1d4,bludgeoning,2,Light,
 Simple melee,Dagger,2gp,1d3,piercing,1,Finesse/Light/Thrown,20/60
 Simple melee,Greatclub,2sp,1d8,bludgeoning,10,Two-handed,
 Simple melee,Handaxe,5gp,1d6,slashing,2,Light/Thrown,20/60
-Simple melee,javelin,5sp,1d6,piercing,range,Thrown,30/120
+Simple melee,javelin,5sp,1d6,piercing,,Thrown,30/120
 Simple melee,Light hammer,2gp,1d4 ,bludgeoning,2,Light/Thrown,20/60
 Simple melee,Mace,5gp,1d6,bludgeoning,4,,
 Simple melee,Quarterstaff,2sp,1d6,bludgeoning,4,Versatile(1d8),
