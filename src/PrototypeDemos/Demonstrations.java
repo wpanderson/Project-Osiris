@@ -80,13 +80,14 @@ public class Demonstrations {
         ArrayList<Item> item_pool = CSVIO.importMagicItemsFromCSV("src//D.R.A.G.O.N.S_CSV//Magic_items.csv");
     
         ArrayList<Item.Type> item_type = new ArrayList<Item.Type>();
-        item_type.add(Item.Type.ARMOR);
+        item_type.add(Item.Type.GENERIC);
         item_type.add(Item.Type.WEAPON);
         item_type.add(Item.Type.SCROLL);
+        item_type.add(Item.Type.POTION);
 
 
         ArrayList<Item> generated_items =
-        Generator.Generate_Magic_Items(Item.Rarity.LEGENDARY, 20, item_type, item_pool);
+        Generator.Generate_Magic_Items(Item.Rarity.RARE, 20, item_type, item_pool);
         
         for (Item i: generated_items){
             System.out.println(i.toString());

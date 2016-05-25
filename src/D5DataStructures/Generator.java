@@ -360,7 +360,7 @@ public class Generator {
             int val = rng.nextInt(101);
             Item.Rarity rarity;
             
-            for (int q = 0; q < number_of_items; q++){
+            for (int q = 0; q < spread.size(); q++){
                 if (val < spread.get(q)){
                     rarity = item_rarity_lookup.get(q);
                     
