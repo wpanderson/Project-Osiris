@@ -724,7 +724,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="playerArrowsJSpinner" pref="44" max="32767" attributes="0"/>
+                              <Component id="playerArrowsJSpinner" max="32767" attributes="0"/>
                               <Component id="playerBoltsJSpinner" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -2226,7 +2226,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="playerArrowsJSpinner1" alignment="0" pref="44" max="32767" attributes="0"/>
+                              <Component id="playerArrowsJSpinner1" alignment="0" max="32767" attributes="0"/>
                               <Component id="playerBoltsJSpinner1" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -3384,8 +3384,9 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="removeNPCJButton" max="32767" attributes="0"/>
                           <Component id="addNPCJButton" max="32767" attributes="0"/>
+                          <Component id="removeNPCJButton1" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
                       <Component id="jPanel1" min="-2" pref="284" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -3399,19 +3400,21 @@
                           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="addNPCJButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="removeNPCJButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="removeNPCJButton1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="playersJScrollPanel1" min="-2" pref="94" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -3458,6 +3461,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add NPC/Enemy"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addNPCJButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="removeNPCJButton">
               <Properties>
@@ -3484,6 +3490,11 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="removeNPCJButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Save NPC/Enemy"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="locationControlsJPanel">

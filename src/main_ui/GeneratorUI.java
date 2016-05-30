@@ -8,6 +8,7 @@ package main_ui;
 import D5DataStructures.*;
 import D5DataStructures.DraftClasses.Encounter;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,8 @@ public class GeneratorUI extends javax.swing.JFrame {
     
     private Encounter.DIFFICULTY encounterDifficulty = Encounter.DIFFICULTY.EASY;
     private Encounter.Encounter_Type encounterType = Encounter.Encounter_Type.MIXED;
+    private Item.Rarity itemRarity = Item.Rarity.COMMON;
+    private Item.Type itemType = Item.Type.GENERIC;
 
     /**
      * Creates new form GeneratorsGUI
@@ -55,8 +58,15 @@ public class GeneratorUI extends javax.swing.JFrame {
         amountJLabel = new javax.swing.JLabel();
         amountComboBox = new javax.swing.JComboBox();
         itemJPanel = new javax.swing.JPanel();
-        itemScrollPane = new javax.swing.JScrollPane();
-        itemJTable = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        itemJTextArea = new javax.swing.JTextArea();
+        encounterTypeJlabel1 = new javax.swing.JLabel();
+        rarityJComboBox = new javax.swing.JComboBox();
+        encounterTypeJlabel2 = new javax.swing.JLabel();
+        numberJComboBox = new javax.swing.JComboBox();
+        encounterTypeJlabel3 = new javax.swing.JLabel();
+        itemTypeJComboBox = new javax.swing.JComboBox();
+        generateItemJButton = new javax.swing.JButton();
         locationJPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -197,34 +207,80 @@ public class GeneratorUI extends javax.swing.JFrame {
 
         generatorJPanel.add(eventJPanel, "eventCard");
 
-        itemJTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        itemJTextArea.setColumns(20);
+        itemJTextArea.setRows(5);
+        jScrollPane1.setViewportView(itemJTextArea);
+
+        encounterTypeJlabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        encounterTypeJlabel1.setText("Rarity:");
+
+        rarityJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "COMMON", "UNCOMMON", "RARE", "VERY RARE", "LEGENDARY" }));
+        rarityJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rarityJComboBoxActionPerformed(evt);
             }
-        ));
-        itemScrollPane.setViewportView(itemJTable);
+        });
+
+        encounterTypeJlabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        encounterTypeJlabel2.setText("Amount:");
+
+        numberJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+
+        encounterTypeJlabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        encounterTypeJlabel3.setText("Type:");
+
+        itemTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "GENERIC", "WEAPON", "SCROLL", "POTION", "ROD", "WONDROUS" }));
+        itemTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemTypeJComboBoxActionPerformed(evt);
+            }
+        });
+
+        generateItemJButton.setText("Generate");
+        generateItemJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateItemJButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout itemJPanelLayout = new javax.swing.GroupLayout(itemJPanel);
         itemJPanel.setLayout(itemJPanelLayout);
         itemJPanelLayout.setHorizontalGroup(
             itemJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
             .addGroup(itemJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(itemScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+                .addComponent(encounterTypeJlabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rarityJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(encounterTypeJlabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(itemTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(encounterTypeJlabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(numberJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94)
+                .addComponent(generateItemJButton)
                 .addContainerGap())
         );
         itemJPanelLayout.setVerticalGroup(
             itemJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, itemJPanelLayout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
-                .addComponent(itemScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addGroup(itemJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(encounterTypeJlabel1)
+                    .addComponent(rarityJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(itemJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(encounterTypeJlabel2)
+                        .addComponent(numberJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(itemJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(encounterTypeJlabel3)
+                            .addComponent(itemTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(generateItemJButton)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         generatorJPanel.add(itemJPanel, "itemCard");
@@ -374,6 +430,73 @@ public class GeneratorUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_encounterTypeJComboBoxActionPerformed
 
+    private void rarityJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rarityJComboBoxActionPerformed
+        
+        switch(rarityJComboBox.getSelectedIndex())
+        {
+            case 0:
+                itemRarity = Item.Rarity.COMMON;
+                break;
+            case 1:
+                itemRarity = Item.Rarity.UNCOMMON;
+                break;
+            case 2:
+                itemRarity = Item.Rarity.RARE;
+                break;
+            case 3:
+                itemRarity = Item.Rarity.VERY_RARE;
+                break;
+            case 4:
+                itemRarity = Item.Rarity.LEGENDARY;
+                break;
+        }
+    }//GEN-LAST:event_rarityJComboBoxActionPerformed
+
+    private void itemTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemTypeJComboBoxActionPerformed
+
+        switch(itemTypeJComboBox.getSelectedIndex())
+        {
+            case 0:
+                itemType = Item.Type.GENERIC;
+                break;
+            case 1:
+                itemType = Item.Type.WEAPON;
+                break;
+            case 2:
+                itemType = Item.Type.SCROLL;
+                break;
+            case 3:
+                itemType = Item.Type.POTION;
+                break;
+            case 4:
+                itemType = Item.Type.ROD;
+                break;
+            case 5:
+                itemType = Item.Type.WONDROUS;
+        }
+    }//GEN-LAST:event_itemTypeJComboBoxActionPerformed
+
+    private void generateItemJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateItemJButtonActionPerformed
+        ArrayList<Item.Type> item_type = new ArrayList<Item.Type>();
+        
+        item_type.add(itemType);
+        
+        ArrayList<Item> generated_items = Generator.Generate_Magic_Items(itemRarity, numberJComboBox.getSelectedIndex()+1, item_type, MainGUI.DATABASE.getItemList());
+        
+
+
+                
+            
+            
+        StringBuilder d = new StringBuilder();
+        for (Item i: generated_items){
+            d.append(i.toString() + "\n");
+        }
+        itemJTextArea.setText(d.toString());
+        
+        
+    }//GEN-LAST:event_generateItemJButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -423,16 +546,23 @@ public class GeneratorUI extends javax.swing.JFrame {
     private javax.swing.JComboBox encounterTypeComboBox;
     private javax.swing.JComboBox encounterTypeJComboBox;
     private javax.swing.JLabel encounterTypeJlabel;
+    private javax.swing.JLabel encounterTypeJlabel1;
+    private javax.swing.JLabel encounterTypeJlabel2;
+    private javax.swing.JLabel encounterTypeJlabel3;
     private javax.swing.JLabel environmentJLabel;
     private javax.swing.JPanel eventJPanel;
+    private javax.swing.JButton generateItemJButton;
     private javax.swing.JPanel generatorJPanel;
     private javax.swing.JPanel itemJPanel;
-    private javax.swing.JTable itemJTable;
-    private javax.swing.JScrollPane itemScrollPane;
+    private javax.swing.JTextArea itemJTextArea;
+    private javax.swing.JComboBox itemTypeJComboBox;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel locationJPanel;
+    private javax.swing.JComboBox numberJComboBox;
+    private javax.swing.JComboBox rarityJComboBox;
     private javax.swing.JLabel titleJlabel;
     private javax.swing.JComboBox typeComboBox;
     private javax.swing.JLabel typeJLabel;
