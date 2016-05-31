@@ -36,6 +36,17 @@ public class newPlayerUI extends javax.swing.JFrame {
         this.ui = ui;
         initComponents();
     }
+    
+    public newPlayerUI(MainGUI ui, boolean npc)
+    {
+        initComponents();
+        this.ui = ui;
+        if(npc == true)
+        {
+            playerNameJTextField.setEnabled(false);
+            this.npc = npc;
+        }
+    }
     private MainGUI ui;
     private int strAdd = 2;
     private int dexAdd = 0;
@@ -52,6 +63,8 @@ public class newPlayerUI extends javax.swing.JFrame {
     private int[] playerAttributes = {0,0,0,0,0,0};
     
     private int profBonus = 0;
+    
+    private boolean npc = false;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -720,8 +733,32 @@ public class newPlayerUI extends javax.swing.JFrame {
      */
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
        calculations();
-        
-        ArrayList<String> butts = null;//probably wont need these soon
+       ArrayList<String> butts = null;//probably wont need these soon
+       //if this is an npc page
+       if(npc == true)
+       {
+           //We use player because npc is closley related to player
+           Player newNPC = new Player("",
+                   characterNameJTextField.getText(),
+           Integer.parseInt(characterHPJTextField.getText()),
+                   butts,
+                   align1,
+                   align2,
+                   playerAttributes,
+                   characterClass,
+                   characterRace,
+                   Integer.parseInt(levelJComboBox.getSelectedItem().toString()),
+                   0,
+                   profBonus,
+                   playerSkills,
+                   null
+           );
+           MainGUI.DATABASE.addNPC(newNPC);//Add NPC to database
+           ui.updateNPCList();
+       }
+       else //if this is a player paqe
+       {
+           
         Player newPlayer = new Player("",//Source
                characterNameJTextField.getText(),//character name
                 Integer.parseInt(characterHPJTextField.getText()),//HP
@@ -741,8 +778,12 @@ public class newPlayerUI extends javax.swing.JFrame {
         
         
         ui.updatePlayerList();
-        this.dispose(); //close page
         
+        
+        
+       }
+       
+       this.dispose(); //close page
         
         
         //newPlayer.addPlayer(p);
