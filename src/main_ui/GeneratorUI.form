@@ -367,17 +367,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="encounterTypeJlabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="rarityJComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="encounterTypeJlabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="itemTypeJComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="encounterTypeJlabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="numberJComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                                  <Component id="encounterTypeJlabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="itemTypeJComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="generateItemJButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="encounterTypeJlabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rarityJComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>

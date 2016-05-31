@@ -6,6 +6,8 @@
 package D5DataStructures;
 
 import java.util.*;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 
 public class Player extends Entity {
     
@@ -35,6 +37,9 @@ public class Player extends Entity {
     private int playerHP;
     private int currentHP;
     private int[] playerCurrency;
+    private AbstractTableModel items;
+    private AbstractTableModel weapons;
+    private AbstractTableModel spells;
     /**
      * Default Constructor
      */
@@ -74,6 +79,9 @@ public class Player extends Entity {
         this.currentHP = playerHP;
         this.playerNotes = "";
         this.playerCurrency = new int[4];
+        //this.items = new DefaultTableModel();
+        //this.weapons = new DefaultTableModel();
+        //this.spells = new DefaultTableModel();
         //determine saves based on playerClass
         determineSaves();
         // calculateSkillModifiers();
@@ -222,6 +230,57 @@ public class Player extends Entity {
     public void setPlayerName(String playerName)
     {
         this.playerName = playerName;
+    }
+    /**
+     * set the items in the player with a Table model to store all the data
+     * with one variable
+     * @param items 
+     */
+    public void setItems(AbstractTableModel items)
+    {
+        this.items = items;
+    }
+    /**
+     * get a DefaultTableModel of the items held by this player/NPC
+     * @return 
+     */
+    public AbstractTableModel getItems()
+    {
+        return items;
+    }
+    /**
+     * set the weapons on the player with a Table model to store all the data
+     * with one variable
+     * @param weapons 
+     */
+    public void setWeapons(AbstractTableModel weapons)
+    {
+        this.weapons = weapons;
+    }
+    /**
+     * get a table model of the weapons held by this player
+     * @return 
+     */
+    public AbstractTableModel getWeapons()
+    {
+        return weapons;
+    }
+    /**
+     * set the spells on the player with a table model to store all the data
+     * with one variable
+     * @param spells 
+     */
+    public void setSpells(AbstractTableModel spells)
+    {
+        this.spells = spells;
+    }
+    /**
+     * get a table model of the spells held by this player
+     * @return 
+     */
+    public AbstractTableModel getSpells()
+    {
+        return spells;
     }
     /**
      * We can use this method to determine everything about each class and set it

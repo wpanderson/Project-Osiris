@@ -776,7 +776,6 @@ public class newPlayerUI extends javax.swing.JFrame {
                 );
         MainGUI.DATABASE.addPlayer(newPlayer);
         
-        
         ui.updatePlayerList();
         
         
