@@ -114,7 +114,7 @@ public class DatabaseViewerUI extends javax.swing.JFrame {
              
              }
              
-             jTextArea1.append("\n");
+             jTextArea1.append("\n_____________________________________________\n");
              
             
             }
