@@ -37,9 +37,15 @@ public class Player extends Entity {
     private int playerHP;
     private int currentHP;
     private int[] playerCurrency;
-    private AbstractTableModel items;
-    private AbstractTableModel weapons;
-    private AbstractTableModel spells;
+    
+    private Object[][] items;
+    private Object[][] weapons;
+    private Object[][] spells;
+    
+    
+    //private AbstractTableModel items;
+    //private AbstractTableModel weapons;
+    //private AbstractTableModel spells;
     /**
      * Default Constructor
      */
@@ -79,9 +85,6 @@ public class Player extends Entity {
         this.currentHP = playerHP;
         this.playerNotes = "";
         this.playerCurrency = new int[4];
-        //this.items = new DefaultTableModel();
-        //this.weapons = new DefaultTableModel();
-        //this.spells = new DefaultTableModel();
         //determine saves based on playerClass
         determineSaves();
         // calculateSkillModifiers();
@@ -236,7 +239,7 @@ public class Player extends Entity {
      * with one variable
      * @param items 
      */
-    public void setItems(AbstractTableModel items)
+    public void setItems(Object[][] items)
     {
         this.items = items;
     }
@@ -244,7 +247,7 @@ public class Player extends Entity {
      * get a DefaultTableModel of the items held by this player/NPC
      * @return 
      */
-    public AbstractTableModel getItems()
+    public Object[][] getItems()
     {
         return items;
     }
@@ -253,7 +256,7 @@ public class Player extends Entity {
      * with one variable
      * @param weapons 
      */
-    public void setWeapons(AbstractTableModel weapons)
+    public void setWeapons(Object[][] weapons)
     {
         this.weapons = weapons;
     }
@@ -261,7 +264,7 @@ public class Player extends Entity {
      * get a table model of the weapons held by this player
      * @return 
      */
-    public AbstractTableModel getWeapons()
+    public Object[][] getWeapons()
     {
         return weapons;
     }
@@ -270,7 +273,7 @@ public class Player extends Entity {
      * with one variable
      * @param spells 
      */
-    public void setSpells(AbstractTableModel spells)
+    public void setSpells(Object[][] spells)
     {
         this.spells = spells;
     }
@@ -278,7 +281,7 @@ public class Player extends Entity {
      * get a table model of the spells held by this player
      * @return 
      */
-    public AbstractTableModel getSpells()
+    public Object[][] getSpells()
     {
         return spells;
     }

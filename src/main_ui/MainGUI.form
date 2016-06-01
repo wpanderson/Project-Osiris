@@ -915,13 +915,8 @@
                     <Component class="javax.swing.JTable" name="playerItemsJTable">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="4">
-                            <Column editable="true" title="Item" type="java.lang.String">
-                              <Data value=""/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
+                          <Table columnCount="5" rowCount="0">
+                            <Column editable="true" title="Item" type="java.lang.String"/>
                             <Column editable="true" title="Type" type="java.lang.String"/>
                             <Column editable="true" title="Value" type="java.lang.String"/>
                             <Column editable="true" title="Weight" type="java.lang.String"/>
@@ -981,7 +976,7 @@
                     <Component class="javax.swing.JTable" name="playerWeaponsJTable">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="4">
+                          <Table columnCount="5" rowCount="0">
                             <Column editable="true" title="Weapon" type="java.lang.String"/>
                             <Column editable="true" title="Type" type="java.lang.String"/>
                             <Column editable="true" title="Damage" type="java.lang.String"/>
@@ -1081,7 +1076,7 @@
                     <Component class="javax.swing.JTable" name="playerSpellsJTable">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="4">
+                          <Table columnCount="5" rowCount="0">
                             <Column editable="true" title="Spell" type="java.lang.String"/>
                             <Column editable="true" title="Type" type="java.lang.String"/>
                             <Column editable="true" title="Damage" type="java.lang.String"/>

@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -206,8 +207,6 @@ public class MainGUI extends javax.swing.JFrame {
         npcClassJLabel = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         npcAlignmentJLabel = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         npcRaceJLabel1 = new javax.swing.JLabel();
         npcLocationJLabel = new javax.swing.JLabel();
@@ -777,10 +776,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         playerItemsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"", null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Item", "Type", "Value", "Weight", "Note"
@@ -804,10 +800,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         playerWeaponsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Weapon", "Type", "Damage", "Critical Range", "Special"
@@ -851,10 +844,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         playerSpellsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Spell", "Type", "Damage", "Effect", "Note"
@@ -1178,35 +1168,27 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel24.setText("Class & Level:");
-        npcDetailsJPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        npcDetailsJPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         npcClassJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         npcClassJLabel.setText("CHARACTERS CLASS");
-        npcDetailsJPanel.add(npcClassJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
+        npcDetailsJPanel.add(npcClassJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel26.setText("Race:");
-        npcDetailsJPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        npcDetailsJPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         npcAlignmentJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         npcAlignmentJLabel.setText("CHARACTERS_ALIGNMENT");
-        npcDetailsJPanel.add(npcAlignmentJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
-
-        jLabel35.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel35.setText("Type:");
-        npcDetailsJPanel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        jLabel36.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel36.setText("XXXXXXXX");
-        npcDetailsJPanel.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+        npcDetailsJPanel.add(npcAlignmentJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
 
         jLabel40.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel40.setText("Alignment:");
-        npcDetailsJPanel.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        npcDetailsJPanel.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         npcRaceJLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         npcRaceJLabel1.setText("CHARACTERS_RACE");
-        npcDetailsJPanel.add(npcRaceJLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
+        npcDetailsJPanel.add(npcRaceJLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
 
         npcJPanel.add(npcDetailsJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 130));
 
@@ -1589,10 +1571,20 @@ public class MainGUI extends javax.swing.JFrame {
         npcSubHPJTextField.setText("0");
 
         npcSubHPJButton.setText("Subtract from HP");
+        npcSubHPJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                npcSubHPJButtonActionPerformed(evt);
+            }
+        });
 
         npcAddHPJTextField.setText("0");
 
         npcAddHPJButton.setText("Add to HP");
+        npcAddHPJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                npcAddHPJButtonActionPerformed(evt);
+            }
+        });
 
         npcCurrentHPJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         npcCurrentHPJLabel.setText("XX");
@@ -2093,6 +2085,11 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel1.add(welcomeLabel1, new java.awt.GridBagConstraints());
 
         removeNPCJButton1.setText("Save NPC/Enemy");
+        removeNPCJButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeNPCJButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout npcControlsJPanelLayout = new javax.swing.GroupLayout(npcControlsJPanel);
         npcControlsJPanel.setLayout(npcControlsJPanelLayout);
@@ -2417,12 +2414,101 @@ public class MainGUI extends javax.swing.JFrame {
             playerCurrentHPJLabel.setText(Integer.toString(currentPlayer.getCurrentHP()));
             clearSkills(playerSkillsJPanel);
             populateSkills(currentPlayer.getSkillProfs(), playerSkillsJPanel);
+            
+            //Populate Tables
+            
+            
+            
+            
+            
+            if(currentPlayer.getItems() != null)
+            {
+               populateModel(currentPlayer); 
+            }
+            else
+            {
+                    //make sure rows are empty for all tables
+                    DefaultTableModel itemModel = (DefaultTableModel)playerItemsJTable.getModel();
+        
+                    int itemRowCount = itemModel.getRowCount();
+                    for(int i = itemRowCount - 1; i >= 0; i--)
+                    {
+                        itemModel.removeRow(i);
+                    }
+                    
+                    DefaultTableModel weaponModel = (DefaultTableModel)playerWeaponsJTable.getModel();
+                    
+                    int weaponRowCount = weaponModel.getRowCount();
+                    for(int i = weaponRowCount - 1; i >= 0; i--)
+                    {
+                        weaponModel.removeRow(i);
+                    }
+                    
+                    DefaultTableModel spellModel = (DefaultTableModel)playerSpellsJTable.getModel();
+                    
+                    int spellRowCount = spellModel.getRowCount();
+                    for(int i = spellRowCount - 1; i >= 0; i--)
+                    {
+                        spellModel.removeRow(i);
+                    }
+                    
+            }
         }
-        // save player notes in the player at prevIndex
-        //prevIndex = index;
         
         
     }//GEN-LAST:event_playersJListValueChanged
+    /**
+     * Method for populating item tables on the player page
+     */
+    public void populateModel(Player currentPlayer)
+    {
+        //Change values in itemTable
+        DefaultTableModel itemModel = (DefaultTableModel)playerItemsJTable.getModel();
+        int rowCount = itemModel.getRowCount();
+        for(int i = rowCount - 1; i >= 0; i--)
+        {
+            itemModel.removeRow(i);
+        }
+        
+        int itemRows = currentPlayer.getItems().length;
+        
+        for(int i = 0; i < itemRows; i++)
+        {
+            itemModel.addRow(currentPlayer.getItems()[i]);
+        }
+        playerItemsJTable.setModel(itemModel);
+        
+        //Change values in weapon table
+        DefaultTableModel weaponModel = (DefaultTableModel)playerWeaponsJTable.getModel();
+        int weaponRowCount = weaponModel.getRowCount();
+        for(int i = weaponRowCount - 1; i >= 0; i--)
+        {
+            weaponModel.removeRow(i);
+        }
+        
+        int weaponRows = currentPlayer.getWeapons().length;
+        for(int i = 0; i < weaponRows; i++)
+        {
+            weaponModel.addRow(currentPlayer.getWeapons()[i]);
+        }
+        playerWeaponsJTable.setModel(weaponModel);
+        
+        //Change values in spell table
+        DefaultTableModel spellModel = (DefaultTableModel)playerSpellsJTable.getModel();
+        int spellRowCount = spellModel.getRowCount();
+        for(int i = spellRowCount - 1; i >= 0; i--)
+        {
+            spellModel.removeRow(i);
+        }
+        
+        int spellRows = currentPlayer.getSpells().length;
+        for(int i = 0; i < spellRows; i ++)
+        {
+            spellModel.addRow(currentPlayer.getSpells()[i]);
+        }
+        playerSpellsJTable.setModel(spellModel);
+    }
+    
     public void clearSkills(JPanel currentPanel)
     {
         int count = 0;
@@ -2681,6 +2767,8 @@ public class MainGUI extends javax.swing.JFrame {
      */
     public void updatePlayerList()
     {
+        
+        //update playerList
         playerList = DATABASE.getPlayerList();
         DefaultListModel model = new DefaultListModel();
         for(int i= 0; i < playerList.size(); i++)
@@ -2688,10 +2776,36 @@ public class MainGUI extends javax.swing.JFrame {
             model.addElement(playerList.get(i).getPlayerName());
         }
         playersJList.setModel(model);
+        
+        //set Tables
+        //DATABASE.getPlayerList().get(playersJList.getModel().getSize()-1).setItems((AbstractTableModel)playerItemsJTable.getModel());
+        //DATABASE.getPlayerList().get(playersJList.getModel().getSize()-1).setWeapons((AbstractTableModel)playerWeaponsJTable.getModel());
+        //DATABASE.getPlayerList().get(playersJList.getModel().getSize()-1).setSpells((AbstractTableModel)playerSpellsJTable.getModel());
+        
         playersJList.setSelectedIndex(playersJList.getModel().getSize()-1);
         
     }
-    
+    /**
+     * get all the data from a given table
+     * @param table
+     * @return 
+     */
+    public Object[][] getTableData(JTable table)
+    {
+        DefaultTableModel model = (DefaultTableModel)table.getModel();
+        int nRow = model.getRowCount();
+        int nCol = model.getColumnCount();
+        Object[][] tableData = new Object[nRow][nCol];
+        
+        for(int i = 0; i < nRow; i++)
+        {
+            for(int j = 0; j < nCol; j++)
+            {
+                tableData[i][j] = model.getValueAt(i, j);
+            }
+        }
+        return tableData;
+    }
     public void updateNPCList()
     {
         npcList = DATABASE.getNPCList();
@@ -2740,7 +2854,7 @@ public class MainGUI extends javax.swing.JFrame {
             
             //condition stuff
             npcSavingThrowsJLabel.setText(currentNPC.getSaves());
-            npcTotalHPJLabel.setText(currentNPC.getSaves());
+            npcTotalHPJLabel.setText(Integer.toString(currentNPC.getTotalHP()));
             npcCurrentHPJLabel.setText(Integer.toString(currentNPC.getCurrentHP()));
             clearSkills(npcSkillsJPanel);
             populateSkills(currentNPC.getSkillProfs(), npcSkillsJPanel);
@@ -2862,6 +2976,19 @@ public class MainGUI extends javax.swing.JFrame {
                 Integer.parseInt(playerSilverJTextField.getText()),
                 Integer.parseInt(playerCopperJTextField.getText())};
         player.setPlayerCurrency(moneyArray);
+        
+        //save the items!
+        //AbstractTableModel itemModel = (AbstractTableModel)playerItemsJTable.getModel();
+        //player.setItems(itemModel);
+        //AbstractTableModel weaponModel = (AbstractTableModel)playerWeaponsJTable.getModel();
+        //player.setWeapons(weaponModel);
+        //AbstractTableModel spellModel = (AbstractTableModel)playerSpellsJTable.getModel();
+        //player.setSpells(spellModel);
+        
+        player.setItems(getTableData(playerItemsJTable));
+        player.setWeapons(getTableData(playerWeaponsJTable));
+        player.setSpells(getTableData(playerSpellsJTable));
+        
     }//GEN-LAST:event_savePlayerJButtonActionPerformed
 
     private void strengthJTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_strengthJTextFieldKeyTyped
@@ -2902,6 +3029,25 @@ public class MainGUI extends javax.swing.JFrame {
     private void npcDeceptionJCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_npcDeceptionJCheckboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_npcDeceptionJCheckboxActionPerformed
+
+    private void npcSubHPJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_npcSubHPJButtonActionPerformed
+        int amount = Integer.parseInt(npcSubHPJTextField.getText());
+        Player npc = DATABASE.getNPCList().get(npcJList.getSelectedIndex());
+        npc.setCurrentHP(npc.getCurrentHP() - amount);
+        npcCurrentHPJLabel.setText(Integer.toString(npc.getCurrentHP()));
+        
+    }//GEN-LAST:event_npcSubHPJButtonActionPerformed
+
+    private void npcAddHPJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_npcAddHPJButtonActionPerformed
+        int amount = Integer.parseInt(npcAddHPJTextField.getText());
+        Player npc = DATABASE.getNPCList().get(npcJList.getSelectedIndex());
+        npc.setCurrentHP(npc.getCurrentHP() + amount);
+        npcCurrentHPJLabel.setText(Integer.toString(npc.getCurrentHP()));
+    }//GEN-LAST:event_npcAddHPJButtonActionPerformed
+
+    private void removeNPCJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNPCJButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeNPCJButton1ActionPerformed
     private int[] getPlayerStats()
     {
         int[] playerStats = new int[6];
@@ -3053,8 +3199,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
