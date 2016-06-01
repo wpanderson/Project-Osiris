@@ -40,10 +40,11 @@ public class Item {
      */
     public Item(String name, int cost, double weight, Type type)
     {
+        this.rarity = Item.Rarity.COMMON;
         this.name = name;
         this.cost = cost;
         this.weight = weight;
-        this.type = type;
+        this.type = Item.Type.GENERIC;
     }
     /**
      * Magic Item constructor. 
@@ -79,7 +80,8 @@ public class Item {
     public Item(Type type, String name, int cost, String damage, 
                 String damageType, double weight, 
                 ArrayList<Weapon_Type> weaponProperties, String range){
-        this.type = type;
+        this.rarity = Item.Rarity.COMMON;
+        this.type = Item.Type.WEAPON;
         this.name = name;
         this.cost = cost;
         this.damage = damage;
@@ -264,13 +266,28 @@ public class Item {
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("\nSource : " + getSource());
-        sb.append("\nName : " + getName());
-        sb.append("\nType : " + getType());
-        sb.append("\nRarity : " + getRarity());
-        sb.append("\nAttunement : " + isAttunememt());
-        sb.append("\nNotes : " + getNotes());
+        if (type == Item.Type.GENERIC){
+            sb.append("\nName : " + getName());
+            sb.append("\nCost : " + getCost() + " cp");
+            sb.append("\nWeight : " + getWeight());
+        }
         
+        else if (type == Item.Type.WEAPON){
+            sb.append("\nName : " + getName());
+            sb.append("\nCost : " + getCost() + " cp");
+            sb.append("\nDamage : " + getDamage());
+            sb.append("\nDamage Type : " + getDamageType());
+            sb.append("\nWeight : " + getWeight());
+            sb.append("\nRange : " + getRange());
+        }
+        else{
+            sb.append("\nSource : " + getSource());
+            sb.append("\nName : " + getName());
+            sb.append("\nType : " + getType());
+            sb.append("\nRarity : " + getRarity());
+            sb.append("\nAttunement : " + isAttunememt());
+            sb.append("\nNotes : " + getNotes());
+        }
         return sb.toString();
     }
     

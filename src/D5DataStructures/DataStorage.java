@@ -72,6 +72,26 @@ public class DataStorage implements java.io.Serializable {
     public void addMagicItemsFromCSV(String importFilePath) throws FileNotFoundException, IOException {
         itemList.addAll(CSVIO.importMagicItemsFromCSV(importFilePath));
     }
+    
+    /**
+     * 
+     * @param importFilePath
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
+    public void addGenericItemsFromCSV(String importFilePath) throws FileNotFoundException, IOException {
+        itemList.addAll(CSVIO.importGenericItemsFromCSV(importFilePath));
+    }
+    
+    /**
+     * 
+     * @param importFilePath
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
+    public void addWeaponsFromCSV(String importFilePath) throws FileNotFoundException, IOException {
+        itemList.addAll(CSVIO.importWeaponsFromCSV(importFilePath));
+    }
 
     /**
      * Adds a new player to the player list

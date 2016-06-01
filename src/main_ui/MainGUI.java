@@ -59,6 +59,8 @@ public class MainGUI extends javax.swing.JFrame {
             
             DATABASE.addEnemiesFromCSV("src\\D.R.A.G.O.N.S_CSV/Monsters_DB.csv");
             DATABASE.addMagicItemsFromCSV("src\\D.R.A.G.O.N.S_CSV/Magic_items.csv");
+            DATABASE.addGenericItemsFromCSV("src\\D.R.A.G.O.N.S_CSV/GenericItems_DB.csv");
+            DATABASE.addWeaponsFromCSV("src\\D.R.A.G.O.N.S_CSV/Weapons_DB.csv");
         } catch (IOException ex) {
             System.out.println("Some stuff didn't happen");
         }
@@ -1088,7 +1090,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel29)
                     .addComponent(playerSkillsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1711,7 +1713,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(npcSkillsControllerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel58)
                     .addComponent(npcSkillsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         npcSkillsControllerJPanelLayout.setVerticalGroup(
             npcSkillsControllerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
