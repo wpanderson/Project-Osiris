@@ -56,6 +56,7 @@ public class MainGUI extends javax.swing.JFrame {
         //CSVIO readIn = new CSVIO();
         try {
             //change this at a later time to get the path at runtime
+            
             DATABASE.addEnemiesFromCSV("src\\D.R.A.G.O.N.S_CSV/Monsters_DB.csv");
             DATABASE.addMagicItemsFromCSV("src\\D.R.A.G.O.N.S_CSV/Magic_items.csv");
         } catch (IOException ex) {
@@ -91,7 +92,6 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         welcomeLabel5 = new javax.swing.JLabel();
         welcomeLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         playersJPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -110,7 +110,6 @@ public class MainGUI extends javax.swing.JFrame {
         wisdomJTextField = new javax.swing.JTextField();
         charismaJLabel = new javax.swing.JLabel();
         charismaJTextField = new javax.swing.JTextField();
-        playerXPJLabel = new javax.swing.JLabel();
         characterAlignmentJLabel = new javax.swing.JLabel();
         playerPBJLabel = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -129,10 +128,6 @@ public class MainGUI extends javax.swing.JFrame {
         trackablesJPanel = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         playerGoldJTextField = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        playerArrowsJSpinner = new javax.swing.JSpinner();
-        playerBoltsJSpinner = new javax.swing.JSpinner();
         jLabel17 = new javax.swing.JLabel();
         playerPlatinumJTextField = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -175,8 +170,6 @@ public class MainGUI extends javax.swing.JFrame {
         characterClassJLabel = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         characterRaceJLabel = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
@@ -209,7 +202,9 @@ public class MainGUI extends javax.swing.JFrame {
         npcAlignmentJLabel = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         npcRaceJLabel1 = new javax.swing.JLabel();
-        npcLocationJLabel = new javax.swing.JLabel();
+        editNPCJCheckBox = new javax.swing.JCheckBox();
+        jLabel46 = new javax.swing.JLabel();
+        npcPBJLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         npcNotesJTextArea = new javax.swing.JTextArea();
         npcItemsJPanel = new javax.swing.JPanel();
@@ -258,8 +253,6 @@ public class MainGUI extends javax.swing.JFrame {
         npcIntModJTextField = new javax.swing.JTextField();
         npcWisModJTextField = new javax.swing.JTextField();
         npcCharModJTextField = new javax.swing.JTextField();
-        jLabel46 = new javax.swing.JLabel();
-        npcPBJLabel = new javax.swing.JLabel();
         playerDefenceJPanel1 = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
         npcTotalHPJLabel = new javax.swing.JLabel();
@@ -276,7 +269,6 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel52 = new javax.swing.JLabel();
         npcSavingThrowsJLabel = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
         npcSkillsControllerJPanel = new javax.swing.JPanel();
         jLabel58 = new javax.swing.JLabel();
         npcSkillsJPanel = new javax.swing.JPanel();
@@ -346,12 +338,13 @@ public class MainGUI extends javax.swing.JFrame {
         eventControlsJPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         welcomeLabel4 = new javax.swing.JLabel();
+        saveNotesJButton = new javax.swing.JButton();
         mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        loadJMenuItem = new javax.swing.JMenuItem();
         viewMenu = new javax.swing.JMenu();
         databasesMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
@@ -412,10 +405,8 @@ public class MainGUI extends javax.swing.JFrame {
         welcomeLabel5.setToolTipText("");
 
         welcomeLabel6.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        welcomeLabel6.setText("For more information on D.R.A.G.O.N.S please visit:");
+        welcomeLabel6.setText("For more information on D.R.A.G.O.N.S please visit our website:");
         welcomeLabel6.setToolTipText("");
-
-        jButton1.setText("jButton1");
 
         javax.swing.GroupLayout homeJPanelLayout = new javax.swing.GroupLayout(homeJPanel);
         homeJPanel.setLayout(homeJPanelLayout);
@@ -426,18 +417,15 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(homeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(homeJPanelLayout.createSequentialGroup()
                         .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 540, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 546, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addGap(439, 439, 439))
                     .addGroup(homeJPanelLayout.createSequentialGroup()
                         .addComponent(welcomeLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(homeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addGroup(homeJPanelLayout.createSequentialGroup()
-                                .addComponent(welcomeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(welcomeLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(welcomeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(welcomeLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         homeJPanelLayout.setVerticalGroup(
@@ -456,9 +444,7 @@ public class MainGUI extends javax.swing.JFrame {
                             .addGroup(homeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(welcomeLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(welcomeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(548, 548, 548))
         );
 
         tabPanel.add(homeJPanel, "homeCard");
@@ -565,10 +551,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         playersJPanel.add(attributesJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 31, 144, -1));
 
-        playerXPJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        playerXPJLabel.setText("XXXX");
-        playersJPanel.add(playerXPJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
-
         characterAlignmentJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         characterAlignmentJLabel.setText("Alignment");
         playersJPanel.add(characterAlignmentJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
@@ -576,7 +558,7 @@ public class MainGUI extends javax.swing.JFrame {
         playerPBJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         playerPBJLabel.setText("+0");
         playerPBJLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        playersJPanel.add(playerPBJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
+        playersJPanel.add(playerPBJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Player Name:");
@@ -654,10 +636,6 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel15.setText("Arrows:");
-
-        jLabel16.setText("Bolts:");
-
         jLabel17.setText("P:");
 
         playerPlatinumJTextField.setBackground(new java.awt.Color(102, 102, 102));
@@ -708,44 +686,27 @@ public class MainGUI extends javax.swing.JFrame {
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(playerSilverJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(trackablesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(trackablesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(playerArrowsJSpinner)
-                    .addComponent(playerBoltsJSpinner)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         trackablesJPanelLayout.setVerticalGroup(
             trackablesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, trackablesJPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(trackablesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(trackablesJPanelLayout.createSequentialGroup()
-                        .addGroup(trackablesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(playerArrowsJSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(trackablesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(playerBoltsJSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(trackablesJPanelLayout.createSequentialGroup()
-                        .addGroup(trackablesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(playerGoldJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18)
-                            .addComponent(playerCopperJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(trackablesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(playerPlatinumJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19)
-                            .addComponent(playerSilverJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(trackablesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(playerGoldJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(playerCopperJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(trackablesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(playerPlatinumJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19)
+                    .addComponent(playerSilverJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(87, 87, 87))
         );
 
-        playersJPanel.add(trackablesJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 280, 75));
+        playersJPanel.add(trackablesJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 210, 75));
 
         playerItemsJPanel.setBackground(new java.awt.Color(204, 204, 204));
         playerItemsJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1021,18 +982,11 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel30.setText("Proficiency Bonus:");
-        playersJPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, -1, -1));
+        playersJPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Race:");
         playersJPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel7.setText("XP:");
-        playersJPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
-
-        jButton3.setText("Add Experience");
-        playersJPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
 
         characterRaceJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         characterRaceJLabel.setText("CHARACTERS_RACE");
@@ -1186,11 +1140,25 @@ public class MainGUI extends javax.swing.JFrame {
         npcRaceJLabel1.setText("CHARACTERS_RACE");
         npcDetailsJPanel.add(npcRaceJLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
 
-        npcJPanel.add(npcDetailsJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 130));
+        editNPCJCheckBox.setText("Edit NPC");
+        editNPCJCheckBox.setToolTipText("Click to enable/disable: (attributes, notes, and skills");
+        editNPCJCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editNPCJCheckBoxActionPerformed(evt);
+            }
+        });
+        npcDetailsJPanel.add(editNPCJCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
-        npcLocationJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        npcLocationJLabel.setText("XXXXX");
-        npcJPanel.add(npcLocationJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
+        jLabel46.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel46.setText("Proficiency Bonus:");
+        npcDetailsJPanel.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
+
+        npcPBJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        npcPBJLabel.setText("+0");
+        npcPBJLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        npcDetailsJPanel.add(npcPBJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
+
+        npcJPanel.add(npcDetailsJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 130));
 
         npcNotesJTextArea.setEditable(false);
         npcNotesJTextArea.setColumns(20);
@@ -1520,15 +1488,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         npcJPanel.add(modifiersJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, -1, -1));
 
-        jLabel46.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel46.setText("Proficiency Bonus:");
-        npcJPanel.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, -1));
-
-        npcPBJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        npcPBJLabel.setText("+0");
-        npcPBJLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        npcJPanel.add(npcPBJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, -1));
-
         jLabel48.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel48.setText("Hit Points (Total/Current):");
 
@@ -1655,10 +1614,6 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel53.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel53.setText("Character Notes:");
         npcJPanel.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
-
-        jLabel54.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel54.setText("Location:");
-        npcJPanel.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
         jLabel58.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel58.setText("Skills:");
@@ -1884,19 +1839,22 @@ public class MainGUI extends javax.swing.JFrame {
         eventsNotesJPanelLayout.setHorizontalGroup(
             eventsNotesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, eventsNotesJPanelLayout.createSequentialGroup()
-                .addGap(0, 27, Short.MAX_VALUE)
-                .addGroup(eventsNotesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel57)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 1329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 39, Short.MAX_VALUE)
+                .addComponent(jLabel57)
+                .addGap(1178, 1178, 1178))
+            .addGroup(eventsNotesJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 1329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         eventsNotesJPanelLayout.setVerticalGroup(
             eventsNotesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(eventsNotesJPanelLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel57)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
 
         tabPanel.add(eventsNotesJPanel, "eventsCard");
@@ -1906,7 +1864,7 @@ public class MainGUI extends javax.swing.JFrame {
         pagesList.setBackground(new java.awt.Color(77, 67, 67));
         pagesList.setForeground(new java.awt.Color(255, 255, 255));
         pagesList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Home", "Players", "NPC's", "Locations", "Notes" };
+            String[] strings = { "Home", "Players", "NPC's", "Notes" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -2179,17 +2137,30 @@ public class MainGUI extends javax.swing.JFrame {
         welcomeLabel4.setToolTipText("");
         jPanel4.add(welcomeLabel4, new java.awt.GridBagConstraints());
 
+        saveNotesJButton.setText("Save Notes");
+        saveNotesJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveNotesJButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout eventControlsJPanelLayout = new javax.swing.GroupLayout(eventControlsJPanel);
         eventControlsJPanel.setLayout(eventControlsJPanelLayout);
         eventControlsJPanelLayout.setHorizontalGroup(
             eventControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, eventControlsJPanelLayout.createSequentialGroup()
-                .addGap(0, 306, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(saveNotesJButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         eventControlsJPanelLayout.setVerticalGroup(
             eventControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, eventControlsJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(saveNotesJButton)
+                .addContainerGap())
         );
 
         pageControlsJPanel.add(eventControlsJPanel, "eventControlsCard");
@@ -2211,8 +2182,13 @@ public class MainGUI extends javax.swing.JFrame {
         jMenuItem2.setText("Save");
         fileMenu.add(jMenuItem2);
 
-        jMenuItem3.setText("Load");
-        fileMenu.add(jMenuItem3);
+        loadJMenuItem.setText("Load");
+        loadJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadJMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(loadJMenuItem);
 
         mainMenuBar.add(fileMenu);
 
@@ -2362,7 +2338,6 @@ public class MainGUI extends javax.swing.JFrame {
             characterClassJLabel.setText(currentPlayer.getPlayerClass().toString());
             characterRaceJLabel.setText(currentPlayer.getRace().toString());
             characterAlignmentJLabel.setText(currentPlayer.getAlignment());
-            playerXPJLabel.setText(Integer.toString(currentPlayer.getExp()));
             int[] playerAttributes = currentPlayer.getStats();
             playerNotesJTextArea.setText(currentPlayer.getPlayerNotes());
             strengthJTextField.setText(Integer.toString(playerAttributes[0]));
@@ -3059,13 +3034,13 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_deceptionJCheckboxActionPerformed
 
     private void playerNotesJTextAreaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_playerNotesJTextAreaFocusLost
-        Player player = DATABASE.getPlayerList().get(playersJList.getSelectedIndex());
-        player.setPlayerNotes(playerNotesJTextArea.getText());
+        //Player player = DATABASE.getPlayerList().get(playersJList.getSelectedIndex());
+        //player.setPlayerNotes(playerNotesJTextArea.getText());
     }//GEN-LAST:event_playerNotesJTextAreaFocusLost
 
     private void playerNotesJTextAreaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_playerNotesJTextAreaFocusGained
-        Player player = DATABASE.getPlayerList().get(playersJList.getSelectedIndex());
-        player.setPlayerNotes(playerNotesJTextArea.getText());
+        //Player player = DATABASE.getPlayerList().get(playersJList.getSelectedIndex());
+        //player.setPlayerNotes(playerNotesJTextArea.getText());
     }//GEN-LAST:event_playerNotesJTextAreaFocusGained
 
     private void playerNotesJTextAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_playerNotesJTextAreaKeyTyped
@@ -3232,6 +3207,47 @@ public class MainGUI extends javax.swing.JFrame {
     private void npcSilverJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_npcSilverJTextFieldFocusLost
         calculateNPCCurrency();
     }//GEN-LAST:event_npcSilverJTextFieldFocusLost
+
+    private void editNPCJCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editNPCJCheckBoxActionPerformed
+        if(editNPCJCheckBox.isSelected() == true)
+        {
+            npcNotesJTextArea.setEditable(true);
+            npcStrengthJTextField.setEditable(true);
+            npcDexterityJTextField.setEditable(true);
+            npcConstitutionJTextField.setEditable(true);
+            npcIntelligenceJTextField.setEditable(true);
+            npcWisdomJTextField.setEditable(true);
+            npcCharismaJTextField.setEditable(true);
+            for(Component c : npcSkillsJPanel.getComponents())
+            {
+                ((JCheckBox)c).setEnabled(true);
+            }
+            //skillsJTextArea.setEditable(true);
+        }
+        else if(editNPCJCheckBox.isSelected() == false)
+        {
+            npcNotesJTextArea.setEditable(false);
+            npcStrengthJTextField.setEditable(false);
+            npcDexterityJTextField.setEditable(false);
+            npcConstitutionJTextField.setEditable(false);
+            npcIntelligenceJTextField.setEditable(false);
+            npcWisdomJTextField.setEditable(false);
+            npcCharismaJTextField.setEditable(false);
+            for(Component c : npcSkillsJPanel.getComponents())
+            {
+                ((JCheckBox)c).setEnabled(false);
+            }
+            //skillsJTextArea.setEditable(false);
+        }
+    }//GEN-LAST:event_editNPCJCheckBoxActionPerformed
+
+    private void saveNotesJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveNotesJButtonActionPerformed
+        DATABASE.setNotes(eventNotesJTextArea.getText());
+    }//GEN-LAST:event_saveNotesJButtonActionPerformed
+
+    private void loadJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadJMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loadJMenuItemActionPerformed
     private int[] getPlayerStats()
     {
         int[] playerStats = new int[6];
@@ -3334,6 +3350,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel dexterityJLabel1;
     private javax.swing.JTextField dexterityJTextField;
     private javax.swing.JMenu editMenu;
+    private javax.swing.JCheckBox editNPCJCheckBox;
     private javax.swing.JCheckBox editPlayerJCheckBox;
     private javax.swing.JPanel eventControlsJPanel;
     private javax.swing.JTextArea eventNotesJTextArea;
@@ -3352,8 +3369,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextField intelligenceJTextField;
     private javax.swing.JCheckBox intimidationJCheckbox;
     private javax.swing.JCheckBox investigationJCheckbox;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -3361,8 +3376,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -3398,18 +3411,15 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -3429,6 +3439,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JMenuItem loadJMenuItem;
     private javax.swing.JPanel locationControlsJPanel;
     private javax.swing.JTextArea locationNotesJTextArea;
     private javax.swing.JList locationsJList;
@@ -3474,7 +3485,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTable npcItemsJTable1;
     private javax.swing.JList npcJList;
     private javax.swing.JPanel npcJPanel;
-    private javax.swing.JLabel npcLocationJLabel;
     private javax.swing.JCheckBox npcMedicineJCheckbox;
     private javax.swing.JLabel npcNameJLabel;
     private javax.swing.JCheckBox npcNatureJCheckbox;
@@ -3511,8 +3521,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox performanceJCheckbox;
     private javax.swing.JCheckBox persuasionJCheckbox;
     private javax.swing.JButton playerAddJButton;
-    private javax.swing.JSpinner playerArrowsJSpinner;
-    private javax.swing.JSpinner playerBoltsJSpinner;
     private javax.swing.JPanel playerControlsJPanel;
     private javax.swing.JTextField playerCopperJTextField;
     private javax.swing.JLabel playerCurrentHPJLabel;
@@ -3531,7 +3539,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton playerSubJButton;
     private javax.swing.JLabel playerTotalHPJLabel;
     private javax.swing.JTable playerWeaponsJTable;
-    private javax.swing.JLabel playerXPJLabel;
     private javax.swing.JList playersJList;
     private javax.swing.JPanel playersJPanel;
     private javax.swing.JScrollPane playersJScrollPanel;
@@ -3549,6 +3556,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton removePlayerSpellJButton;
     private javax.swing.JButton removePlayerWeaponJButton;
     private javax.swing.JButton saveNPCJButton;
+    private javax.swing.JButton saveNotesJButton;
     private javax.swing.JButton savePlayerJButton;
     private javax.swing.JLabel savingThrowsJLabel;
     private javax.swing.JCheckBox sleightJCheckbox;

@@ -76,7 +76,7 @@ public class GeneratorUI extends javax.swing.JFrame {
         titleJlabel.setFont(new java.awt.Font("Calibri", 0, 84)); // NOI18N
         titleJlabel.setText("Generators");
 
-        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Encounter", "Event", "Item" }));
+        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Encounter", "Item" }));
         typeComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 typeComboBoxActionPerformed(evt);
@@ -86,7 +86,8 @@ public class GeneratorUI extends javax.swing.JFrame {
         typeJLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         typeJLabel.setText("Type:");
 
-        generatorJPanel.setBackground(new java.awt.Color(0, 153, 153));
+        generatorJPanel.setBackground(new java.awt.Color(153, 153, 153));
+        generatorJPanel.setForeground(new java.awt.Color(153, 153, 153));
         generatorJPanel.setLayout(new java.awt.CardLayout(10, 10));
 
         difficultyJLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

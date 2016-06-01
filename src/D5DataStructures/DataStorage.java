@@ -10,7 +10,7 @@ import java.io.*;
 
 /**
  *
- * @author Wimp
+ * @author Weston Anderson
  */
 public class DataStorage implements java.io.Serializable {
     
@@ -24,6 +24,8 @@ public class DataStorage implements java.io.Serializable {
     private ArrayList<Player> npcList;
     private ArrayList<Item> itemList;
     private ArrayList<Encounter> encounterList;
+    //private ArrayList<String> gmNotes;
+    private String notes;
     
     // Maps of UUIDs for existing entities and items to pointers to their object
     // and data. Allows resolution of references to entities and items that may
@@ -70,19 +72,30 @@ public class DataStorage implements java.io.Serializable {
     public void addMagicItemsFromCSV(String importFilePath) throws FileNotFoundException, IOException {
         itemList.addAll(CSVIO.importMagicItemsFromCSV(importFilePath));
     }
-    
-    // Adds a new player
 
     /**
-     *
+     * Adds a new player to the player list
      * @param p
      */
     public void addPlayer(Player p) {
         playerList.add(p);
     }
-    
-    // Adds a new NPC
-
+    /**
+     * set notes in the database
+     * @param notes 
+     */
+    public void setNotes(String notes)
+    {
+        this.notes = notes;
+    }
+    /**
+     * Returns the event notes as a string
+     * @return 
+     */
+    public String getNotes()
+    {
+        return notes;
+    }
     /**
      * Add a new npc to the npc list
      * @param npc
@@ -90,12 +103,6 @@ public class DataStorage implements java.io.Serializable {
     public void addNPC(Player npc) {
         npcList.add(npc);
     }
-    
-    // Methods to return the lists of entries currently in database.  The UI will
-    // need these.
-    // Possible: doesn't make sense to return the entire database each time, so 
-    // modify to only return a single element based on index given as argument.
-
     /**
      * returns a list of enemies in the enemy list
      * @return
@@ -103,7 +110,6 @@ public class DataStorage implements java.io.Serializable {
     public ArrayList<Enemy> getEnemyList() {
         return enemyList;
     }
-
     /**
      * returns a list of players in the player list
      * @return

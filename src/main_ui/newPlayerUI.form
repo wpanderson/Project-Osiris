@@ -28,24 +28,18 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="titleJlabel" alignment="0" min="-2" pref="748" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="playerInfoJPanel" min="-2" pref="334" max="-2" attributes="0"/>
-                          <Component id="character_traitsJPanel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="playerInfoJPanel" min="-2" pref="334" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                               <Component id="addJButton" min="-2" pref="67" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="cancelJButton" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="saves_proficienciesJPanel" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -58,28 +52,15 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="titleJlabel" min="-2" pref="73" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="saves_proficienciesJPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="addJButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cancelJButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="playerInfoJPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="character_traitsJPanel" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="playerInfoJPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="addJButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cancelJButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -137,8 +118,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="playerSkillsJPanel" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="playerSkillsJPanel" min="-2" pref="183" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -248,172 +229,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Survival"/>
               </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="saves_proficienciesJPanel">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel4" max="32767" attributes="0"/>
-                      <Component id="savesJPanel" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="231" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="savesJPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Saves and Proficiencies:"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JPanel" name="savesJPanel">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-            <Property name="columns" type="int" value="2"/>
-            <Property name="rows" type="int" value="3"/>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JCheckBox" name="strengthSaveJComboBox">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Strength"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="dexteritySaveJComboBox">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Dexterity"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="constitutionSaveJComboBox">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Consitution"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="intelligenceSaveJComboBox">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Intelligence"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="wisdomSaveJComboBox">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Wisdom"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="charismaSaveJComboBox">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Charisma"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="character_traitsJPanel">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lvlJLabel2" pref="142" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="traitsJPanel" min="-2" pref="321" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lvlJLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="traitsJPanel" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="lvlJLabel2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Character Traits:"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JPanel" name="traitsJPanel">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-            <Property name="columns" type="int" value="2"/>
-            <Property name="rows" type="int" value="6"/>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel14">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Age"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel15">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Height"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Weight"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel17">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Eyes"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel18">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Skin"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel19">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Hair"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
             </Component>
           </SubComponents>
         </Container>
