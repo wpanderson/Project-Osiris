@@ -232,10 +232,6 @@ public class MainGUI extends javax.swing.JFrame {
         trackablesJPanel1 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         npcGoldJTextField = new javax.swing.JTextField();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        playerArrowsJSpinner1 = new javax.swing.JSpinner();
-        playerBoltsJSpinner1 = new javax.swing.JSpinner();
         jLabel43 = new javax.swing.JLabel();
         npcPlatinumJTextField = new javax.swing.JTextField();
         jLabel44 = new javax.swing.JLabel();
@@ -339,7 +335,7 @@ public class MainGUI extends javax.swing.JFrame {
         removeNPCJButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         welcomeLabel1 = new javax.swing.JLabel();
-        removeNPCJButton1 = new javax.swing.JButton();
+        saveNPCJButton = new javax.swing.JButton();
         locationControlsJPanel = new javax.swing.JPanel();
         playersJScrollPanel2 = new javax.swing.JScrollPane();
         locationsJList = new javax.swing.JList();
@@ -1229,16 +1225,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         npcItemsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"", null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Item", "Type", "Value", "Weight", "Note"
@@ -1253,6 +1240,7 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
         npcItemsJTable.setToolTipText("Double click cell to edit.");
+        npcItemsJTable.setColumnSelectionAllowed(true);
         npcItemsJTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(npcItemsJTable);
         npcItemsJTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -1261,11 +1249,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         npcWeaponsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Weapon", "Type", "Damage", "Critical Range", "Special"
@@ -1280,6 +1264,7 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
         npcWeaponsJTable.setToolTipText("Double click cell to edit.");
+        npcWeaponsJTable.setColumnSelectionAllowed(true);
         npcWeaponsJTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane7.setViewportView(npcWeaponsJTable);
         npcWeaponsJTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -1308,11 +1293,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         npcSpellsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Spell", "Type", "Damage", "Effect", "Note"
@@ -1327,6 +1308,7 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
         npcSpellsJTable.setToolTipText("Double click cell to edit.");
+        npcSpellsJTable.setColumnSelectionAllowed(true);
         npcSpellsJTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane8.setViewportView(npcSpellsJTable);
         npcSpellsJTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -1371,10 +1353,6 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel41.setText("Arrows:");
-
-        jLabel42.setText("Bolts:");
-
         jLabel43.setText("P:");
 
         npcPlatinumJTextField.setBackground(new java.awt.Color(102, 102, 102));
@@ -1384,9 +1362,19 @@ public class MainGUI extends javax.swing.JFrame {
 
         npcCopperJTextField.setBackground(new java.awt.Color(102, 102, 102));
         npcCopperJTextField.setText("0");
+        npcCopperJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                npcCopperJTextFieldFocusLost(evt);
+            }
+        });
 
         npcSilverJTextField.setBackground(new java.awt.Color(102, 102, 102));
         npcSilverJTextField.setText("0");
+        npcSilverJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                npcSilverJTextFieldFocusLost(evt);
+            }
+        });
 
         jLabel45.setText("S:");
 
@@ -1415,44 +1403,27 @@ public class MainGUI extends javax.swing.JFrame {
                         .addComponent(jLabel45)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(npcSilverJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(trackablesJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel41)
-                    .addComponent(jLabel42))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(trackablesJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(playerArrowsJSpinner1)
-                    .addComponent(playerBoltsJSpinner1)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         trackablesJPanel1Layout.setVerticalGroup(
             trackablesJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, trackablesJPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(trackablesJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(trackablesJPanel1Layout.createSequentialGroup()
-                        .addGroup(trackablesJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel41)
-                            .addComponent(playerArrowsJSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(trackablesJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel42)
-                            .addComponent(playerBoltsJSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(trackablesJPanel1Layout.createSequentialGroup()
-                        .addGroup(trackablesJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel34)
-                            .addComponent(npcGoldJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel44)
-                            .addComponent(npcCopperJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(trackablesJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel43)
-                            .addComponent(npcPlatinumJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel45)
-                            .addComponent(npcSilverJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(trackablesJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(npcGoldJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel44)
+                    .addComponent(npcCopperJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(trackablesJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel43)
+                    .addComponent(npcPlatinumJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel45)
+                    .addComponent(npcSilverJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(87, 87, 87))
         );
 
-        npcJPanel.add(trackablesJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 300, 75));
+        npcJPanel.add(trackablesJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 210, 75));
 
         attributesJPanel1.setBackground(new java.awt.Color(204, 204, 204));
         attributesJPanel1.setToolTipText("");
@@ -2076,6 +2047,11 @@ public class MainGUI extends javax.swing.JFrame {
         });
 
         removeNPCJButton.setText("Remove NPC/Enemy");
+        removeNPCJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeNPCJButtonActionPerformed(evt);
+            }
+        });
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
@@ -2084,10 +2060,10 @@ public class MainGUI extends javax.swing.JFrame {
         welcomeLabel1.setToolTipText("");
         jPanel1.add(welcomeLabel1, new java.awt.GridBagConstraints());
 
-        removeNPCJButton1.setText("Save NPC/Enemy");
-        removeNPCJButton1.addActionListener(new java.awt.event.ActionListener() {
+        saveNPCJButton.setText("Save NPC/Enemy");
+        saveNPCJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeNPCJButton1ActionPerformed(evt);
+                saveNPCJButtonActionPerformed(evt);
             }
         });
 
@@ -2104,7 +2080,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(removeNPCJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addNPCJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removeNPCJButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(saveNPCJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -2123,7 +2099,7 @@ public class MainGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(removeNPCJButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(removeNPCJButton1))
+                                .addComponent(saveNPCJButton))
                             .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2695,16 +2671,6 @@ public class MainGUI extends javax.swing.JFrame {
      */
     private void playerGoldJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_playerGoldJTextFieldFocusLost
         calculateCurrency();
-        //int amount = Integer.parseInt(playerGoldJTextField.getText());
-        //int newGoldAmount = 0;
-        //int playerPlatinum = Integer.parseInt(playerPlatinumJTextField.getText());
-        //int platinum;
-        //if(amount > 9)
-        //{
-       //     platinum = amount / 10;
-        //    playerPlatinumJTextField.setText(Integer.toString(playerPlatinum + platinum));
-        //    playerGoldJTextField.setText(Integer.toString((amount % 10)));
-       //}
     }//GEN-LAST:event_playerGoldJTextFieldFocusLost
     private void calculateCurrency()
     {
@@ -2745,6 +2711,40 @@ public class MainGUI extends javax.swing.JFrame {
         //playerPlatinumJTextField.setText(Integer.toString(platinum));
         
     }
+    private void calculateNPCCurrency()
+    {
+        int copper = Integer.parseInt(npcCopperJTextField.getText());
+        int silver = Integer.parseInt(npcSilverJTextField.getText());
+        int gold = Integer.parseInt(npcGoldJTextField.getText());
+        int platinum = Integer.parseInt(npcPlatinumJTextField.getText());
+        int newCopper;
+        int newSilver;
+        int newGold;
+        int newPlatinum;
+        if(copper > 9)
+        {
+            newCopper = copper % 10;
+            npcCopperJTextField.setText(Integer.toString(newCopper));
+            silver = silver + (copper/10);
+            npcSilverJTextField.setText(Integer.toString(silver));
+            
+        }
+        if(silver > 9)
+        {
+            newSilver = silver % 10;
+            npcSilverJTextField.setText(Integer.toString(newSilver));
+            gold = gold +(silver/10);
+            npcGoldJTextField.setText(Integer.toString(gold));
+        }
+        if(gold > 9)
+        {
+            newGold = gold % 10;
+            npcGoldJTextField.setText(Integer.toString(newGold));
+            platinum = platinum + (gold/10);
+            npcPlatinumJTextField.setText(Integer.toString(platinum));
+        }
+        
+    }
     /**
      * Opens the newPlayerUI so the user can enter new information for a player.
      * Upon entering the information for the player and clicking "Add" or something
@@ -2776,11 +2776,6 @@ public class MainGUI extends javax.swing.JFrame {
             model.addElement(playerList.get(i).getPlayerName());
         }
         playersJList.setModel(model);
-        
-        //set Tables
-        //DATABASE.getPlayerList().get(playersJList.getModel().getSize()-1).setItems((AbstractTableModel)playerItemsJTable.getModel());
-        //DATABASE.getPlayerList().get(playersJList.getModel().getSize()-1).setWeapons((AbstractTableModel)playerWeaponsJTable.getModel());
-        //DATABASE.getPlayerList().get(playersJList.getModel().getSize()-1).setSpells((AbstractTableModel)playerSpellsJTable.getModel());
         
         playersJList.setSelectedIndex(playersJList.getModel().getSize()-1);
         
@@ -2859,36 +2854,169 @@ public class MainGUI extends javax.swing.JFrame {
             clearSkills(npcSkillsJPanel);
             populateSkills(currentNPC.getSkillProfs(), npcSkillsJPanel);
             
-            
+            //populate Tables
+            if(currentNPC.getItems() != null)
+            {
+               populateNPCModel(currentNPC); 
+            }
+            else
+            {
+                    //make sure rows are empty for all tables
+                    DefaultTableModel itemModel = (DefaultTableModel)npcItemsJTable.getModel();
+        
+                    int itemRowCount = itemModel.getRowCount();
+                    for(int i = itemRowCount - 1; i >= 0; i--)
+                    {
+                        itemModel.removeRow(i);
+                    }
+                    
+                    DefaultTableModel weaponModel = (DefaultTableModel)npcWeaponsJTable.getModel();
+                    
+                    int weaponRowCount = weaponModel.getRowCount();
+                    for(int i = weaponRowCount - 1; i >= 0; i--)
+                    {
+                        weaponModel.removeRow(i);
+                    }
+                    
+                    DefaultTableModel spellModel = (DefaultTableModel)npcSpellsJTable.getModel();
+                    
+                    int spellRowCount = spellModel.getRowCount();
+                    for(int i = spellRowCount - 1; i >= 0; i--)
+                    {
+                        spellModel.removeRow(i);
+                    }
+                    
+            }
+        
         }
     }//GEN-LAST:event_npcJListValueChanged
-
+    
+    public void populateNPCModel(Player currentNPC)
+    {
+        //Change values in itemTable
+        DefaultTableModel itemModel = (DefaultTableModel)npcItemsJTable.getModel();
+        int rowCount = itemModel.getRowCount();
+        for(int i = rowCount - 1; i >= 0; i--)
+        {
+            itemModel.removeRow(i);
+        }
+        
+        int itemRows = currentNPC.getItems().length;
+        
+        for(int i = 0; i < itemRows; i++)
+        {
+            itemModel.addRow(currentNPC.getItems()[i]);
+        }
+        npcItemsJTable.setModel(itemModel);
+        
+        //Change values in weapon table
+        DefaultTableModel weaponModel = (DefaultTableModel)npcWeaponsJTable.getModel();
+        int weaponRowCount = weaponModel.getRowCount();
+        for(int i = weaponRowCount - 1; i >= 0; i--)
+        {
+            weaponModel.removeRow(i);
+        }
+        
+        int weaponRows = currentNPC.getWeapons().length;
+        for(int i = 0; i < weaponRows; i++)
+        {
+            weaponModel.addRow(currentNPC.getWeapons()[i]);
+        }
+        npcWeaponsJTable.setModel(weaponModel);
+        
+        //Change values in spell table
+        DefaultTableModel spellModel = (DefaultTableModel)npcSpellsJTable.getModel();
+        int spellRowCount = spellModel.getRowCount();
+        for(int i = spellRowCount - 1; i >= 0; i--)
+        {
+            spellModel.removeRow(i);
+        }
+        
+        int spellRows = currentNPC.getSpells().length;
+        for(int i = 0; i < spellRows; i ++)
+        {
+            spellModel.addRow(currentNPC.getSpells()[i]);
+        }
+        npcSpellsJTable.setModel(spellModel);
+    }
+    
     private void addNPCItemJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNPCItemJButtonActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)npcItemsJTable.getModel();
+        model.addRow(new Object[]{});
     }//GEN-LAST:event_addNPCItemJButtonActionPerformed
 
     private void removeNPCItemJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNPCItemJButtonActionPerformed
-        // TODO add your handling code here:
+        int selection = JOptionPane.showConfirmDialog(pagesJPanel, "This will remove the selected"
+                + "value from the Item Table. Would you like to continue?");
+        
+        if(selection == JOptionPane.YES_OPTION)
+        {
+            if(npcItemsJTable.getSelectedRow() != -1)
+            {
+                //remove selected row from Table
+                DefaultTableModel model = (DefaultTableModel)npcItemsJTable.getModel();
+                model.removeRow(npcItemsJTable.getSelectedRow());
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(pagesJPanel, "No value selected.");
+            }
+            
+        }
     }//GEN-LAST:event_removeNPCItemJButtonActionPerformed
 
     private void addNPCWeaponJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNPCWeaponJButtonActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)npcWeaponsJTable.getModel();
+        model.addRow(new Object[]{});
     }//GEN-LAST:event_addNPCWeaponJButtonActionPerformed
 
     private void removeNPCWeaponJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNPCWeaponJButtonActionPerformed
-        // TODO add your handling code here:
+        int selection = JOptionPane.showConfirmDialog(pagesJPanel, "This will remove the selected"
+                + "value from the Item Table. Would you like to continue?");
+        
+        if(selection == JOptionPane.YES_OPTION)
+        {
+            if(npcWeaponsJTable.getSelectedRow() != -1)
+            {
+                //remove selected row from Table
+                DefaultTableModel model = (DefaultTableModel)npcWeaponsJTable.getModel();
+                model.removeRow(npcWeaponsJTable.getSelectedRow());
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(pagesJPanel, "No value selected.");
+            }
+            
+        }
     }//GEN-LAST:event_removeNPCWeaponJButtonActionPerformed
 
     private void addNPCSpellJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNPCSpellJButtonActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)npcSpellsJTable.getModel();
+        model.addRow(new Object[]{});
     }//GEN-LAST:event_addNPCSpellJButtonActionPerformed
 
     private void removeNPCSpellJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNPCSpellJButtonActionPerformed
-        // TODO add your handling code here:
+        int selection = JOptionPane.showConfirmDialog(pagesJPanel, "This will remove the selected"
+                + "value from the Item Table. Would you like to continue?");
+        
+        if(selection == JOptionPane.YES_OPTION)
+        {
+            if(npcSpellsJTable.getSelectedRow() != -1)
+            {
+                //remove selected row from Table
+                DefaultTableModel model = (DefaultTableModel)npcSpellsJTable.getModel();
+                model.removeRow(npcSpellsJTable.getSelectedRow());
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(pagesJPanel, "No value selected.");
+            }
+            
+        }
     }//GEN-LAST:event_removeNPCSpellJButtonActionPerformed
 
     private void npcGoldJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_npcGoldJTextFieldFocusLost
-        // TODO add your handling code here:
+        calculateNPCCurrency();
     }//GEN-LAST:event_npcGoldJTextFieldFocusLost
 
     private void locationsJListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_locationsJListValueChanged
@@ -2977,14 +3105,6 @@ public class MainGUI extends javax.swing.JFrame {
                 Integer.parseInt(playerCopperJTextField.getText())};
         player.setPlayerCurrency(moneyArray);
         
-        //save the items!
-        //AbstractTableModel itemModel = (AbstractTableModel)playerItemsJTable.getModel();
-        //player.setItems(itemModel);
-        //AbstractTableModel weaponModel = (AbstractTableModel)playerWeaponsJTable.getModel();
-        //player.setWeapons(weaponModel);
-        //AbstractTableModel spellModel = (AbstractTableModel)playerSpellsJTable.getModel();
-        //player.setSpells(spellModel);
-        
         player.setItems(getTableData(playerItemsJTable));
         player.setWeapons(getTableData(playerWeaponsJTable));
         player.setSpells(getTableData(playerSpellsJTable));
@@ -2996,15 +3116,7 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_strengthJTextFieldKeyTyped
 
     private void strengthJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_strengthJTextFieldFocusLost
-        //int value = Integer.parseInt(strengthJTextField.getText());
-        //if(value > 20 || value < 1)
-        //{
-        //    JOptionPane.showMessageDialog(pagesJPanel, "Invalid entry. Please enter a number between 1 and 20");
-        //}
-        //else
-        //{
-        //    strModJTextField.setText("+ " + calculateModifier(value));
-        //}
+
     }//GEN-LAST:event_strengthJTextFieldFocusLost
 
     private void playerCopperJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_playerCopperJTextFieldFocusLost
@@ -3045,9 +3157,81 @@ public class MainGUI extends javax.swing.JFrame {
         npcCurrentHPJLabel.setText(Integer.toString(npc.getCurrentHP()));
     }//GEN-LAST:event_npcAddHPJButtonActionPerformed
 
-    private void removeNPCJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNPCJButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_removeNPCJButton1ActionPerformed
+    private void saveNPCJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveNPCJButtonActionPerformed
+        Player npc = DATABASE.getNPCList().get(npcJList.getSelectedIndex());
+        
+        //save Player Notes
+        npc.setPlayerNotes(npcNotesJTextArea.getText());
+        //Save Attributes
+        npc.setStats(getNPCStats());
+        //update modifiers
+        //Save Skills
+        npc.setSkillProfs(getNPCSkills());
+        //Save the monies
+        int[] moneyArray = {Integer.parseInt(npcPlatinumJTextField.getText()),
+                Integer.parseInt(npcGoldJTextField.getText()),
+                Integer.parseInt(npcSilverJTextField.getText()),
+                Integer.parseInt(npcCopperJTextField.getText())};
+        npc.setPlayerCurrency(moneyArray);
+        
+        npc.setItems(getTableData(npcItemsJTable));
+        npc.setWeapons(getTableData(npcWeaponsJTable));
+        npc.setSpells(getTableData(npcSpellsJTable));
+    }//GEN-LAST:event_saveNPCJButtonActionPerformed
+    /**
+     * 
+     * @return 
+     */
+    private int[] getNPCStats()
+    {
+        int[] npcStats = new int[6];
+        npcStats[0] = Integer.parseInt(npcStrengthJTextField.getText());
+        npcStats[1] = Integer.parseInt(npcDexterityJTextField.getText());
+        npcStats[2] = Integer.parseInt(npcConstitutionJTextField.getText());
+        npcStats[3] = Integer.parseInt(npcIntelligenceJTextField.getText());
+        npcStats[4] = Integer.parseInt(npcWisdomJTextField.getText());
+        npcStats[5] = Integer.parseInt(npcCharismaJTextField.getText());
+        
+        return npcStats;
+    }
+    
+    private boolean[] getNPCSkills()
+    {
+        boolean[] skills = new boolean[18];
+        int index = 0;
+        for(Component c : npcSkillsJPanel.getComponents())
+        {
+            if(((JCheckBox)c).isSelected())
+            {
+                skills[index] = true;
+            }
+            else if(!((JCheckBox)c).isSelected())
+            {
+                skills[index] = false;
+            }
+            index += 1;
+        }
+        
+        return skills;
+    }
+    
+    private void removeNPCJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNPCJButtonActionPerformed
+        int selection = JOptionPane.showConfirmDialog(pagesJPanel,
+                "This will delete the currently selected NPC... Continue?");
+        if(selection == 0)
+        {
+            DATABASE.getNPCList().remove(npcJList.getSelectedIndex());
+            updateNPCList();
+        }
+    }//GEN-LAST:event_removeNPCJButtonActionPerformed
+
+    private void npcCopperJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_npcCopperJTextFieldFocusLost
+        calculateNPCCurrency();
+    }//GEN-LAST:event_npcCopperJTextFieldFocusLost
+
+    private void npcSilverJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_npcSilverJTextFieldFocusLost
+        calculateNPCCurrency();
+    }//GEN-LAST:event_npcSilverJTextFieldFocusLost
     private int[] getPlayerStats()
     {
         int[] playerStats = new int[6];
@@ -3203,8 +3387,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
@@ -3330,9 +3512,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox persuasionJCheckbox;
     private javax.swing.JButton playerAddJButton;
     private javax.swing.JSpinner playerArrowsJSpinner;
-    private javax.swing.JSpinner playerArrowsJSpinner1;
     private javax.swing.JSpinner playerBoltsJSpinner;
-    private javax.swing.JSpinner playerBoltsJSpinner1;
     private javax.swing.JPanel playerControlsJPanel;
     private javax.swing.JTextField playerCopperJTextField;
     private javax.swing.JLabel playerCurrentHPJLabel;
@@ -3362,13 +3542,13 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton removeNPCItemJButton;
     private javax.swing.JButton removeNPCItemJButton1;
     private javax.swing.JButton removeNPCJButton;
-    private javax.swing.JButton removeNPCJButton1;
     private javax.swing.JButton removeNPCSpellJButton;
     private javax.swing.JButton removeNPCWeaponJButton;
     private javax.swing.JButton removePlayerItemJButton1;
     private javax.swing.JButton removePlayerJButton;
     private javax.swing.JButton removePlayerSpellJButton;
     private javax.swing.JButton removePlayerWeaponJButton;
+    private javax.swing.JButton saveNPCJButton;
     private javax.swing.JButton savePlayerJButton;
     private javax.swing.JLabel savingThrowsJLabel;
     private javax.swing.JCheckBox sleightJCheckbox;

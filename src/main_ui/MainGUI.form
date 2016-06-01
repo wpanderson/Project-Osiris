@@ -1868,19 +1868,8 @@
                     <Component class="javax.swing.JTable" name="npcItemsJTable">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="10">
-                            <Column editable="true" title="Item" type="java.lang.String">
-                              <Data value=""/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
+                          <Table columnCount="5" rowCount="0">
+                            <Column editable="true" title="Item" type="java.lang.String"/>
                             <Column editable="true" title="Type" type="java.lang.String"/>
                             <Column editable="true" title="Value" type="java.lang.String"/>
                             <Column editable="true" title="Weight" type="java.lang.String"/>
@@ -1917,6 +1906,7 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
@@ -1939,7 +1929,7 @@
                     <Component class="javax.swing.JTable" name="npcWeaponsJTable">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="5">
+                          <Table columnCount="5" rowCount="0">
                             <Column editable="true" title="Weapon" type="java.lang.String"/>
                             <Column editable="true" title="Type" type="java.lang.String"/>
                             <Column editable="true" title="Damage" type="java.lang.String"/>
@@ -1977,6 +1967,7 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
@@ -2038,7 +2029,7 @@
                     <Component class="javax.swing.JTable" name="npcSpellsJTable">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="5">
+                          <Table columnCount="5" rowCount="0">
                             <Column editable="true" title="Spell" type="java.lang.String"/>
                             <Column editable="true" title="Type" type="java.lang.String"/>
                             <Column editable="true" title="Damage" type="java.lang.String"/>
@@ -2076,6 +2067,7 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
@@ -2145,7 +2137,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="390" y="230" width="300" height="75"/>
+                  <AbsoluteConstraints x="390" y="230" width="210" height="75"/>
                 </Constraint>
               </Constraints>
 
@@ -2179,16 +2171,7 @@
                                   <Component id="npcSilverJTextField" min="-2" pref="65" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel41" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel42" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="playerArrowsJSpinner1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="playerBoltsJSpinner1" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace pref="14" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2196,33 +2179,18 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="playerArrowsJSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="playerBoltsJSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="npcGoldJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="npcCopperJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="npcPlatinumJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="npcSilverJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="npcGoldJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="npcCopperJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="npcPlatinumJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="npcSilverJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                       </Group>
@@ -2245,20 +2213,6 @@
                   <Events>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="npcGoldJTextFieldFocusLost"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel41">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Arrows:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel42">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Bolts:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSpinner" name="playerArrowsJSpinner1">
-                </Component>
-                <Component class="javax.swing.JSpinner" name="playerBoltsJSpinner1">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel43">
                   <Properties>
@@ -2285,6 +2239,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="0"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="npcCopperJTextFieldFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="npcSilverJTextField">
                   <Properties>
@@ -2293,6 +2250,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="0"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="npcSilverJTextFieldFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel45">
                   <Properties>
@@ -3430,7 +3390,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="removeNPCJButton" max="32767" attributes="0"/>
                           <Component id="addNPCJButton" max="32767" attributes="0"/>
-                          <Component id="removeNPCJButton1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="saveNPCJButton" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                       <Component id="jPanel1" min="-2" pref="284" max="-2" attributes="0"/>
@@ -3452,7 +3412,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="removeNPCJButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="removeNPCJButton1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="saveNPCJButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -3511,6 +3471,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remove NPC/Enemy"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeNPCJButtonActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel1">
 
@@ -3532,12 +3495,12 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="removeNPCJButton1">
+            <Component class="javax.swing.JButton" name="saveNPCJButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Save NPC/Enemy"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeNPCJButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveNPCJButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
