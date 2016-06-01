@@ -6,6 +6,12 @@
 package main_ui;
 
 import D5DataStructures.CSVIO;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
 /**
@@ -92,18 +98,32 @@ public class DatabaseViewerUI extends javax.swing.JFrame {
      * @param evt 
      */
     private void openDatabaseJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openDatabaseJButtonActionPerformed
-        JFileChooser fileChooser = new JFileChooser();
+      JFileChooser fileChooser = new JFileChooser();
         int value = fileChooser.showOpenDialog(this);
+        String line = "";
         
-        if(value == 0)
-        {
-            //this prints out the absolute path of the selected file so we can
-            //display it.
-            System.out.println(fileChooser.getSelectedFile().getAbsolutePath());
-        }
-        else
-        {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileChooser.getSelectedFile().getAbsolutePath()));
+            String[] tags = br.readLine().split(",");
+            jTextArea1.setText("");
+            while((line = br.readLine()) != null){
+             String[] values = br.readLine().split(",");
+             
+             for(int i =0; i < values.length; i++){
+             jTextArea1.append(tags[i] +": "+ values[i] + "\n");
+             
+             }
+             
+             jTextArea1.append("\n");
+             
             
+            }
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DatabaseViewerUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DatabaseViewerUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_openDatabaseJButtonActionPerformed
 
