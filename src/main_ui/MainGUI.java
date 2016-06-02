@@ -355,6 +355,7 @@ public class MainGUI extends javax.swing.JFrame {
         fileMenu = new javax.swing.JMenu();
         saveJMenuItem = new javax.swing.JMenuItem();
         loadJMenuItem = new javax.swing.JMenuItem();
+        reloadJMenuItem = new javax.swing.JMenuItem();
         viewMenu = new javax.swing.JMenu();
         databasesMenuItem = new javax.swing.JMenuItem();
         generatorMenu = new javax.swing.JMenu();
@@ -2203,6 +2204,14 @@ public class MainGUI extends javax.swing.JFrame {
         });
         fileMenu.add(loadJMenuItem);
 
+        reloadJMenuItem.setText("Reload Database");
+        reloadJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reloadJMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(reloadJMenuItem);
+
         mainMenuBar.add(fileMenu);
 
         viewMenu.setMnemonic('v');
@@ -3283,6 +3292,10 @@ public class MainGUI extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_saveJMenuItemActionPerformed
+
+    private void reloadJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reloadJMenuItemActionPerformed
+        //Here is where you can reload the database from CSV files
+    }//GEN-LAST:event_reloadJMenuItemActionPerformed
     private int[] getPlayerStats()
     {
         int[] playerStats = new int[6];
@@ -3578,6 +3591,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane playersJScrollPanel1;
     private javax.swing.JScrollPane playersJScrollPanel2;
     private javax.swing.JCheckBox religionJCheckbox;
+    private javax.swing.JMenuItem reloadJMenuItem;
     private javax.swing.JButton removeLocationJButton;
     private javax.swing.JButton removeNPCItemJButton;
     private javax.swing.JButton removeNPCItemJButton1;
