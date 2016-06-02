@@ -300,6 +300,8 @@ public class MainGUI extends javax.swing.JFrame {
         npcSleightJCheckbox = new javax.swing.JCheckBox();
         npcStealthJCheckbox = new javax.swing.JCheckBox();
         npcSurvivalJCheckbox = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         locationsJPanel = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         locationNotesJTextArea = new javax.swing.JTextArea();
@@ -1164,7 +1166,7 @@ public class MainGUI extends javax.swing.JFrame {
         npcPBJLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         npcPBJLabel.setText("+0");
         npcPBJLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        npcDetailsJPanel.add(npcPBJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
+        npcDetailsJPanel.add(npcPBJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, -1, -1));
 
         npcJPanel.add(npcDetailsJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 130));
 
@@ -1317,7 +1319,7 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel32.setText("Inventory:");
         npcJPanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, -1, -1));
 
-        trackablesJPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        trackablesJPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel34.setText("G:");
 
@@ -1399,9 +1401,9 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGap(87, 87, 87))
         );
 
-        npcJPanel.add(trackablesJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 210, 75));
+        npcJPanel.add(trackablesJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 210, 75));
 
-        attributesJPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        attributesJPanel1.setBackground(new java.awt.Color(255, 255, 255));
         attributesJPanel1.setToolTipText("");
         attributesJPanel1.setLayout(new java.awt.GridLayout(6, 3, 10, 0));
 
@@ -1459,7 +1461,7 @@ public class MainGUI extends javax.swing.JFrame {
         npcCharismaJTextField.setToolTipText("(Deception, Intimidation, Performance)");
         attributesJPanel1.add(npcCharismaJTextField);
 
-        npcJPanel.add(attributesJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 144, -1));
+        npcJPanel.add(attributesJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 144, -1));
 
         modifiersJPanel1.setBackground(new java.awt.Color(51, 51, 51));
         modifiersJPanel1.setLayout(new java.awt.GridLayout(6, 2, 10, 0));
@@ -1494,7 +1496,7 @@ public class MainGUI extends javax.swing.JFrame {
         npcCharModJTextField.setText("+0");
         modifiersJPanel1.add(npcCharModJTextField);
 
-        npcJPanel.add(modifiersJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, -1, -1));
+        npcJPanel.add(modifiersJPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, -1, -1));
 
         jLabel48.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel48.setText("Hit Points (Total/Current):");
@@ -1732,6 +1734,14 @@ public class MainGUI extends javax.swing.JFrame {
         );
 
         npcJPanel.add(npcSkillsControllerJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 320, 320));
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("Attributes:");
+        npcJPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel15.setText("Modifiers");
+        npcJPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 104, -1));
 
         tabPanel.add(npcJPanel, "npcCard");
 
@@ -2062,9 +2072,9 @@ public class MainGUI extends javax.swing.JFrame {
                         .addGroup(npcControlsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                                 .addComponent(addNPCJButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(removeNPCJButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(removeNPCJButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(saveNPCJButton))
                             .addGroup(npcControlsJPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -3406,6 +3416,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -3429,6 +3440,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
