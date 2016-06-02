@@ -65,7 +65,7 @@ public class MainGUI extends javax.swing.JFrame {
             System.out.println(ex);
         }
         
-        System.out.println(DATABASE.getEnemyList());
+        //System.out.println(DATABASE.getEnemyList());
         
         // reads in from 
         /* Serializer.loadFromFile("testfile.dragons");
@@ -3256,6 +3256,7 @@ public class MainGUI extends javax.swing.JFrame {
             Serializer openFile = new Serializer();
             openFile.loadFromFile(fileChooser.getSelectedFile().getAbsolutePath());
             updatePlayerList();
+            updateNPCList();
         }
     }//GEN-LAST:event_loadJMenuItemActionPerformed
 

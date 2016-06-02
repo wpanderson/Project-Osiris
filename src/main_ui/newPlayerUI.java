@@ -129,17 +129,17 @@ public class newPlayerUI extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         attributesJPanel = new javax.swing.JPanel();
         strengthJLabel = new javax.swing.JLabel();
-        strengthJTextField = new javax.swing.JTextField();
+        strengthJSpinner = new javax.swing.JSpinner();
         dexterityJLabel = new javax.swing.JLabel();
-        dexterityJTextField = new javax.swing.JTextField();
+        dexterityJSpinner = new javax.swing.JSpinner();
         constitutionJLabel = new javax.swing.JLabel();
-        constitutionJTextField = new javax.swing.JTextField();
+        constitutionJSpinner = new javax.swing.JSpinner();
         intelligenceJLabel = new javax.swing.JLabel();
-        intelligenceJTextField = new javax.swing.JTextField();
+        intelligenceJSpinner = new javax.swing.JSpinner();
         wisdomJLabel = new javax.swing.JLabel();
-        wisdomJTextField = new javax.swing.JTextField();
+        wisdomJSpinner = new javax.swing.JSpinner();
         charismaJLabel = new javax.swing.JLabel();
-        charismaJTextField = new javax.swing.JTextField();
+        charismaJSpinner = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -396,6 +396,7 @@ public class newPlayerUI extends javax.swing.JFrame {
         lvlJLabel1.setText("HP:");
         playerInfoJPanel.add(lvlJLabel1);
 
+        characterHPJSpinner.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         characterHPJSpinner.setModel(new javax.swing.SpinnerNumberModel(15, 0, 1000, 1));
         playerInfoJPanel.add(characterHPJSpinner);
 
@@ -419,44 +420,44 @@ public class newPlayerUI extends javax.swing.JFrame {
         strengthJLabel.setText("Strength:");
         attributesJPanel.add(strengthJLabel);
 
-        strengthJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        strengthJTextField.setText("10");
-        attributesJPanel.add(strengthJTextField);
+        strengthJSpinner.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        strengthJSpinner.setModel(new javax.swing.SpinnerNumberModel(10, 0, 20, 1));
+        attributesJPanel.add(strengthJSpinner);
 
         dexterityJLabel.setText("Dexterity:");
         attributesJPanel.add(dexterityJLabel);
 
-        dexterityJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        dexterityJTextField.setText("10");
-        attributesJPanel.add(dexterityJTextField);
+        dexterityJSpinner.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        dexterityJSpinner.setModel(new javax.swing.SpinnerNumberModel(10, 0, 20, 1));
+        attributesJPanel.add(dexterityJSpinner);
 
         constitutionJLabel.setText("Constitution:");
         attributesJPanel.add(constitutionJLabel);
 
-        constitutionJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        constitutionJTextField.setText("10");
-        attributesJPanel.add(constitutionJTextField);
+        constitutionJSpinner.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        constitutionJSpinner.setModel(new javax.swing.SpinnerNumberModel(10, 0, 20, 1));
+        attributesJPanel.add(constitutionJSpinner);
 
         intelligenceJLabel.setText("Intelligence:");
         attributesJPanel.add(intelligenceJLabel);
 
-        intelligenceJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        intelligenceJTextField.setText("10");
-        attributesJPanel.add(intelligenceJTextField);
+        intelligenceJSpinner.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        intelligenceJSpinner.setModel(new javax.swing.SpinnerNumberModel(10, 0, 20, 1));
+        attributesJPanel.add(intelligenceJSpinner);
 
         wisdomJLabel.setText("Wisdom:");
         attributesJPanel.add(wisdomJLabel);
 
-        wisdomJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        wisdomJTextField.setText("10");
-        attributesJPanel.add(wisdomJTextField);
+        wisdomJSpinner.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        wisdomJSpinner.setModel(new javax.swing.SpinnerNumberModel(10, 0, 20, 1));
+        attributesJPanel.add(wisdomJSpinner);
 
         charismaJLabel.setText("Charisma:");
         attributesJPanel.add(charismaJLabel);
 
-        charismaJTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        charismaJTextField.setText("10");
-        attributesJPanel.add(charismaJTextField);
+        charismaJSpinner.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        charismaJSpinner.setModel(new javax.swing.SpinnerNumberModel(10, 0, 20, 1));
+        attributesJPanel.add(charismaJSpinner);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -692,12 +693,12 @@ public class newPlayerUI extends javax.swing.JFrame {
         }
         
         //player attributes
-        playerAttributes[0] = Integer.parseInt(strengthJTextField.getText())+strAdd;
-        playerAttributes[1] = Integer.parseInt(dexterityJTextField.getText())+dexAdd;
-        playerAttributes[2] = Integer.parseInt(constitutionJTextField.getText())+conAdd;
-        playerAttributes[3] = Integer.parseInt(intelligenceJTextField.getText())+intAdd;
-        playerAttributes[4] = Integer.parseInt(wisdomJTextField.getText())+wisAdd;
-        playerAttributes[5] = Integer.parseInt(charismaJTextField.getText())+charAdd;
+        playerAttributes[0] = (Integer)strengthJSpinner.getValue()+strAdd;
+        playerAttributes[1] = (Integer)dexterityJSpinner.getValue()+dexAdd;
+        playerAttributes[2] = (Integer)constitutionJSpinner.getValue()+conAdd;
+        playerAttributes[3] = (Integer)intelligenceJSpinner.getValue()+intAdd;
+        playerAttributes[4] = (Integer)wisdomJSpinner.getValue()+wisAdd;
+        playerAttributes[5] = (Integer)charismaJSpinner.getValue()+charAdd;
         
         //Calculate XP based on Level
     }
@@ -952,12 +953,12 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JSpinner characterHPJSpinner;
     private javax.swing.JTextField characterNameJTextField;
     private javax.swing.JLabel charismaJLabel;
-    private javax.swing.JTextField charismaJTextField;
+    private javax.swing.JSpinner charismaJSpinner;
     private javax.swing.JLabel constitutionJLabel;
-    private javax.swing.JTextField constitutionJTextField;
+    private javax.swing.JSpinner constitutionJSpinner;
     private javax.swing.JCheckBox deceptionJCheckbox;
     private javax.swing.JLabel dexterityJLabel;
-    private javax.swing.JTextField dexterityJTextField;
+    private javax.swing.JSpinner dexterityJSpinner;
     private javax.swing.JComboBox dwarfJComboBox;
     private javax.swing.JPanel dwarfSubraceJPanel;
     private javax.swing.JComboBox elfJComboBox;
@@ -968,7 +969,7 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox historyJCheckbox;
     private javax.swing.JCheckBox insightJCheckbox;
     private javax.swing.JLabel intelligenceJLabel;
-    private javax.swing.JTextField intelligenceJTextField;
+    private javax.swing.JSpinner intelligenceJSpinner;
     private javax.swing.JCheckBox intimidationJCheckbox;
     private javax.swing.JCheckBox investigationJCheckbox;
     private javax.swing.JLabel jLabel1;
@@ -999,11 +1000,11 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox sleightJComboBox;
     private javax.swing.JCheckBox stealthJComboBox;
     private javax.swing.JLabel strengthJLabel;
-    private javax.swing.JTextField strengthJTextField;
+    private javax.swing.JSpinner strengthJSpinner;
     private javax.swing.JPanel subraceJPanel;
     private javax.swing.JCheckBox survivalJComboBox;
     private javax.swing.JLabel titleJlabel;
     private javax.swing.JLabel wisdomJLabel;
-    private javax.swing.JTextField wisdomJTextField;
+    private javax.swing.JSpinner wisdomJSpinner;
     // End of variables declaration//GEN-END:variables
 }
