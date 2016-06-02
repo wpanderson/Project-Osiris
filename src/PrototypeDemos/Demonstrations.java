@@ -17,11 +17,13 @@ public class Demonstrations {
         // ItemGeneratorDemo();
         // MagicItemDemo();
         // WeaponsDemo();
-        // serializationSaveDemo();
+        serializationSaveDemo();
         serializationLoadDemo();
     }
     
-    // Demonstrates serialization functionality
+    // Demonstrates serialization functionality; also creates a serialized file
+    // that can be used for initial loadin if the data structures change
+    // and the old file can't be imported
     public static void serializationSaveDemo() {
         try {            
             MainGUI.DATABASE.addEnemiesFromCSV("src\\D.R.A.G.O.N.S_CSV/Monsters_DB.csv");
@@ -146,8 +148,7 @@ public class Demonstrations {
             }
         }
     }
-        
-    }
+}
 
     
     // Add new demos as static methods below, then call in main to use 
