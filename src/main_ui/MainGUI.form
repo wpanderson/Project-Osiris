@@ -1400,7 +1400,7 @@
                               <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                               <Component id="playerSkillsJPanel" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2627,7 +2627,7 @@
                               <Component id="jLabel58" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="npcSkillsJPanel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="54" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

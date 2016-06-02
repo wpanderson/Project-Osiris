@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Wimp/Documents/CWU%20Stuff/Software%20Engineering/Project-Osiris/src/main_ui/newPlayerUI.java</file>
             <file>file:/C:/Users/Wimp/Documents/CWU%20Stuff/Software%20Engineering/Project-Osiris/src/D5DataStructures/Enemy.java</file>
             <file>file:/C:/Users/Wimp/Documents/CWU%20Stuff/Software%20Engineering/Project-Osiris/src/D5DataStructures/DataStorage.java</file>
@@ -16,6 +17,9 @@
             <file>file:/C:/Users/Wimp/Documents/CWU%20Stuff/Software%20Engineering/Project-Osiris/src/main_ui/MainGUI.java</file>
             <file>file:/C:/Users/Wimp/Documents/CWU%20Stuff/Software%20Engineering/Project-Osiris/src/PrototypeDemos/Demonstrations.java</file>
             <file>file:/C:/Users/Wimp/Documents/CWU%20Stuff/Software%20Engineering/Project-Osiris/src/D5DataStructures/DraftClasses/Encounter.java</file>
+=======
+            <file>file:/C:/Users/Dasmann/Documents/GitHub/Project-Osiris/src/main_ui/MainGUI.java</file>
+>>>>>>> origin/master
         </group>
     </open-files>
 </project-private>
