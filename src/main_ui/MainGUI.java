@@ -65,19 +65,15 @@ public class MainGUI extends javax.swing.JFrame {
             System.out.println(ex);
         }
         
-<<<<<<< HEAD
         System.out.println(DATABASE.getEnemyList());
         */
-        // reads in from serlialized default file
-        Serializer.loadFromFile("testfile.dragons");
-        System.out.println(MainGUI.DATABASE.getEnemyList());
-=======
-        //System.out.println(DATABASE.getEnemyList());
         
-        // reads in from 
-        /* Serializer.loadFromFile("testfile.dragons");
-        System.out.println(MainGUI.DATABASE.getEnemyList()); */
->>>>>>> origin/master
+        // reads in from serlialized default file
+        Serializer.loadFromFile("defaultfile.dragons");
+        System.out.println(MainGUI.DATABASE.getEnemyList());
+        
+        //System.out.println(DATABASE.getEnemyList());
+
     }
     /**
      * Displays content that is in the database to all the pages.
