@@ -122,7 +122,7 @@ public class newPlayerUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         singleClassJComboBox = new javax.swing.JComboBox();
         lvlJLabel1 = new javax.swing.JLabel();
-        characterHPJTextField = new javax.swing.JTextField();
+        characterHPJSpinner = new javax.swing.JSpinner();
         jLabel20 = new javax.swing.JLabel();
         alignmentJComboBox = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
@@ -395,7 +395,9 @@ public class newPlayerUI extends javax.swing.JFrame {
 
         lvlJLabel1.setText("HP:");
         playerInfoJPanel.add(lvlJLabel1);
-        playerInfoJPanel.add(characterHPJTextField);
+
+        characterHPJSpinner.setModel(new javax.swing.SpinnerNumberModel(15, 0, 1000, 1));
+        playerInfoJPanel.add(characterHPJSpinner);
 
         jLabel20.setText("Allignment");
         playerInfoJPanel.add(jLabel20);
@@ -605,7 +607,7 @@ public class newPlayerUI extends javax.swing.JFrame {
            //We use player because npc is closley related to player
            Player newNPC = new Player("",
                    characterNameJTextField.getText(),
-           Integer.parseInt(characterHPJTextField.getText()),
+           (Integer)characterHPJSpinner.getValue(),
                    butts,
                    align1,
                    align2,
@@ -626,7 +628,7 @@ public class newPlayerUI extends javax.swing.JFrame {
            
         Player newPlayer = new Player("",//Source
                characterNameJTextField.getText(),//character name
-                Integer.parseInt(characterHPJTextField.getText()),//HP
+                (Integer)characterHPJSpinner.getValue(),//HP
                 butts,//tags
                 align1,//Allignment
                 align2,//Allignment
@@ -947,7 +949,7 @@ public class newPlayerUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox athleticsJCheckbox;
     private javax.swing.JPanel attributesJPanel;
     private javax.swing.JButton cancelJButton;
-    private javax.swing.JTextField characterHPJTextField;
+    private javax.swing.JSpinner characterHPJSpinner;
     private javax.swing.JTextField characterNameJTextField;
     private javax.swing.JLabel charismaJLabel;
     private javax.swing.JTextField charismaJTextField;
