@@ -1,5 +1,3 @@
-package main_ui;
-
 
 import D5DataStructures.CSVIO;
 import java.io.BufferedReader;
@@ -98,32 +96,29 @@ public class DatabaseViewerUI extends javax.swing.JFrame {
         int value = fileChooser.showOpenDialog(this);
         String line = "";
         
-        if(value == 0)
-        {
-            try {
-                BufferedReader br = new BufferedReader(new FileReader(fileChooser.getSelectedFile().getAbsolutePath()));
-                String[] tags = br.readLine().split(",");
-                jTextArea1.setText("");
-                while((line = br.readLine()) != null){
-                 String[] values = br.readLine().split(",");
-
-                 for(int i =0; i < values.length; i++){
-                 jTextArea1.append(tags[i] +": "+ values[i] + "\n");
-
-                 }
-
-                 jTextArea1.append("\n_______________________________________\n");
-
-
-                }
-
-
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(DatabaseViewerUI.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(DatabaseViewerUI.class.getName()).log(Level.SEVERE, null, ex);
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileChooser.getSelectedFile().getAbsolutePath()));
+            String[] tags = br.readLine().split(",");
+            jTextArea1.setText("");
+            while((line = br.readLine()) != null){
+             String[] values = br.readLine().split(",");
+             
+             for(int i =0; i < values.length; i++){
+             jTextArea1.append(tags[i] +": "+ values[i] + "\n");
+             
+             }
+             
+             jTextArea1.append("\n");
+             
+            
             }
-            }
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DatabaseViewerUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DatabaseViewerUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openDatabaseJButtonActionPerformed
 
     /**

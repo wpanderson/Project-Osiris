@@ -343,9 +343,7 @@ public class MainGUI extends javax.swing.JFrame {
         saveNotesJButton = new javax.swing.JButton();
         mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        saveJMenuItem = new javax.swing.JMenuItem();
         loadJMenuItem = new javax.swing.JMenuItem();
         viewMenu = new javax.swing.JMenu();
         databasesMenuItem = new javax.swing.JMenuItem();
@@ -2172,17 +2170,13 @@ public class MainGUI extends javax.swing.JFrame {
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
 
-        jMenuItem1.setMnemonic('n');
-        jMenuItem1.setText("New Database");
-        jMenuItem1.setToolTipText("");
-        fileMenu.add(jMenuItem1);
-
-        jMenuItem8.setMnemonic('o');
-        jMenuItem8.setText("Open");
-        fileMenu.add(jMenuItem8);
-
-        jMenuItem2.setText("Save");
-        fileMenu.add(jMenuItem2);
+        saveJMenuItem.setText("Save");
+        saveJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveJMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(saveJMenuItem);
 
         loadJMenuItem.setText("Load");
         loadJMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -3248,8 +3242,33 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_saveNotesJButtonActionPerformed
 
     private void loadJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadJMenuItemActionPerformed
-        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Open Database");
+        
+        int userSelection = fileChooser.showOpenDialog(this);
+        
+        if(userSelection == JFileChooser.APPROVE_OPTION)
+        {
+            Serializer openFile = new Serializer();
+            openFile.loadFromFile(fileChooser.getSelectedFile().getAbsolutePath());
+            updatePlayerList();
+        }
     }//GEN-LAST:event_loadJMenuItemActionPerformed
+
+    private void saveJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveJMenuItemActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Save Database");
+        int userSelection = fileChooser.showSaveDialog(this);
+        
+        if(userSelection == JFileChooser.APPROVE_OPTION)
+        {
+            Serializer saveFile = new Serializer();
+            saveFile.saveToFile(fileChooser.getSelectedFile().getAbsolutePath());
+        }
+        
+        
+        
+    }//GEN-LAST:event_saveJMenuItemActionPerformed
     private int[] getPlayerStats()
     {
         int[] playerStats = new int[6];
@@ -3420,9 +3439,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -3557,6 +3573,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton removePlayerJButton;
     private javax.swing.JButton removePlayerSpellJButton;
     private javax.swing.JButton removePlayerWeaponJButton;
+    private javax.swing.JMenuItem saveJMenuItem;
     private javax.swing.JButton saveNPCJButton;
     private javax.swing.JButton saveNotesJButton;
     private javax.swing.JButton savePlayerJButton;
