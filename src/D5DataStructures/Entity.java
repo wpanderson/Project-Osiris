@@ -8,7 +8,7 @@ package D5DataStructures;
 
 import java.util.*;
 
-public class Entity {
+public class Entity implements java.io.Serializable {
     
     // Uniquie identifier for every entity, so that it can be referenced even if
     // it is not present

@@ -7,15 +7,38 @@ import D5DataStructures.*;
 import D5DataStructures.Item;
 import java.util.*;
 import java.io.*;
+import main_ui.*;
 
 public class Demonstrations {
     public static void main(String[] args) throws IOException {
         // Call whatever demos we want to run at a given time here
-        //CSVImportDemo();
-        //GeneratorDemo();
-        ItemGeneratorDemo();
-        //MagicItemDemo();
-        WeaponsDemo();
+        // CSVImportDemo();
+        // GeneratorDemo();
+        // ItemGeneratorDemo();
+        // MagicItemDemo();
+        // WeaponsDemo();
+        // serializationSaveDemo();
+        serializationLoadDemo();
+    }
+    
+    // Demonstrates serialization functionality
+    public static void serializationSaveDemo() {
+        try {            
+            MainGUI.DATABASE.addEnemiesFromCSV("src\\D.R.A.G.O.N.S_CSV/Monsters_DB.csv");
+            MainGUI.DATABASE.addMagicItemsFromCSV("src\\D.R.A.G.O.N.S_CSV/Magic_items.csv");
+            MainGUI.DATABASE.addGenericItemsFromCSV("src\\D.R.A.G.O.N.S_CSV/GenericItems_DB.csv");
+            MainGUI.DATABASE.addWeaponsFromCSV("src\\D.R.A.G.O.N.S_CSV/Weapons_DB.csv");
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        System.out.println(MainGUI.DATABASE.getEnemyList());
+        
+        Serializer.saveToFile("testfile.dragons");
+    }
+    
+    public static void serializationLoadDemo() {
+        Serializer.loadFromFile("testfile.dragons");
+        System.out.println(MainGUI.DATABASE.getEnemyList());
     }
     
     // Demonstrates CSV import and basic database functionality.

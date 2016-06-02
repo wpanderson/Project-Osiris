@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Wes Anderson
  */
-public class Item { 
+public class Item implements java.io.Serializable { 
     public enum Type {GENERIC, ARMOR, WEAPON, POTION, RING, ROD, SCROLL, STAFF,
                         WAND, WONDROUS, MARTIAL_MELEE, MARTIAL_RANGED,
                         SIMPLE_MELEE, SIMPLE_RANGED};
