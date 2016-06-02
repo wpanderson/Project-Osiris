@@ -62,7 +62,7 @@ public class MainGUI extends javax.swing.JFrame {
             DATABASE.addGenericItemsFromCSV("src\\D.R.A.G.O.N.S_CSV/GenericItems_DB.csv");
             DATABASE.addWeaponsFromCSV("src\\D.R.A.G.O.N.S_CSV/Weapons_DB.csv");
         } catch (IOException ex) {
-            System.out.println("Some stuff didn't happen");
+            System.out.println(ex);
         }
         
         System.out.println(DATABASE.getEnemyList());
