@@ -66,6 +66,10 @@ public class MainGUI extends javax.swing.JFrame {
         }
         
         System.out.println(DATABASE.getEnemyList());
+        
+        // reads in from 
+        /* Serializer.loadFromFile("testfile.dragons");
+        System.out.println(MainGUI.DATABASE.getEnemyList()); */
     }
     /**
      * Displays content that is in the database to all the pages.
