@@ -532,6 +532,9 @@
         </Component>
         <Component class="javax.swing.JSpinner" name="characterHPJSpinner">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="15" maximum="1000" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
@@ -615,12 +618,14 @@
                 <Property name="text" type="java.lang.String" value="Strength:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="strengthJTextField">
+            <Component class="javax.swing.JSpinner" name="strengthJSpinner">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="10"/>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="10" maximum="20" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="dexterityJLabel">
@@ -628,12 +633,14 @@
                 <Property name="text" type="java.lang.String" value="Dexterity:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="dexterityJTextField">
+            <Component class="javax.swing.JSpinner" name="dexterityJSpinner">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="10"/>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="10" maximum="20" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="constitutionJLabel">
@@ -641,12 +648,14 @@
                 <Property name="text" type="java.lang.String" value="Constitution:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="constitutionJTextField">
+            <Component class="javax.swing.JSpinner" name="constitutionJSpinner">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="10"/>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="10" maximum="20" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="intelligenceJLabel">
@@ -654,12 +663,14 @@
                 <Property name="text" type="java.lang.String" value="Intelligence:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="intelligenceJTextField">
+            <Component class="javax.swing.JSpinner" name="intelligenceJSpinner">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="10"/>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="10" maximum="20" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="wisdomJLabel">
@@ -667,12 +678,14 @@
                 <Property name="text" type="java.lang.String" value="Wisdom:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="wisdomJTextField">
+            <Component class="javax.swing.JSpinner" name="wisdomJSpinner">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="10"/>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="10" maximum="20" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="charismaJLabel">
@@ -680,12 +693,14 @@
                 <Property name="text" type="java.lang.String" value="Charisma:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="charismaJTextField">
+            <Component class="javax.swing.JSpinner" name="charismaJSpinner">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="10"/>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="10" maximum="20" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
