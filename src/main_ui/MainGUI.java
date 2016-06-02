@@ -357,7 +357,6 @@ public class MainGUI extends javax.swing.JFrame {
         loadJMenuItem = new javax.swing.JMenuItem();
         viewMenu = new javax.swing.JMenu();
         databasesMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
         generatorMenu = new javax.swing.JMenu();
         generatorMenuItem = new javax.swing.JMenuItem();
 
@@ -2220,10 +2219,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         mainMenuBar.add(viewMenu);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
-        mainMenuBar.add(editMenu);
-
         generatorMenu.setMnemonic('g');
         generatorMenu.setLabel("Generators");
 
@@ -3389,7 +3384,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel dexterityJLabel;
     private javax.swing.JLabel dexterityJLabel1;
     private javax.swing.JTextField dexterityJTextField;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JCheckBox editNPCJCheckBox;
     private javax.swing.JCheckBox editPlayerJCheckBox;
     private javax.swing.JPanel eventControlsJPanel;

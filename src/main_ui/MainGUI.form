@@ -45,12 +45,6 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="editMenu">
-          <Properties>
-            <Property name="mnemonic" type="int" value="101"/>
-            <Property name="text" type="java.lang.String" value="Edit"/>
-          </Properties>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="generatorMenu">
           <Properties>
             <Property name="mnemonic" type="int" value="103"/>
