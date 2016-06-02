@@ -52,7 +52,7 @@ public class MainGUI extends javax.swing.JFrame {
      */
     private static void LoadDatabase()
     {
-        /*
+        
         //CSVIO readIn = new CSVIO();
         try {
             //change this at a later time to get the path at runtime
@@ -66,9 +66,10 @@ public class MainGUI extends javax.swing.JFrame {
         }
         
         System.out.println(DATABASE.getEnemyList());
-        */
-        Serializer.loadFromFile("testfile.dragons");
-        System.out.println(MainGUI.DATABASE.getEnemyList());
+        
+        // reads in from 
+        /* Serializer.loadFromFile("testfile.dragons");
+        System.out.println(MainGUI.DATABASE.getEnemyList()); */
     }
     /**
      * Displays content that is in the database to all the pages.
